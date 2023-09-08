@@ -1,0 +1,97 @@
+{
+  "revision" : 2,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : null,
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ "d09c9764-c2c3-4d1f-a734-b5eb8d331ce7" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "mapping-integration",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "timer",
+      "nodeId" : null,
+      "description" : "once per second",
+      "properties" : {
+        "daemon" : true,
+        "delay" : "1000",
+        "fixedRate" : false,
+        "period" : "1000",
+        "repeatCount" : "0",
+        "setScheduleTime" : false,
+        "time" : "2021-12-31 00:00:00",
+        "timerName" : "timer"
+      },
+      "_type" : "timer",
+      "kameletPropertiesUrl" : "?daemon=true&delay=1000&fixedRate=false&period=1000&repeatCount=0&setScheduleTime=false&time=2021-12-31 00:00:00&timerName=timer"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : null,
+      "description" : "set 2 input json bodies",
+      "properties" : {
+        "propertyList" : [ {
+          "language" : "Constant",
+          "propertyName" : "in-157a8c87-6002-48a7-a20d-de95588e2bd9",
+          "propertyValue" : "{\"apiVersion\":\"camel.apache.org/v1\",\"kind\":\"Integration\"}"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "test-315aac82-fc63-441f-94e7-ae674d4fb382",
+          "propertyValue" : "{\"test\":\"was successfully mapped!\"}"
+        } ]
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?in-157a8c87-6002-48a7-a20d-de95588e2bd9={\"apiVersion\":\"camel.apache.org/v1\",\"kind\":\"Integration\"}&test-315aac82-fc63-441f-94e7-ae674d4fb382={\"test\":\"was successfully mapped!\"}"
+    }, {
+      "name" : "log",
+      "nodeId" : null,
+      "description" : "log input jsons",
+      "properties" : {
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "input json 1: ${exchangeProperty.in-157a8c87-6002-48a7-a20d-de95588e2bd9}; input json 2: ${exchangeProperty.test-315aac82-fc63-441f-94e7-ae674d4fb382}"
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=input json 1: ${exchangeProperty.in-157a8c87-6002-48a7-a20d-de95588e2bd9}; input json 2: ${exchangeProperty.test-315aac82-fc63-441f-94e7-ae674d4fb382}"
+    }, {
+      "name" : "atlasmap",
+      "nodeId" : null,
+      "description" : "map jsons to xml",
+      "properties" : {
+        "allowContextMapAll" : false,
+        "contentCache" : false,
+        "lazyStartProducer" : false,
+        "resourceUri" : "atlasmap-mapping.adm",
+        "sourceMapName" : "",
+        "targetMapMode" : "MAP",
+        "targetMapName" : ""
+      },
+      "_type" : "atlasmap",
+      "kameletPropertiesUrl" : "?allowContextMapAll=false&contentCache=false&lazyStartProducer=false&resourceUri=atlasmap-mapping.adm&targetMapMode=MAP"
+    }, {
+      "name" : "log",
+      "nodeId" : null,
+      "description" : "log output xml",
+      "properties" : {
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "output xml: ${body}"
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=output xml: ${body}"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "9e74dded-1330-4a4d-8df1-520834efcd70",
+  "name" : "mapping-integration-46346404",
+  "description" : "Mapping integration from json to xml",
+  "createdAt" : "2023-09-08T12:41:49.885227163",
+  "updatedAt" : "2023-09-08T12:41:50.043345231",
+  "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
+  "updatedBy" : "123e4567-e89b-12d3-a456-426655440010"
+}

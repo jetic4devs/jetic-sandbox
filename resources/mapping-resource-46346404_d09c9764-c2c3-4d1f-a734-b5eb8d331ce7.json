@@ -1,0 +1,14 @@
+{
+  "type" : "MAPPING",
+  "properties" : {
+    "filename" : "atlasmap-mapping.adm",
+    "mappingId" : "544693278"
+  },
+  "id" : "d09c9764-c2c3-4d1f-a734-b5eb8d331ce7",
+  "name" : "mapping-resource-46346404",
+  "description" : "Mapping resource from json to xml",
+  "createdAt" : "2023-09-08T12:41:49.959297255",
+  "updatedAt" : "2023-09-08T12:41:49.959299594",
+  "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
+  "updatedBy" : "123e4567-e89b-12d3-a456-426655440010"
+}
