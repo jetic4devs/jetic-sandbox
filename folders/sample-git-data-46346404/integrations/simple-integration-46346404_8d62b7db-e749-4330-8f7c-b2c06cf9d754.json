@@ -1,5 +1,5 @@
 {
-  "revision" : 2,
+  "revision" : 3,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -14,7 +14,7 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
-      "nodeId" : "24c39b25-bde0-47c9-b2b1-af23f03c37df",
+      "nodeId" : "ecdb2fdf-298c-4f99-b5ee-27f5baac7f7a",
       "description" : "once per second",
       "properties" : {
         "_type" : "timer",
@@ -36,7 +36,7 @@
       "kameletPropertiesUrl" : "?timerName=timer&period=1000&repeatCount=0&delay=1000&fixedRate=false&daemon=true&setScheduleTime=false&time=2021-12-31 00:00:00"
     }, {
       "name" : "setBody",
-      "nodeId" : "f4b40c08-284a-4bea-9c0d-5d3c73fd7979",
+      "nodeId" : "5aefdc84-3063-4fe4-a1df-7df2415e1f6a",
       "description" : "add exchangeId to body",
       "properties" : {
         "_type" : "setBody",
@@ -54,7 +54,7 @@
       "kameletPropertiesUrl" : "?language=Simple&expression=test body from simple: ${exchangeId}&addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "messagingEndpoint",
-      "nodeId" : "d38283dc-78ec-445e-9cd2-57349d476dd6",
+      "nodeId" : "98bfeed3-7bf4-4abe-819c-63caf3f88306",
       "description" : "to route-2",
       "properties" : {
         "_type" : "messagingEndpoint",
@@ -75,7 +75,7 @@
     "routeId" : 2,
     "route" : [ {
       "name" : "direct",
-      "nodeId" : "d24f9245-f5ca-4416-be97-785d5acb8dc8",
+      "nodeId" : "edc4610a-62a1-42f9-ba13-d640747c6f7d",
       "description" : "from route-2",
       "properties" : {
         "_type" : "direct",
@@ -84,14 +84,13 @@
         "camelGroup" : "core",
         "endpointName" : "route-2",
         "name" : "direct",
-        "toDynamicEndpoint" : false,
         "url" : ""
       },
       "_type" : "direct",
       "kameletPropertiesUrl" : "?endpointName=route-2"
     }, {
       "name" : "setHeaders",
-      "nodeId" : "08ce3e50-aea4-48ee-8d8b-849700c8e149",
+      "nodeId" : "6f7afc93-e380-4389-862a-53a0722d19a7",
       "description" : "set id=${camelId}",
       "properties" : {
         "_type" : "setHeaders",
@@ -112,7 +111,7 @@
       "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "dslProcessor",
-      "nodeId" : "12aeb284-c978-42ad-928c-88422bd338e3",
+      "nodeId" : "b7f307ca-4d45-401a-9fcd-14de4ce4f2ad",
       "description" : "to route-3",
       "properties" : {
         "_type" : "dslProcessor",
@@ -132,7 +131,7 @@
     "routeId" : 3,
     "route" : [ {
       "name" : "dslProcessor",
-      "nodeId" : "9905e7e9-ea1a-45c5-95c7-30765e0b115e",
+      "nodeId" : "a8d0d24d-281f-41e9-b406-3f6c47ab458e",
       "description" : "from route-3",
       "properties" : {
         "_type" : "dslProcessor",
@@ -146,7 +145,7 @@
       "kameletPropertiesUrl" : "?dsl=from('direct://route-3')"
     }, {
       "name" : "process",
-      "nodeId" : "e07da365-abb4-43fc-9056-19ecf7b281ca",
+      "nodeId" : "7a5cc60c-04a2-4540-8f2d-81e7e96251ae",
       "description" : "add date to headers",
       "properties" : {
         "_type" : "process",
@@ -161,7 +160,7 @@
       "kameletPropertiesUrl" : "?code=exchange.getIn().setHeader(\"date\", new Date())"
     }, {
       "name" : "log",
-      "nodeId" : "a1bb0f84-498d-49f7-bbeb-f7a9fe399a9e",
+      "nodeId" : "f392dc09-8d3e-47eb-a14a-9eb8e576ddee",
       "description" : "EIP log",
       "properties" : {
         "_type" : "log",
@@ -171,7 +170,7 @@
         "level" : "INFO",
         "logType" : "EIP",
         "loggerName" : "log",
-        "message" : "headers: ${headers}; body1: ${body}",
+        "message" : "headers1: ${headers}; body1: ${body}",
         "multiline" : false,
         "name" : "log",
         "showAll" : false,
@@ -186,7 +185,7 @@
         "url" : ""
       },
       "_type" : "log",
-      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body1: ${body}"
+      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers1: ${headers}; body1: ${body}"
     } ]
   } ],
   "traits" : [ ],
@@ -194,7 +193,7 @@
   "name" : "simple-integration-46346404",
   "description" : "Simple integration with the timer-body-log example",
   "createdAt" : "2023-09-08T12:41:49.668429375",
-  "updatedAt" : "2023-09-24T19:04:28.7139074",
+  "updatedAt" : "2023-09-24T19:05:33.9362932",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440010"
 }
