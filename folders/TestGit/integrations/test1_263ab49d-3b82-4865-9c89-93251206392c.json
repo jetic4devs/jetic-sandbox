@@ -1,10 +1,10 @@
 {
-  "revision" : 6,
+  "revision" : 7,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
   "openApiUuid" : null,
-  "currentProfileUuid" : null,
+  "currentProfileUuid" : "827bdf5a-a018-4e6b-b454-65b975d49930",
   "parameterGroupUuids" : [ ],
   "repoResourceUuids" : [ ],
   "routeDefinitions" : [ {
@@ -14,7 +14,7 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
-      "nodeId" : "9036519b-a81b-42d7-b61a-0c777fba7109",
+      "nodeId" : "9cfa33b3-bc4f-4aef-bb88-187a8bd3f0e9",
       "description" : "",
       "properties" : {
         "_type" : "timer",
@@ -36,14 +36,14 @@
       "kameletPropertiesUrl" : "?timerName=timer&period=1000&repeatCount=0&delay=1000&fixedRate=false&daemon=true&setScheduleTime=false&time=2021-12-31 00:00:00"
     }, {
       "name" : "setBody",
-      "nodeId" : "5224641c-1172-405b-952f-d6ad715599b0",
+      "nodeId" : "d7d4e90c-b61e-4072-96b9-89161f5ebd74",
       "description" : "",
       "properties" : {
         "_type" : "setBody",
         "active" : true,
         "addNamespaces" : false,
         "camelGroup" : "core",
-        "expression" : "exchangeId: ${exchangeId}",
+        "expression" : "This is Test.",
         "language" : "Simple",
         "name" : "setBody",
         "namespaces" : [ ],
@@ -51,10 +51,10 @@
         "url" : ""
       },
       "_type" : "setBody",
-      "kameletPropertiesUrl" : "?language=Simple&expression=exchangeId: ${exchangeId}&addNamespaces=false&suppressExceptions=false"
+      "kameletPropertiesUrl" : "?language=Simple&expression=This is Test.&addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "log",
-      "nodeId" : "90f30d6b-330c-4b4b-b231-6a06ff950506",
+      "nodeId" : "968dbbb7-021b-498d-bba7-5ea307292664",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -87,7 +87,7 @@
   "name" : "test1",
   "description" : "",
   "createdAt" : "2023-09-22T14:48:30.8969973",
-  "updatedAt" : "2023-09-22T15:23:59.465808719",
+  "updatedAt" : "2023-09-28T20:37:54.256987811",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
 }
