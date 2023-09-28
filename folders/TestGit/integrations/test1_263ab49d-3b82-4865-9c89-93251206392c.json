@@ -1,5 +1,5 @@
 {
-  "revision" : 8,
+  "revision" : 9,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -14,7 +14,7 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
-      "nodeId" : "297390e4-b1e2-4db8-b683-616c1704f6f1",
+      "nodeId" : "b2c511eb-b82d-4d06-853f-8d3c8982d320",
       "description" : "",
       "properties" : {
         "_type" : "timer",
@@ -36,14 +36,14 @@
       "kameletPropertiesUrl" : "?timerName=timer&period=1000&repeatCount=0&delay=1000&fixedRate=false&daemon=true&setScheduleTime=false&time=2021-12-31 00:00:00"
     }, {
       "name" : "setBody",
-      "nodeId" : "3795400a-5e9b-40df-9c2a-f4203f094348",
+      "nodeId" : "8f37eae5-ce17-46fa-9da5-a2bfbc7edec2",
       "description" : "",
       "properties" : {
         "_type" : "setBody",
         "active" : true,
         "addNamespaces" : false,
         "camelGroup" : "core",
-        "expression" : "This is Test",
+        "expression" : "This is Test payload.",
         "language" : "Simple",
         "name" : "setBody",
         "namespaces" : [ ],
@@ -51,10 +51,10 @@
         "url" : ""
       },
       "_type" : "setBody",
-      "kameletPropertiesUrl" : "?language=Simple&expression=This is Test&addNamespaces=false&suppressExceptions=false"
+      "kameletPropertiesUrl" : "?language=Simple&expression=This is Test payload.&addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "log",
-      "nodeId" : "c0ee5397-c570-41a3-9df1-8094089590a6",
+      "nodeId" : "3b5ce4e2-d90f-47f3-a444-43869dd2960d",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -87,7 +87,7 @@
   "name" : "test1",
   "description" : "",
   "createdAt" : "2023-09-22T14:48:30.8969973",
-  "updatedAt" : "2023-09-28T20:40:40.773969766",
+  "updatedAt" : "2023-09-28T20:42:42.041144201",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
 }
