@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "@BindToRegistry\npublic Processor validateTwilioCallback() {\n  return exchange -> {\n\n    String requestUrl = String.valueOf(exchange.getProperty(\"twilioRequestUrl\")).replace(\"http://\", \"https://\");\n    String twilioSignature = (String)exchange.getProperty(\"twilioSignature\");\n\t\tMap<String, String> requestBody = (Map)exchange.getProperty(\"requestBody\");\n    String authToken = (String)exchange.getProperty(\"providerAuthToken\");\n\n\t\tlog.info(\"authToken: '{}' requestUrl: '{}' requestBody: '{}' twilioSignature: '{}'\", authToken, requestUrl, requestBody, twilioSignature);\n\t\ttry {\n\t    RequestValidator validator = new RequestValidator(authToken);\n\t\t\tBoolean auth = validator.validate(requestUrl, requestBody, twilioSignature);\n    \texchange.setProperty(\"authorized\", auth);\n\t\t\tlog.info(\"Request authorized '{}'\", auth);\n\t\t} catch (Exception e) {\n\t\t\tlog.error(e.getMessage());\n\t\t}\n  };\n}",
+    "importsJava" : "import org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\nimport org.apache.camel.builder.RouteBuilder;\nimport org.apache.commons.codec.binary.Base64;\n\nimport java.util.HashMap;\nimport java.util.Map;\n\nimport com.twilio.security.RequestValidator;",
+    "type" : "Java"
+  },
+  "id" : "613ead71-6810-4200-95cc-aa040f647b41",
+  "name" : "TwilioAuthorizer",
+  "description" : "Bean for authenticating Twilio callbacks and webhooks",
+  "createdAt" : "2023-10-04T18:05:19.070916751",
+  "updatedAt" : "2023-10-04T18:05:19.07091775",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

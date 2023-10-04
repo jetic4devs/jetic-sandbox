@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "// @Mert - Does this need to be initialized first so that it's available to the rsmqSend method?\n@BindToRegistry\npublic RedisSMQ RsmqConnection() {\n    CamelContext context = getContext();\n    String redisHost = (String)context.getPropertiesComponent().resolveProperty(\"convey.redis.host\").get();\n\t\tString environment = (String)context.getPropertiesComponent().resolveProperty(\"convey.web.environment\").get();\n\t\n\t\tRedisSMQConfig rsmqConfig = new RedisSMQConfig().host(redisHost).ns(environment);\n    RedisSMQ rsmq = new RedisSMQ(rsmqConfig);\n\t\n    return rsmq;\n}\n\n@BeanInject(\"RsmqConnection\") \nRedisSMQ rsmq;\n\n@BindToRegistry\npublic Processor rsmqSend() {\n\t\treturn exchange -> {\n\t\t\tString channel = (String)exchange.getProperty(\"channel\");\t\t\t\n\t\t\tString message = (String)exchange.getIn().getBody();\n\t\n\t\t\tString id = rsmq.sendMessage()\n\t\t\t\t.qname(channel)\n\t\t\t\t.message(message)\n\t\t\t\t.exec();\n\t\t};\n}",
+    "importsJava" : "import org.apache.camel.BindToRegistry;\nimport org.apache.camel.CamelContext;\nimport org.apache.camel.BeanInject;\nimport org.apache.camel.Processor;\nimport com.oblac.jrsmq.*;",
+    "type" : "Java"
+  },
+  "id" : "ebefc58e-5099-408f-bc74-c61dcc9511e0",
+  "name" : "rsmq",
+  "description" : "Redis really simple queue",
+  "createdAt" : "2023-10-04T18:05:22.229265278",
+  "updatedAt" : "2023-10-04T18:05:22.229266605",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

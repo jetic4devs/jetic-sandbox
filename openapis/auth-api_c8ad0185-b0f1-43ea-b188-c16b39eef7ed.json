@@ -1,0 +1,26 @@
+{
+  "version" : "api.convey911.com",
+  "host" : "0.0.1",
+  "id" : "c8ad0185-b0f1-43ea-b188-c16b39eef7ed",
+  "name" : "auth-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:14.428124422",
+  "updatedAt" : "2023-10-04T18:05:14.42812524",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "a75f1253-a663-465a-a385-6ab2314decdc",
+    "name" : "Api",
+    "path" : "/api/v1/auth/{agencyId}/token",
+    "pathVariables" : [ "agencyId" ],
+    "operations" : [ {
+      "uuid" : "4494d4a6-357f-4312-b3f0-538a381e2904",
+      "operationId" : "requestAuthToken",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"auth-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/auth/{agencyId}/token\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"requestAuthToken\"},\"parameters\":[{\"name\":\"agencyId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

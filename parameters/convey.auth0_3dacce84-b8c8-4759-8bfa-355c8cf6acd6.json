@@ -1,0 +1,67 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "audience",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "domain",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "clientId",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "clientSecret",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "apiHost",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "manageApiAudience",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "yakApiAudience",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "manageApiHost",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "3dacce84-b8c8-4759-8bfa-355c8cf6acd6",
+  "name" : "convey.auth0",
+  "description" : "Auth0 configuration",
+  "createdAt" : "2023-10-04T18:05:15.040158589",
+  "updatedAt" : "2023-10-04T18:05:15.040159321",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "net.coobird:thumbnailator:[0.4, 0.5)"
+  },
+  "id" : "de21b826-a931-4265-ab52-20608121dd68",
+  "name" : "thumbnailator",
+  "description" : "net.coobird:thumbnailator:[0.4, 0.5)",
+  "createdAt" : "2023-10-04T18:05:20.142855482",
+  "updatedAt" : "2023-10-04T18:05:20.142856335",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

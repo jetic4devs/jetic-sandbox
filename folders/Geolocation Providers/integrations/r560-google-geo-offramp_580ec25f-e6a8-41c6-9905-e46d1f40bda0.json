@@ -1,0 +1,318 @@
+{
+  "revision" : 73,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "e606328a-fa16-4385-b81f-46a859bf7811",
+  "parameterGroupUuids" : [ "76b5ac73-30ea-46c7-9a1a-1d2c950738a8", "ca06b01a-b205-4b2b-9e9d-9f49614e7e94", "351ac858-4e6b-4902-9090-0be62c4dc9e0" ],
+  "repoResourceUuids" : [ "05649865-0c5a-4bfd-bddb-046f69383940", "0f987850-c4cd-43ba-b9c4-dfd0ff3dc5c1", "60b1161c-74ee-4cd8-96a1-0055c90271c1", "32de8037-6f9f-45c7-8a96-dab5a65a3e42", "93641836-b0a1-4025-8d40-6075cfabaade", "a1057428-1531-40a8-a129-ed27382e947f", "3b5aa833-0eaa-4cb9-8ce8-ca97eac74110", "17e7ca54-4247-4e9c-ba30-d078e3ac407a" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "23d61f03-23e7-4fe2-860f-01462c66db27",
+      "description" : "gis.google",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "5",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "providers.gis.google",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOut",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=5&connectionFactory=#pooledConnectionFactory&destinationName=providers.gis.google&destinationType=queue&exchangePattern=InOut&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "47652edc-b3b9-4485-a1ce-63144837c62e",
+      "description" : "Set Event Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Constant",
+          "propertyName" : "googleApiKey",
+          "propertyValue" : "{{google.geocode.apiKey}}",
+          "uuid" : "0800c03c-de99-445c-9b08-f7d8ea507705"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?googleApiKey={{google.geocode.apiKey}}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "86baa445-43d9-49d6-835d-42a0b8a40df8",
+      "description" : "Set Operation",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "ObjectMapper mapper = new ObjectMapper();\nHashMap<String, Object> reqBody = mapper.readValue((String)exchange.getIn().getBody(), HashMap.class);\n\nString operation = \"reverseGeocode\";\nif (reqBody.containsKey(\"address\"))\n\toperation = \"geocode\";\n\nexchange.setProperty(\"requestedOperation\", operation);\n",
+        "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=ObjectMapper mapper = new ObjectMapper();\nHashMap<String, Object> reqBody = mapper.readValue((String)exchange.getIn().getBody(), HashMap.class);\n\nString operation = \"reverseGeocode\";\nif (reqBody.containsKey(\"address\"))\n\toperation = \"geocode\";\n\nexchange.setProperty(\"requestedOperation\", operation);\n&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "40f5b585-6af5-412a-8cc7-3930b05d1681",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\")"
+    }, {
+      "name" : "log",
+      "nodeId" : "c8a33c6b-3573-431c-b796-b31e97554c16",
+      "description" : "560.jms.geo.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "560.jms.geo.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=560.jms.geo.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "4e116408-65ac-45b5-932a-a83f66002fc5",
+      "description" : "Dispatch Work",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".toD('direct:${exchangeProperty.requestedOperation}')",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.toD('direct:${exchangeProperty.requestedOperation}')"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-3",
+    "enabled" : true,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "793f98cf-cfca-4435-aa59-e68ea172379e",
+      "description" : "reverseGeocode",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "reverseGeocode",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=reverseGeocode"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "dab6d496-f188-4319-ac8e-8d4e9984ba56",
+      "description" : "Get Request Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "geoLat",
+          "propertyValue" : "$.lat",
+          "uuid" : "70dd72d0-da9a-488e-b4d2-73164de0512e"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "geoLng",
+          "propertyValue" : "$.lng",
+          "uuid" : "98121c40-5704-4dd7-bd8e-c89a0722252b"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?geoLat=$.lat&geoLng=$.lng&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "76159b51-f2a9-46b9-8362-34035d1de573",
+      "description" : "reverseGeocode",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".bean('reverseGeocode')",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.bean('reverseGeocode')"
+    }, {
+      "name" : "log",
+      "nodeId" : "8b4d6e5c-cb00-43c3-8015-3d8ffe3ba1b7",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "${header.CamelHttpResponseCode} ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=${header.CamelHttpResponseCode} ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-2",
+    "enabled" : true,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "71e58b3b-faa9-49c6-b5c0-bfbc2e1eef8a",
+      "description" : "geocode",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "geocode",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=geocode"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "ebb21a6e-a286-4c58-9a92-1d99479a3250",
+      "description" : "Get Request Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "address",
+          "propertyValue" : "$.address",
+          "uuid" : "0d5a9a5f-588b-4a80-995c-009635fa4627"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?address=$.address&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "6a408c90-ba3c-4927-8e4f-3621965fb714",
+      "description" : "geocode",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".bean('geocode')",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.bean('geocode')"
+    }, {
+      "name" : "log",
+      "nodeId" : "212a0986-bba7-46ba-bdff-8b525836f4bd",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "${header.CamelHttpResponseCode} ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=${header.CamelHttpResponseCode} ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "580ec25f-e6a8-41c6-9905-e46d1f40bda0",
+  "name" : "r560-google-geo-offramp",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:09.496316365",
+  "updatedAt" : "2023-10-04T18:05:09.496317153",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

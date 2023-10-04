@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "//@Value(\"${redismq.config.host}\")\n//public String host;\n\n// maybe we need a setter\n\n@BindToRegistry\npublic Processor emitEvent() {\n    return exchange -> {\n\t\t\t\tString redisHost = (String)exchange.getProperty(\"redisHost\");\n\t\t\tSystem.out.println(redisHost);\n\t\t\t\tJedisPool jedis = new JedisPool(new JedisPoolConfig(), redisHost, 6379);\n\t\t\t\tEmitter emitter = Emitter.getInstance(jedis, new HashMap<String,String>());\n\t\t\t\temitter.to(\"/someroom\").emit(\"event\", \"Hello World!\");\n\t\t\t//Emitter emitter = Emitter.getInstance(null, opts);\n        System.out.println(\"2\");\n        //emitter.of(\"/namespace\").emit(\"event\", \"Hello World!\");\n        //System.out.println(\"3\");\n        //JedisPool jedis = new JedisPool(new JedisPoolConfig(), redisHost, 6379);\n        // Emitter emitter = Emitter.getInstance(jedis, new HashMap<String,String>());\n        // Emitter emitter = Emitter.getInstance(null, opts);\n        // emitter.of(\"/namespace\").emit(\"event\", \"Hello World!\");\n    };\n}",
+    "importsJava" : "import org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\nimport io.socket.java.Emitter;\nimport redis.clients.jedis.JedisPool;\nimport redis.clients.jedis.JedisPoolConfig;\nimport java.util.*;\n//import org.msgpack.*;",
+    "type" : "Java"
+  },
+  "id" : "04cc5ce3-e9bb-4b0b-a3d6-25d46d8c8370",
+  "name" : "RedisEmitter",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:19.551972642",
+  "updatedAt" : "2023-10-04T18:05:19.551974282",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

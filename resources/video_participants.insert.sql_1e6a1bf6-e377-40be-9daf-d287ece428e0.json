@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gdmlkZW9fcGFydGljaXBhbnRzCiAgICAocm9vbV9pZCwgcGFydGljaXBhbnQsIHJlc291cmNlX2lkLCBtZXRhZGF0YSwgY3JlYXRlZF9hdCwgdXBkYXRlZF9hdCkKVkFMVUVTICgKICAgIENBU1QoOiMke2V4Y2hhbmdlUHJvcGVydHkucm9vbUlkfSBBUyB1dWlkKSwKICAgIENBU1QoOiMke2V4Y2hhbmdlUHJvcGVydHkucGFydGljaXBhbnR9IEFTIHZhcmNoYXIpLAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5wYXJ0aWNpcGFudElkfSBBUyB2YXJjaGFyKSwKICAgIENBU1QoOiMke2V4Y2hhbmdlUHJvcGVydHkubWV0YWRhdGF9IEFTIGpzb24pLAogICAgTk9XKCksCiAgICBOT1coKQopCk9OIENPTkZMSUNUIChyb29tX2lkLCBwYXJ0aWNpcGFudCkgRE8gVVBEQVRFIFNFVAogICAgbWV0YWRhdGEgPSBleGNsdWRlZC5tZXRhZGF0YSwKICAgIHVwZGF0ZWRfYXQgPSBOT1coKQ==",
+    "filename" : "video_participants.insert.sql",
+    "type" : "File"
+  },
+  "id" : "1e6a1bf6-e377-40be-9daf-d287ece428e0",
+  "name" : "video_participants.insert.sql",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.432089541",
+  "updatedAt" : "2023-10-04T18:05:21.432090923",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

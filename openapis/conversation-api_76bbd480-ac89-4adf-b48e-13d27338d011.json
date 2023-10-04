@@ -1,0 +1,128 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "76bbd480-ac89-4adf-b48e-13d27338d011",
+  "name" : "conversation-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.46440822",
+  "updatedAt" : "2023-10-04T18:05:13.464409019",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "7de7ec7c-5d57-4be8-a2d1-38c3eea4c56f",
+    "name" : "Api",
+    "path" : "/api/v1/conversations",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "78bf956c-762c-4e26-9974-f0b77f4e0aba",
+      "operationId" : "getConversations",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "951571b8-5ca5-4450-afc9-427232fa785d",
+      "operationId" : "createConversation",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "8f6e7f97-89e5-4361-835b-cde505241215",
+    "name" : "Api",
+    "path" : "/api/v1/conversations/{conversationId}",
+    "pathVariables" : [ "conversationId" ],
+    "operations" : [ {
+      "uuid" : "2919b25a-f025-4eb2-94b7-bb1931c775c5",
+      "operationId" : "getConversationById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "489724c0-89af-42f3-853c-79efa4c743b4",
+      "operationId" : "updateConversation",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "e0d5caa5-5b37-4b02-b586-92d91fe3010d",
+    "name" : "Api",
+    "path" : "/api/v1/conversations/{conversationId}/messages",
+    "pathVariables" : [ "conversationId" ],
+    "operations" : [ {
+      "uuid" : "adf3d02b-2ee8-422e-a6f0-9a05d5339c5c",
+      "operationId" : "getConversationMessages",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "5b284b96-e891-4cf8-95a8-53c62a03b1cc",
+      "operationId" : "createMessageReply",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "d5e23b2c-3475-43ae-b3e9-38778a903199",
+    "name" : "Api",
+    "path" : "/api/v1/conversations/{conversationId}/close",
+    "pathVariables" : [ "conversationId" ],
+    "operations" : [ {
+      "uuid" : "adca57d8-ba8a-4d85-ab07-06e17a688c53",
+      "operationId" : "closeConversation",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "c8fb1e07-73e0-4846-bd39-061bdf7e850c",
+    "name" : "Api",
+    "path" : "/api/v1/conversations/{conversationId}/assign/{userId}",
+    "pathVariables" : [ "conversationId", "userId" ],
+    "operations" : [ {
+      "uuid" : "6b8762c3-8da2-4fa5-8054-81896b360346",
+      "operationId" : "assignConversationAgent",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "b857387f-9568-472d-9950-8b4256b5ba07",
+      "operationId" : "unassignConversationAgent",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "c2d72ae4-a4a8-48bc-b976-4b0f8acffa7f",
+    "name" : "Api",
+    "path" : "/api/v1/conversations/{conversationId}/recipients",
+    "pathVariables" : [ "conversationId" ],
+    "operations" : [ {
+      "uuid" : "8a4a07eb-0137-40a9-9e9d-466e00d548fa",
+      "operationId" : "addRecipientToConversation",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "8a5c1017-2144-474f-8a13-29d735721661",
+      "operationId" : "getConversationRecipients",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "589e0108-faee-4fa3-a713-a6fd1e9703f9",
+    "name" : "Api",
+    "path" : "/api/v1/conversations/{conversationId}/recipients/{recipientId}",
+    "pathVariables" : [ "conversationId", "recipientId" ],
+    "operations" : [ {
+      "uuid" : "2f551840-3723-46a5-8919-9f5fc0292b4f",
+      "operationId" : "removeRecipientFromConversation",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"conversation-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/conversations\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getConversations\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createConversation\"}},\"/api/v1/conversations/{conversationId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getConversationById\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateConversation\"},\"parameters\":[{\"name\":\"conversationId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/conversations/{conversationId}/messages\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getConversationMessages\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createMessageReply\"},\"parameters\":[{\"name\":\"conversationId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/conversations/{conversationId}/close\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"closeConversation\"},\"parameters\":[{\"name\":\"conversationId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/conversations/{conversationId}/assign/{userId}\":{\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"assignConversationAgent\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"unassignConversationAgent\"},\"parameters\":[{\"name\":\"conversationId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"userId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/conversations/{conversationId}/recipients\":{\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"addRecipientToConversation\"},\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getConversationRecipients\"},\"parameters\":[{\"name\":\"conversationId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/conversations/{conversationId}/recipients/{recipientId}\":{\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"removeRecipientFromConversation\"},\"parameters\":[{\"name\":\"conversationId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"recipientId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

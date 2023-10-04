@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gdHJhbnNsYXRpb25zCiAgICAobWVzc2FnZV9pZCwgcHJvdmlkZXIsIGlucHV0X2xhbmd1YWdlLCBvdXRwdXRfbGFuZ3VhZ2UsIG9yaWdpbmFsLCB0cmFuc2xhdGVkLCBzY29yZSwgY3JlYXRlZF9hdCwgdXBkYXRlZF9hdCkKVkFMVUVTICgKICAgIENBU1QoOiMke2V4Y2hhbmdlUHJvcGVydHkubWVzc2FnZUlkfSBBUyB1dWlkKSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LnByb3ZpZGVyfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LmlucHV0RGlhbGVjdH0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5vdXRwdXREaWFsZWN0fSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LmlucHV0VGV4dH0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5vdXRwdXRUZXh0fSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LnNjb3JlfSwKICAgIE5PVygpLAogICAgTk9XKCkKKQ==",
+    "filename" : "translations.insert.sql",
+    "type" : "File"
+  },
+  "id" : "b4c494c5-21e9-47bc-84f9-51400a080ac5",
+  "name" : "translations.insert.sql",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.343008416",
+  "updatedAt" : "2023-10-04T18:05:23.343009466",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

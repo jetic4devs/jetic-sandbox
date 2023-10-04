@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "@BindToRegistry\npublic Processor sendEmail() {\n    return exchange -> {\n        try {\n            AmazonSimpleEmailService client = \n                AmazonSimpleEmailServiceClientBuilder.standard()\n                .withRegion(Regions.US_EAST_2).build();\n\n            String to = (String)exchange.getProperty(\"emailRecipient\");\n            String html = (String)exchange.getProperty(\"emailBodyHtml\");\n            String text = (String)exchange.getProperty(\"emailBodyText\");\n            String subject = (String)exchange.getProperty(\"emailSubject\");\n            String from = \"no-reply@app.convey911.com\";\n\n            SendEmailRequest request = new SendEmailRequest()\n                .withDestination(new Destination().withToAddresses(to))\n                .withMessage(new Message()\n                    .withBody(new Body()\n                        .withHtml(new Content()\n                            .withCharset(\"UTF-8\").withData(html))\n                        .withText(new Content()\n                            .withCharset(\"UTF-8\").withData(text)))\n                    .withSubject(new Content()\n                        .withCharset(\"UTF-8\").withData(subject)))\n                .withSource(from);\n                // Comment or remove the next line if you are not using a\n                // configuration set\n                // .withConfigurationSetName(CONFIGSET);\n            client.sendEmail(request);\n            exchange.setProperty(\"emailSent\", 1);\n        } catch (Exception ex) {\n            System.out.println(\"The email was not sent. Error message: \" \n                + ex.getMessage());\n        }\n    };\n}",
+    "importsJava" : "import java.io.IOException;\n\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\n\nimport com.amazonaws.regions.Regions;\nimport com.amazonaws.services.simpleemail.AmazonSimpleEmailService;\nimport com.amazonaws.services.simpleemail.AmazonSimpleEmailServiceClientBuilder;\nimport com.amazonaws.services.simpleemail.model.Body;\nimport com.amazonaws.services.simpleemail.model.Content;\nimport com.amazonaws.services.simpleemail.model.Destination;\nimport com.amazonaws.services.simpleemail.model.Message;\nimport com.amazonaws.services.simpleemail.model.SendEmailRequest; ",
+    "type" : "Java"
+  },
+  "id" : "ad9f9994-d990-407c-9298-18e24795c1b3",
+  "name" : "sendEmail",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.914790118",
+  "updatedAt" : "2023-10-04T18:05:20.914791164",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

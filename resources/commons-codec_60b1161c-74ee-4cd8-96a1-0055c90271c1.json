@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "commons-codec:commons-codec:1.15"
+  },
+  "id" : "60b1161c-74ee-4cd8-96a1-0055c90271c1",
+  "name" : "commons-codec",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:16.811937093",
+  "updatedAt" : "2023-10-04T18:05:16.811937968",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

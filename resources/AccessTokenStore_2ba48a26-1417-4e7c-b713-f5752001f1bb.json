@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "public static String accessToken;\npublic static Date tokenTTL;\npublic static String scope;\n\n@BindToRegistry\npublic Processor getAccessToken() { \n    return exchange -> {\n\t\t\t\tint ttlValid = 1;\n\t\t\t\n\t\t\t\tif (tokenTTL != null) {\n\t\t\t\t\t\tDate now = new Date();\n\t\t\t\t\t\tttlValid = now.compareTo(tokenTTL);\n\t\t\t\t}\n\n\t\t\tif (ttlValid > -1) {\n\t\t\t\t\t\tCamelContext context = exchange.getContext();\n        \t\tProducerTemplate t = context.createProducerTemplate();\t\t\n            t.send(\"direct:getAuthToken\", exchange);\n\t\t\t\t}\n\t\t\t\n\t\t\texchange.setProperty(\"token\", accessToken);\n\t\t};\n}\n\n/*\n@BindToRegistry\npublic Processor getAppToken(String type) { \n    return exchange -> {\n\t\t\t\tint ttlValid = 1;\n\t\t\t\n\t\t\tSystem.out.println(\"Type: \" + type);\n\t\t\t\n\t\t\t\tif (tokenTTL != null) {\n\t\t\t\t\t\tDate now = new Date();\n\t\t\t\t\t\tttlValid = now.compareTo(tokenTTL);\n\t\t\t\t}\n\n\t\t\tif (ttlValid > -1) {\n\t\t\t\t\t\tCamelContext context = exchange.getContext();\n        \t\tProducerTemplate t = context.createProducerTemplate();\t\t\n            t.send(\"direct:getAuthToken\", exchange);\n\t\t\t\t}\n\t\t\t\n\t\t\texchange.setProperty(\"token\", accessToken);\n\t\t};\n}\n*/\n\n@BindToRegistry\npublic Processor setAccessToken() { \n//public Processor setAccessToken(String accessToken) { \n    return exchange -> {\n\t\t\t\tString accessToken = exchange.getProperty(\"token\", String.class);\n\t\t\t\tDate expiresAt = exchange.getProperty(\"tokenExpiresAt\", Date.class);\n\t\t\t\tAccessTokenStore.accessToken = accessToken;\n\t\t\t\tAccessTokenStore.tokenTTL = expiresAt;\n\t\t\t\t//AccessTokenStore.scope = scope;\n\t\t};\n}",
+    "importsJava" : "import org.apache.camel.CamelContext;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\nimport org.apache.camel.Exchange;\nimport org.apache.camel.CamelContext;\nimport org.apache.camel.ExchangeProperty;\nimport org.apache.camel.ProducerTemplate;\n\nimport java.util.Date;",
+    "type" : "Java"
+  },
+  "id" : "2ba48a26-1417-4e7c-b713-f5752001f1bb",
+  "name" : "AccessTokenStore",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.506242761",
+  "updatedAt" : "2023-10-04T18:05:21.506243764",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

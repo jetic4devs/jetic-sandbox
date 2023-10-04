@@ -1,0 +1,104 @@
+{
+  "version" : "api.convey911.com",
+  "host" : "0.0.1",
+  "id" : "fbd20cea-454b-4c64-a8cc-26ed7c971175",
+  "name" : "video-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:14.101472158",
+  "updatedAt" : "2023-10-04T18:05:14.101473055",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "66600de7-aff7-434b-97ee-1b7ca62b79c0",
+    "name" : "Api",
+    "path" : "/api/v1/videorooms",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "2630c593-2ffa-490f-a401-915302677e3d",
+      "operationId" : "getVideoRooms",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "2310254b-ebfe-430f-87f6-cc7e4297433d",
+      "operationId" : "createVideoRoom",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "d422a5c3-dc89-4d92-af47-63baf1e32fe4",
+    "name" : "Api",
+    "path" : "/api/v1/videorooms/{roomId}",
+    "pathVariables" : [ "roomId" ],
+    "operations" : [ {
+      "uuid" : "d52f737e-eb02-4bde-8e74-1f1146fcbed2",
+      "operationId" : "getVideoRoomById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "666b3c35-8381-41ea-9d7e-ab569df8a977",
+      "operationId" : "updateVideoRoom",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "e523d486-c7c0-4c5c-b84c-03aa13e22cec",
+      "operationId" : "closeVideoRoom",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "f9fdac04-d1e1-4c7d-aeb3-546a401f2b41",
+    "name" : "Api",
+    "path" : "/api/v1/videorooms/{roomId}/tokens",
+    "pathVariables" : [ "roomId" ],
+    "operations" : [ {
+      "uuid" : "fffcc762-f8be-4471-a845-11ce9450dbf2",
+      "operationId" : "createVideoRoomToken",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "d2f9e9ad-1130-46eb-8e67-f537df106139",
+    "name" : "Api",
+    "path" : "/api/v1/videorooms/{roomId}/participants",
+    "pathVariables" : [ "roomId" ],
+    "operations" : [ {
+      "uuid" : "f9c9701f-6525-4b4f-8c4d-ee2510b31935",
+      "operationId" : "getVideoRoomParticipants",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "b55d1797-2875-4ecb-93fd-691560a1845e",
+      "operationId" : "addVideoRoomParticipant",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "cc96cf55-2b7d-4ed9-a14f-93f85ba54fba",
+    "name" : "Api",
+    "path" : "/api/v1/videorooms/{roomId}/participants/{participantId}",
+    "pathVariables" : [ "roomId", "participantId" ],
+    "operations" : [ {
+      "uuid" : "662264ea-f37d-4bd0-bbdd-a1aae0cee966",
+      "operationId" : "getVideoRoomParticipant",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "07cb8de1-c57a-4852-b834-e5ee355de1d3",
+      "operationId" : "deleteVideoRoomParticipant",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"video-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/videorooms\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getVideoRooms\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createVideoRoom\"}},\"/api/v1/videorooms/{roomId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getVideoRoomById\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateVideoRoom\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"closeVideoRoom\"},\"parameters\":[{\"name\":\"roomId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/videorooms/{roomId}/tokens\":{\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createVideoRoomToken\"},\"parameters\":[{\"name\":\"roomId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/videorooms/{roomId}/participants\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getVideoRoomParticipants\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"addVideoRoomParticipant\"},\"parameters\":[{\"name\":\"roomId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/videorooms/{roomId}/participants/{participantId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getVideoRoomParticipant\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"deleteVideoRoomParticipant\"},\"parameters\":[{\"name\":\"roomId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"participantId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.servicemix.bundles:org.apache.servicemix.bundles.jain-sip-ri:1.2.169_2"
+  },
+  "id" : "8f352e89-baab-4641-bb0f-268954721eac",
+  "name" : "org.apache.servicemix.bundles_org.apache.servicemix.bundles.jain-sip-ri_1.2.169_2",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:22.968882834",
+  "updatedAt" : "2023-10-04T18:05:22.968884246",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

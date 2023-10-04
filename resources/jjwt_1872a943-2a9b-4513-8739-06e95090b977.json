@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "io.jsonwebtoken:jjwt:0.7.0"
+  },
+  "id" : "1872a943-2a9b-4513-8739-06e95090b977",
+  "name" : "jjwt",
+  "description" : "JsonWebToken",
+  "createdAt" : "2023-10-04T18:05:16.883138934",
+  "updatedAt" : "2023-10-04T18:05:16.883139802",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

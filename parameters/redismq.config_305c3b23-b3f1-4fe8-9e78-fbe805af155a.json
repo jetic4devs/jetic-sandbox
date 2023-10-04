@@ -1,0 +1,18 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "host",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "305c3b23-b3f1-4fe8-9e78-fbe805af155a",
+  "name" : "redismq.config",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:14.633119713",
+  "updatedAt" : "2023-10-04T18:05:14.633120551",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

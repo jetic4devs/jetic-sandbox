@@ -1,0 +1,68 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "aeef3905-96a4-4b64-b459-4f3de50df0d1",
+  "name" : "artifact-api-v1",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.990901249",
+  "updatedAt" : "2023-10-04T18:05:13.990902112",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "2116d825-e311-401f-92f9-d102ea8c4def",
+    "name" : "Api",
+    "path" : "/api/v1/artifacts",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "1091df4a-15a2-4394-932e-f161819eb5ab",
+      "operationId" : "getArtifacts",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "734261ef-e639-41c9-8f25-a407792f6072",
+      "operationId" : "createArtifact",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "187d8d7d-1ca4-4077-b798-e3890ecc59ce",
+    "name" : "Api",
+    "path" : "/api/v1/artifacts/{artifactId}",
+    "pathVariables" : [ "artifactId" ],
+    "operations" : [ {
+      "uuid" : "48ec70eb-b2d1-422e-88e1-f2cdf67bfe42",
+      "operationId" : "getArtifactById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "a0345c83-52e8-4edd-9eff-d7dcf7e640cd",
+    "name" : "Api",
+    "path" : "/api/v1/artifacts/{artifactId}/download",
+    "pathVariables" : [ "artifactId" ],
+    "operations" : [ {
+      "uuid" : "f966996b-371a-47e0-8333-b65ca02caf1f",
+      "operationId" : "downloadArtifact",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "98d4d2ea-b1a2-49f2-a709-1bb34848446d",
+    "name" : "Api",
+    "path" : "/api/v1/artifacts/{artifactId}/share",
+    "pathVariables" : [ "artifactId" ],
+    "operations" : [ {
+      "uuid" : "ab607518-d119-44a2-96e9-a939d0c06cc3",
+      "operationId" : "shareArtifact",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"artifact-api-v1\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/artifacts\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getArtifacts\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createArtifact\"}},\"/api/v1/artifacts/{artifactId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getArtifactById\"},\"parameters\":[{\"name\":\"artifactId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/artifacts/{artifactId}/download\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"downloadArtifact\"},\"parameters\":[{\"name\":\"artifactId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/artifacts/{artifactId}/share\":{\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"shareArtifact\"},\"parameters\":[{\"name\":\"artifactId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

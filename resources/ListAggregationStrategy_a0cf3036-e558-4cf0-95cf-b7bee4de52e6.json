@@ -1,0 +1,14 @@
+{
+  "type" : "SOURCE_DEFINITIONS",
+  "properties" : {
+    "content" : "import org.apache.camel.AggregationStrategy;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Exchange;\nimport org.apache.camel.builder.RouteBuilder;\n\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.HashMap;\nimport java.util.Map;\n\n\n// simply combines Exchange String body values using '; ' as a delimiter\npublic class ListAggregationStrategy extends RouteBuilder implements AggregationStrategy {\n\n    @BindToRegistry(\"ListAggregationStrategy\")\n    public ListAggregationStrategy getListAggregationStrategy() {\n        return this;\n    }\n\n    @Override\n    public void configure() throws Exception {\n    }\n\n    @Override\n    public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {\n\t\t\ttry{\n\t\t\t\tMap newTranslation = (Map) newExchange.getIn().getBody();\n\t\t\t\tif (oldExchange == null) {\n            List<Map> translations = new ArrayList<Map>();\n            translations.add(newTranslation);\n            newExchange.getOut().setBody(translations);\n            return newExchange;\n        }\n        \n        List<Map> translations = (List<Map>) oldExchange.getIn().getBody();\n        translations.add(newTranslation);\n        oldExchange.getIn().setBody(translations);\n\t\t\t  return oldExchange;\t\n\t\t\t}\n\t\t\tcatch(Exception ex){\n\t\t\t\tSystem.out.println(ex.getMessage());\n\t\t\t\treturn oldExchange;\n\t\t\t}\n    }\n}",
+    "filename" : "ListAggregationStrategy.java"
+  },
+  "id" : "a0cf3036-e558-4cf0-95cf-b7bee4de52e6",
+  "name" : "ListAggregationStrategy",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:22.374693538",
+  "updatedAt" : "2023-10-04T18:05:22.374694535",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,32 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "privateKey",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "publicKey",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "webhookKey",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "a8841b98-e744-4548-87cc-2e8081d281da",
+  "name" : "convey.mailgun",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:15.586429139",
+  "updatedAt" : "2023-10-04T18:05:15.586430367",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

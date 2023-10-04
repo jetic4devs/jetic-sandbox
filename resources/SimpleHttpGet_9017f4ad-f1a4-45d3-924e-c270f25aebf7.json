@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "@BindToRegistry\npublic Processor httpGet() {\n\t  \n    return exchange -> {\n\t\t\tCloseableHttpClient httpClient = HttpClients.createDefault();\n\t  try {\n            HttpGet request = new HttpGet(\"https://video.twilio.com/\"+(String)exchange.getMessage().getHeader(\"MediaUri\"));\n\t\t\t           request.getParams().setParameter(\"http.protocol.handle-redirects\",false);\n\t\t\t\n      request.addHeader(\"Authorization\", (String)exchange.getMessage().getHeader(\"Authorization\"));\n\n      CloseableHttpResponse response = httpClient.execute(request);\n\n            try {               \t\t\n\t\t\t\t\t\t\tint statusCode = response.getStatusLine().getStatusCode();\n\t\t\t\t\t\t\tif(statusCode == 302){\n\t\t\t\t\t\t\t\texchange.getMessage().setHeader(\"RecordedVideoUri\", response.getFirstHeader(\"Location\").getValue());\t\t\t\t\t\n\t\t\t\t\t\t\t}\n            } finally {\n                response.close();\n            }\n        } finally {\n            httpClient.close();\n        }\t\n\t\t\t\n\t\t\t};\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n}",
+    "importsJava" : "import org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\nimport org.apache.http.HttpEntity;\nimport org.apache.http.HttpHeaders;\nimport org.apache.http.client.methods.CloseableHttpResponse;\nimport org.apache.http.client.methods.HttpGet;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\nimport org.apache.http.params.HttpParams;\nimport org.apache.http.util.EntityUtils;\n\nimport java.io.IOException;",
+    "type" : "Java"
+  },
+  "id" : "9017f4ad-f1a4-45d3-924e-c270f25aebf7",
+  "name" : "SimpleHttpGet",
+  "description" : "http get without redirect",
+  "createdAt" : "2023-10-04T18:05:22.556412435",
+  "updatedAt" : "2023-10-04T18:05:22.556413529",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

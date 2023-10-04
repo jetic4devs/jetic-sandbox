@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gdXNlcnMKICAgIChmZWRlcmF0ZWRfaWQsIGZuYW1lLCBsbmFtZSwgZW1haWwsIHBob25lLCBzdGF0dXMsIGNyZWF0ZWRfYXQsIHVwZGF0ZWRfYXQpClZBTFVFUyAoCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5mZWRlcmF0ZWRJZH0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5mbmFtZX0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5sbmFtZX0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5lbWFpbH0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5waG9uZX0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5zdGF0dXN9LAogICAgTk9XKCksCiAgICBOT1coKQopCk9OIENPTkZMSUNUIChmZWRlcmF0ZWRfaWQpIERPIFVQREFURSBTRVQKICAgIHVwZGF0ZWRfYXQgPSBOT1coKQoKUkVUVVJOSU5HCiAgICBpZCBBUyB1c2VyX2lkLAogICAgZmVkZXJhdGVkX2lkLAogICAgY3JlYXRlZF9hdCwKICAgIHVwZGF0ZWRfYXQ=",
+    "filename" : "users.insert.sql",
+    "type" : "File"
+  },
+  "id" : "6b672a79-cad2-4a21-99f1-78de292a3095",
+  "name" : "users.insert.sql",
+  "description" : "SQL template for inserting user records",
+  "createdAt" : "2023-10-04T18:05:19.107748371",
+  "updatedAt" : "2023-10-04T18:05:19.107749307",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

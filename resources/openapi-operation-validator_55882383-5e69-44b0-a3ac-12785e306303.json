@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.openapi4j:openapi-operation-validator:1.0.7"
+  },
+  "id" : "55882383-5e69-44b0-a3ac-12785e306303",
+  "name" : "openapi-operation-validator",
+  "description" : "https://github.com/openapi4j/openapi4j/tree/master/openapi-operation-validator",
+  "createdAt" : "2023-10-04T18:05:18.398413617",
+  "updatedAt" : "2023-10-04T18:05:18.398414517",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

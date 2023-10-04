@@ -1,0 +1,62 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "1687a4f6-d229-432d-8cb3-efa4c66f7b19",
+  "name" : "attachment-api-v1",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:14.065694796",
+  "updatedAt" : "2023-10-04T18:05:14.065695984",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "f82bb052-321d-4ec5-91ce-e31626127deb",
+    "name" : "Api",
+    "path" : "/api/v1/attachments",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "9c1f47ee-365d-4a4c-b7bf-d0226a15088b",
+      "operationId" : "createAttachment",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "726544d1-93ae-45a5-ba9c-5d2c33167831",
+      "operationId" : "getAttachments",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "1ccedd75-f6dd-4099-beba-26eeba352582",
+    "name" : "Api",
+    "path" : "/api/v1/attachments/{attachmentId}",
+    "pathVariables" : [ "attachmentId" ],
+    "operations" : [ {
+      "uuid" : "4cdb395f-e8d4-4c54-aef8-a46e92c9bb40",
+      "operationId" : "updateAttachment",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "268046ce-a5c2-4917-81dd-5b592ad80b31",
+      "operationId" : "getAttachmentById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "e918a316-47e7-4430-8a8f-69522f1b2461",
+    "name" : "Api",
+    "path" : "/api/v1/attachments/{attachmentId}/download",
+    "pathVariables" : [ "attachmentId" ],
+    "operations" : [ {
+      "uuid" : "1650a839-7296-4cf7-a71a-3a97824d6672",
+      "operationId" : "downloadAttachment",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"attachment-api-v1\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/attachments\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createAttachment\"},\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getAttachments\"}},\"/api/v1/attachments/{attachmentId}\":{\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateAttachment\"},\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getAttachmentById\"},\"parameters\":[{\"name\":\"attachmentId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/attachments/{attachmentId}/download\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"downloadAttachment\"},\"parameters\":[{\"name\":\"attachmentId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

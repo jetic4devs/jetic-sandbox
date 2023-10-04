@@ -1,0 +1,39 @@
+{
+  "revision" : 8,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "93f8e8ee-0458-4a42-8ef3-5ffd82200bc7",
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-b10c0c01",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "dslProcessor",
+      "nodeId" : "ac645159-2289-486a-b6a7-5699cf6e53aa",
+      "description" : "",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : "from('sip:tcp://localhost:5060?requestMethod=INVITE')",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=from('sip:tcp://localhost:5060?requestMethod=INVITE')"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "6dbd6011-7ecb-4392-a3ef-b04ee727ddd2",
+  "name" : "sip-msrp",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:12.555810106",
+  "updatedAt" : "2023-10-04T18:05:12.555810849",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

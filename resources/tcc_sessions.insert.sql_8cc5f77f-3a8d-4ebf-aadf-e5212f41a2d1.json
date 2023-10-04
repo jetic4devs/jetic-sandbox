@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gdGNjX3Nlc3Npb25zCiAgICAoYWdlbmN5X2lkLCBzZXNzaW9uX25hbWUsIGNwbiwgcmVtb3RlX2lwLCBnZW9sb2NhdGlvbl91cmksIGNvbnZlcnNhdGlvbl9pZCwgc2Vzc2lvbl9kYXRhLCBtc3JwX2hvc3QsIG1zcnBfcG9ydCwgc2Vzc2lvbl9zdGF0dXMsIGNhbGxfaWQsIGNyZWF0ZWRfYXQsIHVwZGF0ZWRfYXQpClZBTFVFUyAoCiAgICBDQVNUKDojJHtleGNoYW5nZVByb3BlcnR5LmFnZW5jeUlkfSBBUyB1dWlkKSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LnNlc3Npb25OYW1lfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LmNwbn0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5yZW1vdGVJcH0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5nZW9sb2NhdGlvblVyaX0sCiAgICBDQVNUKDojJHtleGNoYW5nZVByb3BlcnR5LmNvbnZlcnNhdGlvbklkfSBBUyB1dWlkKSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LnNlc3Npb25EYXRhfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5Lm1zcnBIb3N0fSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5Lm1zcnBQb3J0fSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LnNlc3Npb25TdGF0dXN9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuY2FsbElkfSwKICAgIE5PVygpLAogICAgTk9XKCkKKQpPTiBDT05GTElDVCAoY2FsbF9pZCkgRE8gVVBEQVRFIFNFVAogICAgYWdlbmN5X2lkID0gRVhDTFVERUQuYWdlbmN5X2lkLAogICAgc2Vzc2lvbl9uYW1lID0gRVhDTFVERUQuc2Vzc2lvbl9uYW1lLAogICAgY3BuID0gRVhDTFVERUQuY3BuLAogICAgcmVtb3RlX2lwID0gRVhDTFVERUQucmVtb3RlX2lwLAogICAgZ2VvbG9jYXRpb25fdXJpID0gRVhDTFVERUQuZ2VvbG9jYXRpb25fdXJpLAogICAgY29udmVyc2F0aW9uX2lkID0gRVhDTFVERUQuY29udmVyc2F0aW9uX2lkLAogICAgc2Vzc2lvbl9kYXRhID0gRVhDTFVERUQuc2Vzc2lvbl9kYXRhLAogICAgbXNycF9ob3N0ID0gRVhDTFVERUQubXNycF9ob3N0LAogICAgbXNycF9wb3J0ID0gRVhDTFVERUQubXNycF9wb3J0LAogICAgc2Vzc2lvbl9zdGF0dXMgPSBFWENMVURFRC5zZXNzaW9uX3N0YXR1cywKICAgIHVwZGF0ZWRfYXQgPSBOT1coKQpSRVRVUk5JTkcKICAgIGlkIEFTIHNlc3Npb25faWQ=",
+    "filename" : "tcc_sessions.insert.sql",
+    "type" : "File"
+  },
+  "id" : "8cc5f77f-3a8d-4ebf-aadf-e5212f41a2d1",
+  "name" : "tcc_sessions.insert.sql",
+  "description" : "SQL template for inserting into TCC sessions",
+  "createdAt" : "2023-10-04T18:05:23.677343428",
+  "updatedAt" : "2023-10-04T18:05:23.677344615",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

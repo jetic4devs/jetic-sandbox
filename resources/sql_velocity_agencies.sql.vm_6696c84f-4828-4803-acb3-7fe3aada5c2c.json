@@ -1,0 +1,16 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "filename" : "text.txt",
+    "type" : "Content"
+  },
+  "id" : "6696c84f-4828-4803-acb3-7fe3aada5c2c",
+  "name" : "sql_velocity_agencies.sql.vm",
+  "description" : "Velocity template for rendering agencies from SQL",
+  "createdAt" : "2023-10-04T18:05:16.703072946",
+  "updatedAt" : "2023-10-04T18:05:16.703074118",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

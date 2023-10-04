@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gZ2VvbG9jYXRpb25zCiAgICAocmVjaXBpZW50X2lkLCBnZW9nLCBsYXRsbmdfYWNjdXJhY3ksIGxhdGxuZ191bmNlcnRhaW50eSwgbm9ybWFsaXplZF9hZGRyZXNzLCBib3VuZGFyeV9ib3gsIGFsdGl0dWRlLCBhbHRpdHVkZV9hY2N1cmFjeSwgaGF0LCBoYXRfYWNjdXJhY3ksIGNyZWF0ZWRfYXQsIHVwZGF0ZWRfYXQpClZBTFVFUyAoCiAgICBDQVNUKDojJHtleGNoYW5nZVByb3BlcnR5LnJlY2lwaWVudElkfSBBUyB1dWlkKSwKICAgIENBU1QoOiMke2V4Y2hhbmdlUHJvcGVydHkuZ2VvZ1BvaW50fSBBUyBnZW9ncmFwaHkpLAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkubGF0bG5nQWNjdXJhY3l9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkubGF0bG5nVW5jZXJ0YWludHl9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkubm9ybWFsaXplZEFkZHJlc3N9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuYm91bmRhcnlCb3h9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuYWx0aXR1ZGV9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuYWx0aXR1ZGVBY2N1cmFjeX0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5oYXR9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuaGF0QWNjdXJhY3l9LAogICAgTk9XKCksCiAgICBOT1coKQopCk9OIENPTkZMSUNUIChyZWNpcGllbnRfaWQsIGdlb2csIGhhdCkgRE8gVVBEQVRFIFNFVAogICAgdXBkYXRlZF9hdCA9IE5PVygpClJFVFVSTklORwogICAgaWQgQVMgZ2VvbG9jYXRpb25faWQsCiAgICByZWNpcGllbnRfaWQsCiAgICBTVF9YKGdlb2c6Omdlb21ldHJ5KSBBUyBsbmcsCiAgICBTVF9ZKGdlb2c6Omdlb21ldHJ5KSBBUyBsYXQsCiAgICBsYXRsbmdfYWNjdXJhY3ksCiAgICBsYXRsbmdfdW5jZXJ0YWludHksCiAgICBub3JtYWxpemVkX2FkZHJlc3MsCiAgICBhbHRpdHVkZSwKICAgIGFsdGl0dWRlX2FjY3VyYWN5LAogICAgaGF0LAogICAgaGF0X2FjY3VyYWN5LAogICAgY3JlYXRlZF9hdCwKICAgIHVwZGF0ZWRfYXQ=",
+    "filename" : "geolocations.insert.sql",
+    "type" : "File"
+  },
+  "id" : "b8eedc93-06a9-4e7d-b469-1d7b3d96c691",
+  "name" : "geolocations.insert.sql",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:19.922694179",
+  "updatedAt" : "2023-10-04T18:05:19.92269541",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

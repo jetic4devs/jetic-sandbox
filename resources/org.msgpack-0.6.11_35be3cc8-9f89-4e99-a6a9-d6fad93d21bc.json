@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.msgpack:msgpack:0.6.11"
+  },
+  "id" : "35be3cc8-9f89-4e99-a6a9-d6fad93d21bc",
+  "name" : "org.msgpack-0.6.11",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:19.588896839",
+  "updatedAt" : "2023-10-04T18:05:19.588898754",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

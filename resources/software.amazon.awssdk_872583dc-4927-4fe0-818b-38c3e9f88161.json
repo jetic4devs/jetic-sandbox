@@ -1,0 +1,11 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : { },
+  "id" : "872583dc-4927-4fe0-818b-38c3e9f88161",
+  "name" : "software.amazon.awssdk",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.840919506",
+  "updatedAt" : "2023-10-04T18:05:20.840920739",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

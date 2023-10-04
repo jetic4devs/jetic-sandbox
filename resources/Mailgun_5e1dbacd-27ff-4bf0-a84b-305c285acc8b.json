@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "@BindToRegistry\npublic Processor sendEmail() {\n    return exchange -> {\n        try {\n            String API_KEY = (String)exchange.getProperty(\"mailgunApiKey\");\n            String to = (String)exchange.getProperty(\"emailRecipient\");\n            String html = (String)exchange.getProperty(\"emailBodyHtml\");\n            String text = (String)exchange.getProperty(\"emailBodyText\");\n            String subject = (String)exchange.getProperty(\"emailSubject\");\n            String from = \"Convey911 <no-reply@app.convey911.com>\";\n\n            HttpResponse<JsonNode> request = Unirest.post(\"https://api.mailgun.net/v3/app.convey911.com/messages\")\n                .basicAuth(\"api\", API_KEY)\n                .queryString(\"from\", from)\n                .queryString(\"to\", to)\n                .queryString(\"subject\", subject)\n                .queryString(\"text\", text)\n                .queryString(\"html\", html)\n                .asJson();\n                exchange.setProperty(\"mailResponse\", request.getBody()); \n\t\t\t\t\t\t\t\texchange.setProperty(\"emailSent\", 1);\n        } catch (Exception ex) {\n            System.out.println(\"The email was not sent. Error message: \" + ex.getMessage());\n            exchange.setProperty(\"error\", ex.getMessage());\n        }\n    };\n}",
+    "importsJava" : "import java.io.IOException;\n\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\n\nimport java.io.File;\nimport com.mashape.unirest.http.HttpResponse;\nimport com.mashape.unirest.http.JsonNode;\nimport com.mashape.unirest.http.Unirest;\nimport com.mashape.unirest.http.exceptions.UnirestException;",
+    "type" : "Java"
+  },
+  "id" : "5e1dbacd-27ff-4bf0-a84b-305c285acc8b",
+  "name" : "Mailgun",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.247107821",
+  "updatedAt" : "2023-10-04T18:05:21.247108604",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,38 @@
+{
+  "version" : "yakrcl",
+  "host" : "0.0.1",
+  "id" : "a4fd2a8b-efa9-48d3-8b3d-16382edd183e",
+  "name" : "yakresp-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.428820821",
+  "updatedAt" : "2023-10-04T18:05:13.428822185",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "040c9496-89df-4381-b19b-54e7927317f9",
+    "name" : "Api",
+    "path" : "/api/v2/agencies",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "107acf3a-f768-4129-9f95-04044acebb57",
+      "operationId" : "GET_Agencies",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "a15cd215-9303-4aba-bae5-9ebe7d51bffc",
+    "name" : "Api",
+    "path" : "/api/v2/agencies/{id}",
+    "pathVariables" : [ "id" ],
+    "operations" : [ {
+      "uuid" : "6330e2ea-220f-498e-b98b-7298567cf3ec",
+      "operationId" : "GET_AgencyById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"yakresp-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v2/agencies\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"GET_Agencies\"}},\"/api/v2/agencies/{id}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"GET_AgencyById\"},\"parameters\":[{\"name\":\"id\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

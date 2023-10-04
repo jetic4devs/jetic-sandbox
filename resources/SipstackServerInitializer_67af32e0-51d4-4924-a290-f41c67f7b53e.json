@@ -1,0 +1,14 @@
+{
+  "type" : "SOURCE_DEFINITIONS",
+  "properties" : {
+    "content" : "import org.apache.camel.BindToRegistry;\nimport org.apache.camel.Exchange;\nimport org.apache.camel.builder.RouteBuilder;\nimport org.apache.camel.component.netty.ServerInitializerFactory;\nimport org.apache.camel.component.netty.handlers.ServerChannelHandler;\nimport org.apache.camel.component.netty.NettyConsumer;\nimport io.netty.channel.*;\nimport io.pkts.packet.sip.impl.SipInitialLine;\nimport java.io.IOException;\n\nimport io.netty.bootstrap.Bootstrap;\nimport io.netty.channel.socket.nio.NioSocketChannel;\nimport io.sipstack.netty.codec.sip.*;\nimport java.util.List;\nimport java.util.Arrays;\n\n\npublic class SipstackServerInitializer extends RouteBuilder {\n\n    @Override\n    public void configure() throws Exception {\n\t\t\tgetContext().getRegistry().bind(\"sipstack\", new SipstackServerInitializerFactory(null));\n    }\n\t\n\t\tpublic class SipstackServerInitializerFactory extends ServerInitializerFactory {\n\n\t\t\tprivate NettyConsumer consumer;\n\t\t\t\n\t\t\tpublic SipstackServerInitializerFactory(NettyConsumer consumer){\n\t\t\t\tlog.info(\"SIP Stack Initialized\");\n\t\t\t\tthis.consumer = consumer;\n\t\t\t}\n\n    \tprotected void initChannel(Channel ch) throws Exception {\n        ChannelPipeline channelPipeline = ch.pipeline();\n\t\t\t\tlog.info(\"SIP Channel Init\");\n        channelPipeline.addLast(\"decoder\", new SipMessageDatagramDecoder());\n\t\t\t\tchannelPipeline.addLast(\"encoder\", new SipMessageEncoder());\n        channelPipeline.addLast(\"handler\", new ServerChannelHandler(consumer));\n    \t}\n\t\t\t\n\t\t\tpublic ServerInitializerFactory createPipelineFactory(NettyConsumer consumer) {\n        return new SipstackServerInitializerFactory(consumer);\n\t\t\t}\n\t\t}\n}",
+    "filename" : "SipstackServerInitializer.java"
+  },
+  "id" : "67af32e0-51d4-4924-a290-f41c67f7b53e",
+  "name" : "SipstackServerInitializer",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.158221679",
+  "updatedAt" : "2023-10-04T18:05:23.158222502",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

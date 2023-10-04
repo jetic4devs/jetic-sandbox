@@ -1,0 +1,314 @@
+{
+  "revision" : 99,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "a34999d4-756f-4a4b-9cfb-bde2ce00289a",
+  "parameterGroupUuids" : [ "ca06b01a-b205-4b2b-9e9d-9f49614e7e94", "76b5ac73-30ea-46c7-9a1a-1d2c950738a8", "9e3cbe1f-24d7-4915-a482-aab91431ff36" ],
+  "repoResourceUuids" : [ "32de8037-6f9f-45c7-8a96-dab5a65a3e42", "60b1161c-74ee-4cd8-96a1-0055c90271c1", "c7e8dd94-912b-43d7-8c8a-668c0abff9d5", "05649865-0c5a-4bfd-bddb-046f69383940", "7d92d588-3731-462c-bb3b-e789525d5650", "a1057428-1531-40a8-a129-ed27382e947f", "3b5aa833-0eaa-4cb9-8ce8-ca97eac74110", "67fe7aec-844a-41aa-97eb-ea8005dd2499" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "deb1b586-e5e7-4c2d-a15d-901a33580005",
+      "description" : "translate.google",
+      "properties" : {
+        "_type" : "jms",
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "providers.translate.google",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOut",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=providers.translate.google&destinationType=queue&exchangePattern=InOut&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "5089dc4b-7951-47f5-a3c4-a67118ed5179",
+      "description" : "To String",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "log",
+      "nodeId" : "e19dd2f2-72cd-4f13-9790-6ede142d302a",
+      "description" : "jms.in",
+      "properties" : {
+        "_type" : "log",
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "google.translate.jms.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=google.translate.jms.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "6f59996f-e663-4b2f-8aaf-df8771e0d107",
+      "description" : "Set Request Props",
+      "properties" : {
+        "_type" : "setProperties",
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Header",
+          "propertyName" : "requestedOperation",
+          "propertyValue" : "x-requested-operation",
+          "uuid" : "da2729cd-c1da-4b0b-ab2f-e5c7187178b6"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "googleProjectId",
+          "propertyValue" : "{{google.translate.projectId}}",
+          "uuid" : "699a14d7-51fc-4eb1-a9c6-f23b6a2d20b5"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "credentialFile",
+          "propertyValue" : "{{google.translate.credentialFile}}",
+          "uuid" : "8d12be3b-daf4-4c1e-9ce9-9372d718f3aa"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?requestedOperation=x-requested-operation&googleProjectId={{google.translate.projectId}}&credentialFile={{google.translate.credentialFile}}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "142f6571-4f4c-4520-a34b-1f98c06e991f",
+      "description" : "Handle Request",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "camelGroup" : "core",
+        "dsl" : ".toD('direct:${exchangeProperty.requestedOperation}')",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.toD('direct:${exchangeProperty.requestedOperation}')"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-2",
+    "enabled" : true,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "882ce0b4-3a1d-469c-b9de-dbe170f5879c",
+      "description" : "getSupportedLanguages",
+      "properties" : {
+        "_type" : "direct",
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "getSupportedLanguages",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=getSupportedLanguages"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "7cbb84db-219e-42f8-9066-bb5eaaf38267",
+      "description" : "SDK Get Languages",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "camelGroup" : "core",
+        "dsl" : ".bean(\"getSupportedLanguages\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.bean(\"getSupportedLanguages\")"
+    }, {
+      "name" : "log",
+      "nodeId" : "7973a9f9-2637-44d2-b04b-fc9ef236cf64",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-3",
+    "enabled" : true,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "145197f9-97d0-49ad-baa7-a59a41143292",
+      "description" : "detectLanguage",
+      "properties" : {
+        "_type" : "direct",
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "detectLanguage",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=detectLanguage"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "8a98fec0-6ef7-46cd-994b-4c6fc80b634f",
+      "description" : "SDK Detect Language",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "camelGroup" : "core",
+        "dsl" : ".bean(\"detectLanguage\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.bean(\"detectLanguage\")"
+    }, {
+      "name" : "log",
+      "nodeId" : "eafe06a1-d124-441c-8787-7df1dfc8ffc6",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-4",
+    "enabled" : true,
+    "routeId" : 4,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "9c989c09-c05a-4638-a5cd-f30b0b2f9bca",
+      "description" : "translateText",
+      "properties" : {
+        "_type" : "direct",
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "translateText",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=translateText"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "772b0387-c631-48fd-98c7-19ec3ce807fc",
+      "description" : "SDK Translate Text",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "camelGroup" : "core",
+        "dsl" : ".bean(\"translateText\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.bean(\"translateText\")"
+    }, {
+      "name" : "log",
+      "nodeId" : "65ec7ceb-0e1c-4cf7-aa43-fa6be7698dad",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "cea6210a-0651-405b-87d2-6c86ccecb7e2",
+  "name" : "old-google-translate",
+  "description" : "Translation Service - Google",
+  "createdAt" : "2023-10-04T18:05:08.686697442",
+  "updatedAt" : "2023-10-04T18:05:08.68669808",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,140 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "bbb9efa1-b2d5-496e-acff-3115320030f4",
+  "name" : "user-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.5373978",
+  "updatedAt" : "2023-10-04T18:05:13.537398434",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "3975f772-1e2b-4e0e-9642-1db4b0841b1f",
+    "name" : "Api",
+    "path" : "/api/v1/users",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "b4a6859e-83f4-4be8-97c0-5e61b2fbd405",
+      "operationId" : "getUsers",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "3624b559-22e0-49db-b04d-66a002a3d747",
+      "operationId" : "createUser",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "3a9f2d8f-68d7-404c-869a-fb864abf0e1b",
+    "name" : "Api",
+    "path" : "/api/v1/users/me",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "d537f0c6-8528-45f8-b60d-5454fb0ca54f",
+      "operationId" : "getCurrentUser",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "b873acc3-7a73-40a8-98d6-a8fefaa3ba15",
+      "operationId" : "updateCurrentUser",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "dbdcddca-c453-4f10-9fe7-94e284142970",
+      "operationId" : "createCurrentUser",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "521bfe2c-241b-48cd-aecb-fe378eaa1fa9",
+    "name" : "Api",
+    "path" : "/api/v1/users/{userUuid}",
+    "pathVariables" : [ "userUuid" ],
+    "operations" : [ {
+      "uuid" : "b9041a11-5df3-4bab-99b1-7e68b8030718",
+      "operationId" : "getUserById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "174b1116-7412-4f53-8f25-b48ba8413b76",
+      "operationId" : "deleteUser",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "c1619f4e-e183-40ae-99e9-8b13c451333e",
+      "operationId" : "updateUser",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "784fd9c7-c782-43af-9f7a-d2a9d143eb01",
+    "name" : "Api",
+    "path" : "/api/v1/users/{userUuid}/invite",
+    "pathVariables" : [ "userUuid" ],
+    "operations" : [ {
+      "uuid" : "11ab0d7b-6b43-4f06-aa01-42e5b0397a42",
+      "operationId" : "sendUserInvitation",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "34eaabc3-22f3-4bf1-8243-9c7be6e4b655",
+    "name" : "Api",
+    "path" : "/api/v1/users/me/templates",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "1e1f4931-6106-450f-a64c-c71c9bebb3dc",
+      "operationId" : "getUserMessageTemplates",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "985ac13a-11bd-4e17-abea-46d0e2388a87",
+      "operationId" : "createUserMessageTemplate",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "e0b3a2f9-cb64-402e-881a-a89a86a37322",
+    "name" : "Api",
+    "path" : "/api/v1/users/me/templates/{templateId}",
+    "pathVariables" : [ "templateId" ],
+    "operations" : [ {
+      "uuid" : "b66d148c-a357-41b2-906c-b53eff4250dc",
+      "operationId" : "updateUserMessageTemplate",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "717ee85d-42f1-440f-8a1d-590e4ea7466c",
+      "operationId" : "deleteUserMessageTemplate",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "a9a53d5d-0bd2-44e3-806f-0ea1d67ae337",
+    "name" : "Api",
+    "path" : "/api/v1/users/{userUuid}/link/{childId}",
+    "pathVariables" : [ "userUuid", "childId" ],
+    "operations" : [ {
+      "uuid" : "56edf490-f846-4bc6-b76d-b697a61ee5a4",
+      "operationId" : "linkUserIdentity",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"user-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/users\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getUsers\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createUser\"}},\"/api/v1/users/me\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getCurrentUser\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateCurrentUser\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createCurrentUser\"}},\"/api/v1/users/{userUuid}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getUserById\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"deleteUser\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateUser\"},\"parameters\":[{\"name\":\"userUuid\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/users/{userUuid}/invite\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"sendUserInvitation\"},\"parameters\":[{\"name\":\"userUuid\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/users/me/templates\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getUserMessageTemplates\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createUserMessageTemplate\"}},\"/api/v1/users/me/templates/{templateId}\":{\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateUserMessageTemplate\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"deleteUserMessageTemplate\"},\"parameters\":[{\"name\":\"templateId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/users/{userUuid}/link/{childId}\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"linkUserIdentity\"},\"parameters\":[{\"name\":\"userUuid\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"childId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

@@ -1,0 +1,74 @@
+{
+  "version" : "api.convey911.com",
+  "host" : "0.0.1",
+  "id" : "1b130a48-03d6-4f62-92bd-4e32bce488ca",
+  "name" : "aculab-onramp",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:14.171607537",
+  "updatedAt" : "2023-10-04T18:05:14.171608474",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "b4cb4258-1787-4857-be20-4f730e817d9b",
+    "name" : "On",
+    "path" : "/on/aculab/call",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "60694d63-6e54-4c87-990e-9d4050d87a30",
+      "operationId" : "newInboundCall",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "8a6d8603-c5c1-4050-a604-de155a821ed7",
+    "name" : "On",
+    "path" : "/on/aculab/call/end",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "a2298846-52d5-4107-a475-0b49dadfb52b",
+      "operationId" : "endInboundCall",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "604d58f8-3671-4611-a65e-23bedd107bff",
+    "name" : "On",
+    "path" : "/on/aculab/call/error",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "1350ae70-e7bf-48fd-bf9f-5ef1e4eecc9a",
+      "operationId" : "inboundCallError",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "2329aafc-e2b0-4858-98e8-0afe94365bf0",
+    "name" : "On",
+    "path" : "/on/aculab/sms",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "0f0bfaf8-1714-4e08-8cb9-dbaa4fbf8695",
+      "operationId" : "aculabInboundSms",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "2f5d3ee0-a3a4-4b18-8cf8-8add7d7eae58",
+    "name" : "On",
+    "path" : "/on/aculab/sms/status/{conversationId}/{messageId}",
+    "pathVariables" : [ "conversationId", "messageId" ],
+    "operations" : [ {
+      "uuid" : "e80ef098-f790-41dc-96bf-e17ba4d52760",
+      "operationId" : "aculabStatusCallback",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"aculab-onramp\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/on/aculab/call\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"newInboundCall\"}},\"/on/aculab/call/end\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"endInboundCall\"}},\"/on/aculab/call/error\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"inboundCallError\"}},\"/on/aculab/sms\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"aculabInboundSms\"}},\"/on/aculab/sms/status/{conversationId}/{messageId}\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"aculabStatusCallback\"},\"parameters\":[{\"name\":\"conversationId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"messageId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

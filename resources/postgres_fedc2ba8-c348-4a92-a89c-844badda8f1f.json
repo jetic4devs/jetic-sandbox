@@ -1,0 +1,31 @@
+{
+  "type" : "DATABASE_RESOURCE",
+  "properties" : {
+    "beanName" : "dsPostgres",
+    "beans" : "package beans;\n\nimport org.apache.camel.BindToRegistry;\nimport javax.sql.DataSource;\n\nimport org.apache.commons.dbcp2.BasicDataSource;",
+    "driverClass" : "PostgreSQL",
+    "driverClassNameMySQL" : "com.mysql.cj.jdbc.Driver",
+    "driverClassNameOracle" : "oracle.jdbc.OracleDriver",
+    "driverClassNamePostgreSQL" : "org.postgresql.Driver",
+    "maven" : "org.postgresql:postgresql:42.3.1",
+    "mavenMySQL" : "mysql:mysql-connector-java:8.0.27",
+    "mavenOracle" : "com.oracle.database.jdbc:ojdbc8:21.3.0.0",
+    "mavenPostgreSQL" : "org.postgresql:postgresql:42.3.1",
+    "passwordOracle" : "oracle",
+    "passwordPostgreSQL" : "{{convey.postgres.pass}}",
+    "type" : "Custom",
+    "urlMySQL" : "jdbc:mysql://localhost:3306/test",
+    "urlOracle" : "jdbc:oracle:thin:@localhost:1521:XE",
+    "urlPostgreSQL" : "{{convey.postgres.uri}}",
+    "usernameMySQL" : "root",
+    "usernameOracle" : "oracle",
+    "usernamePostgreSQL" : "{{convey.postgres.user}}"
+  },
+  "id" : "fedc2ba8-c348-4a92-a89c-844badda8f1f",
+  "name" : "postgres",
+  "description" : "Postgres Datasource",
+  "createdAt" : "2023-10-04T18:05:16.629620168",
+  "updatedAt" : "2023-10-04T18:05:16.629621598",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

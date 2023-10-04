@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.deepl.api:deepl-java:1.3.0"
+  },
+  "id" : "bcbd75c6-03b3-4d1d-955e-225f9e0cc306",
+  "name" : "com.deepl.api_deepl-java_1.3.0",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.82381918",
+  "updatedAt" : "2023-10-04T18:05:23.823820534",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

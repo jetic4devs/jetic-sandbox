@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.openapi4j:openapi-parser:1.0.7"
+  },
+  "id" : "9fb5f9ac-54fb-4ea4-b9d6-a3f95d92021b",
+  "name" : "openapi-parser",
+  "description" : "https://www.openapi4j.org/parser.html",
+  "createdAt" : "2023-10-04T18:05:18.774659093",
+  "updatedAt" : "2023-10-04T18:05:18.774660144",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

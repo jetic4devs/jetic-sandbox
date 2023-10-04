@@ -1,0 +1,84 @@
+{
+  "revision" : 18,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : "c13735c9-9267-4bd0-9cc3-0353afb56818",
+  "currentProfileUuid" : "93f8e8ee-0458-4a42-8ef3-5ffd82200bc7",
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "getRequest",
+      "nodeId" : "5e7f9ff5-aa77-441e-8b03-e571c08134e0",
+      "description" : "",
+      "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/ping",
+        "method" : "get",
+        "name" : "getRequest",
+        "operationName" : "Ping",
+        "produces" : "application/json",
+        "requestmethod" : "GET",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/ping&method=get&operationName=Ping&produces=application/json&requestmethod=GET"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "bc874f3e-aa0a-4a14-b8b2-7936e41adc14",
+      "description" : "",
+      "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "exchangeId: ${exchangeId}",
+        "language" : "Simple",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?addNamespaces=false&expression=exchangeId: ${exchangeId}&language=Simple&suppressExceptions=false"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "3506f54b-9d05-4e39-a64f-ed5f49cefd68",
+      "description" : "",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "foo",
+          "headerValue" : "\"bar\"",
+          "language" : "Simple",
+          "uuid" : "0cd3f187-b31c-4cc6-877a-d906ac2fb221"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "29353419-46c6-491b-b287-e3fc2dcdee70",
+  "name" : "ping-pong",
+  "description" : "Test HTTP route",
+  "createdAt" : "2023-10-04T18:05:12.95378778",
+  "updatedAt" : "2023-10-04T18:05:12.953788457",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

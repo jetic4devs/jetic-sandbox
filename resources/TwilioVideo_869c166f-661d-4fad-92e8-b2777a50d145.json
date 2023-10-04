@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "@BindToRegistry\n/*\npublic String TokenGenerator(@ExchangeProperty(\"twilioRoomId\") String twilioRoomId) {\n//  return  exchange -> {\n    \n\t\tCamelContext context = getContext();\n    String twilioAccountSid = (String)context.getPropertiesComponent().resolveProperty(\"convey.twilio.accountSid\").get();\n    String twilioApiKey = (String)context.getPropertiesComponent().resolveProperty(\"convey.twilio.apiKey\").get();\n    String twilioApiSecret = (String)context.getPropertiesComponent().resolveProperty(\"convey.twilio.apiSecret\").get();\n\n    String identity = \"convey-user\";\n    String roomId = twilioRoomId;\n\n    VideoGrant grant = new VideoGrant().setRoom(roomId);\n\n    AccessToken token = new AccessToken.Builder(\n      twilioAccountSid,\n      twilioApiKey,\n      twilioApiSecret\n    ).identity(identity).grant(grant).build();\n\n\t\tObjectMapper mapper = new ObjectMapper();\n\t\t\n\t\t\n\t\ttry {\n\t\t\tSystem.out.println(token.toJwt());\n\t\t\tSystem.out.println(mapper.writeValueAsString(token));\n\t\t} catch (Exception e) {\n\t\t\te.printStackTrace(System.err);\n\t\t}\n\t\t\n\treturn \"asdf\";\n    //return token.toJwt();\n    // exchange.setProperty(\"twilioJwt\", token.toJwt());\n//\t};\n\t}\n\t*/\n",
+    "importsJava" : "import org.apache.camel.Handler;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.DeferredContextBinding;\nimport org.apache.camel.Processor;\nimport org.apache.camel.CamelContext;\nimport org.apache.camel.Exchange;\nimport org.apache.camel.ExchangeProperty;\nimport com.twilio.jwt.accesstoken.AccessToken;\nimport com.twilio.jwt.accesstoken.VideoGrant;\nimport com.fasterxml.jackson.databind.ObjectMapper;",
+    "type" : "Java"
+  },
+  "id" : "869c166f-661d-4fad-92e8-b2777a50d145",
+  "name" : "TwilioVideo",
+  "description" : "Helper library for twilio video features",
+  "createdAt" : "2023-10-04T18:05:20.694114351",
+  "updatedAt" : "2023-10-04T18:05:20.694115326",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

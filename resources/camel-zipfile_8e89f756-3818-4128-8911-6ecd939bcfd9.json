@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.camel:camel-zipfile:3.18.0"
+  },
+  "id" : "8e89f756-3818-4128-8911-6ecd939bcfd9",
+  "name" : "camel-zipfile",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.09851456",
+  "updatedAt" : "2023-10-04T18:05:21.098515382",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

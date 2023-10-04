@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.oblac:jrsmq:1.3.0"
+  },
+  "id" : "bdad6f86-b4b0-490f-ad74-18ab529d642e",
+  "name" : "rsmq",
+  "description" : "Really simple message queue",
+  "createdAt" : "2023-10-04T18:05:22.2654106",
+  "updatedAt" : "2023-10-04T18:05:22.265411801",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

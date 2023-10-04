@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gY29udmVyc2F0aW9ucwogICAgKGFnZW5jeV9pZCwgbnVtYmVyX2lkLCBvcGVyYXRvcl9pZCwgZnJpZW5kbHlfbmFtZSwgcmVjZW50X21lc3NhZ2UsIHN0YXR1cywgZGlyZWN0aW9uLCBjaGFubmVsLCByZXNvdXJjZV9maWxlLCBjcmVhdGVkX2F0LCB1cGRhdGVkX2F0KQpWQUxVRVMgKAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5hZ2VuY3lJZH0gQVMgdXVpZCksCiAgICBDQVNUKDojJHtleGNoYW5nZVByb3BlcnR5LnByb3ZpZGVyTnVtYmVySWR9IEFTIHV1aWQpLAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5vcGVyYXRvcklkfSBBUyB1dWlkKSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LmNvbnZlcnNhdGlvbkxhYmVsfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5Lm1lc3NhZ2V9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuc3RhdHVzfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LmRpcmVjdGlvbn0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5jaGFubmVsfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LnJlc291cmNlRmlsZX0sCiAgICBOT1coKSwKICAgIE5PVygpCikKUkVUVVJOSU5HCiAgICBpZCBBUyBjb252ZXJzYXRpb25faWQ=",
+    "filename" : "conversations.insert.sql",
+    "type" : "File"
+  },
+  "id" : "a676ceae-2bb8-4320-8b94-4bb7272d5d3f",
+  "name" : "conversations.insert.sql",
+  "description" : "Create Conversation SQL Template",
+  "createdAt" : "2023-10-04T18:05:18.513925921",
+  "updatedAt" : "2023-10-04T18:05:18.51392736",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

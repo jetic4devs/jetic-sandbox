@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.dellroad:msrp4j:2.0.1"
+  },
+  "id" : "a2e9f921-4824-454a-9ff2-f2fcb05b3903",
+  "name" : "sip-msrp",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:22.629952519",
+  "updatedAt" : "2023-10-04T18:05:22.629953899",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

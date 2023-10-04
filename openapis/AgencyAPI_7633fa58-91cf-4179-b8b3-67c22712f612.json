@@ -1,0 +1,158 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "7633fa58-91cf-4179-b8b3-67c22712f612",
+  "name" : "AgencyAPI",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.50153426",
+  "updatedAt" : "2023-10-04T18:05:13.501535443",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "fb0c2caf-38fb-4571-bca1-940dd92bb976",
+    "name" : "Api",
+    "path" : "/api/v1/agencies/{agencyId}",
+    "pathVariables" : [ "agencyId" ],
+    "operations" : [ {
+      "uuid" : "d7de658f-1906-4f04-abe9-bfe3d278af1d",
+      "operationId" : "getAgencyById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "d582857a-c323-444f-a819-a4af3244e0b1",
+      "operationId" : "updateAgency",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "d03e05d6-3e0d-4ce3-9604-a03f9fb11311",
+    "name" : "Api",
+    "path" : "/api/v1/agencies",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "3083df2e-a65b-4dd7-bc50-5aa8a3bff000",
+      "operationId" : "getAgencies",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "1ac5ac31-1559-46b0-a45e-f85d0ff75b65",
+      "operationId" : "createAgency",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "f2950cdc-e393-41b4-bc41-be5985befac5",
+    "name" : "Api",
+    "path" : "/api/v1/agencies/{agencyId}/settings",
+    "pathVariables" : [ "agencyId" ],
+    "operations" : [ {
+      "uuid" : "93b9fcfe-b8cc-4036-a53b-1cd57c91397d",
+      "operationId" : "getAgencySettings",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "b9df43b7-3dec-488f-ac30-bfe6142b754a",
+      "operationId" : "updateAgencySettings",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "bf24f207-2a5a-4a5c-bad2-582b53c60686",
+    "name" : "Api",
+    "path" : "/api/v1/agencies/{agencyId}/templates",
+    "pathVariables" : [ "agencyId" ],
+    "operations" : [ {
+      "uuid" : "4ef185f2-f79a-4301-8b66-530acaf7a813",
+      "operationId" : "getMessageTemplates",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "2327b5ad-555b-4d6c-8c38-82844e527b4d",
+      "operationId" : "createMessageTemplate",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "475cf292-92e0-4db5-9eb5-54c88c55109d",
+    "name" : "Api",
+    "path" : "/api/v1/agencies/{agencyId}/templates/{templateId}",
+    "pathVariables" : [ "agencyId", "templateId" ],
+    "operations" : [ {
+      "uuid" : "51002c0e-d93e-4e9c-97da-89a2496627f2",
+      "operationId" : "getMessageTemplateById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "7359899b-6e72-4ad9-a6e0-3a1cc0527aa7",
+      "operationId" : "updateMessageTemplate",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "b5d622ff-d957-47b4-95f5-33ca258bad8c",
+      "operationId" : "deleteMessageTemplate",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "d7eb1a47-7e84-442a-b6a9-34953c4ee8f6",
+    "name" : "Api",
+    "path" : "/api/v1/agencies/{agencyId}/providers",
+    "pathVariables" : [ "agencyId" ],
+    "operations" : [ {
+      "uuid" : "9e30cd77-b915-4924-b022-b4f8fd83e096",
+      "operationId" : "getAgencyProviders",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "95653e91-c1fe-4bbd-a661-105c0f68134e",
+      "operationId" : "addAgencyProvider",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "c36693b0-6e84-4441-a8f4-060dc95bcc48",
+    "name" : "Api",
+    "path" : "/api/v1/agencies/{agencyId}/users",
+    "pathVariables" : [ "agencyId" ],
+    "operations" : [ {
+      "uuid" : "3a1ba4ae-f792-4f34-a4a0-0c61edd4aefb",
+      "operationId" : "getAgencyUsers",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "d715ec81-278c-42d2-8db6-00f142a015c0",
+    "name" : "Api",
+    "path" : "/api/v1/agencies/{agencyId}/users/{userId}",
+    "pathVariables" : [ "agencyId", "userId" ],
+    "operations" : [ {
+      "uuid" : "381c7a2a-4072-4801-ae2e-7b179bbfebc4",
+      "operationId" : "addAgencyUser",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "167952e4-9642-4b03-a59d-0ea3c1c55f2e",
+      "operationId" : "removeAgencyUser",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"AgencyAPI\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/agencies/{agencyId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getAgencyById\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateAgency\"},\"parameters\":[{\"name\":\"agencyId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/agencies\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getAgencies\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createAgency\"}},\"/api/v1/agencies/{agencyId}/settings\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getAgencySettings\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateAgencySettings\"},\"parameters\":[{\"name\":\"agencyId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/agencies/{agencyId}/templates\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getMessageTemplates\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createMessageTemplate\"},\"parameters\":[{\"name\":\"agencyId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/agencies/{agencyId}/templates/{templateId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getMessageTemplateById\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateMessageTemplate\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"deleteMessageTemplate\"},\"parameters\":[{\"name\":\"agencyId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"templateId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/agencies/{agencyId}/providers\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getAgencyProviders\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"addAgencyProvider\"},\"parameters\":[{\"name\":\"agencyId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/agencies/{agencyId}/users\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getAgencyUsers\"},\"parameters\":[{\"name\":\"agencyId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/agencies/{agencyId}/users/{userId}\":{\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"addAgencyUser\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"removeAgencyUser\"},\"parameters\":[{\"name\":\"agencyId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"userId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

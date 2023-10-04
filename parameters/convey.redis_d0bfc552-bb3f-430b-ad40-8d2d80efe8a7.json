@@ -1,0 +1,25 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "uri",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "host",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "d0bfc552-bb3f-430b-ad40-8d2d80efe8a7",
+  "name" : "convey.redis",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:14.903722624",
+  "updatedAt" : "2023-10-04T18:05:14.90372315",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,2827 @@
+{
+  "revision" : 764,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : "7f241362-3b91-47e2-9e92-04cdd38a2422",
+  "currentProfileUuid" : "ae5301ac-5200-4b54-876c-b514515feb02",
+  "parameterGroupUuids" : [ "e1d81a6a-655e-42ff-8288-6b0891abe7b0", "c9a8ecf3-391c-4a06-bdc0-68a1a504fdd9", "3dacce84-b8c8-4759-8bfa-355c8cf6acd6", "c08652a3-d6b0-49e8-8f94-a7b6845afe60", "351ac858-4e6b-4902-9090-0be62c4dc9e0", "ca06b01a-b205-4b2b-9e9d-9f49614e7e94" ],
+  "repoResourceUuids" : [ "2d21c0b9-a829-4420-84e6-67d34aaf6026", "fedc2ba8-c348-4a92-a89c-844badda8f1f", "55882383-5e69-44b0-a3ac-12785e306303", "9fb5f9ac-54fb-4ea4-b9d6-a3f95d92021b", "38657aaf-c7a4-4a04-9321-bb750c2e67b5", "eddb9cf2-828c-4bf6-a038-93128340a0c2", "1872a943-2a9b-4513-8739-06e95090b977", "71e48dda-80e9-4034-af48-cf39a9a10938", "60b1161c-74ee-4cd8-96a1-0055c90271c1", "07e34d9c-7cea-4532-94e6-7da0f6bddeb3", "f50d9293-f6bf-47b6-b21e-4cfda6eee3c4", "e859d27c-054e-489d-96ef-1338b179fde7", "2da24e15-7f09-4927-aee5-851b2f1f1b24", "0d41f9ca-58b0-434f-a68e-5855e59f3249", "17e7ca54-4247-4e9c-ba30-d078e3ac407a", "05649865-0c5a-4bfd-bddb-046f69383940", "a1057428-1531-40a8-a129-ed27382e947f", "3b5aa833-0eaa-4cb9-8ce8-ca97eac74110", "976eeaf6-cc63-4138-be57-f9cdaa24440c", "6ddf29dc-b8f6-4309-bd10-01241b42dc94", "3f9d0555-1f5c-4989-b8cd-1cad0938b9dc" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "postRequest",
+      "nodeId" : "5d8c9e70-8782-462c-816e-8e5e3c901eb7",
+      "description" : "createMagicToken",
+      "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/tokens",
+        "method" : "post",
+        "name" : "postRequest",
+        "operationName" : "createMagicToken",
+        "produces" : "application/json",
+        "requestmethod" : "POST",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/tokens&method=post&operationName=createMagicToken&produces=application/json&requestmethod=POST"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "1baf8deb-ef9f-495a-a4b3-fb4e4814ffe0",
+      "description" : "To String",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "ec86eb05-bedf-4c16-8bf4-df79da211dac",
+      "description" : "Get Request Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "token",
+          "propertyValue" : "$.token",
+          "uuid" : "9979f070-36f5-40f0-9d4f-5ac8fca1cd6e"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "ttl",
+          "propertyValue" : "$.ttl",
+          "uuid" : "20b589c5-6124-4559-bf95-044d015628c2"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "recipientId",
+          "propertyValue" : "$.recipient_id",
+          "uuid" : "158cbb01-6d48-454a-9218-335d8b4a34fa"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "serviceType",
+          "propertyValue" : "$.service_type",
+          "uuid" : "ee5cd95d-8753-4bee-8e75-a6984f3ea630"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "tokenData",
+          "propertyValue" : "$.token_data",
+          "uuid" : "1b2acf8e-8b99-459b-a093-1be69a628a55"
+        }, {
+          "language" : "Header",
+          "propertyName" : "agencyId",
+          "propertyValue" : "x-agency-id",
+          "uuid" : "cdf2fadd-1b87-432a-be86-611d383aa237"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "sendInvite",
+          "propertyValue" : "$.send_invitation",
+          "uuid" : "2a121ebe-0a0c-4fc2-a3a8-c5428231b9f3"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "inviteMessage",
+          "propertyValue" : "$.invitation_message",
+          "uuid" : "f66e35f1-9ba0-4384-b677-a4e5d41d0bc7"
+        }, {
+          "language" : "Header",
+          "propertyName" : "Authorization",
+          "propertyValue" : "Authorization",
+          "uuid" : "d8b81c0d-a027-4bb1-a17d-d4c2dcf228e5"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "conversationId",
+          "propertyValue" : "$.conversation_id",
+          "uuid" : "98cf5f14-76d4-41e2-a0fa-ed5e7d2d5fa3"
+        } ],
+        "suppressExceptions" : true,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?token=$.token&ttl=$.ttl&recipientId=$.recipient_id&serviceType=$.service_type&tokenData=$.token_data&agencyId=x-agency-id&sendInvite=$.send_invitation&inviteMessage=$.invitation_message&Authorization=Authorization&conversationId=$.conversation_id&addNamespaces=false&suppressExceptions=true"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "95afaea3-cd46-4cc3-b6e8-0d75ab3e8b15",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\", \"Authorization\", \"x-*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"Authorization\", \"x-*\")"
+    }, {
+      "name" : "log",
+      "nodeId" : "dc3c1ad4-f22d-44d5-81ef-43468e40b26f",
+      "description" : "205.api.create.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "205.api.create.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.api.create.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "89d15e36-2f27-4c0a-a0bc-6a305d067f68",
+      "description" : "Validate",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "messageFilter",
+          "nodeId" : "653fab62-3ee5-415a-9315-d62619b50e04",
+          "description" : "token not provided",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "filter",
+            "label" : "filter",
+            "route" : [ {
+              "name" : "process",
+              "nodeId" : "8f398296-6672-44aa-9747-d1917d6af688",
+              "description" : "Generate Token",
+              "properties" : {
+                "_type" : "process",
+                "active" : true,
+                "camelGroup" : "transform",
+                "code" : "CamelContext context = exchange.getContext();\nProducerTemplate t = context.createProducerTemplate();\n\nint tokenLength = 8;\nString tokenChars = \"abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\nString randomToken = \"\";\nString token = null;\n\nSystem.out.println(\"Looping...\");\nwhile (token == null) {\n\tfor (int i = 0; i < tokenLength; i++) {\n\t\trandomToken += tokenChars.charAt((int)Math.floor(Math.random() * tokenChars.length()));\n\t}\n\n\texchange.getIn().setBody(randomToken);\n\tExchange outExchange = t.send(\"direct:sql-check-token\", exchange);\n\t\n\tInteger rowCount = outExchange.getIn().getHeader(\"CamelSqlRowCount\");\n\tif (rowCount == null || rowCount == 0)\n\t\ttoken = randomToken;\n}\n\nexchange.setProperty(\"token\", token);",
+                "import" : "import java.lang.*;\nimport org.apache.camel.CamelContext;\nimport org.apache.camel.ProducerTemplate;",
+                "name" : "process",
+                "url" : ""
+              },
+              "_type" : "process",
+              "kameletPropertiesUrl" : "?code=CamelContext context = exchange.getContext();\nProducerTemplate t = context.createProducerTemplate();\n\nint tokenLength = 8;\nString tokenChars = \"abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\nString randomToken = \"\";\nString token = null;\n\nSystem.out.println(\"Looping...\");\nwhile (token == null) {\n\tfor (int i = 0; i < tokenLength; i++) {\n\t\trandomToken += tokenChars.charAt((int)Math.floor(Math.random() * tokenChars.length()));\n\t}\n\n\texchange.getIn().setBody(randomToken);\n\tExchange outExchange = t.send(\"direct:sql-check-token\", exchange);\n\t\n\tInteger rowCount = outExchange.getIn().getHeader(\"CamelSqlRowCount\");\n\tif (rowCount == null || rowCount == 0)\n\t\ttoken = randomToken;\n}\n\nexchange.setProperty(\"token\", token);&import=import java.lang.*;\nimport org.apache.camel.CamelContext;\nimport org.apache.camel.ProducerTemplate;"
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${exchangeProperty.token} == null",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          }, {
+            "type" : "route",
+            "label" : "route",
+            "route" : [ {
+              "name" : "process",
+              "nodeId" : "98fe5d80-4f2b-4e44-b123-a695b9c199f8",
+              "description" : "Set TTL",
+              "properties" : {
+                "_type" : "process",
+                "active" : true,
+                "camelGroup" : "transform",
+                "code" : "long ttl = 2700;\ntry {\n\t ttl = (long)exchange.getProperty(\"ttl\");\n} catch (Exception e) {}\n\n\nInstant instant = Instant.now();\nInstant plusTTL = instant.plusSeconds( ttl );\n\nString expiresAt = plusTTL.toString();\nexchange.setProperty(\"expiresAt\", expiresAt);\n\nString saltChars = \"abcdefghijklmnopqrstuvwxyz1234567890\";\nStringBuilder salt = new StringBuilder();\nRandom rnd = new Random();\n\nwhile (salt.length() < 18) { \n\tint index = (int) (rnd.nextFloat() * saltChars.length());\n\tsalt.append(saltChars.charAt(index));\n}\n\nSystem.out.println((String)exchange.getProperty(\"conversationId\"));\n// Leave below line commented to use JWT, else generate random access token\n// exchange.setProperty(\"accessToken\", salt.toString());",
+                "import" : "import java.time.*;\nimport java.util.concurrent.TimeUnit;",
+                "name" : "process",
+                "url" : ""
+              },
+              "_type" : "process",
+              "kameletPropertiesUrl" : "?code=long ttl = 2700;\ntry {\n\t ttl = (long)exchange.getProperty(\"ttl\");\n} catch (Exception e) {}\n\n\nInstant instant = Instant.now();\nInstant plusTTL = instant.plusSeconds( ttl );\n\nString expiresAt = plusTTL.toString();\nexchange.setProperty(\"expiresAt\", expiresAt);\n\nString saltChars = \"abcdefghijklmnopqrstuvwxyz1234567890\";\nStringBuilder salt = new StringBuilder();\nRandom rnd = new Random();\n\nwhile (salt.length() < 18) { \n\tint index = (int) (rnd.nextFloat() * saltChars.length());\n\tsalt.append(saltChars.charAt(index));\n}\n\nSystem.out.println((String)exchange.getProperty(\"conversationId\"));\n// Leave below line commented to use JWT, else generate random access token\n// exchange.setProperty(\"accessToken\", salt.toString());&import=import java.time.*;\nimport java.util.concurrent.TimeUnit;"
+            }, {
+              "name" : "dslProcessor",
+              "nodeId" : "4fb2ef3d-97ef-45ab-bdb2-44b2802efec6",
+              "description" : "SQL Create Token",
+              "properties" : {
+                "_type" : "dslProcessor",
+                "active" : true,
+                "camelGroup" : "core",
+                "dsl" : ".to(\"sql:classpath:tokens.insert.sql?dataSource=#dsPostgres\")",
+                "name" : "dslProcessor",
+                "url" : ""
+              },
+              "_type" : "dslProcessor",
+              "kameletPropertiesUrl" : "?dsl=.to(\"sql:classpath:tokens.insert.sql?dataSource=#dsPostgres\")"
+            }, {
+              "name" : "setHeaders",
+              "nodeId" : "60b7013e-7fbf-4885-afc0-302dd90f4e08",
+              "description" : "Set Lookup Token",
+              "properties" : {
+                "_type" : "setHeaders",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "headerList" : [ {
+                  "headerName" : "token",
+                  "headerValue" : "${exchangeProperty.token}",
+                  "language" : "Simple",
+                  "uuid" : "a89525f9-9890-4622-b149-0765487a2c59"
+                }, {
+                  "headerName" : "x-access-token",
+                  "headerValue" : "${exchangeProperty.accessToken}",
+                  "language" : "Simple",
+                  "uuid" : "bffa5aee-de8d-47a3-9e6b-0b77ce2d84a4"
+                } ],
+                "name" : "setHeaders",
+                "namespaces" : [ ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setHeaders",
+              "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+            }, {
+              "name" : "dslProcessor",
+              "nodeId" : "0a5bcd33-cbb6-4749-b680-197b92d55b23",
+              "description" : "to:getMagicToken",
+              "properties" : {
+                "_type" : "dslProcessor",
+                "active" : true,
+                "camelGroup" : "core",
+                "dsl" : ".to('direct:getMagicToken')",
+                "name" : "dslProcessor",
+                "url" : ""
+              },
+              "_type" : "dslProcessor",
+              "kameletPropertiesUrl" : "?dsl=.to('direct:getMagicToken')"
+            }, {
+              "name" : "setBody",
+              "nodeId" : "3a418663-8470-4cec-a6e9-89e6a7afed75",
+              "description" : "Get Response",
+              "properties" : {
+                "_type" : "setBody",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "expression" : "$.data",
+                "language" : "JsonPath",
+                "name" : "setBody",
+                "namespaces" : [ ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setBody",
+              "kameletPropertiesUrl" : "?addNamespaces=false&expression=$.data&language=JsonPath&suppressExceptions=false"
+            }, {
+              "name" : "dslProcessor",
+              "nodeId" : "4fd777ba-7aeb-42fc-bc44-93841a04a465",
+              "description" : "Render Response",
+              "properties" : {
+                "_type" : "dslProcessor",
+                "active" : true,
+                "camelGroup" : "core",
+                "dsl" : ".setProperty('x-operation-id').constant('createMagicToken').setHeader('CamelHttpResponseCode').constant('201')\n\t.bean(\"renderResponse\")",
+                "name" : "dslProcessor",
+                "url" : ""
+              },
+              "_type" : "dslProcessor",
+              "kameletPropertiesUrl" : "?dsl=.setProperty('x-operation-id').constant('createMagicToken').setHeader('CamelHttpResponseCode').constant('201')\n\t.bean(\"renderResponse\")"
+            }, {
+              "name" : "seda",
+              "nodeId" : "44994928-1727-40bd-8dc6-74d2fc4157a6",
+              "description" : "publish-event",
+              "properties" : {
+                "_type" : "seda",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "blockWhenFull" : false,
+                "camelGroup" : "core",
+                "concurrentConsumers" : "1",
+                "endpointName" : "publish-event",
+                "limitConcurrentConsumers" : true,
+                "multipleConsumers" : false,
+                "name" : "seda",
+                "pollTimeout" : "1000",
+                "size" : "1000",
+                "specifyMaximumCapacitySize" : false,
+                "timeout" : "30000",
+                "toDynamicEndpoint" : false,
+                "url" : "",
+                "waitForTaskToComplete" : "Never"
+              },
+              "_type" : "seda",
+              "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=publish-event&limitConcurrentConsumers=true&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=Never"
+            }, {
+              "name" : "messageFilter",
+              "nodeId" : "9467d51c-3f81-475b-a7a6-e77d06caf0e3",
+              "description" : "",
+              "properties" : {
+                "_type" : "messageFilter",
+                "active" : true,
+                "camelGroup" : "routing",
+                "name" : "messageFilter",
+                "url" : ""
+              },
+              "_type" : "messageFilter",
+              "branches" : [ {
+                "type" : "route",
+                "label" : "route",
+                "route" : [ {
+                  "name" : "log",
+                  "nodeId" : "8d9ee087-747a-4974-ac5d-1f6a71b49a33",
+                  "description" : "205.api.create.out",
+                  "properties" : {
+                    "_type" : "log",
+                    "active" : true,
+                    "advancedParameters" : [ ],
+                    "camelGroup" : "component",
+                    "level" : "INFO",
+                    "logType" : "EIP",
+                    "loggerName" : "205.api.create.out",
+                    "message" : "(${header.CamelHttpResponseCode}) ${body}",
+                    "multiline" : false,
+                    "name" : "log",
+                    "showAll" : false,
+                    "showBody" : true,
+                    "showBodyType" : true,
+                    "showCaughtException" : false,
+                    "showExchangeId" : false,
+                    "showHeaders" : false,
+                    "showProperties" : false,
+                    "showStackTrace" : false,
+                    "toDynamicEndpoint" : false,
+                    "url" : ""
+                  },
+                  "_type" : "log",
+                  "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.api.create.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+                } ],
+                "properties" : { }
+              }, {
+                "type" : "filter",
+                "label" : "filter",
+                "route" : [ {
+                  "name" : "seda",
+                  "nodeId" : "3364ca09-73c9-4b88-9e79-1b7a1bdf4f04",
+                  "description" : "send-invitation",
+                  "properties" : {
+                    "_type" : "seda",
+                    "active" : true,
+                    "advancedParameters" : [ ],
+                    "blockWhenFull" : false,
+                    "camelGroup" : "core",
+                    "concurrentConsumers" : "1",
+                    "endpointName" : "send-invitation",
+                    "limitConcurrentConsumers" : true,
+                    "multipleConsumers" : false,
+                    "name" : "seda",
+                    "pollTimeout" : "1000",
+                    "size" : "1000",
+                    "specifyMaximumCapacitySize" : false,
+                    "timeout" : "30000",
+                    "toDynamicEndpoint" : false,
+                    "url" : "",
+                    "waitForTaskToComplete" : "Never"
+                  },
+                  "_type" : "seda",
+                  "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=send-invitation&limitConcurrentConsumers=true&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=Never"
+                } ],
+                "properties" : {
+                  "addNamespaces" : "false",
+                  "condition" : "${exchangeProperty.sendInvite} == true",
+                  "language" : "Simple",
+                  "namespaces" : [ ],
+                  "suppressExceptions" : "false"
+                }
+              } ],
+              "kameletPropertiesUrl" : ""
+            } ],
+            "properties" : { }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      }, {
+        "type" : "filter",
+        "label" : "conversationId?",
+        "route" : [ {
+          "name" : "messagingEndpoint",
+          "nodeId" : "93384fdd-2e13-49b7-b71f-7dbded2f06de",
+          "description" : "SQL Get Conversation",
+          "properties" : {
+            "_type" : "messagingEndpoint",
+            "active" : true,
+            "camelGroup" : "core",
+            "name" : "messagingEndpoint",
+            "toDynamicEndpoint" : false,
+            "uri" : "sql:SELECT id FROM conversations WHERE id = CAST(:#${exchangeProperty.conversationId} AS uuid) AND agency_id = CAST(:#${exchangeProperty.agencyId} AS uuid) AND status = \\'active\\' LIMIT 1?dataSource=#dsPostgres&OutputType=SelectOne",
+            "url" : ""
+          },
+          "_type" : "messagingEndpoint",
+          "kameletPropertiesUrl" : "?uri=sql:SELECT id FROM conversations WHERE id = CAST(:#${exchangeProperty.conversationId} AS uuid) AND agency_id = CAST(:#${exchangeProperty.agencyId} AS uuid) AND status = \\'active\\' LIMIT 1?dataSource=#dsPostgres&OutputType=SelectOne"
+        }, {
+          "name" : "messageFilter",
+          "nodeId" : "b3530e29-dc83-415f-8493-d6ef14adad4c",
+          "description" : "Valid Convo?",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "filter",
+            "label" : "RowCount == 0",
+            "route" : [ {
+              "name" : "setProperties",
+              "nodeId" : "57b872a1-c50d-4a61-a8da-50f8d8dedddb",
+              "description" : "Set Error",
+              "properties" : {
+                "_type" : "setProperties",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "name" : "setProperties",
+                "namespaces" : [ ],
+                "propertyList" : [ {
+                  "language" : "Constant",
+                  "propertyName" : "error",
+                  "propertyValue" : "Invalid conversation specified. Can't generate magic token for inactive or invalid conversation.",
+                  "uuid" : "bfb69402-576d-42c1-a787-9cbd35e9505f"
+                }, {
+                  "language" : "Constant",
+                  "propertyName" : "CamelHttpResponseCode",
+                  "propertyValue" : "400",
+                  "uuid" : "14b8d869-054e-4ba2-9e50-4ce0148162b6"
+                } ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setProperties",
+              "kameletPropertiesUrl" : "?error=Invalid conversation specified. Can't generate magic token for inactive or invalid conversation.&CamelHttpResponseCode=400&addNamespaces=false&suppressExceptions=false"
+            }, {
+              "name" : "dslProcessor",
+              "nodeId" : "ffe23949-8e00-4d4f-85fc-a405be2c531b",
+              "description" : "Render Response",
+              "properties" : {
+                "_type" : "dslProcessor",
+                "active" : true,
+                "camelGroup" : "core",
+                "dsl" : ".bean('renderResponse')",
+                "name" : "dslProcessor",
+                "url" : ""
+              },
+              "_type" : "dslProcessor",
+              "kameletPropertiesUrl" : "?dsl=.bean('renderResponse')"
+            }, {
+              "name" : "log",
+              "nodeId" : "a8b089ff-5747-44d4-806f-32178dbc4b7c",
+              "description" : "205.api.create.400",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "205.api.create.400",
+                "message" : "(${header.CamelHttpResponseCode}) ${body}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.api.create.400&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            }, {
+              "name" : "stop",
+              "nodeId" : "0393a8ef-b859-4222-a101-d29c1a70e0be",
+              "description" : "",
+              "properties" : {
+                "_type" : "stop",
+                "camelGroup" : "misc",
+                "name" : "stop",
+                "url" : ""
+              },
+              "_type" : "stop",
+              "kameletPropertiesUrl" : ""
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${header.CamelSqlRowCount} == 0",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.conversationId} != null",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-3",
+    "enabled" : true,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "ded11d32-6c4f-4977-9d2e-c48128a2937b",
+      "description" : "sql-check-token",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "sql-check-token",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=sql-check-token"
+    }, {
+      "name" : "messagingEndpoint",
+      "nodeId" : "a8084ae6-7071-43b1-8a86-8e8cfefcf4c2",
+      "description" : "SQL Check Token",
+      "properties" : {
+        "_type" : "messagingEndpoint",
+        "active" : true,
+        "camelGroup" : "core",
+        "name" : "messagingEndpoint",
+        "toDynamicEndpoint" : false,
+        "uri" : "sql:SELECT id FROM tokens WHERE token = :#${body}?dataSource=#dsPostgres&OutputType=SelectOne",
+        "url" : ""
+      },
+      "_type" : "messagingEndpoint",
+      "kameletPropertiesUrl" : "?uri=sql:SELECT id FROM tokens WHERE token = :#${body}?dataSource=#dsPostgres&OutputType=SelectOne"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-4",
+    "enabled" : true,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "getRequest",
+      "nodeId" : "e82e3870-3e2d-43e4-b385-4363bbbc9504",
+      "description" : "getMagicToken",
+      "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/tokens/{token}",
+        "method" : "get",
+        "name" : "getRequest",
+        "operationName" : "getMagicToken",
+        "produces" : "application/json",
+        "requestmethod" : "GET",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/tokens/{token}&method=get&operationName=getMagicToken&produces=application/json&requestmethod=GET"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "ed851301-5a5c-435f-b041-d67988843bcf",
+      "description" : "Set Operation ID",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "x-operation-id",
+          "headerValue" : "getMagicToken",
+          "language" : "Constant",
+          "uuid" : "7781b654-6752-4081-b41b-72c30a36ffe5"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "9bbe60da-e481-4470-9e48-a77079acfc63",
+      "description" : "Validate Request",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to(\"bean:validateRequest\")\n.filter().simple('${header.CamelHttpResponseCode} >= 400')\n\t.bean('renderResponse')\n  .log(LoggingLevel.WARN, 'log', '${header.CamelHttpResponseCode} ${body}')\t\n        .stop()\n    .end()",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to(\"bean:validateRequest\")\n.filter().simple('${header.CamelHttpResponseCode} >= 400')\n\t.bean('renderResponse')\n  .log(LoggingLevel.WARN, 'log', '${header.CamelHttpResponseCode} ${body}')\t\n        .stop()\n    .end()"
+    }, {
+      "name" : "log",
+      "nodeId" : "33203836-53f0-4e8b-b6c5-315b2b734568",
+      "description" : "205.api.get.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "205.api.get.in",
+        "message" : "GET ${header.CamelHttpPath} ",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.api.get.in&message=GET ${header.CamelHttpPath} &multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "27451653-6c5d-45bc-a30b-47d80748825e",
+      "description" : "Get Request Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Header",
+          "propertyName" : "token",
+          "propertyValue" : "token",
+          "uuid" : "21f87863-408f-42d9-a0b8-c70d4bd4ad25"
+        }, {
+          "language" : "Header",
+          "propertyName" : "agencyId",
+          "propertyValue" : "x-agency-id",
+          "uuid" : "dc4dad43-48e1-4d19-b3f0-63962963e75e"
+        }, {
+          "language" : "Header",
+          "propertyName" : "x-operation-id",
+          "propertyValue" : "x-operation-id",
+          "uuid" : "8fd217ec-258a-4bdc-9504-3a4d851795d3"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "hostUrl",
+          "propertyValue" : "{{convey.web.hostname}}",
+          "uuid" : "824459ca-a7b0-4834-ba21-ac11efe9ff6c"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?token=token&agencyId=x-agency-id&x-operation-id=x-operation-id&hostUrl={{convey.web.hostname}}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "052c1869-f092-4ca7-a15f-ec14be1f857e",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\", \"x-*\", \"Authorization\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"x-*\", \"Authorization\")"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "2315221c-3929-4308-8d84-47063658e317",
+      "description" : "SQL Get Token",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to(\"velocity:tokens.select.sql.vm?allowContextMapAll=true\")\n\t.log(LoggingLevel.INFO, 'log', '${body}')\n        \t.to(\"sql:query?dataSource=#dsPostgres&OutputType=SelectOne&useMessageBodyForSql=true\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to(\"velocity:tokens.select.sql.vm?allowContextMapAll=true\")\n\t.log(LoggingLevel.INFO, 'log', '${body}')\n        \t.to(\"sql:query?dataSource=#dsPostgres&OutputType=SelectOne&useMessageBodyForSql=true\")"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "ea7ed190-9f30-4a66-959a-3db6aa27b2d2",
+      "description" : "Set Token Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Simple",
+          "propertyName" : "serviceType",
+          "propertyValue" : "${body[service_type]}",
+          "uuid" : "c89d6dab-f025-4e80-b4d4-3421829cb54c"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "magicToken",
+          "propertyValue" : "${body}",
+          "uuid" : "a211f43e-895c-4d28-8b97-98c8ec23fe4b"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?serviceType=${body[service_type]}&magicToken=${body}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "messageRouter",
+      "nodeId" : "9dec36f4-c18d-4216-8544-a3cde2eb136d",
+      "description" : "RowCount == 1",
+      "properties" : {
+        "_type" : "messageRouter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageRouter",
+        "url" : ""
+      },
+      "_type" : "messageRouter",
+      "branches" : [ {
+        "type" : "when",
+        "label" : "!rowcount",
+        "route" : [ {
+          "name" : "setHeaders",
+          "nodeId" : "a2cbf529-681c-4015-99e7-50aef7fba8a4",
+          "description" : "HTTP 404",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "404",
+              "language" : "Constant",
+              "uuid" : "2f78fc42-7961-4ae0-b096-d693746cef21"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "setBody",
+          "nodeId" : "b9118cc5-5e15-4d61-b284-4f0f2f2bbf78",
+          "description" : "Clear Body",
+          "properties" : {
+            "_type" : "setBody",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "expression" : "constant('')",
+            "language" : "GroovyDsl",
+            "name" : "setBody",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setBody",
+          "kameletPropertiesUrl" : "?addNamespaces=false&expression=constant('')&language=GroovyDsl&suppressExceptions=false"
+        }, {
+          "name" : "stop",
+          "nodeId" : "d1edb2dd-3762-4209-bcec-17828c55c9a2",
+          "description" : "",
+          "properties" : {
+            "_type" : "stop",
+            "camelGroup" : "misc",
+            "name" : "stop",
+            "url" : ""
+          },
+          "_type" : "stop",
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${header.CamelSqlRowCount} == 0",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "otherwise",
+        "label" : "rowcount==1",
+        "route" : [ {
+          "name" : "messageFilter",
+          "nodeId" : "087ae4fb-ce88-424b-803e-0d812584900a",
+          "description" : "",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "route",
+            "label" : "route",
+            "route" : [ {
+              "name" : "process",
+              "nodeId" : "92ca6b0b-7d26-4b44-814e-21687db2371d",
+              "description" : "Format JSON Response",
+              "properties" : {
+                "_type" : "process",
+                "active" : true,
+                "camelGroup" : "transform",
+                "code" : "ObjectMapper mapper = new ObjectMapper();\n\nString hostUrl = exchange.getProperty(\"hostUrl\");\nHashMap<String, Object> token = (HashMap)exchange.getProperty(\"magicToken\");\nString tokenStr = (String)token.get(\"token\");\n\nif (token.get(\"token_data\") != null && !String.valueOf(token.get(\"token_data\")).trim().equals(\"\"))\n\ttoken.put(\"token_data\", mapper.readValue((String)token.get(\"token_data\"), HashMap.class));\n\ntoken.put(\"token_url\", \"https://\" + hostUrl + \"/t/\" + tokenStr);\n\nexchange.getIn().setBody(token);",
+                "import" : "import com.fasterxml.jackson.databind.ObjectMapper;\n",
+                "name" : "process",
+                "url" : ""
+              },
+              "_type" : "process",
+              "kameletPropertiesUrl" : "?code=ObjectMapper mapper = new ObjectMapper();\n\nString hostUrl = exchange.getProperty(\"hostUrl\");\nHashMap<String, Object> token = (HashMap)exchange.getProperty(\"magicToken\");\nString tokenStr = (String)token.get(\"token\");\n\nif (token.get(\"token_data\") != null && !String.valueOf(token.get(\"token_data\")).trim().equals(\"\"))\n\ttoken.put(\"token_data\", mapper.readValue((String)token.get(\"token_data\"), HashMap.class));\n\ntoken.put(\"token_url\", \"https://\" + hostUrl + \"/t/\" + tokenStr);\n\nexchange.getIn().setBody(token);&import=import com.fasterxml.jackson.databind.ObjectMapper;\n"
+            }, {
+              "name" : "setHeaders",
+              "nodeId" : "a72cd0a3-340b-4685-b3b3-6a489fcb8448",
+              "description" : "HTTP 200",
+              "properties" : {
+                "_type" : "setHeaders",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "headerList" : [ {
+                  "headerName" : "CamelHttpResponseCode",
+                  "headerValue" : "200",
+                  "language" : "Constant",
+                  "uuid" : "fc49af73-8b2e-4eac-bdb4-05b3eb931a24"
+                } ],
+                "name" : "setHeaders",
+                "namespaces" : [ ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setHeaders",
+              "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+            } ],
+            "properties" : { }
+          }, {
+            "type" : "filter",
+            "label" : "access_token==null",
+            "route" : [ {
+              "name" : "process",
+              "nodeId" : "53bb658f-f020-41d1-a50e-a0fbcc361ecb",
+              "description" : "Get Token Scope",
+              "properties" : {
+                "_type" : "process",
+                "active" : true,
+                "camelGroup" : "transform",
+                "code" : "URL specURL;\nOpenApi3 openApi;\n\nString operationId = (String)exchange.getProperty(\"serviceType\");\n\ntry {\n\t\tspecURL = getContext().getClassResolver().loadResourceAsURL(\"yakrcl-openapi.json\");\n\t\topenApi = new OpenApi3Parser().parse(specURL, false);\n\n\t\t// Load the security requirements for the service being authorized in the token\n\t\tOperation operation = openApi.getOperationById(operationId);\n\t\tList<SecurityRequirement> securityRequirements = operation.getSecurityRequirements();\n\t\n\t\tfor (int i = 0; i < securityRequirements.size(); i++) {\n\t\t\tSecurityRequirement securityRequirement = securityRequirements.get(i);\n\t\t\tMap<String, List<String>> securityScheme = securityRequirement.getRequirements();\n\t\t\t\n\t\t\t// Set the scopes to be requested with the JWT\n\t\t\texchange.getIn().setHeader(\"x-requested-scopes\", String.join(\" \", securityScheme.get(\"oauth2-client-credentials-scheme\")));\n\t\t}\n} catch (Exception e) {\n\t\tSystem.out.format(\"Error parsing API contract for response: %s\", e);\n}\n\nexchange.getIn().setBody(\"\");",
+                "import" : "import org.apache.camel.CamelContext;\nimport org.apache.camel.ProducerTemplate;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\n\nimport org.openapi4j.parser.*;\nimport org.openapi4j.parser.model.v3.OpenApi3;\nimport org.openapi4j.parser.model.v3.Operation;\nimport org.openapi4j.parser.model.v3.SecurityRequirement;\nimport org.openapi4j.parser.model.v3.Schema;\nimport java.net.URL;\nimport java.util.Map;\nimport java.util.HashMap;\nimport java.util.ArrayList;",
+                "name" : "process",
+                "url" : ""
+              },
+              "_type" : "process",
+              "kameletPropertiesUrl" : "?code=URL specURL;\nOpenApi3 openApi;\n\nString operationId = (String)exchange.getProperty(\"serviceType\");\n\ntry {\n\t\tspecURL = getContext().getClassResolver().loadResourceAsURL(\"yakrcl-openapi.json\");\n\t\topenApi = new OpenApi3Parser().parse(specURL, false);\n\n\t\t// Load the security requirements for the service being authorized in the token\n\t\tOperation operation = openApi.getOperationById(operationId);\n\t\tList<SecurityRequirement> securityRequirements = operation.getSecurityRequirements();\n\t\n\t\tfor (int i = 0; i < securityRequirements.size(); i++) {\n\t\t\tSecurityRequirement securityRequirement = securityRequirements.get(i);\n\t\t\tMap<String, List<String>> securityScheme = securityRequirement.getRequirements();\n\t\t\t\n\t\t\t// Set the scopes to be requested with the JWT\n\t\t\texchange.getIn().setHeader(\"x-requested-scopes\", String.join(\" \", securityScheme.get(\"oauth2-client-credentials-scheme\")));\n\t\t}\n} catch (Exception e) {\n\t\tSystem.out.format(\"Error parsing API contract for response: %s\", e);\n}\n\nexchange.getIn().setBody(\"\");&import=import org.apache.camel.CamelContext;\nimport org.apache.camel.ProducerTemplate;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\n\nimport org.openapi4j.parser.*;\nimport org.openapi4j.parser.model.v3.OpenApi3;\nimport org.openapi4j.parser.model.v3.Operation;\nimport org.openapi4j.parser.model.v3.SecurityRequirement;\nimport org.openapi4j.parser.model.v3.Schema;\nimport java.net.URL;\nimport java.util.Map;\nimport java.util.HashMap;\nimport java.util.ArrayList;"
+            }, {
+              "name" : "log",
+              "nodeId" : "e8010512-45ba-46ad-b8b1-ac60e434e3eb",
+              "description" : "get.tok.in",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "205.api.get.tok.in",
+                "message" : "Requesting token with scopes ${header.x-requested-scopes}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.api.get.tok.in&message=Requesting token with scopes ${header.x-requested-scopes}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            }, {
+              "name" : "exchangePattern",
+              "nodeId" : "a6e48e10-108e-4f87-9059-cfd17d97bce0",
+              "description" : "InOut",
+              "properties" : {
+                "_type" : "exchangePattern",
+                "active" : true,
+                "camelGroup" : "core",
+                "exchangePattern" : "InOut",
+                "name" : "exchangePattern",
+                "url" : ""
+              },
+              "_type" : "exchangePattern",
+              "kameletPropertiesUrl" : "?exchangePattern=InOut"
+            }, {
+              "name" : "jms",
+              "nodeId" : "1f8e881c-18b4-4446-9169-18f06a22ca4f",
+              "description" : "auth0.manager.tokens",
+              "properties" : {
+                "_type" : "jms",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "asyncConsumer" : false,
+                "camelGroup" : "component",
+                "concurrentConsumers" : "1",
+                "connectionFactory" : "#pooledConnectionFactory",
+                "destinationName" : "auth0.manager.tokens",
+                "destinationType" : "queue",
+                "exchangePattern" : "InOnly",
+                "name" : "jms",
+                "setConnectionFactory" : true,
+                "toDynamicEndpoint" : false,
+                "transacted" : false,
+                "url" : ""
+              },
+              "_type" : "jms",
+              "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=auth0.manager.tokens&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+            }, {
+              "name" : "messageFilter",
+              "nodeId" : "2d07a5e4-cb1f-42d4-9ce5-488cb369b9e2",
+              "description" : "x-access-token?",
+              "properties" : {
+                "_type" : "messageFilter",
+                "active" : true,
+                "camelGroup" : "routing",
+                "name" : "messageFilter",
+                "url" : ""
+              },
+              "_type" : "messageFilter",
+              "branches" : [ {
+                "type" : "filter",
+                "label" : "filter",
+                "route" : [ {
+                  "name" : "process",
+                  "nodeId" : "d6c39e0a-2281-48e7-ba69-615d74ad3921",
+                  "description" : "Set Access Token",
+                  "properties" : {
+                    "_type" : "process",
+                    "active" : true,
+                    "camelGroup" : "transform",
+                    "code" : "HashMap<String, Object> magicToken = (HashMap)exchange.getProperty(\"magicToken\");\nString jwt = (String)exchange.getIn().getHeader(\"x-access-token\");\n\nmagicToken.put(\"access_token\", jwt);\nexchange.setProperty(\"magicToken\", magicToken);\nexchange.setProperty(\"jwtAccessToken\", jwt);",
+                    "import" : "import com.fasterxml.jackson.databind.ObjectMapper;\n",
+                    "name" : "process",
+                    "url" : ""
+                  },
+                  "_type" : "process",
+                  "kameletPropertiesUrl" : "?code=HashMap<String, Object> magicToken = (HashMap)exchange.getProperty(\"magicToken\");\nString jwt = (String)exchange.getIn().getHeader(\"x-access-token\");\n\nmagicToken.put(\"access_token\", jwt);\nexchange.setProperty(\"magicToken\", magicToken);\nexchange.setProperty(\"jwtAccessToken\", jwt);&import=import com.fasterxml.jackson.databind.ObjectMapper;\n"
+                }, {
+                  "name" : "messagingEndpoint",
+                  "nodeId" : "d96d203d-82c4-453d-b531-0885385a459e",
+                  "description" : "SQL Update Token JWT",
+                  "properties" : {
+                    "_type" : "messagingEndpoint",
+                    "active" : true,
+                    "camelGroup" : "core",
+                    "name" : "messagingEndpoint",
+                    "toDynamicEndpoint" : false,
+                    "uri" : "sql:UPDATE tokens SET access_token = :#${exchangeProperty.jwtAccessToken}, updated_at = NOW() WHERE token = :#${exchangeProperty.token}?dataSource=#dsPostgres",
+                    "url" : ""
+                  },
+                  "_type" : "messagingEndpoint",
+                  "kameletPropertiesUrl" : "?uri=sql:UPDATE tokens SET access_token = :#${exchangeProperty.jwtAccessToken}, updated_at = NOW() WHERE token = :#${exchangeProperty.token}?dataSource=#dsPostgres"
+                } ],
+                "properties" : {
+                  "addNamespaces" : "false",
+                  "condition" : "${header.x-access-token} != null",
+                  "language" : "Simple",
+                  "namespaces" : [ ],
+                  "suppressExceptions" : "false"
+                }
+              } ],
+              "kameletPropertiesUrl" : ""
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${body[access_token]} == null && ${header.x-authorized} == null",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      }, {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "dslProcessor",
+          "nodeId" : "d6c42496-4be7-4b8f-a08a-6650591594a1",
+          "description" : "Render Response",
+          "properties" : {
+            "_type" : "dslProcessor",
+            "active" : true,
+            "camelGroup" : "core",
+            "dsl" : ".bean(\"renderResponse\")",
+            "name" : "dslProcessor",
+            "url" : ""
+          },
+          "_type" : "dslProcessor",
+          "kameletPropertiesUrl" : "?dsl=.bean(\"renderResponse\")"
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-6",
+    "enabled" : true,
+    "routeId" : 4,
+    "route" : [ {
+      "name" : "putRequest",
+      "nodeId" : "86319d39-64da-4bed-ac25-146cb7c23ff3",
+      "description" : "fulfillMagicToken",
+      "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/tokens/{token}",
+        "method" : "put",
+        "name" : "putRequest",
+        "operationName" : "fulfillMagicToken",
+        "produces" : "application/json",
+        "requestmethod" : "PUT",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/tokens/{token}&method=put&operationName=fulfillMagicToken&produces=application/json&requestmethod=PUT"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "c16ca345-8568-42f6-8356-a6c77b9eaafa",
+      "description" : "To String",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "19011335-af1b-4826-acdc-63ea5071e248",
+      "description" : "Validate JWT",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".bean('validateJwt')\n.filter().simple('${exchangeProperty.jwtAuth} != true')\n\t\n            .stop()\n        .end()",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.bean('validateJwt')\n.filter().simple('${exchangeProperty.jwtAuth} != true')\n\t\n            .stop()\n        .end()"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "05c58e39-bb8c-4165-b596-33b9531f2219",
+      "description" : "Set Operation ID",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : false,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "x-operation-id",
+          "headerValue" : "fulfillMagicToken",
+          "language" : "Constant",
+          "uuid" : "73883eea-6580-4b56-92af-c8d37f45b735"
+        }, {
+          "headerName" : "x-authorized",
+          "headerValue" : "true",
+          "language" : "Simple",
+          "uuid" : "7898e29e-927c-4071-b99d-21063880ea4f"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "09086879-51a6-4ab4-a47c-3bd9cc0d4923",
+      "description" : "Validate Request",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to(\"bean:validateRequest\")\n.filter().simple('${header.CamelHttpResponseCode} >= 400')\n\t.bean('renderResponse')\n  .log(LoggingLevel.WARN, 'log', '${header.CamelHttpResponseCode} ${body}')\t\n        .stop()\n    .end()",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to(\"bean:validateRequest\")\n.filter().simple('${header.CamelHttpResponseCode} >= 400')\n\t.bean('renderResponse')\n  .log(LoggingLevel.WARN, 'log', '${header.CamelHttpResponseCode} ${body}')\t\n        .stop()\n    .end()"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "241a405e-7ac0-42f1-a990-9dcbc0b38f72",
+      "description" : "Set Request Props",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Simple",
+          "propertyName" : "tokenRequest",
+          "propertyValue" : "${body}",
+          "uuid" : "0c19a5ea-11e0-45d6-a7a0-e705e6688e6e"
+        }, {
+          "language" : "Header",
+          "propertyName" : "token",
+          "propertyValue" : "token",
+          "uuid" : "1e237865-f8d4-4388-92a6-ed1462b9c160"
+        }, {
+          "language" : "Header",
+          "propertyName" : "x-operation-id",
+          "propertyValue" : "x-operation-id",
+          "uuid" : "e23da0de-06fe-4dfc-bad4-a076719aec6f"
+        }, {
+          "language" : "Header",
+          "propertyName" : "xAccessToken",
+          "propertyValue" : "Authorization",
+          "uuid" : "cb661676-8a91-43c0-86a4-cc7395d4ec81"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?tokenRequest=${body}&token=token&x-operation-id=x-operation-id&xAccessToken=Authorization&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "ae267ecf-848b-4a1a-ae78-4f99caf21262",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\", \"x-*\", \"Authorization\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"x-*\", \"Authorization\")"
+    }, {
+      "name" : "log",
+      "nodeId" : "dd742cb5-7778-496a-90ea-65bab34ab10f",
+      "description" : "205.api.fulfill.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "205.api.fulfill.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.api.fulfill.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "direct",
+      "nodeId" : "d5beb6dc-434d-449f-b1be-9976db8247fd",
+      "description" : "getMagicToken",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "getMagicToken",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=getMagicToken"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "644ad70d-48f9-4ea5-abd9-bee6b1afd4ef",
+      "description" : "Not Found",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "setProperties",
+          "nodeId" : "59d5450d-a5ef-4407-86b5-b814e7b13bf4",
+          "description" : "Get Token Params",
+          "properties" : {
+            "_type" : "setProperties",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "name" : "setProperties",
+            "namespaces" : [ ],
+            "propertyList" : [ {
+              "language" : "JsonPath",
+              "propertyName" : "serviceType",
+              "propertyValue" : "$.data.service_type",
+              "uuid" : "52c41f8e-97ef-4e01-8733-dbd971e8fcf3"
+            }, {
+              "language" : "JsonPath",
+              "propertyName" : "recipientId",
+              "propertyValue" : "$.data.recipient_id",
+              "uuid" : "76491faf-896d-4450-a6b6-f79233f27101"
+            }, {
+              "language" : "JsonPath",
+              "propertyName" : "agencyId",
+              "propertyValue" : "$.data.agency_id",
+              "uuid" : "fa997c60-ff19-4729-9091-33380d27b07e"
+            }, {
+              "language" : "Simple",
+              "propertyName" : "x-operation-id",
+              "propertyValue" : "${exchangeProperty.serviceType}",
+              "uuid" : "0199948b-4b46-46a9-a60a-edae0851615b"
+            }, {
+              "language" : "JsonPath",
+              "propertyName" : "accessToken",
+              "propertyValue" : "$.data.access_token",
+              "uuid" : "85e12bc1-ae11-4ba5-9e3a-e41626920ab5"
+            }, {
+              "language" : "JsonPath",
+              "propertyName" : "inviteId",
+              "propertyValue" : "$.data.token_data.invite_id",
+              "uuid" : "b2c021ec-604a-4bd1-a76a-5f62d46b19d7"
+            } ],
+            "suppressExceptions" : true,
+            "url" : ""
+          },
+          "_type" : "setProperties",
+          "kameletPropertiesUrl" : "?serviceType=$.data.service_type&recipientId=$.data.recipient_id&agencyId=$.data.agency_id&x-operation-id=${exchangeProperty.serviceType}&accessToken=$.data.access_token&inviteId=$.data.token_data.invite_id&addNamespaces=false&suppressExceptions=true"
+        }, {
+          "name" : "dslProcessor",
+          "nodeId" : "8598829f-b01e-472e-b1ef-d33c11768838",
+          "description" : "Remove Headers",
+          "properties" : {
+            "_type" : "dslProcessor",
+            "active" : true,
+            "camelGroup" : "core",
+            "dsl" : ".removeHeaders(\"*\", \"x-*\", \"Authorization\")",
+            "name" : "dslProcessor",
+            "url" : ""
+          },
+          "_type" : "dslProcessor",
+          "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"x-*\", \"Authorization\")"
+        }, {
+          "name" : "messageFilter",
+          "nodeId" : "6536b975-9232-49c2-9a94-20f4410e2e77",
+          "description" : "Valid Access Token?",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "route",
+            "label" : "route",
+            "route" : [ {
+              "name" : "process",
+              "nodeId" : "2a7080f9-dfd4-41aa-a402-39e086df7f1d",
+              "description" : "Build Proxy Request",
+              "properties" : {
+                "_type" : "process",
+                "active" : true,
+                "camelGroup" : "transform",
+                "code" : "String operationId = (String)exchange.getProperty(\"serviceType\");\nString agencyId = (String)exchange.getProperty(\"agencyId\");\nString recipientId = (String)exchange.getProperty(\"recipientId\");\nString inviteId = (String)exchange.getProperty(\"inviteId\");\nString jwt = (String)exchange.getProperty(\"xAccessToken\");\n\nString path = null;\nString method = null;\n\nswitch (operationId) {\n\tcase \"addRecipientGeolocation\":\n\t\tpath = \"recipients/\" + recipientId + \"/geolocations\";\n\t\tmethod = \"POST\";\n\t\tbreak;\n\t\t\n\tcase \"createVideoRoomToken\":\n\t\tpath = \"videorooms/tokens\";\n\t\tmethod = \"POST\";\n\t\tbreak;\t\t\n\t\t\n\tcase \"createCurrentUser\":\n\t\tpath = \"users/me\";\n\t\tmethod = \"POST\";\n\t\tbreak;\t\t\n\t\t\n\tcase \"updateCurrentUser\":\n\t\tpath = \"users/me\";\n\t\tmethod = \"PUT\";\n\t\tbreak;\t\t\t\n\t\t\n\tcase \"createUser\":\n\t\tpath = \"users\";\n\t\tmethod = \"POST\";\n\t\tbreak;\t\t\n\t\t\n\tcase \"fulfillUserInvitation\":\n\t\tpath = \"invitations/\" + inviteId;\n\t\tmethod = \"PUT\";\n\t\tbreak;\t\t\t\t\n}\n\n\nif (path != null && method != null) {\n\texchange.getIn().setHeader(\"Content-Type\", \"application/json\");\n\texchange.getIn().setHeader(\"Authorization\", jwt);\n\texchange.setProperty(\"proxyPath\", path);\n\texchange.getIn().setHeader(\"CamelHttpMethod\", method);\n}",
+                "import" : "// import org.apache.camel.Message",
+                "name" : "process",
+                "url" : ""
+              },
+              "_type" : "process",
+              "kameletPropertiesUrl" : "?code=String operationId = (String)exchange.getProperty(\"serviceType\");\nString agencyId = (String)exchange.getProperty(\"agencyId\");\nString recipientId = (String)exchange.getProperty(\"recipientId\");\nString inviteId = (String)exchange.getProperty(\"inviteId\");\nString jwt = (String)exchange.getProperty(\"xAccessToken\");\n\nString path = null;\nString method = null;\n\nswitch (operationId) {\n\tcase \"addRecipientGeolocation\":\n\t\tpath = \"recipients/\" + recipientId + \"/geolocations\";\n\t\tmethod = \"POST\";\n\t\tbreak;\n\t\t\n\tcase \"createVideoRoomToken\":\n\t\tpath = \"videorooms/tokens\";\n\t\tmethod = \"POST\";\n\t\tbreak;\t\t\n\t\t\n\tcase \"createCurrentUser\":\n\t\tpath = \"users/me\";\n\t\tmethod = \"POST\";\n\t\tbreak;\t\t\n\t\t\n\tcase \"updateCurrentUser\":\n\t\tpath = \"users/me\";\n\t\tmethod = \"PUT\";\n\t\tbreak;\t\t\t\n\t\t\n\tcase \"createUser\":\n\t\tpath = \"users\";\n\t\tmethod = \"POST\";\n\t\tbreak;\t\t\n\t\t\n\tcase \"fulfillUserInvitation\":\n\t\tpath = \"invitations/\" + inviteId;\n\t\tmethod = \"PUT\";\n\t\tbreak;\t\t\t\t\n}\n\n\nif (path != null && method != null) {\n\texchange.getIn().setHeader(\"Content-Type\", \"application/json\");\n\texchange.getIn().setHeader(\"Authorization\", jwt);\n\texchange.setProperty(\"proxyPath\", path);\n\texchange.getIn().setHeader(\"CamelHttpMethod\", method);\n}&import=// import org.apache.camel.Message"
+            }, {
+              "name" : "messageFilter",
+              "nodeId" : "b40afd1b-1b73-481b-978e-16239bb55032",
+              "description" : "",
+              "properties" : {
+                "_type" : "messageFilter",
+                "active" : true,
+                "camelGroup" : "routing",
+                "name" : "messageFilter",
+                "url" : ""
+              },
+              "_type" : "messageFilter",
+              "branches" : [ {
+                "type" : "route",
+                "label" : "route",
+                "route" : [ {
+                  "name" : "setBody",
+                  "nodeId" : "c4a348ee-23ce-437c-9d2e-faefa489b631",
+                  "description" : "Set Request Payload",
+                  "properties" : {
+                    "_type" : "setBody",
+                    "active" : true,
+                    "addNamespaces" : false,
+                    "camelGroup" : "core",
+                    "expression" : "${exchangeProperty.tokenRequest}",
+                    "language" : "Simple",
+                    "name" : "setBody",
+                    "namespaces" : [ ],
+                    "suppressExceptions" : false,
+                    "url" : ""
+                  },
+                  "_type" : "setBody",
+                  "kameletPropertiesUrl" : "?addNamespaces=false&expression=${exchangeProperty.tokenRequest}&language=Simple&suppressExceptions=false"
+                }, {
+                  "name" : "log",
+                  "nodeId" : "72c447e8-630a-4630-8be6-a5ebf6eb55f9",
+                  "description" : "205.api.fulfill.proxy.in",
+                  "properties" : {
+                    "_type" : "log",
+                    "active" : true,
+                    "advancedParameters" : [ ],
+                    "camelGroup" : "component",
+                    "level" : "INFO",
+                    "logType" : "EIP",
+                    "loggerName" : "205.api.fulfill.proxy.in",
+                    "message" : "${header.CamelHttpMethod} ${header.CamelHttpPath} \\n${headers}",
+                    "multiline" : false,
+                    "name" : "log",
+                    "showAll" : false,
+                    "showBody" : true,
+                    "showBodyType" : true,
+                    "showCaughtException" : false,
+                    "showExchangeId" : false,
+                    "showHeaders" : false,
+                    "showProperties" : false,
+                    "showStackTrace" : false,
+                    "toDynamicEndpoint" : false,
+                    "url" : ""
+                  },
+                  "_type" : "log",
+                  "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.api.fulfill.proxy.in&message=${header.CamelHttpMethod} ${header.CamelHttpPath} \\n${headers}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+                }, {
+                  "name" : "dslProcessor",
+                  "nodeId" : "5194db55-c26f-4cb7-bb97-7e55c4fd676e",
+                  "description" : "Proxy Request",
+                  "properties" : {
+                    "_type" : "dslProcessor",
+                    "active" : true,
+                    "camelGroup" : "core",
+                    "dsl" : ".toD('https://{{convey.api.host}}/api/v1/${exchangeProperty.proxyPath}?bridgeEndpoint=false&connectTimeout=-1&connectionRequestTimeout=-1&httpMethod=${headers.CamelHttpMethod}&socketTimeout=-1&throwExceptionOnFailure=false')",
+                    "name" : "dslProcessor",
+                    "url" : ""
+                  },
+                  "_type" : "dslProcessor",
+                  "kameletPropertiesUrl" : "?dsl=.toD('https://{{convey.api.host}}/api/v1/${exchangeProperty.proxyPath}?bridgeEndpoint=false&connectTimeout=-1&connectionRequestTimeout=-1&httpMethod=${headers.CamelHttpMethod}&socketTimeout=-1&throwExceptionOnFailure=false')"
+                }, {
+                  "name" : "log",
+                  "nodeId" : "5cbcd27a-4ac1-4d01-a56e-aaf16d39a55d",
+                  "description" : "205.api.fulfill.proxy.out",
+                  "properties" : {
+                    "_type" : "log",
+                    "active" : true,
+                    "advancedParameters" : [ ],
+                    "camelGroup" : "component",
+                    "level" : "INFO",
+                    "logType" : "EIP",
+                    "loggerName" : "205.api.fulfill.proxy.out",
+                    "message" : "(${header.CamelHttpResponseCode}) ${body}",
+                    "multiline" : false,
+                    "name" : "log",
+                    "showAll" : false,
+                    "showBody" : true,
+                    "showBodyType" : true,
+                    "showCaughtException" : false,
+                    "showExchangeId" : false,
+                    "showHeaders" : false,
+                    "showProperties" : false,
+                    "showStackTrace" : false,
+                    "toDynamicEndpoint" : false,
+                    "url" : ""
+                  },
+                  "_type" : "log",
+                  "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.api.fulfill.proxy.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+                }, {
+                  "name" : "convertBodyTo",
+                  "nodeId" : "d71a65e5-ea0a-4a72-a828-1f34b059b7c0",
+                  "description" : "To String",
+                  "properties" : {
+                    "_type" : "convertBodyTo",
+                    "active" : true,
+                    "camelGroup" : "transform",
+                    "name" : "convertBodyTo",
+                    "targetClass" : "String.class",
+                    "url" : ""
+                  },
+                  "_type" : "convertBodyTo",
+                  "kameletPropertiesUrl" : "?targetClass=String.class"
+                }, {
+                  "name" : "setBody",
+                  "nodeId" : "d11f3da7-287c-4a06-89f8-7828da0783c6",
+                  "description" : "Get Response",
+                  "properties" : {
+                    "_type" : "setBody",
+                    "active" : true,
+                    "addNamespaces" : false,
+                    "camelGroup" : "core",
+                    "expression" : "$.data",
+                    "language" : "JsonPath",
+                    "name" : "setBody",
+                    "namespaces" : [ ],
+                    "suppressExceptions" : true,
+                    "url" : ""
+                  },
+                  "_type" : "setBody",
+                  "kameletPropertiesUrl" : "?addNamespaces=false&expression=$.data&language=JsonPath&suppressExceptions=true"
+                }, {
+                  "name" : "messageFilter",
+                  "nodeId" : "f82f859d-1b95-4d22-879f-c7f59a0b6875",
+                  "description" : "OK?",
+                  "properties" : {
+                    "_type" : "messageFilter",
+                    "active" : true,
+                    "camelGroup" : "routing",
+                    "name" : "messageFilter",
+                    "url" : ""
+                  },
+                  "_type" : "messageFilter",
+                  "branches" : [ {
+                    "type" : "route",
+                    "label" : "route",
+                    "route" : [ {
+                      "name" : "setProperties",
+                      "nodeId" : "9022e032-61b4-4bb4-8112-c979224de6c4",
+                      "description" : "Reset Operation ID",
+                      "properties" : {
+                        "_type" : "setProperties",
+                        "active" : true,
+                        "addNamespaces" : false,
+                        "camelGroup" : "core",
+                        "name" : "setProperties",
+                        "namespaces" : [ ],
+                        "propertyList" : [ {
+                          "language" : "Constant",
+                          "propertyName" : "x-operation-id",
+                          "propertyValue" : "fulfillMagicToken",
+                          "uuid" : "5b492c8b-c5ed-4b38-ba03-68b6f6ad6b90"
+                        } ],
+                        "suppressExceptions" : false,
+                        "url" : ""
+                      },
+                      "_type" : "setProperties",
+                      "kameletPropertiesUrl" : "?x-operation-id=fulfillMagicToken&addNamespaces=false&suppressExceptions=false"
+                    }, {
+                      "name" : "dslProcessor",
+                      "nodeId" : "16a8a77f-8587-4faf-8b9a-03ab271f2c1d",
+                      "description" : "Render Response",
+                      "properties" : {
+                        "_type" : "dslProcessor",
+                        "active" : true,
+                        "camelGroup" : "core",
+                        "dsl" : ".bean(\"renderResponse\")",
+                        "name" : "dslProcessor",
+                        "url" : ""
+                      },
+                      "_type" : "dslProcessor",
+                      "kameletPropertiesUrl" : "?dsl=.bean(\"renderResponse\")"
+                    }, {
+                      "name" : "log",
+                      "nodeId" : "f19bbdcd-525c-486c-b160-bbd05b626c86",
+                      "description" : "205.api.fulfill.out",
+                      "properties" : {
+                        "_type" : "log",
+                        "active" : true,
+                        "advancedParameters" : [ ],
+                        "camelGroup" : "component",
+                        "level" : "INFO",
+                        "logType" : "EIP",
+                        "loggerName" : "205.api.fulfill.out",
+                        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+                        "multiline" : false,
+                        "name" : "log",
+                        "showAll" : false,
+                        "showBody" : true,
+                        "showBodyType" : true,
+                        "showCaughtException" : false,
+                        "showExchangeId" : false,
+                        "showHeaders" : false,
+                        "showProperties" : false,
+                        "showStackTrace" : false,
+                        "toDynamicEndpoint" : false,
+                        "url" : ""
+                      },
+                      "_type" : "log",
+                      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.api.fulfill.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+                    } ],
+                    "properties" : { }
+                  }, {
+                    "type" : "filter",
+                    "label" : "2XX/304",
+                    "route" : [ {
+                      "name" : "setHeaders",
+                      "nodeId" : "01b74af8-71e2-403b-8427-0da578e8f692",
+                      "description" : "HTTP202",
+                      "properties" : {
+                        "_type" : "setHeaders",
+                        "active" : true,
+                        "addNamespaces" : false,
+                        "camelGroup" : "core",
+                        "headerList" : [ {
+                          "headerName" : "CamelHttpResponseCode",
+                          "headerValue" : "202",
+                          "language" : "Constant",
+                          "uuid" : "7ad13771-195e-4c36-b3f4-5ae2c74b4a41"
+                        } ],
+                        "name" : "setHeaders",
+                        "namespaces" : [ ],
+                        "suppressExceptions" : false,
+                        "url" : ""
+                      },
+                      "_type" : "setHeaders",
+                      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+                    } ],
+                    "properties" : {
+                      "addNamespaces" : "false",
+                      "condition" : "${header.CamelHttpResponseCode} in '200,201,304'",
+                      "language" : "Simple",
+                      "namespaces" : [ ],
+                      "suppressExceptions" : "false"
+                    }
+                  } ],
+                  "kameletPropertiesUrl" : ""
+                } ],
+                "properties" : { }
+              }, {
+                "type" : "filter",
+                "label" : "!proxyPath",
+                "route" : [ {
+                  "name" : "setHeaders",
+                  "nodeId" : "880e45cb-d233-4876-a0ae-b9904a116731",
+                  "description" : "HTTP405",
+                  "properties" : {
+                    "_type" : "setHeaders",
+                    "active" : true,
+                    "addNamespaces" : false,
+                    "camelGroup" : "core",
+                    "headerList" : [ {
+                      "headerName" : "CamelHttpResponseCode",
+                      "headerValue" : "405",
+                      "language" : "Constant",
+                      "uuid" : "efaf9a4a-c089-4eac-bc78-951eb093f7af"
+                    } ],
+                    "name" : "setHeaders",
+                    "namespaces" : [ ],
+                    "suppressExceptions" : false,
+                    "url" : ""
+                  },
+                  "_type" : "setHeaders",
+                  "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+                }, {
+                  "name" : "setBody",
+                  "nodeId" : "fce74434-dcec-4afb-a4ec-216995529148",
+                  "description" : "Clear Body",
+                  "properties" : {
+                    "_type" : "setBody",
+                    "active" : true,
+                    "addNamespaces" : false,
+                    "camelGroup" : "core",
+                    "expression" : " ",
+                    "language" : "Simple",
+                    "name" : "setBody",
+                    "namespaces" : [ ],
+                    "suppressExceptions" : false,
+                    "url" : ""
+                  },
+                  "_type" : "setBody",
+                  "kameletPropertiesUrl" : "?addNamespaces=false&language=Simple&suppressExceptions=false"
+                }, {
+                  "name" : "log",
+                  "nodeId" : "3574cee4-04cd-4daf-8558-951f7d780114",
+                  "description" : "205.api.fulfill.405",
+                  "properties" : {
+                    "_type" : "log",
+                    "active" : true,
+                    "advancedParameters" : [ ],
+                    "camelGroup" : "component",
+                    "level" : "WARN",
+                    "logType" : "EIP",
+                    "loggerName" : "205.api.fulfill.405",
+                    "message" : "(${header.CamelHttpResponseCode}) ${body}",
+                    "multiline" : false,
+                    "name" : "log",
+                    "showAll" : false,
+                    "showBody" : true,
+                    "showBodyType" : true,
+                    "showCaughtException" : false,
+                    "showExchangeId" : false,
+                    "showHeaders" : false,
+                    "showProperties" : false,
+                    "showStackTrace" : false,
+                    "toDynamicEndpoint" : false,
+                    "url" : ""
+                  },
+                  "_type" : "log",
+                  "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=205.api.fulfill.405&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+                }, {
+                  "name" : "stop",
+                  "nodeId" : "b38e3de2-0214-438b-8bdc-2ea4d1500910",
+                  "description" : "",
+                  "properties" : {
+                    "_type" : "stop",
+                    "camelGroup" : "misc",
+                    "name" : "stop",
+                    "url" : ""
+                  },
+                  "_type" : "stop",
+                  "kameletPropertiesUrl" : ""
+                } ],
+                "properties" : {
+                  "addNamespaces" : "false",
+                  "condition" : "${exchangeProperty.proxyPath} == null",
+                  "language" : "Simple",
+                  "namespaces" : [ ],
+                  "suppressExceptions" : "false"
+                }
+              } ],
+              "kameletPropertiesUrl" : ""
+            } ],
+            "properties" : { }
+          }, {
+            "type" : "filter",
+            "label" : "401",
+            "route" : [ {
+              "name" : "setBody",
+              "nodeId" : "dbde269c-ef59-4497-a5c9-8fb7ae9fd89d",
+              "description" : "Clear Body",
+              "properties" : {
+                "_type" : "setBody",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "expression" : "constant('')",
+                "language" : "GroovyDsl",
+                "name" : "setBody",
+                "namespaces" : [ ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setBody",
+              "kameletPropertiesUrl" : "?addNamespaces=false&expression=constant('')&language=GroovyDsl&suppressExceptions=false"
+            }, {
+              "name" : "setHeaders",
+              "nodeId" : "4287688c-6f58-400b-afbe-26b43d18b69e",
+              "description" : "HTTP401",
+              "properties" : {
+                "_type" : "setHeaders",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "headerList" : [ {
+                  "headerName" : "CamelHttpResponseCode",
+                  "headerValue" : "401",
+                  "language" : "Constant",
+                  "uuid" : "019ae07b-0f8e-4e0f-8f46-d67bd9c4cf92"
+                } ],
+                "name" : "setHeaders",
+                "namespaces" : [ ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setHeaders",
+              "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+            }, {
+              "name" : "log",
+              "nodeId" : "2fa17342-adac-48c6-966b-d96de09ee974",
+              "description" : "205.api.fulfill.401",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "WARN",
+                "logType" : "EIP",
+                "loggerName" : "205.api.fulfill.401",
+                "message" : "(${header.CamelHttpResponseCode}) ${body}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=205.api.fulfill.401&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            }, {
+              "name" : "stop",
+              "nodeId" : "79159509-8e97-44ab-97da-fe00bf8f51b8",
+              "description" : "",
+              "properties" : {
+                "_type" : "stop",
+                "camelGroup" : "misc",
+                "name" : "stop",
+                "url" : ""
+              },
+              "_type" : "stop",
+              "kameletPropertiesUrl" : ""
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${exchangeProperty.accessToken} != ${exchangeProperty.xAccessToken} && true == false",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      }, {
+        "type" : "filter",
+        "label" : "404",
+        "route" : [ {
+          "name" : "setBody",
+          "nodeId" : "011e8278-0231-4ccf-8ff8-67e95c6754f6",
+          "description" : "Clear Body",
+          "properties" : {
+            "_type" : "setBody",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "expression" : " ",
+            "language" : "Simple",
+            "name" : "setBody",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setBody",
+          "kameletPropertiesUrl" : "?addNamespaces=false&language=Simple&suppressExceptions=false"
+        }, {
+          "name" : "log",
+          "nodeId" : "87231e45-7049-4bd5-8138-bc0572466880",
+          "description" : "205.api.fulfill.404",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "WARN",
+            "logType" : "EIP",
+            "loggerName" : "205.api.fulfill.404",
+            "message" : "(${header.CamelHttpResponseCode}) ${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=205.api.fulfill.404&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "stop",
+          "nodeId" : "b08c6b3e-27a5-4d41-bbe0-1e68ae85a501",
+          "description" : "",
+          "properties" : {
+            "_type" : "stop",
+            "camelGroup" : "misc",
+            "name" : "stop",
+            "url" : ""
+          },
+          "_type" : "stop",
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${header.CamelHttpResponseCode} == 404",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-5",
+    "enabled" : true,
+    "routeId" : 5,
+    "route" : [ {
+      "name" : "onException",
+      "nodeId" : "c7b2637b-f217-4c51-a610-d07c3cfe9db8",
+      "description" : "",
+      "properties" : {
+        "_type" : "onException",
+        "active" : true,
+        "asyncDelayedRedelivery" : false,
+        "camelGroup" : "exception",
+        "exceptionBehavior" : "Handle the exceptions",
+        "exceptionList" : [ {
+          "exception" : "Exception"
+        } ],
+        "maximumRedeliveries" : "2",
+        "name" : "onException",
+        "redeliveryDelay" : "1000",
+        "setRedeliveryDelay" : false,
+        "setRedeliveryTriesCount" : false,
+        "url" : "",
+        "useOriginalMessage" : false
+      },
+      "_type" : "onException",
+      "branches" : [ {
+        "type" : "onException",
+        "label" : "onException",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "9102ac55-8049-491f-97df-f89d10a86a0d",
+          "description" : "205.err",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "ERROR",
+            "logType" : "EIP",
+            "loggerName" : "205.err",
+            "message" : "${exception.stacktrace}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=ERROR&logType=EIP&loggerName=205.err&message=${exception.stacktrace}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setProperties",
+          "nodeId" : "838d695d-6920-444f-9c8a-1fc9d412319c",
+          "description" : "Set Error",
+          "properties" : {
+            "_type" : "setProperties",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "name" : "setProperties",
+            "namespaces" : [ ],
+            "propertyList" : [ {
+              "language" : "Constant",
+              "propertyName" : "error",
+              "propertyValue" : "An error occurred processing request. Please try again.",
+              "uuid" : "13477052-e199-4fe8-99a6-2f52b0249a82"
+            } ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setProperties",
+          "kameletPropertiesUrl" : "?error=An error occurred processing request. Please try again.&addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "2ccff299-9a0f-4c8f-ab33-77aa96e48aa8",
+          "description" : "HTTP500",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "500",
+              "language" : "Constant",
+              "uuid" : "41ac1899-ab7b-4aa1-9f9b-f0c8dad32f47"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "dslProcessor",
+          "nodeId" : "22e657e3-ab27-4338-aaa7-440d37545827",
+          "description" : "Render Response",
+          "properties" : {
+            "_type" : "dslProcessor",
+            "active" : true,
+            "camelGroup" : "core",
+            "dsl" : ".bean(\"renderResponse\")",
+            "name" : "dslProcessor",
+            "url" : ""
+          },
+          "_type" : "dslProcessor",
+          "kameletPropertiesUrl" : "?dsl=.bean(\"renderResponse\")"
+        }, {
+          "name" : "stop",
+          "nodeId" : "97f0f4be-47b8-4ec2-852d-a54b20ef5aca",
+          "description" : "",
+          "properties" : {
+            "_type" : "stop",
+            "camelGroup" : "misc",
+            "name" : "stop",
+            "url" : ""
+          },
+          "_type" : "stop",
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : "?asyncDelayedRedelivery=false&exceptionBehavior=Handle the exceptions&maximumRedeliveries=2&redeliveryDelay=1000&setRedeliveryDelay=false&setRedeliveryTriesCount=false&useOriginalMessage=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-5-55bf5804",
+    "enabled" : true,
+    "routeId" : 6,
+    "route" : [ {
+      "name" : "onException",
+      "nodeId" : "49e7b7ef-b615-4983-afc0-a4e37f5d797e",
+      "description" : "Duplicate Key Exception",
+      "properties" : {
+        "_type" : "onException",
+        "active" : true,
+        "asyncDelayedRedelivery" : false,
+        "camelGroup" : "exception",
+        "exceptionBehavior" : "Handle the exceptions",
+        "exceptionList" : [ {
+          "exception" : "org.springframework.dao.DuplicateKeyException"
+        } ],
+        "maximumRedeliveries" : "2",
+        "name" : "onException",
+        "redeliveryDelay" : "1000",
+        "setRedeliveryDelay" : false,
+        "setRedeliveryTriesCount" : false,
+        "url" : "",
+        "useOriginalMessage" : false
+      },
+      "_type" : "onException",
+      "branches" : [ {
+        "type" : "onException",
+        "label" : "onException",
+        "route" : [ {
+          "name" : "setProperties",
+          "nodeId" : "1f281889-9210-46e1-9b01-064e289045d4",
+          "description" : "Set Error",
+          "properties" : {
+            "_type" : "setProperties",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "name" : "setProperties",
+            "namespaces" : [ ],
+            "propertyList" : [ {
+              "language" : "Constant",
+              "propertyName" : "error",
+              "propertyValue" : "Token already exists. Please either provide a unique token or omit the token and it will be auto generated.",
+              "uuid" : "45126468-e757-4a1c-be5b-5da0a1143fac"
+            } ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setProperties",
+          "kameletPropertiesUrl" : "?error=Token already exists. Please either provide a unique token or omit the token and it will be auto generated.&addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "7c02c40c-6b71-4aa2-bce0-79fda5e1034c",
+          "description" : "HTTP400",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "400",
+              "language" : "Constant",
+              "uuid" : "6b2eb9c8-1725-451c-b622-78e70e944e05"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "log",
+          "nodeId" : "407bd22b-ef39-42a4-ab47-6e0e8432bc04",
+          "description" : "205.sql.err",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "WARN",
+            "logType" : "EIP",
+            "loggerName" : "205.sql.err",
+            "message" : "${exchangeProperty.error}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=205.sql.err&message=${exchangeProperty.error}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "dslProcessor",
+          "nodeId" : "94288ad4-a079-4eff-abbe-3dd4bc0ba3ad",
+          "description" : "Render Response",
+          "properties" : {
+            "_type" : "dslProcessor",
+            "active" : true,
+            "camelGroup" : "core",
+            "dsl" : ".bean(\"renderResponse\")",
+            "name" : "dslProcessor",
+            "url" : ""
+          },
+          "_type" : "dslProcessor",
+          "kameletPropertiesUrl" : "?dsl=.bean(\"renderResponse\")"
+        }, {
+          "name" : "stop",
+          "nodeId" : "4f61400b-8587-4804-b3b9-9fe7d0aec920",
+          "description" : "",
+          "properties" : {
+            "_type" : "stop",
+            "camelGroup" : "misc",
+            "name" : "stop",
+            "url" : ""
+          },
+          "_type" : "stop",
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : "?asyncDelayedRedelivery=false&exceptionBehavior=Handle the exceptions&maximumRedeliveries=2&redeliveryDelay=1000&setRedeliveryDelay=false&setRedeliveryTriesCount=false&useOriginalMessage=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-7",
+    "enabled" : true,
+    "routeId" : 7,
+    "route" : [ {
+      "name" : "getRequest",
+      "nodeId" : "aa8cf24b-5a12-4a6b-9db7-38210e7b9787",
+      "description" : "validateMagicToken",
+      "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/tokens/validate",
+        "method" : "get",
+        "name" : "getRequest",
+        "operationName" : "validateMagicToken",
+        "produces" : "application/json",
+        "requestmethod" : "GET",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/tokens/validate&method=get&operationName=validateMagicToken&produces=application/json&requestmethod=GET"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "5823b3a5-01f4-49ea-8714-6d0d6858fc93",
+      "description" : "Validate Request",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to(\"bean:validateRequest\")\n.filter().simple('${header.CamelHttpResponseCode} >= 400')\n\t.bean('renderResponse')\n  .log(LoggingLevel.WARN, 'log', '${header.CamelHttpResponseCode} ${body}')\t\n        .stop()\n    .end()",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to(\"bean:validateRequest\")\n.filter().simple('${header.CamelHttpResponseCode} >= 400')\n\t.bean('renderResponse')\n  .log(LoggingLevel.WARN, 'log', '${header.CamelHttpResponseCode} ${body}')\t\n        .stop()\n    .end()"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "8b6d886f-67ff-42dd-b857-008f2425da20",
+      "description" : "Get x-access-token",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Header",
+          "propertyName" : "xAccessToken",
+          "propertyValue" : "x-access-token",
+          "uuid" : "6a9ef71c-d549-4350-808a-92da74d8e0ca"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?xAccessToken=x-access-token&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "ad59276c-0420-4e51-9c12-b0d1a174f320",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\", \"x-*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"x-*\")"
+    }, {
+      "name" : "messagingEndpoint",
+      "nodeId" : "bcf76eb6-2c02-4b82-a809-c8438952070b",
+      "description" : "SQL Validate Token",
+      "properties" : {
+        "_type" : "messagingEndpoint",
+        "active" : true,
+        "camelGroup" : "core",
+        "name" : "messagingEndpoint",
+        "toDynamicEndpoint" : false,
+        "uri" : "sql:SELECT id FROM tokens WHERE access_token = :#${exchangeProperty.xAccessToken} AND expires_at >= NOW()?dataSource=#dsPostgres&OutputType=SelectOne",
+        "url" : ""
+      },
+      "_type" : "messagingEndpoint",
+      "kameletPropertiesUrl" : "?uri=sql:SELECT id FROM tokens WHERE access_token = :#${exchangeProperty.xAccessToken} AND expires_at >= NOW()?dataSource=#dsPostgres&OutputType=SelectOne"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "7e698c7a-3740-4bfa-9fd2-6cf8f6bfd814",
+      "description" : "OK?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "filter",
+        "route" : [ {
+          "name" : "setHeaders",
+          "nodeId" : "60df26b2-bc31-41b3-ae85-b43dff55e4ae",
+          "description" : "HTTP204",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "204",
+              "language" : "Constant",
+              "uuid" : "6965db28-1f52-44ce-8e3b-7fa23782c390"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "setBody",
+          "nodeId" : "5c10b365-5e23-4e43-9f07-c2631030ce87",
+          "description" : "Clear Body",
+          "properties" : {
+            "_type" : "setBody",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "expression" : "constant('')",
+            "language" : "GroovyDsl",
+            "name" : "setBody",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setBody",
+          "kameletPropertiesUrl" : "?addNamespaces=false&expression=constant('')&language=GroovyDsl&suppressExceptions=false"
+        }, {
+          "name" : "stop",
+          "nodeId" : "3a56af96-f709-49e2-a6a8-e1331df7e4ca",
+          "description" : "",
+          "properties" : {
+            "_type" : "stop",
+            "camelGroup" : "misc",
+            "name" : "stop",
+            "url" : ""
+          },
+          "_type" : "stop",
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${header.foo} == \"bar\"",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "edc12ffb-6315-4475-88e2-331e3f6fcd69",
+          "description" : "404",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "WARN",
+            "logType" : "EIP",
+            "loggerName" : "api.tokens.validate.404",
+            "message" : "Token ${exchangeProperty.xAccessToken} is invalid",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=api.tokens.validate.404&message=Token ${exchangeProperty.xAccessToken} is invalid&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "6deb081c-0b79-41cd-a20b-d3c4c1748e83",
+          "description" : "HTTP404",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "404",
+              "language" : "Constant",
+              "uuid" : "78db244b-0ddf-4e01-9f97-43c4e171ce98"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "setBody",
+          "nodeId" : "e1812442-5d2f-4c05-af9b-3c3f8bac2956",
+          "description" : "Clear Body",
+          "properties" : {
+            "_type" : "setBody",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "expression" : "constant('')",
+            "language" : "GroovyDsl",
+            "name" : "setBody",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setBody",
+          "kameletPropertiesUrl" : "?addNamespaces=false&expression=constant('')&language=GroovyDsl&suppressExceptions=false"
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-8",
+    "enabled" : true,
+    "routeId" : 8,
+    "route" : [ {
+      "name" : "seda",
+      "nodeId" : "5494f833-1812-4140-b2b9-11870f805980",
+      "description" : "publish-event",
+      "properties" : {
+        "_type" : "seda",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "blockWhenFull" : false,
+        "camelGroup" : "core",
+        "concurrentConsumers" : "1",
+        "endpointName" : "publish-event",
+        "limitConcurrentConsumers" : false,
+        "multipleConsumers" : false,
+        "name" : "seda",
+        "pollTimeout" : "1000",
+        "size" : "1000",
+        "specifyMaximumCapacitySize" : false,
+        "timeout" : "30000",
+        "toDynamicEndpoint" : false,
+        "url" : "",
+        "waitForTaskToComplete" : "IfReplyExpected"
+      },
+      "_type" : "seda",
+      "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=publish-event&limitConcurrentConsumers=false&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=IfReplyExpected"
+    }, {
+      "name" : "exchangePattern",
+      "nodeId" : "a6eca230-94f7-40aa-8abe-d0caaa36d957",
+      "description" : "InOnly",
+      "properties" : {
+        "_type" : "exchangePattern",
+        "active" : true,
+        "camelGroup" : "core",
+        "exchangePattern" : "InOnly",
+        "name" : "exchangePattern",
+        "url" : ""
+      },
+      "_type" : "exchangePattern",
+      "kameletPropertiesUrl" : "?exchangePattern=InOnly"
+    }, {
+      "name" : "jms",
+      "nodeId" : "2a77198b-a2e0-4c2c-88ed-14471fa185e6",
+      "description" : "io.event",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "io.event",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=io.event&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-9",
+    "enabled" : true,
+    "routeId" : 9,
+    "route" : [ {
+      "name" : "seda",
+      "nodeId" : "31bab34d-499e-4cbd-b213-e73fb10febe7",
+      "description" : "send-invitation",
+      "properties" : {
+        "_type" : "seda",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "blockWhenFull" : false,
+        "camelGroup" : "core",
+        "concurrentConsumers" : "1",
+        "endpointName" : "send-invitation",
+        "limitConcurrentConsumers" : false,
+        "multipleConsumers" : false,
+        "name" : "seda",
+        "pollTimeout" : "1000",
+        "size" : "1000",
+        "specifyMaximumCapacitySize" : false,
+        "timeout" : "30000",
+        "toDynamicEndpoint" : false,
+        "url" : "",
+        "waitForTaskToComplete" : "IfReplyExpected"
+      },
+      "_type" : "seda",
+      "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=send-invitation&limitConcurrentConsumers=false&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=IfReplyExpected"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "88321346-ce1e-45c2-8e07-1d0c18561bf0",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\", \"x-*\", \"Authorization\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"x-*\", \"Authorization\")"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "7f3527df-468f-4ebd-be68-8c877c8aa321",
+      "description" : "Get Token Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "conversationId",
+          "propertyValue" : "$.data.token_data.conversation_id",
+          "uuid" : "1f1703be-0eb5-46c7-b43b-b177771a20f9"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "agencyId",
+          "propertyValue" : "$.data.token_data.agency_id",
+          "uuid" : "61c0139f-9cd7-4a8a-a5cd-d91e8393c486"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "tokenUrl",
+          "propertyValue" : "$.data.token_url",
+          "uuid" : "59a80f4e-2b14-436d-bdec-a80b0ff62397"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "recipientId",
+          "propertyValue" : "$.data.recipient_id",
+          "uuid" : "6fa305b0-cb19-4423-a60a-b30c3a4a6a26"
+        } ],
+        "suppressExceptions" : true,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?conversationId=$.data.token_data.conversation_id&agencyId=$.data.token_data.agency_id&tokenUrl=$.data.token_url&recipientId=$.data.recipient_id&addNamespaces=false&suppressExceptions=true"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "20db16a3-f295-4149-a958-7c5389f9677f",
+      "description" : "Set Message Request",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "CamelHttpPath",
+          "headerValue" : "/api/v1/messages",
+          "language" : "Constant",
+          "uuid" : "e3ce8bbb-24a1-4fdc-b907-50db8f19b90a"
+        }, {
+          "headerName" : "Content-Type",
+          "headerValue" : "application/json",
+          "language" : "Constant",
+          "uuid" : "8b711bb2-9b5a-4f61-b75f-f1b3c40e6b28"
+        }, {
+          "headerName" : "Authorization",
+          "headerValue" : "${exchangeProperty.Authorization}",
+          "language" : "Simple",
+          "uuid" : "434d42b7-f025-4449-8806-ca4821f5ccca"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "e62bd892-d550-4de5-9d53-1b191d5ac67c",
+      "description" : "Set JSON Body",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "ObjectMapper mapper = new ObjectMapper();\nString tokenUrl = (String)exchange.getProperty(\"tokenUrl\");\nString inviteMessage = (String)exchange.getProperty(\"inviteMessage\");\nif (inviteMessage != null)\n\tinviteMessage += \"\\n\\n\";\nelse\n\tinviteMessage = \"\";\n\ninviteMessage += tokenUrl;\n\nHashMap<String, Object> reqJson = new HashMap<String, Object>() {{\n\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n\tput(\"direction\", \"outbound\");\n\tput(\"body\", inviteMessage);\n}};\n\nif (exchange.getProperty(\"recipientId\") != null)\n\treqJson.put(\"recipient_id\", (String)exchange.getProperty(\"recipientId\"));\n\nexchange.getIn().setBody(mapper.writeValueAsString(reqJson));",
+        "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=ObjectMapper mapper = new ObjectMapper();\nString tokenUrl = (String)exchange.getProperty(\"tokenUrl\");\nString inviteMessage = (String)exchange.getProperty(\"inviteMessage\");\nif (inviteMessage != null)\n\tinviteMessage += \"\\n\\n\";\nelse\n\tinviteMessage = \"\";\n\ninviteMessage += tokenUrl;\n\nHashMap<String, Object> reqJson = new HashMap<String, Object>() {{\n\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n\tput(\"direction\", \"outbound\");\n\tput(\"body\", inviteMessage);\n}};\n\nif (exchange.getProperty(\"recipientId\") != null)\n\treqJson.put(\"recipient_id\", (String)exchange.getProperty(\"recipientId\"));\n\nexchange.getIn().setBody(mapper.writeValueAsString(reqJson));&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+    }, {
+      "name" : "log",
+      "nodeId" : "7cc088d3-4975-4e1f-a67d-2fd9cb6a2a2e",
+      "description" : "205.seda.invite.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "205.seda.invite.in",
+        "message" : "POST ${header.CamelHttpPath} ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.seda.invite.in&message=POST ${header.CamelHttpPath} ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "http",
+      "nodeId" : "010b8fa6-fb2d-4b53-b8fe-fbedcbd555a2",
+      "description" : "POST /messages",
+      "properties" : {
+        "_type" : "http",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "bridgeEndpoint" : true,
+        "camelGroup" : "component",
+        "connectTimeout" : "20000",
+        "connectionRequestTimeout" : "20000",
+        "disableStreamCache" : true,
+        "httpMethod" : "POST",
+        "httpUri" : "{{convey.api.host}}",
+        "name" : "http",
+        "scheme" : "https",
+        "socketTimeout" : "20000",
+        "throwExceptionOnFailure" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "http",
+      "kameletPropertiesUrl" : "?bridgeEndpoint=true&connectTimeout=20000&connectionRequestTimeout=20000&disableStreamCache=true&httpMethod=POST&httpUri={{convey.api.host}}&socketTimeout=20000&throwExceptionOnFailure=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "d85f748c-8aa3-48d3-a079-82dd3cf9f9dc",
+      "description" : "205.seda.invite.out",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "205.seda.invite.out",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=205.seda.invite.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-10",
+    "enabled" : true,
+    "routeId" : 10,
+    "route" : [ {
+      "name" : "getRequest",
+      "nodeId" : "e40993d9-531a-4235-88fa-6b7f589d8fe6",
+      "description" : "getMagicTokenQrCode",
+      "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/tokens/{token}/qrcode",
+        "method" : "get",
+        "name" : "getRequest",
+        "operationName" : "getMagicTokenQrCode",
+        "produces" : "application/json",
+        "requestmethod" : "GET",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/tokens/{token}/qrcode&method=get&operationName=getMagicTokenQrCode&produces=application/json&requestmethod=GET"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "1dc0375f-44e0-4b6c-91b2-bf15ec29b4b7",
+      "description" : "Set Operation Id",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "x-operation-id",
+          "headerValue" : "getMagicTokenQrCode",
+          "language" : "Constant",
+          "uuid" : "37b26c28-79a4-4ead-bbfd-d3e32898d92a"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "625571a0-4067-4d8e-af71-8547a1b042f5",
+      "description" : "Validate Request",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to(\"bean:validateRequest\")\n.filter().simple('${header.CamelHttpResponseCode} >= 400')\n\t.bean('renderResponse')\n  .log(LoggingLevel.WARN, 'log', '${header.CamelHttpResponseCode} ${body}')\t\n        .stop()\n    .end()",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to(\"bean:validateRequest\")\n.filter().simple('${header.CamelHttpResponseCode} >= 400')\n\t.bean('renderResponse')\n  .log(LoggingLevel.WARN, 'log', '${header.CamelHttpResponseCode} ${body}')\t\n        .stop()\n    .end()"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "83bee706-2447-4f7c-9fe7-78549825db17",
+      "description" : "Get Request Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Header",
+          "propertyName" : "token",
+          "propertyValue" : "token",
+          "uuid" : "68f93950-4c1f-4eeb-bc37-b5a46d1fd3a4"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?token=token&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "d89554c0-065f-42a6-8d2d-25c4d0775ebb",
+      "description" : "To:getMagicToken",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to('direct:getMagicToken')",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to('direct:getMagicToken')"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "25520598-9d07-4b9d-8b18-3e39bbc9ac54",
+      "description" : "",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "tokenUrl",
+          "propertyValue" : "$.data.token_url",
+          "uuid" : "9a6f6a45-ee07-42d6-b9e6-046f3e9b4b65"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?tokenUrl=$.data.token_url&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "57ea928b-ef3a-4f2d-82be-a852eacefd91",
+      "description" : "",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "/*\n * Provide own codes to consume or translate the message exchanges.\n * @param Exchange exchange\n * exchange.getIn().setHeader(\"date\", new Date())\n */\n\nString url = (String)exchange.getProperty(\"tokenUrl\");\nBitMatrix matrix = new MultiFormatWriter().encode(url, BarcodeFormat.QR_CODE, 300, 300);\nBufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(matrix);\nByteArrayOutputStream baos = new ByteArrayOutputStream();\nImageIO.write(bufferedImage, \"webp\", baos);\nexchange.getIn().setHeader(Exchange.CONTENT_TYPE, \"image/webp\");\nexchange.getIn().setBody(\"data:image/webp;base64,\"+Base64.getEncoder().encodeToString(baos.toByteArray()));\n//exchange.getIn().setBody(new ByteArrayInputStream(baos.toByteArray()));\n",
+        "import" : "import com.google.zxing.BarcodeFormat;\nimport com.google.zxing.MultiFormatWriter;\nimport com.google.zxing.WriterException;\nimport com.google.zxing.client.j2se.MatrixToImageWriter;\nimport com.google.zxing.common.BitMatrix;\nimport org.apache.camel.Exchange;\n\nimport javax.imageio.ImageIO;\nimport java.awt.image.BufferedImage;\nimport java.io.ByteArrayOutputStream;\nimport java.io.IOException;\nimport java.util.Base64;\nimport java.io.ByteArrayInputStream;\n\n",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=/*\n * Provide own codes to consume or translate the message exchanges.\n * @param Exchange exchange\n * exchange.getIn().setHeader(\"date\", new Date())\n */\n\nString url = (String)exchange.getProperty(\"tokenUrl\");\nBitMatrix matrix = new MultiFormatWriter().encode(url, BarcodeFormat.QR_CODE, 300, 300);\nBufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(matrix);\nByteArrayOutputStream baos = new ByteArrayOutputStream();\nImageIO.write(bufferedImage, \"webp\", baos);\nexchange.getIn().setHeader(Exchange.CONTENT_TYPE, \"image/webp\");\nexchange.getIn().setBody(\"data:image/webp;base64,\"+Base64.getEncoder().encodeToString(baos.toByteArray()));\n//exchange.getIn().setBody(new ByteArrayInputStream(baos.toByteArray()));\n&import=import com.google.zxing.BarcodeFormat;\nimport com.google.zxing.MultiFormatWriter;\nimport com.google.zxing.WriterException;\nimport com.google.zxing.client.j2se.MatrixToImageWriter;\nimport com.google.zxing.common.BitMatrix;\nimport org.apache.camel.Exchange;\n\nimport javax.imageio.ImageIO;\nimport java.awt.image.BufferedImage;\nimport java.io.ByteArrayOutputStream;\nimport java.io.IOException;\nimport java.util.Base64;\nimport java.io.ByteArrayInputStream;\n\n"
+    } ]
+  } ],
+  "traits" : [ {
+    "name" : "health",
+    "configuration" : {
+      "enabled" : true,
+      "livenessProbeEnabled" : true,
+      "readinessProbeEnabled" : true
+    }
+  } ],
+  "id" : "2ae74355-fb06-4850-9d94-f158b0054c89",
+  "name" : "r205-magic-token-api",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:09.678633198",
+  "updatedAt" : "2023-10-04T18:05:09.678634287",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

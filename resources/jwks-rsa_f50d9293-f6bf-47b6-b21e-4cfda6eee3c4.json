@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.auth0:jwks-rsa:0.20.0"
+  },
+  "id" : "f50d9293-f6bf-47b6-b21e-4cfda6eee3c4",
+  "name" : "jwks-rsa",
+  "description" : "JWKS",
+  "createdAt" : "2023-10-04T18:05:16.84686172",
+  "updatedAt" : "2023-10-04T18:05:16.846862639",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

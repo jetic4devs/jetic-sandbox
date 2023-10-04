@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "INSERT INTO sessions     (user_id, agency_id, refresh_token, socket_id, active, created_at, updated_at)     (         SELECT             u.id, :#${exchangeProperty.agencyId}, :#${exchangeProperty.refreshToken}, :#${exchangeProperty.socketId}, TRUE, NOW(), NOW()         FROM users u         WHERE u.federated_id = :#${exchangeProperty.userId}     ) ON CONFLICT (user_id, socket_id) DO UPDATE     SET         socket_id = excluded.socket_id,         refresh_token = excluded.refresh_token,         updated_at = NOW()",
+    "file" : "data:application/octet-stream;base64,I3NldCAoJGQgPSAnJCcpCiNzZXQgKCRoID0gJyMnKQoKI3NldCAoJHF1ZXJ5UGFyYW1zID0gJCFleGNoYW5nZS5wcm9wZXJ0aWVzLmdldCgieC1xdWVyeS1wYXJhbXMiKSkKCiNpZiAoJHF1ZXJ5UGFyYW1zKQogICAgI2ZvcmVhY2ggKCRwYXJhbSBpbiAke3F1ZXJ5UGFyYW1zLmtleVNldCgpfSkKICAgICAgICAjc2V0ICgkcGFyYW1fdiA9ICRxdWVyeVBhcmFtcy5nZXQoJHBhcmFtKSkKICAgICAgICAjc2V0ICgkZXhwciA9ICIke2h9c2V0ICgke2R9JHtwYXJhbX0gPSAnJHtwYXJhbV92fScpIikKICAgICAgICAjZXZhbHVhdGUoJGV4cHIpCiAgICAjZW5kCiNlbmQKCiNzZXQoICRzZXNzaW9uSWQgPSAkIWV4Y2hhbmdlLnByb3BlcnRpZXMuc2Vzc2lvbklkICkKI3NldCggJHVzZXJQdWlkID0gJCFleGNoYW5nZS5wcm9wZXJ0aWVzLnVzZXJQdWlkICkKI3NldCggJGFnZW5jeUlkID0gJCFleGNoYW5nZS5wcm9wZXJ0aWVzLmFnZW5jeUlkICkKI3NldCggJHR0bCA9ICQhJGV4Y2hhbmdlLnByb3BlcnRpZXMuc2Vzc2lvblRUTCkKI2lmKCAhJCF0dGwgKQogICAgI3NldCggJHR0bCA9IDMwMCApCiNlbmQKClNFTEVDVAogICAgcy5pZCBBUyBzZXNzaW9uX2lkLAogICAgcy51c2VyX2lkLAogICAgdS5mbmFtZSwgCiAgICB1LmxuYW1lLAogICAgcy5mZWRlcmF0ZWRfaWQsCiAgICBzLnNvY2tldF9pZCwKICAgIHMucmVmcmVzaF90b2tlbiwKICAgIHMuYWdlbmN5X2lkLAogICAgQ0FTVCgkdHRsIC0gRVhUUkFDVChFUE9DSCBGUk9NKG5vdygpIC0gcy51cGRhdGVkX2F0KSkgQVMgYmlnaW50KSBBUyB0dGwsCiAgICBDQVNFCiAgICAgICAgV0hFTiBFWFRSQUNUKEVQT0NIIEZST00obm93KCkgLSBzLnVwZGF0ZWRfYXQpKSA8IDMwMCBUSEVOICdhY3RpdmUnCiAgICAgICAgRUxTRSAnaW5hY3RpdmUnCiAgICBFTkQgQVMgc3RhdHVzLAogICAgVE9fQ0hBUihzLmNyZWF0ZWRfYXQsICdZWVlZLU1NLUREIEhIMjQ6TUk6U1MnKSBBUyBjcmVhdGVkX2F0LAogICAgVE9fQ0hBUihzLnVwZGF0ZWRfYXQsICdZWVlZLU1NLUREIEhIMjQ6TUk6U1MnKSBBUyB1cGRhdGVkX2F0CkZST00gc2Vzc2lvbnMgcwpMRUZUIEpPSU4gdXNlcnMgdSBPTiB1LmlkID0gcy51c2VyX2lkCldIRVJFCiNpZiggJCFzZXNzaW9uSWQgKQogICAgI2lmKCAkc2Vzc2lvbklkLmxlbmd0aCgpID09IDM2ICkgcy5pZCAjZWxzZSBzLnNvY2tldF9pZCAjZW5kID0gJyRzZXNzaW9uSWQnCiNlbHNlCiAgICAjaWYgKCAoICRzaG93QWxsID09IDEgfHwgJHNob3dBbGwgPT0gdHJ1ZSApICYmICQhYWdlbmN5SWQgJiYgJGFnZW5jeUlkICE9ICd1bmRlZmluZWQnICkgCiAgICAgICAgcy5hZ2VuY3lfaWQgPSBDQVNUKCckYWdlbmN5SWQnIEFTIHV1aWQpIEFORCAKICAgICNlbHNlIAogICAgICAgICNpZiggJHVzZXJQdWlkICkgcy51c2VyX2lkID0gQ0FTVCgnJHVzZXJQdWlkJyBBUyB1dWlkKSAjZWxzZSBzLmZlZGVyYXRlZF9pZCA9ICckdXNlcklkJyAjZW5kIAogICAgICAgIEFORAogICAgI2VuZAogICAgRVhUUkFDVChFUE9DSCBGUk9NKG5vdygpIC0gcy51cGRhdGVkX2F0KSkgPCAzMDAKICAgIE9SREVSIEJZIHMudXBkYXRlZF9hdCBERVNDCiNlbmQ=",
+    "filename" : "sessions.select.sql.vm",
+    "type" : "File"
+  },
+  "id" : "4b859db8-49d1-44fe-955d-ffdab7f6efb7",
+  "name" : "sessions.select.sql.vm",
+  "description" : "Session SQL Velocity Template - Getter SQL operations",
+  "createdAt" : "2023-10-04T18:05:17.142881598",
+  "updatedAt" : "2023-10-04T18:05:17.142882757",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

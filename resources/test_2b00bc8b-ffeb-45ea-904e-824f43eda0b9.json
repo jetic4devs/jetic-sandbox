@@ -1,0 +1,11 @@
+{
+  "type" : "DATABASE_RESOURCE",
+  "properties" : { },
+  "id" : "2b00bc8b-ffeb-45ea-904e-824f43eda0b9",
+  "name" : "test",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.474553979",
+  "updatedAt" : "2023-10-04T18:05:20.474555044",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

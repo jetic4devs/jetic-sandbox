@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,VVBEQVRFIG1lc3NhZ2VfdGVtcGxhdGVzClNFVAogICAgbmFtZSA9IENPQUxFU0NFKDojJHtleGNoYW5nZVByb3BlcnR5Lm5hbWV9LCBuYW1lKSwKICAgIHRleHQgPSBDT0FMRVNDRSg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS50ZXh0fSwgdGV4dCksCiAgICBzdGF0dXMgPSBDT0FMRVNDRSg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5zdGF0dXN9LCBzdGF0dXMpLAogICAgdXBkYXRlZF9hdCA9IE5PVygpCldIRVJFIGlkID0gQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS50ZW1wbGF0ZUlkfSBBUyB1dWlkKSBBTkQgYWdlbmN5X2lkID0gQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5hZ2VuY3lJZH0gQVMgdXVpZCkKUkVUVVJOSU5HIGlkLCBhZ2VuY3lfaWQsIG5hbWUsIHRleHQsIHN0YXR1cywgVE9fQ0hBUihjcmVhdGVkX2F0LCAnWVlZWS1NTS1ERCBISDI0Ok1JOlNTJykgQVMgY3JlYXRlZF9hdCwgVE9fQ0hBUih1cGRhdGVkX2F0LCAnWVlZWS1NTS1ERCBISDI0Ok1JOlNTJykgQVMgdXBkYXRlZF9hdA==",
+    "filename" : "message_templates.update.sql",
+    "type" : "File"
+  },
+  "id" : "f9c07c98-a0c7-40a4-877f-205cdb394d22",
+  "name" : "message_templates.update.sql",
+  "description" : "Message Template Update SQL",
+  "createdAt" : "2023-10-04T18:05:17.40138651",
+  "updatedAt" : "2023-10-04T18:05:17.401387693",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

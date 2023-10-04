@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.googlecode.json-simple:json-simple:1.1.1"
+  },
+  "id" : "96ac39c3-8473-4f49-9dd2-4c07322c6712",
+  "name" : "json-simple_json-simple",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:22.301958352",
+  "updatedAt" : "2023-10-04T18:05:22.301960711",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

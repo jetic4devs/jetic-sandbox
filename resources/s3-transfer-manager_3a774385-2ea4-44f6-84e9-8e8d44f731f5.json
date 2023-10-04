@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "software.amazon.awssdk:s3-transfer-manager"
+  },
+  "id" : "3a774385-2ea4-44f6-84e9-8e8d44f731f5",
+  "name" : "s3-transfer-manager",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.178939483",
+  "updatedAt" : "2023-10-04T18:05:20.178940452",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

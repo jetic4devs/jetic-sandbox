@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,I3NldCggJG9wZXJhdGlvbk5hbWUgPSAkaGVhZGVycy5nZXQoIngtb3BlcmF0aW9uLWlkIikgKQojc2V0KCAkcmVxdWVzdElkID0gJGhlYWRlcnMuZ2V0KCJ4LXJlcXVlc3QtaWQiKSApCiNzZXQoICRkYXRhT2JqZWN0S2V5ID0gJGhlYWRlcnMuZ2V0KCJ4LXJlc3BvbnNlLWtleSIpICkKI3NldCggJHJlc3BvbnNlTWV0YWRhdGEgPSAkaGVhZGVycy5nZXQoIngtcmVzcG9uc2UtbWV0YWRhdGEiKSApCnsKICAgICJyZXF1ZXN0SWQiOiAiJHJlcXVlc3RJZCIsCiAgICAiYXBpT3BlcmF0aW9uIjogIiRvcGVyYXRpb25OYW1lIiwKICAgICJvYmplY3RUeXBlIjogIiRkYXRhT2JqZWN0S2V5IiwKICAgICNpZiggJCFyZXNwb25zZU1ldGFkYXRhICkibWV0YWRhdGEiOiAkcmVzcG9uc2VNZXRhZGF0YSwgI2VuZAogICAgImRhdGEiOiAkYm9keQp9Cg==",
+    "filename" : "openapi.response.json.vm",
+    "type" : "File"
+  },
+  "id" : "eddb9cf2-828c-4bf6-a038-93128340a0c2",
+  "name" : "openapi.response.json.vm",
+  "description" : "OpenAPI JSON Response Wrapper",
+  "createdAt" : "2023-10-04T18:05:17.547423929",
+  "updatedAt" : "2023-10-04T18:05:17.547425343",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

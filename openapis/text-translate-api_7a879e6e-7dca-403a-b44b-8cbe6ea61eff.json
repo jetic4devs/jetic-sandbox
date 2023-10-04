@@ -1,0 +1,38 @@
+{
+  "version" : "api.convey911.com",
+  "host" : "0.0.1",
+  "id" : "7a879e6e-7dca-403a-b44b-8cbe6ea61eff",
+  "name" : "text-translate-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:14.20650085",
+  "updatedAt" : "2023-10-04T18:05:14.206501819",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "8fea3524-3fec-4ac8-a81c-d96a2104ebd7",
+    "name" : "Api",
+    "path" : "/api/v1/text_translate",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "bdf230a5-245c-4ed5-899e-82ab281e703e",
+      "operationId" : "textTranslate",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "319e7191-0b4e-42c5-8af0-059a4dd27638",
+      "operationId" : "textTranslateDetect",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "50fa4d10-e4c7-4956-bed6-e3e819ce8352",
+      "operationId" : "getSupportedLanguages",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"text-translate-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/text_translate\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"textTranslate\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"textTranslateDetect\"},\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getSupportedLanguages\"}}},\"components\":{}}"
+}

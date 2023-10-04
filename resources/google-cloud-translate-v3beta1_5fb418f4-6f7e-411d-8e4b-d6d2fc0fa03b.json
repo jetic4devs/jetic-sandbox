@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.google.api.grpc:proto-google-cloud-translate-v3beta1:0.89.0"
+  },
+  "id" : "5fb418f4-6f7e-411d-8e4b-d6d2fc0fa03b",
+  "name" : "google-cloud-translate-v3beta1",
+  "description" : "com.google.api.grpc:proto-google-cloud-translate-v3beta1:0.89.0",
+  "createdAt" : "2023-10-04T18:05:22.448215444",
+  "updatedAt" : "2023-10-04T18:05:22.448216424",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

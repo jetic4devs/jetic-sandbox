@@ -1,0 +1,32 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "region",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "apiKey",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "apiSecret",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "ac92dc04-f6e4-43f5-a29a-449d8280d07d",
+  "name" : "aws.translate",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:16.101467082",
+  "updatedAt" : "2023-10-04T18:05:16.101467878",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

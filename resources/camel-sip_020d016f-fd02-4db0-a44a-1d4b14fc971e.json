@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.camel:camel-sip:3.16.0"
+  },
+  "id" : "020d016f-fd02-4db0-a44a-1d4b14fc971e",
+  "name" : "camel-sip",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.08541672",
+  "updatedAt" : "2023-10-04T18:05:23.085417705",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,18 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "host",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "e1d81a6a-655e-42ff-8288-6b0891abe7b0",
+  "name" : "convey.api",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:14.767928329",
+  "updatedAt" : "2023-10-04T18:05:14.767929063",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.camel.quarkus:camel-quarkus-sip:2.9.0"
+  },
+  "id" : "a650ad17-de2d-4ab1-8008-d30e429463b3",
+  "name" : "camel-quarkus-sip",
+  "description" : "org.apache.camel.quarkus:camel-quarkus-sip:2.9.0",
+  "createdAt" : "2023-10-04T18:05:22.665254222",
+  "updatedAt" : "2023-10-04T18:05:22.665255062",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

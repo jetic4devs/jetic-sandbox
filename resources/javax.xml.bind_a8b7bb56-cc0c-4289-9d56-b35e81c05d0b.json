@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "javax.xml.bind:jaxb-api:2.3.0"
+  },
+  "id" : "a8b7bb56-cc0c-4289-9d56-b35e81c05d0b",
+  "name" : "javax.xml.bind",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:18.662945464",
+  "updatedAt" : "2023-10-04T18:05:18.662946458",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

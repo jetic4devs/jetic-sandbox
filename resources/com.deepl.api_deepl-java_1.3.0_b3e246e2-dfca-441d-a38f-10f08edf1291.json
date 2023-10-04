@@ -1,0 +1,11 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : { },
+  "id" : "b3e246e2-dfca-441d-a38f-10f08edf1291",
+  "name" : "com.deepl.api_deepl-java_1.3.0",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.787605564",
+  "updatedAt" : "2023-10-04T18:05:23.787606445",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

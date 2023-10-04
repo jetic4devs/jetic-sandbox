@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.azure:azure-core:1.42.0"
+  },
+  "id" : "7ca366b2-f784-472a-9992-dd7c8e00d9e7",
+  "name" : "azure-core",
+  "description" : "azure core",
+  "createdAt" : "2023-10-04T18:05:24.008841773",
+  "updatedAt" : "2023-10-04T18:05:24.008842715",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

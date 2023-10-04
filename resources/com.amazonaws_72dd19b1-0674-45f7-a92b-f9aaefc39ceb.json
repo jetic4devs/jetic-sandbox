@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.amazonaws:aws-java-sdk:1.11.1000"
+  },
+  "id" : "72dd19b1-0674-45f7-a92b-f9aaefc39ceb",
+  "name" : "com.amazonaws",
+  "description" : "com.amazonaws:aws-java-sdk:1.11.1000",
+  "createdAt" : "2023-10-04T18:05:23.603990631",
+  "updatedAt" : "2023-10-04T18:05:23.603992355",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

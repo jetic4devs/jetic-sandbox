@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "redis.clients:jedis:3.9.0"
+  },
+  "id" : "ef4aff81-4b71-4efc-9e73-b38e2c43b18d",
+  "name" : "jedis",
+  "description" : "Java Redis Client",
+  "createdAt" : "2023-10-04T18:05:19.444365213",
+  "updatedAt" : "2023-10-04T18:05:19.44436643",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

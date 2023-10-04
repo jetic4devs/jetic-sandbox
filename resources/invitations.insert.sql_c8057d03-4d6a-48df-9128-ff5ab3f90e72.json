@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gaW52aXRhdGlvbnMKICAgIChhZ2VuY3lfaWQsIHVzZXJfaWQsIGVtYWlsLCBmbmFtZSwgbG5hbWUsIHJvbGVzLCBtZXRhZGF0YSwgdHRsLCBjcmVhdGVkX2F0LCB1cGRhdGVkX2F0KQpWQUxVRVMgKAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5hZ2VuY3lJZH0gQVMgdXVpZCksCiAgICBDQVNUKDojJHtleGNoYW5nZVByb3BlcnR5Lmludml0ZWRVc2VySWR9IEFTIHV1aWQpLAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuZW1haWx9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuZm5hbWV9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkubG5hbWV9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuaW52aXRlZFJvbGVzfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5Lm1ldGFkYXRhfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LnR0bH0sCiAgICBOT1coKSwKICAgIE5PVygpCikKT04gQ09ORkxJQ1QgKGFnZW5jeV9pZCwgZW1haWwpIERPIFVQREFURSBTRVQKICAgIHJvbGVzID0gRVhDTFVERUQucm9sZXMsCiAgICBkZWxldGVkX2F0ID0gTlVMTCwKICAgIGZ1bGZpbGxlZF9hdCA9IE5VTEwsCiAgICB1cGRhdGVkX2F0ID0gTk9XKCkKUkVUVVJOSU5HCiAgICBpZCBBUyBpbnZpdGVfaWQ=",
+    "filename" : "invitations.insert.sql",
+    "type" : "File"
+  },
+  "id" : "c8057d03-4d6a-48df-9128-ff5ab3f90e72",
+  "name" : "invitations.insert.sql",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.383613732",
+  "updatedAt" : "2023-10-04T18:05:23.383614914",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

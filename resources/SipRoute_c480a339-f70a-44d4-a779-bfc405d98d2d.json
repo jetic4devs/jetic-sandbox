@@ -1,0 +1,14 @@
+{
+  "type" : "SOURCE_DEFINITIONS",
+  "properties" : {
+    "content" : "import org.apache.camel.CamelContext;\nimport org.apache.camel.Endpoint;\nimport org.apache.camel.builder.RouteBuilder;\nimport org.apache.camel.component.sip.SipComponent;\nimport org.apache.camel.component.sip.SipConfiguration;\nimport org.apache.camel.component.sip.SipEndpoint;\n\nimport java.io.IOException;\nimport java.net.URI;\nimport java.util.Map;\n\npublic class SipRoute extends RouteBuilder {\n\n  public class SipComponentImpl extends SipComponent {\n\n    public SipComponentImpl() {\n    }\n\n    @Override\n    protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {\n      SipConfiguration config = new SipConfiguration();\n      config.initialize(new URI(uri), parameters, this);\n\n      SipEndpoint sipEndpoint = new SipEndpoint(uri, this, config);\n      setProperties(sipEndpoint, parameters);\n      return sipEndpoint;\n    }\n\n    @Override\n    public void close() throws IOException {\n      super.close();\n    }\n  }\n\n\n  @Override\n  public void configure() throws Exception {\n    log.info(\"***\");\n\n    CamelContext context = getContext();\n    if (context.hasComponent(\"sip\") == null) {\n      SipComponentImpl sipComponent = new SipComponentImpl();\n      context.addComponent(\"sip\", sipComponent);\n    }\n\n    from(\"sip://0.0.0.0:5060?stackName=PresenceAgent&presenceAgent=true&eventHeaderName=evtHdrName&eventId=evtid\")\n     .log(\"test: ${body}\");\n  }\n}\n",
+    "filename" : "SipRoute.java"
+  },
+  "id" : "c480a339-f70a-44d4-a779-bfc405d98d2d",
+  "name" : "SipRoute",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:22.773929697",
+  "updatedAt" : "2023-10-04T18:05:22.773930863",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,1155 @@
+{
+  "revision" : 331,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "e606328a-fa16-4385-b81f-46a859bf7811",
+  "parameterGroupUuids" : [ "c9a8ecf3-391c-4a06-bdc0-68a1a504fdd9", "ca06b01a-b205-4b2b-9e9d-9f49614e7e94", "e1d81a6a-655e-42ff-8288-6b0891abe7b0", "3dacce84-b8c8-4759-8bfa-355c8cf6acd6" ],
+  "repoResourceUuids" : [ "fedc2ba8-c348-4a92-a89c-844badda8f1f", "05649865-0c5a-4bfd-bddb-046f69383940", "a1057428-1531-40a8-a129-ed27382e947f", "3b5aa833-0eaa-4cb9-8ce8-ca97eac74110", "0d41f9ca-58b0-434f-a68e-5855e59f3249", "1872a943-2a9b-4513-8739-06e95090b977", "71e48dda-80e9-4034-af48-cf39a9a10938", "ab21c0c4-f1e7-4903-ae37-0edcd17df0a7" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-3",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "90dd2aab-a5ec-4240-8754-cf7c48c1f6eb",
+      "description" : "worker.event-logs",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "10",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "worker.event-logs",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=10&connectionFactory=#pooledConnectionFactory&destinationName=worker.event-logs&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "4a51b704-3dca-4d9d-9226-1d57f1a5c8e5",
+      "description" : "Set Input Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "eventType",
+          "propertyValue" : "$.apiOperation",
+          "uuid" : "8cbb78fe-fdd3-478b-be0d-fa201f5c8db0"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "objectType",
+          "propertyValue" : "$.objectType",
+          "uuid" : "d9868117-f200-4573-b1ef-1dd08b07cce9"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "payload",
+          "propertyValue" : "$.data",
+          "uuid" : "d38b7822-afbe-427f-9ce5-ac0377d11b78"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?eventType=$.apiOperation&objectType=$.objectType&payload=$.data&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "messageRouter",
+      "nodeId" : "efc6ae61-8aec-4294-a256-0e1a049df937",
+      "description" : "",
+      "properties" : {
+        "_type" : "messageRouter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageRouter",
+        "url" : ""
+      },
+      "_type" : "messageRouter",
+      "branches" : [ {
+        "type" : "when",
+        "label" : "video",
+        "route" : [ {
+          "name" : "seda",
+          "nodeId" : "10c76ee9-7ac6-400b-a5de-5ce34ede5d5f",
+          "description" : "video-logger",
+          "properties" : {
+            "_type" : "seda",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "blockWhenFull" : false,
+            "camelGroup" : "core",
+            "concurrentConsumers" : "1",
+            "endpointName" : "video-logger",
+            "limitConcurrentConsumers" : true,
+            "multipleConsumers" : false,
+            "name" : "seda",
+            "pollTimeout" : "1000",
+            "size" : "1000",
+            "specifyMaximumCapacitySize" : false,
+            "timeout" : "30000",
+            "toDynamicEndpoint" : false,
+            "url" : "",
+            "waitForTaskToComplete" : "Never"
+          },
+          "_type" : "seda",
+          "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=video-logger&limitConcurrentConsumers=true&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=Never"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.eventType.toLowerCase()} contains 'video'",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "when",
+        "label" : "token",
+        "route" : [ {
+          "name" : "seda",
+          "nodeId" : "4d26a2ff-8af2-4551-b2e0-75b4e5cb4855",
+          "description" : "token-logger",
+          "properties" : {
+            "_type" : "seda",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "blockWhenFull" : false,
+            "camelGroup" : "core",
+            "concurrentConsumers" : "1",
+            "endpointName" : "token-logger",
+            "limitConcurrentConsumers" : true,
+            "multipleConsumers" : false,
+            "name" : "seda",
+            "pollTimeout" : "1000",
+            "size" : "1000",
+            "specifyMaximumCapacitySize" : false,
+            "timeout" : "30000",
+            "toDynamicEndpoint" : false,
+            "url" : "",
+            "waitForTaskToComplete" : "Never"
+          },
+          "_type" : "seda",
+          "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=token-logger&limitConcurrentConsumers=true&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=Never"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.eventType.toLowerCase()} contains 'magictoken'",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "when",
+        "label" : "recipient",
+        "route" : [ {
+          "name" : "seda",
+          "nodeId" : "9cad87f1-5404-46c9-8028-dfde288dfe2c",
+          "description" : "recipient-logger",
+          "properties" : {
+            "_type" : "seda",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "blockWhenFull" : false,
+            "camelGroup" : "core",
+            "concurrentConsumers" : "1",
+            "endpointName" : "recipient-logger",
+            "limitConcurrentConsumers" : true,
+            "multipleConsumers" : false,
+            "name" : "seda",
+            "pollTimeout" : "1000",
+            "size" : "1000",
+            "specifyMaximumCapacitySize" : false,
+            "timeout" : "30000",
+            "toDynamicEndpoint" : false,
+            "url" : "",
+            "waitForTaskToComplete" : "Never"
+          },
+          "_type" : "seda",
+          "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=recipient-logger&limitConcurrentConsumers=true&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=Never"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.eventType.toLowerCase()} contains 'updaterecipient'",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "when",
+        "label" : "conversation",
+        "route" : [ {
+          "name" : "seda",
+          "nodeId" : "2b05ff80-d981-40a1-851d-1390b684760f",
+          "description" : "conversation-event",
+          "properties" : {
+            "_type" : "seda",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "blockWhenFull" : false,
+            "camelGroup" : "core",
+            "concurrentConsumers" : "1",
+            "endpointName" : "conversation-event",
+            "limitConcurrentConsumers" : true,
+            "multipleConsumers" : false,
+            "name" : "seda",
+            "pollTimeout" : "1000",
+            "size" : "1000",
+            "specifyMaximumCapacitySize" : false,
+            "timeout" : "30000",
+            "toDynamicEndpoint" : false,
+            "url" : "",
+            "waitForTaskToComplete" : "Never"
+          },
+          "_type" : "seda",
+          "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=conversation-event&limitConcurrentConsumers=true&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=Never"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.eventType.toLowerCase()} contains 'conversation'",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "when",
+        "label" : "tccsession",
+        "route" : [ {
+          "name" : "seda",
+          "nodeId" : "b676e255-9960-4540-a03b-365aede3c9ec",
+          "description" : "tcc-event",
+          "properties" : {
+            "_type" : "seda",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "blockWhenFull" : false,
+            "camelGroup" : "core",
+            "concurrentConsumers" : "1",
+            "endpointName" : "tcc-event",
+            "limitConcurrentConsumers" : true,
+            "multipleConsumers" : false,
+            "name" : "seda",
+            "pollTimeout" : "1000",
+            "size" : "1000",
+            "specifyMaximumCapacitySize" : false,
+            "timeout" : "30000",
+            "toDynamicEndpoint" : false,
+            "url" : "",
+            "waitForTaskToComplete" : "Never"
+          },
+          "_type" : "seda",
+          "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=tcc-event&limitConcurrentConsumers=true&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=Never"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.eventType.toLowerCase()} contains 'tccsession'",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-2",
+    "enabled" : true,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "seda",
+      "nodeId" : "cc7ae1b2-3c28-419d-bfba-28379de22069",
+      "description" : "video-logger",
+      "properties" : {
+        "_type" : "seda",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "blockWhenFull" : false,
+        "camelGroup" : "core",
+        "concurrentConsumers" : "1",
+        "endpointName" : "video-logger",
+        "limitConcurrentConsumers" : true,
+        "multipleConsumers" : false,
+        "name" : "seda",
+        "pollTimeout" : "1000",
+        "size" : "1000",
+        "specifyMaximumCapacitySize" : false,
+        "timeout" : "30000",
+        "toDynamicEndpoint" : false,
+        "url" : "",
+        "waitForTaskToComplete" : "IfReplyExpected"
+      },
+      "_type" : "seda",
+      "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=video-logger&limitConcurrentConsumers=true&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=IfReplyExpected"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "859cd00e-5ce0-4c65-9533-e6a916813fb2",
+      "description" : "Set Agency ID",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "agencyId",
+          "propertyValue" : "$.data.agency_id",
+          "uuid" : "b8d19fe8-72bb-4a8a-848c-ea761193bc2c"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?agencyId=$.data.agency_id&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "f23bcdf2-f6d6-44ef-b817-1a9450426f02",
+      "description" : "Set Event Message",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "HashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString conversationId = (String)payload.get(\"conversation_id\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nString message, timestamp;\n\nswitch (eventType) {\n\tcase \"createVideoRoomToken\":\n\t\tString participant = (String)payload.get(\"participant\");\n\t\tmessage = participant + \" invited to join video room\";\n\t\tbreak;\n\t\t\n\tcase \"deleteVideoRoomParticipant\":\n\t\tmessage = \"participant has left the video room\";\t\t\n\t\tbreak;\n\t\t\n\tcase \"addVideoRoomParticipant\":\n\t\tString participant = (String)payload.get(\"participant\");\t\t\n\t\tmessage = participant + \" has joined the video room\";\t\t\n\t\tbreak;\t\t\n\n\tcase \"closeVideoRoom\":\n\t\tmessage = \"video room ended\"\n\t\tbreak;\n\t\t\n\tcase \"createVideoRoom\":\n\t\tmessage = \"video room started\"\n\t\tbreak;\t\t\n\t\t\n\tcase \"updateVideoStatus\": \n\t\tString videoEvent = (String)payload.get(\"callback_event\");\n\t\tString identity = (String)payload.get(\"participant_identity\");\n\t\tHashMap<String, Object> callbackData = (HashMap)payload.get(\"callback_data\");\n\t\t//timestamp = (String)callbackData.get(\"Timestamp\");\n\n\t\tif (videoEvent == \"participant-disconnected\")\n\t\t\tmessage = String.format(\"%s has left from the video session\", identity);\n\t\telse if (videoEvent == \"participant-connected\")\n\t\t\tmessage = String.format(\"%s has joined from the video session\", identity);\t\t\t\n\t\tbreak;\n}\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\nif (timestamp != null)\n\trequest.put(\"created_at\", timestamp);\n\nif (message == null) \n\texchange.getIn().setBody(\"\");\nelse {\n\tObjectMapper mapper = new ObjectMapper();\n\texchange.getIn().setBody(mapper.writeValueAsString(request));\n}",
+        "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=HashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString conversationId = (String)payload.get(\"conversation_id\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nString message, timestamp;\n\nswitch (eventType) {\n\tcase \"createVideoRoomToken\":\n\t\tString participant = (String)payload.get(\"participant\");\n\t\tmessage = participant + \" invited to join video room\";\n\t\tbreak;\n\t\t\n\tcase \"deleteVideoRoomParticipant\":\n\t\tmessage = \"participant has left the video room\";\t\t\n\t\tbreak;\n\t\t\n\tcase \"addVideoRoomParticipant\":\n\t\tString participant = (String)payload.get(\"participant\");\t\t\n\t\tmessage = participant + \" has joined the video room\";\t\t\n\t\tbreak;\t\t\n\n\tcase \"closeVideoRoom\":\n\t\tmessage = \"video room ended\"\n\t\tbreak;\n\t\t\n\tcase \"createVideoRoom\":\n\t\tmessage = \"video room started\"\n\t\tbreak;\t\t\n\t\t\n\tcase \"updateVideoStatus\": \n\t\tString videoEvent = (String)payload.get(\"callback_event\");\n\t\tString identity = (String)payload.get(\"participant_identity\");\n\t\tHashMap<String, Object> callbackData = (HashMap)payload.get(\"callback_data\");\n\t\t//timestamp = (String)callbackData.get(\"Timestamp\");\n\n\t\tif (videoEvent == \"participant-disconnected\")\n\t\t\tmessage = String.format(\"%s has left from the video session\", identity);\n\t\telse if (videoEvent == \"participant-connected\")\n\t\t\tmessage = String.format(\"%s has joined from the video session\", identity);\t\t\t\n\t\tbreak;\n}\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\nif (timestamp != null)\n\trequest.put(\"created_at\", timestamp);\n\nif (message == null) \n\texchange.getIn().setBody(\"\");\nelse {\n\tObjectMapper mapper = new ObjectMapper();\n\texchange.getIn().setBody(mapper.writeValueAsString(request));\n}&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "8382ab7d-2314-4975-874c-ef23374d75f0",
+      "description" : "Valid Event?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "body != null",
+        "route" : [ {
+          "name" : "direct",
+          "nodeId" : "3d158831-9d11-4713-9c86-e8d6634aa0a4",
+          "description" : "post-event",
+          "properties" : {
+            "_type" : "direct",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "core",
+            "endpointName" : "post-event",
+            "name" : "direct",
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "direct",
+          "kameletPropertiesUrl" : "?endpointName=post-event"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${body} != null && ${body} != ''",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-3-e0cb08cd",
+    "enabled" : true,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "b1cf03cd-025b-46a3-9dcf-20b48d085803",
+      "description" : "get-auth0-token",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "get-auth0-token",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=get-auth0-token"
+    }, {
+      "name" : "exchangePattern",
+      "nodeId" : "9e6297cc-1e03-4b04-97f3-3aab6ed60433",
+      "description" : "InOut",
+      "properties" : {
+        "_type" : "exchangePattern",
+        "active" : true,
+        "camelGroup" : "core",
+        "exchangePattern" : "InOut",
+        "name" : "exchangePattern",
+        "url" : ""
+      },
+      "_type" : "exchangePattern",
+      "kameletPropertiesUrl" : "?exchangePattern=InOut"
+    }, {
+      "name" : "clearBody",
+      "nodeId" : "445fb52f-80e8-4000-9280-74fed4a22e73",
+      "description" : "",
+      "properties" : {
+        "_type" : "clearBody",
+        "camelGroup" : "core",
+        "name" : "clearBody",
+        "url" : ""
+      },
+      "_type" : "clearBody",
+      "kameletPropertiesUrl" : ""
+    }, {
+      "name" : "jms",
+      "nodeId" : "3f5fb080-1794-4e93-a198-b720f336d6f3",
+      "description" : "auth0.manager.tokens",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "auth0.manager.tokens",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=auth0.manager.tokens&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-4",
+    "enabled" : true,
+    "routeId" : 4,
+    "route" : [ {
+      "name" : "seda",
+      "nodeId" : "969e1f54-28bf-4872-96f1-0893db2787eb",
+      "description" : "token-logger",
+      "properties" : {
+        "_type" : "seda",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "blockWhenFull" : false,
+        "camelGroup" : "core",
+        "concurrentConsumers" : "1",
+        "endpointName" : "token-logger",
+        "limitConcurrentConsumers" : false,
+        "multipleConsumers" : false,
+        "name" : "seda",
+        "pollTimeout" : "1000",
+        "size" : "1000",
+        "specifyMaximumCapacitySize" : false,
+        "timeout" : "30000",
+        "toDynamicEndpoint" : false,
+        "url" : "",
+        "waitForTaskToComplete" : "IfReplyExpected"
+      },
+      "_type" : "seda",
+      "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=token-logger&limitConcurrentConsumers=false&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=IfReplyExpected"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "eee02e25-2d43-4d2b-8d19-5ed1a1d6fa02",
+      "description" : "Set Agency ID",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "agencyId",
+          "propertyValue" : "$.data.agency_id",
+          "uuid" : "4e4f23d2-491a-4e60-874c-6ad639678fdd"
+        } ],
+        "suppressExceptions" : true,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?agencyId=$.data.agency_id&addNamespaces=false&suppressExceptions=true"
+    }, {
+      "name" : "process",
+      "nodeId" : "4e24f7a1-57d2-40d6-bcd9-646699f4a2be",
+      "description" : "Set Event Message",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "HashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString agencyId = (String)payload.get(\"agency_id\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nHashMap<String, Object> tokenData = (HashMap)payload.get(\"token_data\");\nString conversationId = (String)tokenData.get(\"conversation_id\");\nString tokenUrl = (String)payload.get(\"token_url\");\nString message, timestamp;\n\nswitch (eventType) {\t\n\tcase \"createMagicToken\": \n\t\tString serviceType = (String)payload.get(\"service_type\");\n\t\tString recipient = (String)tokenData.get(\"recipient\");\n\t\tString participant = (String)tokenData.get(\"participant\");\n\t\t//String anonymous = (String)tokenData.get(\"anonymous\");\n\n\t\tif (serviceType == 'addRecipientGeolocation')\n\t\t\tmessage = String.format(\"secure location request shared to %s\", recipient);\n\t\t\n\t\tif (serviceType == 'createVideoRoomToken')\n\t\t\tmessage = String.format(\"secure video request shared to %s%s\", recipient ? recipient : participant, tokenUrl ? \"\\n\"+tokenUrl : \"\");\t\t\n\t\tbreak;\n}\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\n//if (timestamp != null)\n\t//request.put(\"created_at\", timestamp);\n\nif (message == null) \n\texchange.getIn().setBody(\"\");\nelse {\n\tObjectMapper mapper = new ObjectMapper();\n\texchange.getIn().setBody(mapper.writeValueAsString(request));\n}",
+        "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=HashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString agencyId = (String)payload.get(\"agency_id\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nHashMap<String, Object> tokenData = (HashMap)payload.get(\"token_data\");\nString conversationId = (String)tokenData.get(\"conversation_id\");\nString tokenUrl = (String)payload.get(\"token_url\");\nString message, timestamp;\n\nswitch (eventType) {\t\n\tcase \"createMagicToken\": \n\t\tString serviceType = (String)payload.get(\"service_type\");\n\t\tString recipient = (String)tokenData.get(\"recipient\");\n\t\tString participant = (String)tokenData.get(\"participant\");\n\t\t//String anonymous = (String)tokenData.get(\"anonymous\");\n\n\t\tif (serviceType == 'addRecipientGeolocation')\n\t\t\tmessage = String.format(\"secure location request shared to %s\", recipient);\n\t\t\n\t\tif (serviceType == 'createVideoRoomToken')\n\t\t\tmessage = String.format(\"secure video request shared to %s%s\", recipient ? recipient : participant, tokenUrl ? \"\\n\"+tokenUrl : \"\");\t\t\n\t\tbreak;\n}\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\n//if (timestamp != null)\n\t//request.put(\"created_at\", timestamp);\n\nif (message == null) \n\texchange.getIn().setBody(\"\");\nelse {\n\tObjectMapper mapper = new ObjectMapper();\n\texchange.getIn().setBody(mapper.writeValueAsString(request));\n}&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "c734ccb5-fff7-4a87-951d-18e64644b642",
+      "description" : "Valid Event?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "body != null",
+        "route" : [ {
+          "name" : "direct",
+          "nodeId" : "8166e570-37f2-4151-bd04-3bd25e2cba0d",
+          "description" : "post-event",
+          "properties" : {
+            "_type" : "direct",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "core",
+            "endpointName" : "post-event",
+            "name" : "direct",
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "direct",
+          "kameletPropertiesUrl" : "?endpointName=post-event"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${body} != null && ${body} != ''",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-6",
+    "enabled" : true,
+    "routeId" : 5,
+    "route" : [ {
+      "name" : "seda",
+      "nodeId" : "a8ed00fd-0aac-44d6-b221-6fced4c802fd",
+      "description" : "recipient-logger",
+      "properties" : {
+        "_type" : "seda",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "blockWhenFull" : false,
+        "camelGroup" : "core",
+        "concurrentConsumers" : "1",
+        "endpointName" : "recipient-logger",
+        "limitConcurrentConsumers" : false,
+        "multipleConsumers" : false,
+        "name" : "seda",
+        "pollTimeout" : "1000",
+        "size" : "1000",
+        "specifyMaximumCapacitySize" : false,
+        "timeout" : "30000",
+        "toDynamicEndpoint" : false,
+        "url" : "",
+        "waitForTaskToComplete" : "IfReplyExpected"
+      },
+      "_type" : "seda",
+      "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=recipient-logger&limitConcurrentConsumers=false&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=IfReplyExpected"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "250b072a-42a6-4553-a40a-5838192946a0",
+      "description" : "Set Input Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "agencyId",
+          "propertyValue" : "$.data.agency_id",
+          "uuid" : "b04a0608-b7f9-4dfc-985c-26d62eaa5fc5"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "recipientId",
+          "propertyValue" : "$.data.recipient_id",
+          "uuid" : "5f26432c-08a7-4970-870c-653565c8cc2f"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "recipientLabel",
+          "propertyValue" : "$.data.label",
+          "uuid" : "bda3ac8c-22c6-4eaa-b385-07d0f7747903"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "language",
+          "propertyValue" : "$.data.language",
+          "uuid" : "a96a90b7-2cf4-40df-8d85-fca67601cb4b"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "recipientNumber",
+          "propertyValue" : "$.data.number",
+          "uuid" : "04cbc5d3-9605-4cc9-a5c8-7664a5c3755a"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?agencyId=$.data.agency_id&recipientId=$.data.recipient_id&recipientLabel=$.data.label&language=$.data.language&recipientNumber=$.data.number&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "messagingEndpoint",
+      "nodeId" : "a8115ad9-2021-470d-9b2c-cfcf4e35bb47",
+      "description" : "SQL Get Conversation",
+      "properties" : {
+        "_type" : "messagingEndpoint",
+        "active" : true,
+        "camelGroup" : "core",
+        "name" : "messagingEndpoint",
+        "toDynamicEndpoint" : false,
+        "uri" : "sql:SELECT cr.conversation_id FROM conversation_recipients cr LEFT JOIN conversations c ON c.id = cr.conversation_id WHERE cr.recipient_id = CAST(:#${exchangeProperty.recipientId} AS uuid) AND c.agency_id = CAST(:#${exchangeProperty.agencyId} AS uuid) AND c.status = \\'active\\' LIMIT 1?dataSource=#dsPostgres&OutputType=SelectOne",
+        "url" : ""
+      },
+      "_type" : "messagingEndpoint",
+      "kameletPropertiesUrl" : "?uri=sql:SELECT cr.conversation_id FROM conversation_recipients cr LEFT JOIN conversations c ON c.id = cr.conversation_id WHERE cr.recipient_id = CAST(:#${exchangeProperty.recipientId} AS uuid) AND c.agency_id = CAST(:#${exchangeProperty.agencyId} AS uuid) AND c.status = \\'active\\' LIMIT 1?dataSource=#dsPostgres&OutputType=SelectOne"
+    }, {
+      "name" : "log",
+      "nodeId" : "02a58de5-b1a7-48b3-9320-0a1995cc7825",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "SELECT cr.conversation_id FROM conversation_recipients cr LEFT JOIN conversations c ON c.id = cr.conversation_id WHERE cr.recipient_id = CAST(:#${exchangeProperty.recipientId} AS uuid) AND c.agency_id = CAST(:#${exchangeProperty.agencyId} AS uuid) AND c.status = 'active' LIMIT 1",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=SELECT cr.conversation_id FROM conversation_recipients cr LEFT JOIN conversations c ON c.id = cr.conversation_id WHERE cr.recipient_id = CAST(:#${exchangeProperty.recipientId} AS uuid) AND c.agency_id = CAST(:#${exchangeProperty.agencyId} AS uuid) AND c.status = 'active' LIMIT 1&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "e1f9346e-4d22-49fa-b9b2-6fdd5820fe2a",
+      "description" : "Found Convo?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "RowCount == 1",
+        "route" : [ {
+          "name" : "setProperties",
+          "nodeId" : "a5595dc0-3a67-43d3-9b27-ce1865a1d080",
+          "description" : "Set Conversation ID",
+          "properties" : {
+            "_type" : "setProperties",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "name" : "setProperties",
+            "namespaces" : [ ],
+            "propertyList" : [ {
+              "language" : "Simple",
+              "propertyName" : "conversationId",
+              "propertyValue" : "${body}",
+              "uuid" : "2ff441cc-fa6f-40c3-84d2-66c3a461d47d"
+            } ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setProperties",
+          "kameletPropertiesUrl" : "?conversationId=${body}&addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "messagingEndpoint",
+          "nodeId" : "eded6b3e-7d93-4270-a637-8b630cfcacf3",
+          "description" : "SQL Get Language",
+          "properties" : {
+            "_type" : "messagingEndpoint",
+            "active" : true,
+            "camelGroup" : "core",
+            "name" : "messagingEndpoint",
+            "toDynamicEndpoint" : false,
+            "uri" : "sql:SELECT label FROM dialects WHERE code = :#${exchangeProperty.language} AND text IS TRUE AND active IS TRUE LIMIT 1?dataSource=#dsPostgres&OutputType=SelectOne",
+            "url" : ""
+          },
+          "_type" : "messagingEndpoint",
+          "kameletPropertiesUrl" : "?uri=sql:SELECT label FROM dialects WHERE code = :#${exchangeProperty.language} AND text IS TRUE AND active IS TRUE LIMIT 1?dataSource=#dsPostgres&OutputType=SelectOne"
+        }, {
+          "name" : "process",
+          "nodeId" : "c8c9579f-eab9-4a0d-a00d-a6ade03a3d27",
+          "description" : "Set Event JSON",
+          "properties" : {
+            "_type" : "process",
+            "active" : true,
+            "camelGroup" : "transform",
+            "code" : "System.out.println(exchange.getIn().getBody());\nHashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString agencyId = (String)payload.get(\"agency_id\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nString conversationId = (String)exchange.getProperty(\"conversationId\");\nString languageCode = (String)exchange.getProperty(\"language\");\nString languageName = (String)exchange.getIn().getBody();\nString recipientLabel = (String)exchange.getProperty(\"recipientLabel\");\nString recipientNumber = (String)exchange.getProperty(\"recipientNumber\");\n\nString message;\nif (languageCode == null)\n\tmessage = String.format(\"resetting language for recipient %s\");\nelse \n\tmessage = String.format(\"updated language to %s for recipient %s\", languageName ? languageName : languageCode, recipientLabel ? recipientLabel : recipientNumber);\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\nObjectMapper mapper = new ObjectMapper();\nexchange.getIn().setBody(mapper.writeValueAsString(request));",
+            "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+            "name" : "process",
+            "url" : ""
+          },
+          "_type" : "process",
+          "kameletPropertiesUrl" : "?code=System.out.println(exchange.getIn().getBody());\nHashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString agencyId = (String)payload.get(\"agency_id\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nString conversationId = (String)exchange.getProperty(\"conversationId\");\nString languageCode = (String)exchange.getProperty(\"language\");\nString languageName = (String)exchange.getIn().getBody();\nString recipientLabel = (String)exchange.getProperty(\"recipientLabel\");\nString recipientNumber = (String)exchange.getProperty(\"recipientNumber\");\n\nString message;\nif (languageCode == null)\n\tmessage = String.format(\"resetting language for recipient %s\");\nelse \n\tmessage = String.format(\"updated language to %s for recipient %s\", languageName ? languageName : languageCode, recipientLabel ? recipientLabel : recipientNumber);\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\nObjectMapper mapper = new ObjectMapper();\nexchange.getIn().setBody(mapper.writeValueAsString(request));&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+        }, {
+          "name" : "direct",
+          "nodeId" : "45818379-0e8e-48db-a90e-f6acec201ef0",
+          "description" : "post-event",
+          "properties" : {
+            "_type" : "direct",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "core",
+            "endpointName" : "post-event",
+            "name" : "direct",
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "direct",
+          "kameletPropertiesUrl" : "?endpointName=post-event"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${header.CamelSqlRowCount} == 1",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-7",
+    "enabled" : true,
+    "routeId" : 6,
+    "route" : [ {
+      "name" : "seda",
+      "nodeId" : "69580ea8-61c0-40c0-ad72-f56bcb374ebb",
+      "description" : "conversation-event",
+      "properties" : {
+        "_type" : "seda",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "blockWhenFull" : false,
+        "camelGroup" : "core",
+        "concurrentConsumers" : "1",
+        "endpointName" : "conversation-event",
+        "limitConcurrentConsumers" : false,
+        "multipleConsumers" : false,
+        "name" : "seda",
+        "pollTimeout" : "1000",
+        "size" : "1000",
+        "specifyMaximumCapacitySize" : false,
+        "timeout" : "30000",
+        "toDynamicEndpoint" : false,
+        "url" : "",
+        "waitForTaskToComplete" : "IfReplyExpected"
+      },
+      "_type" : "seda",
+      "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=conversation-event&limitConcurrentConsumers=false&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=IfReplyExpected"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "84064537-8856-4e55-b237-5a3f0647bd4c",
+      "description" : "Set Input Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "conversationId",
+          "propertyValue" : "$.data.conversation_id",
+          "uuid" : "19d41ea6-897c-4ab1-b91f-c0eca7304932"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "agencyId",
+          "propertyValue" : "$.data.agency_id",
+          "uuid" : "0b01a253-dfad-401f-89c4-9542d44d7136"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?conversationId=$.data.conversation_id&agencyId=$.data.agency_id&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "752f8207-84e9-41dd-903e-9430f6b8a3b8",
+      "description" : "Set Event Message",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "HashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString agencyId = (String)exchange.getProperty(\"agencyId\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nString conversationId = (String)exchange.getProperty(\"conversationId\");\nString message;\nSystem.out.println(eventType);\nswitch (eventType) {\t\n\tcase \"assignConversationAgent\": \n\t\tString operatorName = (String)payload.get(\"operator_name\");\n\t\tmessage = String.format(\"conversation agent assigned to %s\", operatorName);\n\t\tbreak;\n\t\t\n\tcase \"unassignConversationAgent\": \n\t\tmessage = \"conversation agent unassigned\";\n\t\tbreak;\t\n\t\t\n\tcase \"createConversation\": \n\t\tmessage = \"conversation opened\";\n\t\tbreak;\t\t\t\n\t\t\n\tcase \"closeConversation\": \n\t\tmessage = \"conversation closed\";\n\t\tbreak;\t\t\t\n\t\t\n\tcase \"addRecipientToConversation\": \n\t\tString recipientLabel = payload.get(\"label\");\n\t\tString recipientNumber = payload.get(\"number\");\t\n\t\tif (recipientLabel == null && recipientNumber == null)\n\t\t\tmessage = \"recipient added to conversation\";\n\t\telse\n\t\t\tmessage = String.format(\"%s added to conversation\", recipientLabel != null ? recipientLabel.toLowerCase() : recipientNumber);\n\t\tbreak;\t\t\t\t\n\t\t\n\tcase \"removeRecipientFromConversation\": \n\t\tString recipientLabel = payload.get(\"label\");\n\t\tString recipientNumber = payload.get(\"number\");\t\t\n\t\tSystem.out.println(\"removeRecipientToConversation\");\n\t\tif (recipientLabel == null && recipientNumber == null)\n\t\t\tmessage = \"recipient removed from conversation\";\n\t\telse\n\t\t\tmessage = String.format(\"%s removed from conversation\", recipientLabel != null ? recipientLabel.toLowerCase() : recipientNumber);\t\t\n\t\tbreak;\t\t\t\t\t\t\n}\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\nif (message == null) \n\texchange.getIn().setBody(\"\");\nelse {\n\tObjectMapper mapper = new ObjectMapper();\n\texchange.getIn().setBody(mapper.writeValueAsString(request));\n}",
+        "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=HashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString agencyId = (String)exchange.getProperty(\"agencyId\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nString conversationId = (String)exchange.getProperty(\"conversationId\");\nString message;\nSystem.out.println(eventType);\nswitch (eventType) {\t\n\tcase \"assignConversationAgent\": \n\t\tString operatorName = (String)payload.get(\"operator_name\");\n\t\tmessage = String.format(\"conversation agent assigned to %s\", operatorName);\n\t\tbreak;\n\t\t\n\tcase \"unassignConversationAgent\": \n\t\tmessage = \"conversation agent unassigned\";\n\t\tbreak;\t\n\t\t\n\tcase \"createConversation\": \n\t\tmessage = \"conversation opened\";\n\t\tbreak;\t\t\t\n\t\t\n\tcase \"closeConversation\": \n\t\tmessage = \"conversation closed\";\n\t\tbreak;\t\t\t\n\t\t\n\tcase \"addRecipientToConversation\": \n\t\tString recipientLabel = payload.get(\"label\");\n\t\tString recipientNumber = payload.get(\"number\");\t\n\t\tif (recipientLabel == null && recipientNumber == null)\n\t\t\tmessage = \"recipient added to conversation\";\n\t\telse\n\t\t\tmessage = String.format(\"%s added to conversation\", recipientLabel != null ? recipientLabel.toLowerCase() : recipientNumber);\n\t\tbreak;\t\t\t\t\n\t\t\n\tcase \"removeRecipientFromConversation\": \n\t\tString recipientLabel = payload.get(\"label\");\n\t\tString recipientNumber = payload.get(\"number\");\t\t\n\t\tSystem.out.println(\"removeRecipientToConversation\");\n\t\tif (recipientLabel == null && recipientNumber == null)\n\t\t\tmessage = \"recipient removed from conversation\";\n\t\telse\n\t\t\tmessage = String.format(\"%s removed from conversation\", recipientLabel != null ? recipientLabel.toLowerCase() : recipientNumber);\t\t\n\t\tbreak;\t\t\t\t\t\t\n}\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\nif (message == null) \n\texchange.getIn().setBody(\"\");\nelse {\n\tObjectMapper mapper = new ObjectMapper();\n\texchange.getIn().setBody(mapper.writeValueAsString(request));\n}&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "d5094c0d-946a-45c2-9c0e-1c9036cc9251",
+      "description" : "Valid?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "body != null",
+        "route" : [ {
+          "name" : "direct",
+          "nodeId" : "6d52eec2-3a0d-49ea-908a-9a6fe24765f1",
+          "description" : "post-event",
+          "properties" : {
+            "_type" : "direct",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "core",
+            "endpointName" : "post-event",
+            "name" : "direct",
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "direct",
+          "kameletPropertiesUrl" : "?endpointName=post-event"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${body} != null && ${body} != ''",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-5",
+    "enabled" : true,
+    "routeId" : 7,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "2c4a695d-9e2a-4e0e-a484-7cf2fc4a183d",
+      "description" : "post-event",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "post-event",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=post-event"
+    }, {
+      "name" : "removeHeaders",
+      "nodeId" : "01b148d9-446b-4a63-942a-a08a0e25fdf7",
+      "description" : "",
+      "properties" : {
+        "_type" : "removeHeaders",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "excludePattern" : "",
+        "name" : "removeHeaders",
+        "pattern" : "*",
+        "url" : ""
+      },
+      "_type" : "removeHeaders",
+      "kameletPropertiesUrl" : "?pattern=*"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "b78517eb-183c-4837-8689-abbb871f6819",
+      "description" : "Set Request",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "CamelHttpPath",
+          "headerValue" : "/api/v1/messages",
+          "language" : "Constant",
+          "uuid" : "ffdd961f-7734-4c1e-b1ed-e15b9c529554"
+        }, {
+          "headerName" : "Content-Type",
+          "headerValue" : "application/json",
+          "language" : "Constant",
+          "uuid" : "85159860-d131-4d8b-b7d9-b087870acf6f"
+        }, {
+          "headerName" : "Authorization",
+          "headerValue" : "Bearer ${bean:tokenGetters?method=getToken({{convey.auth0.yakApiAudience}})}",
+          "language" : "Simple",
+          "uuid" : "99f271fa-2151-438b-b88d-e48a7e28a4f1"
+        }, {
+          "headerName" : "x-agency-id",
+          "headerValue" : "${exchangeProperty.agencyId}",
+          "language" : "Simple",
+          "uuid" : "4765af24-8908-42a1-bf8b-b5c25519ac82"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "85446c1d-6869-4863-86ce-e0ea8ffee646",
+      "description" : "400.seda.msg.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "400.seda.msg.in",
+        "message" : "POST ${header.CamelHttpPath} ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=400.seda.msg.in&message=POST ${header.CamelHttpPath} ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "http",
+      "nodeId" : "82f11e33-2d46-4973-9e1d-bdb2c4997bd2",
+      "description" : "POST /messages",
+      "properties" : {
+        "_type" : "http",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "bridgeEndpoint" : true,
+        "camelGroup" : "component",
+        "connectTimeout" : "20000",
+        "connectionRequestTimeout" : "20000",
+        "disableStreamCache" : true,
+        "httpMethod" : "POST",
+        "httpUri" : "{{convey.api.host}}",
+        "name" : "http",
+        "scheme" : "https",
+        "socketTimeout" : "20000",
+        "throwExceptionOnFailure" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "http",
+      "kameletPropertiesUrl" : "?bridgeEndpoint=true&connectTimeout=20000&connectionRequestTimeout=20000&disableStreamCache=true&httpMethod=POST&httpUri={{convey.api.host}}&socketTimeout=20000&throwExceptionOnFailure=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "68593f66-1f16-4a57-b73f-f799af473a82",
+      "description" : "400.seda.msg.out",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "400.seda.msg.out",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=400.seda.msg.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-8",
+    "enabled" : true,
+    "routeId" : 8,
+    "route" : [ {
+      "name" : "seda",
+      "nodeId" : "631d500b-0a1e-4450-a845-627d783cf7c6",
+      "description" : "tcc-event",
+      "properties" : {
+        "_type" : "seda",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "blockWhenFull" : false,
+        "camelGroup" : "core",
+        "concurrentConsumers" : "1",
+        "endpointName" : "tcc-event",
+        "limitConcurrentConsumers" : false,
+        "multipleConsumers" : false,
+        "name" : "seda",
+        "pollTimeout" : "1000",
+        "size" : "1000",
+        "specifyMaximumCapacitySize" : false,
+        "timeout" : "30000",
+        "toDynamicEndpoint" : false,
+        "url" : "",
+        "waitForTaskToComplete" : "IfReplyExpected"
+      },
+      "_type" : "seda",
+      "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=1&endpointName=tcc-event&limitConcurrentConsumers=false&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=IfReplyExpected"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "34338744-69c9-4636-acf0-a628129a40dd",
+      "description" : "Set Input Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "conversationId",
+          "propertyValue" : "$.data.conversation_id",
+          "uuid" : "8010c194-67e3-4a78-933e-b65953aef395"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "agencyId",
+          "propertyValue" : "$.data.agency_id",
+          "uuid" : "e4467288-6367-4654-a7f5-32d7650b4808"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?conversationId=$.data.conversation_id&agencyId=$.data.agency_id&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "3e380d33-0880-46d7-8324-b6f2d822191e",
+      "description" : "Set Event Message",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "HashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString agencyId = (String)exchange.getProperty(\"agencyId\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nString conversationId = (String)exchange.getProperty(\"conversationId\");\nString message;\n\nswitch (eventType.toLowerCase()) {\t\n\tcase \"updatetccsession\":\n\t\tString sessionName = payload.get(\"session_name\");\n\t\tString status = String.valueOf(payload.get(\"session_status\"));\n\t\tmessage = String.format(\"tcc session %s %s\", sessionName, status);\n\t\tbreak;\n\t\t\n\tcase \"transfertccsession\":\n\t\tString sessionName = payload.get(\"session_name\");\n\t\tString psapId = String.valueOf(payload.get(\"transfer_psap_id\"));\n\t\tmessage = String.format(\"initiating tcc transfer to %s\", psapId);\n\t\tbreak;\t\n\t\t\n\tcase \"updatetcctransfer\":\n\t\tString sessionName = payload.get(\"session_name\");\n\t\tString status = String.valueOf(payload.get(\"transfer_status\"));\n\t\tmessage = String.format(\"tcc session transfer status %s\", status);\n\t\tbreak;\t\t\n\t\t\n\tcase \"rebidTCCSessionLocation\": \n\t\tString sessionName = payload.get(\"session_name\");\n\t\tmessage = String.format(\"rebidding tcc session %s location\", sessionName);\t\t\n\t\tbreak;\t\t\t\t\t\t\t\t\n}\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\nif (message == null) \n\texchange.getIn().setBody(\"\");\nelse {\n\tObjectMapper mapper = new ObjectMapper();\n\texchange.getIn().setBody(mapper.writeValueAsString(request));\n}",
+        "import" : "// import org.apache.camel.Message",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=HashMap<String, Object> payload = (HashMap)exchange.getProperty(\"payload\");\nString eventType = (String)exchange.getProperty(\"eventType\");\nString agencyId = (String)exchange.getProperty(\"agencyId\");\nString objectType = (String)exchange.getProperty(\"objectType\");\nString conversationId = (String)exchange.getProperty(\"conversationId\");\nString message;\n\nswitch (eventType.toLowerCase()) {\t\n\tcase \"updatetccsession\":\n\t\tString sessionName = payload.get(\"session_name\");\n\t\tString status = String.valueOf(payload.get(\"session_status\"));\n\t\tmessage = String.format(\"tcc session %s %s\", sessionName, status);\n\t\tbreak;\n\t\t\n\tcase \"transfertccsession\":\n\t\tString sessionName = payload.get(\"session_name\");\n\t\tString psapId = String.valueOf(payload.get(\"transfer_psap_id\"));\n\t\tmessage = String.format(\"initiating tcc transfer to %s\", psapId);\n\t\tbreak;\t\n\t\t\n\tcase \"updatetcctransfer\":\n\t\tString sessionName = payload.get(\"session_name\");\n\t\tString status = String.valueOf(payload.get(\"transfer_status\"));\n\t\tmessage = String.format(\"tcc session transfer status %s\", status);\n\t\tbreak;\t\t\n\t\t\n\tcase \"rebidTCCSessionLocation\": \n\t\tString sessionName = payload.get(\"session_name\");\n\t\tmessage = String.format(\"rebidding tcc session %s location\", sessionName);\t\t\n\t\tbreak;\t\t\t\t\t\t\t\t\n}\n\nHashMap<String, String> request = new HashMap<String, String>() {{\n\tput(\"body\", message);\n\tput(\"source\", \"note\");\n\tput(\"direction\", \"outbound\");\t\n\tput(\"conversation_id\", conversationId);\t\t\n}}\n\nif (message == null) \n\texchange.getIn().setBody(\"\");\nelse {\n\tObjectMapper mapper = new ObjectMapper();\n\texchange.getIn().setBody(mapper.writeValueAsString(request));\n}&import=// import org.apache.camel.Message"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "3be5e824-0bd0-4949-8dd7-b27d93577ec5",
+      "description" : "Valid?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "${body} != null",
+        "route" : [ {
+          "name" : "direct",
+          "nodeId" : "54a6c6d1-4a56-4bc7-857c-5461192a31e4",
+          "description" : "post-event",
+          "properties" : {
+            "_type" : "direct",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "core",
+            "endpointName" : "post-event",
+            "name" : "direct",
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "direct",
+          "kameletPropertiesUrl" : "?endpointName=post-event"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${body} != null && ${body} != ''",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "cda6ae0b-8818-4cee-9f81-1e7de1394123",
+  "name" : "r400-event-logger",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:09.570488012",
+  "updatedAt" : "2023-10-04T18:05:09.570488831",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

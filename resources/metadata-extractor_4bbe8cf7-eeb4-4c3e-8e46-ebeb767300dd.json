@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.drewnoakes:metadata-extractor:2.18.0"
+  },
+  "id" : "4bbe8cf7-eeb4-4c3e-8e46-ebeb767300dd",
+  "name" : "metadata-extractor",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.620842429",
+  "updatedAt" : "2023-10-04T18:05:20.620843276",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

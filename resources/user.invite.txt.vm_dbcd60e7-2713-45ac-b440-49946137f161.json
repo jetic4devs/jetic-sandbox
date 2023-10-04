@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,V2VsY29tZSB0byB0aGUgQ29udmV5OTExIFBsYXRmb3JtLCAkZXhjaGFuZ2UucHJvcGVydGllcy5mbmFtZS4KCiNpZiAoJGV4Y2hhbmdlLnByb3BlcnRpZXMubGFzdExvZ2luKQpBbiBhZG1pbmlzdHJhdG9yIGZvciAkZXhjaGFuZ2UucHJvcGVydGllcy5hZ2VuY3lOYW1lIGhhcyBhZGRlZCB5b3UgdG8gdGhlaXIgQ29udmV5OTExIGFnZW5jeS4gCgpZb3UgY2FuIGxvZyBpbnRvIENvbnZleTkxMSBieSBnb2luZyB0byAkZXhjaGFuZ2UucHJvcGVydGllcy5sb2dpblVybCBvbiB5b3VyIGJyb3dzZXIuCgpJZiB5b3UncmUgbm90IHN1cmUgb2YgeW91ciBwYXNzd29yZCB5b3UgY2FuIGNsaWNrIHRoZSBmb3Jnb3QgcGFzc3dvcmQgbGluayBvbiB0aGUgbG9naW4gcGFnZSB0byByZXNldCBpdC4gCiNlbHNlCllvdSd2ZSBiZWVuIGludml0ZWQgYnkgYW4gYWRtaW5pc3RyYXRvciB0byBzZXQgdXAgYW4gYWNjb3VudCBvbiBDb252ZXk5MTEgZm9yICRleGNoYW5nZS5wcm9wZXJ0aWVzLmFnZW5jeU5hbWUuCgpQbGVhc2UgdXNlIHRoZSBsaW5rIGJlbG93IHRvIGZpbmlzaCBzZXR0aW5nIHVwIHlvdXIgYWNjb3VudC4KCkNvcHkgYW5kIHBhc3RlIHRoZSBmb2xsb3dpbmcgbGluayBpbnRvIHlvdXIgYnJvd3NlciB0byBzZXQgdXAgeW91ciBhY2NvdW50IG9uIENvbnZleTkxMS4KWyRleGNoYW5nZS5wcm9wZXJ0aWVzLmludml0ZUVtYWlsVXJsXQojZW5kCgpUaGFuayB5b3UsCgpDb252ZXk5MTEgQ3VzdG9tZXIgU2VydmljZQ==",
+    "filename" : "user.invite.txt.vm",
+    "type" : "File"
+  },
+  "id" : "dbcd60e7-2713-45ac-b440-49946137f161",
+  "name" : "user.invite.txt.vm",
+  "description" : "User invitation TXT email template",
+  "createdAt" : "2023-10-04T18:05:20.951718666",
+  "updatedAt" : "2023-10-04T18:05:20.951719655",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

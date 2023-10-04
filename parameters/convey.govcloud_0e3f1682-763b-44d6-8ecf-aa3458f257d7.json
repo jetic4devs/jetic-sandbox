@@ -1,0 +1,18 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "apiKey",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "0e3f1682-763b-44d6-8ecf-aa3458f257d7",
+  "name" : "convey.govcloud",
+  "description" : "Storage credentials for govcloud artifacts",
+  "createdAt" : "2023-10-04T18:05:15.313795073",
+  "updatedAt" : "2023-10-04T18:05:15.313795909",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

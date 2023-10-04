@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.sendgrid:sendgrid-java:4.9.3"
+  },
+  "id" : "46baf835-0c08-4aa0-93fe-1e13a7e9475d",
+  "name" : "sendgrid",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.283172541",
+  "updatedAt" : "2023-10-04T18:05:21.283173444",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

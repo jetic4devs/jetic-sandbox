@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.google.maps:google-maps-services:2.0.0"
+  },
+  "id" : "0f987850-c4cd-43ba-b9c4-dfd0ff3dc5c1",
+  "name" : "google-maps-services",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:19.811426984",
+  "updatedAt" : "2023-10-04T18:05:19.811428223",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

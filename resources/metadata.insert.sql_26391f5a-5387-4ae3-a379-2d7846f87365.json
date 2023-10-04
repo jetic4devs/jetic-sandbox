@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gbWV0YWRhdGEgCiAgICAoYWdlbmN5X2lkLCBvYmplY3RfdHlwZSwgb2JqZWN0X2lkLCBtZXRhZGF0YSwgY29udGVudF90eXBlLCBjcmVhdGVkX2F0LCB1cGRhdGVkX2F0KQpWQUxVRVMgKAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5hZ2VuY3lJZH0gQVMgdXVpZCksCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5vYmplY3RUeXBlfSwKICAgIENBU1QoOiMke2V4Y2hhbmdlUHJvcGVydHkub2JqZWN0SWR9IEFTIHV1aWQpLAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkubWV0YWRhdGF9LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuY29udGVudFR5cGV9LAogICAgTk9XKCksCiAgICBOT1coKQopCk9OIENPTkZMSUNUIChvYmplY3RfaWQsIG9iamVjdF90eXBlKSBETyBVUERBVEUgU0VUCiAgICBtZXRhZGF0YSA9IGV4Y2x1ZGVkLm1ldGFkYXRhLAogICAgY29udGVudF90eXBlID0gZXhjbHVkZWQuY29udGVudF90eXBlLAogICAgdXBkYXRlZF9hdCA9IE5PVygp",
+    "filename" : "metadata.insert.sql",
+    "type" : "File"
+  },
+  "id" : "26391f5a-5387-4ae3-a379-2d7846f87365",
+  "name" : "metadata.insert.sql",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.751400528",
+  "updatedAt" : "2023-10-04T18:05:23.751401441",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

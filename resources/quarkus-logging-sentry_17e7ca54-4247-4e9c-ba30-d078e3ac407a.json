@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "io.quarkiverse.loggingsentry:quarkus-logging-sentry:1.2.1"
+  },
+  "id" : "17e7ca54-4247-4e9c-ba30-d078e3ac407a",
+  "name" : "quarkus-logging-sentry",
+  "description" : "https://mvnrepository.com/artifact/io.quarkiverse.loggingsentry/quarkus-logging-sentry",
+  "createdAt" : "2023-10-04T18:05:21.358530648",
+  "updatedAt" : "2023-10-04T18:05:21.358531968",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

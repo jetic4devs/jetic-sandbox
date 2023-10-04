@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,I3NldCggJG9wZXJhdGlvbk5hbWUgPSAkZXhjaGFuZ2UucHJvcGVydGllcy5vcGVyYXRpb25OYW1lICkKI3NldCggJHJlcXVlc3RJZCA9ICRleGNoYW5nZS5wcm9wZXJ0aWVzLnJlcXVlc3RJZCApCiNzZXQoICRkYXRhT2JqZWN0S2V5ID0gJGV4Y2hhbmdlLnByb3BlcnRpZXMucmVzcG9uc2VLZXkgKQojaWYoICRoZWFkZXJzLnJlc3BvbnNlS2V5ICkKICAgICNzZXQoICRkYXRhT2JqZWN0S2V5ID0gJGhlYWRlcnMucmVzcG9uc2VLZXkgKQojZW5kCnsKICAgICJyZXF1ZXN0SWQiOiAiJHJlcXVlc3RJZCIsCiAgICAiYXBpT3BlcmF0aW9uIjogIiRvcGVyYXRpb25OYW1lIiwKICAgICJvYmplY3RUeXBlIjogIiRkYXRhT2JqZWN0S2V5IiwKICAgICNpZiggJGV4Y2hhbmdlLnByb3BlcnRpZXMucmVzcG9uc2VNZXRhICkibWV0YWRhdGEiOiAkZXhjaGFuZ2UucHJvcGVydGllcy5yZXNwb25zZU1ldGEsICNlbmQKICAgICJkYXRhIjogJGJvZHkKfQo=",
+    "filename" : "api_response_wrapper.json.vm",
+    "type" : "File"
+  },
+  "id" : "82fe96b5-3995-40cd-a09a-a754b467ca3a",
+  "name" : "api_response_wrapper.json.vm",
+  "description" : "API Response Velocity Template",
+  "createdAt" : "2023-10-04T18:05:16.919334257",
+  "updatedAt" : "2023-10-04T18:05:16.919335301",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

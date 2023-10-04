@@ -1,0 +1,11 @@
+{
+  "type" : "ConfigMap",
+  "parameters" : [ ],
+  "id" : "f0fafbcf-13dd-4d5e-ad04-258efd0a6343",
+  "name" : "msrp.api",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:15.994218931",
+  "updatedAt" : "2023-10-04T18:05:15.994219738",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

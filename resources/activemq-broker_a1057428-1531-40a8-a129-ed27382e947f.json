@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.activemq:activemq-broker:5.17.1"
+  },
+  "id" : "a1057428-1531-40a8-a129-ed27382e947f",
+  "name" : "activemq-broker",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.363128403",
+  "updatedAt" : "2023-10-04T18:05:20.363129321",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

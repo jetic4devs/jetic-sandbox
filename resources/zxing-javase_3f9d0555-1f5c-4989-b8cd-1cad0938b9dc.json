@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.google.zxing:javase:3.5.1"
+  },
+  "id" : "3f9d0555-1f5c-4989-b8cd-1cad0938b9dc",
+  "name" : "zxing-javase",
+  "description" : "zxing javase",
+  "createdAt" : "2023-10-04T18:05:24.109239311",
+  "updatedAt" : "2023-10-04T18:05:24.10924013",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

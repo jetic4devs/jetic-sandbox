@@ -1,0 +1,16 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "{   \"requestId\": \"$headers.breadcrumbId\",   \"apiOperation\": \"$exchange.properties.requestType\",   \"objectType\": \"$exchange.properties.responseKey\",   \"data\": $body   } }",
+    "filename" : "http/http_response_wrapper.json.vm",
+    "type" : "Content"
+  },
+  "id" : "0a778900-a196-4682-a0f0-92b4cbafed16",
+  "name" : "http_response_wrapper.json.vm",
+  "description" : "Velocity JSON response template",
+  "createdAt" : "2023-10-04T18:05:16.666409116",
+  "updatedAt" : "2023-10-04T18:05:16.666410777",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

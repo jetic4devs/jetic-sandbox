@@ -1,0 +1,1285 @@
+{
+  "revision" : 699,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "93f8e8ee-0458-4a42-8ef3-5ffd82200bc7",
+  "parameterGroupUuids" : [ "ca06b01a-b205-4b2b-9e9d-9f49614e7e94", "3dacce84-b8c8-4759-8bfa-355c8cf6acd6", "e1d81a6a-655e-42ff-8288-6b0891abe7b0" ],
+  "repoResourceUuids" : [ "60b1161c-74ee-4cd8-96a1-0055c90271c1", "ab21c0c4-f1e7-4903-ae37-0edcd17df0a7", "71e48dda-80e9-4034-af48-cf39a9a10938", "05649865-0c5a-4bfd-bddb-046f69383940", "a1057428-1531-40a8-a129-ed27382e947f", "3b5aa833-0eaa-4cb9-8ce8-ca97eac74110", "8e59aeb4-dd91-4729-8167-d064ba58dfd0", "1872a943-2a9b-4513-8739-06e95090b977" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "simple-integration",
+    "enabled" : false,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "timer",
+      "nodeId" : "eb26931f-d08c-46f2-a4ce-6270ec470fd9",
+      "description" : "once per second",
+      "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "daemon" : true,
+        "delay" : "1000",
+        "fixedRate" : false,
+        "name" : "timer",
+        "period" : "1001",
+        "repeatCount" : "0",
+        "setScheduleTime" : false,
+        "time" : "2021-12-31 00:00:00",
+        "timerName" : "timer",
+        "url" : ""
+      },
+      "_type" : "timer",
+      "kameletPropertiesUrl" : "?daemon=true&delay=1000&fixedRate=false&period=1001&repeatCount=0&setScheduleTime=false&time=2021-12-31 00:00:00&timerName=timer"
+    }, {
+      "name" : "bean",
+      "nodeId" : "60ce06d6-ca00-4f34-abe0-238fcec4dd74",
+      "description" : "getToken",
+      "properties" : {
+        "_type" : "bean",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "beanClass" : "Bean.class",
+        "beanId" : "beanId",
+        "beanName" : "getToken",
+        "beanType" : "Component",
+        "camelGroup" : "transform",
+        "method" : "methodToBeCalled(${header.someHeader})",
+        "name" : "bean",
+        "specifyTheMethod" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "bean",
+      "kameletPropertiesUrl" : "?beanClass=Bean.class&beanId=beanId&beanName=getToken&beanType=Component&method=methodToBeCalled(${header.someHeader})&specifyTheMethod=false"
+    }, {
+      "name" : "exchangePattern",
+      "nodeId" : "bd5f25ec-8f70-4909-aba9-51b30965c5d7",
+      "description" : "",
+      "properties" : {
+        "_type" : "exchangePattern",
+        "active" : true,
+        "camelGroup" : "core",
+        "exchangePattern" : "InOnly",
+        "name" : "exchangePattern",
+        "url" : ""
+      },
+      "_type" : "exchangePattern",
+      "kameletPropertiesUrl" : "?exchangePattern=InOnly"
+    }, {
+      "name" : "log",
+      "nodeId" : "7770497c-9959-4b20-8462-8e604a573bdf",
+      "description" : "token",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "token: \"${exchangeProperty.token}\"",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=token: \"${exchangeProperty.token}\"&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "1a3a147c-00d4-4b96-9967-9f57e13298d7",
+      "description" : "set exchangeId to body",
+      "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "${exchangeId}",
+        "language" : "Simple",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?addNamespaces=false&expression=${exchangeId}&language=Simple&suppressExceptions=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "d267b516-ba6b-4c84-8577-896494d8ddf3",
+      "description" : "set body to token",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Simple",
+          "propertyName" : "token",
+          "propertyValue" : "${body}",
+          "uuid" : "e062ea29-5419-4467-a0b2-5e2f77e81ae9"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?token=${body}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "bean",
+      "nodeId" : "3dafd925-d595-47bc-affd-b5caf955d5e1",
+      "description" : "setToken",
+      "properties" : {
+        "_type" : "bean",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "beanClass" : "Bean.class",
+        "beanId" : "beanId",
+        "beanName" : "setToken",
+        "beanType" : "Component",
+        "camelGroup" : "transform",
+        "method" : "methodToBeCalled(${header.someHeader})",
+        "name" : "bean",
+        "specifyTheMethod" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "bean",
+      "kameletPropertiesUrl" : "?beanClass=Bean.class&beanId=beanId&beanName=setToken&beanType=Component&method=methodToBeCalled(${header.someHeader})&specifyTheMethod=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-2",
+    "enabled" : false,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "timer",
+      "nodeId" : "8aeb9c61-0118-41a0-96d3-8ede9b7feef7",
+      "description" : "",
+      "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "daemon" : true,
+        "delay" : "1000",
+        "fixedRate" : false,
+        "name" : "timer",
+        "period" : "30000",
+        "repeatCount" : "0",
+        "setScheduleTime" : false,
+        "time" : "2021-12-31 00:00:00",
+        "timerName" : "timer",
+        "url" : ""
+      },
+      "_type" : "timer",
+      "kameletPropertiesUrl" : "?daemon=true&delay=1000&fixedRate=false&period=30000&repeatCount=0&setScheduleTime=false&time=2021-12-31 00:00:00&timerName=timer"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "c64aa3db-9966-47dc-ba4f-e47135d4155f",
+      "description" : "",
+      "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "{\"email\": \"jeff.bruns@convey911.com\"}",
+        "language" : "Constant",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?addNamespaces=false&expression={\"email\": \"jeff.bruns@convey911.com\"}&language=Constant&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "dc4516bf-357e-4e27-ad5e-40dad37c761b",
+      "description" : "",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\")"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "a7970b7b-4e0f-4d02-be84-8bfebb851b8e",
+      "description" : "",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "x-requested-operation",
+          "headerValue" : "getUserByEmail",
+          "language" : "Constant",
+          "uuid" : "e4e45a70-d19d-4a94-8022-52ca9386b7d4"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "exchangePattern",
+      "nodeId" : "d89db38c-3b2f-4976-bc50-e3afcc673780",
+      "description" : "",
+      "properties" : {
+        "_type" : "exchangePattern",
+        "active" : true,
+        "camelGroup" : "core",
+        "exchangePattern" : "InOut",
+        "name" : "exchangePattern",
+        "url" : ""
+      },
+      "_type" : "exchangePattern",
+      "kameletPropertiesUrl" : "?exchangePattern=InOut"
+    }, {
+      "name" : "log",
+      "nodeId" : "e484fe13-93fd-4db1-9b36-341675fa435a",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=headers: ${headers}; body: ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "jms",
+      "nodeId" : "a06ced3c-0f8a-40d7-855a-13d8ff3f33c5",
+      "description" : "",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "providers.data.auth0",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=providers.data.auth0&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "f04ad05c-8e55-440a-9245-1f4e86478d16",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "out",
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=out&message=headers: ${headers}; body: ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-3",
+    "enabled" : false,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "6220a13a-1672-4ab7-b0c8-e03976a053e2",
+      "description" : "test.manager.tokens",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "test.manager.tokens",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=test.manager.tokens&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "89fdf0f7-67ff-4c21-8603-7b3acf96bb4f",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "flow.log.3",
+        "message" : "Getting token",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=flow.log.3&message=Getting token&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "66423970-de5e-411f-8ec3-5b7277f93d42",
+      "description" : "",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "x-auth-token",
+          "headerValue" : "0asd8hf9a8sdfh",
+          "language" : "Constant",
+          "uuid" : "dcc81db3-dd67-49f6-b906-24ed690a223a"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "56e428be-d6d8-4fc8-aa79-260d91638672",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "flow.log.4",
+        "message" : "token: ${header.x-auth-token}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=flow.log.4&message=token: ${header.x-auth-token}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-4",
+    "enabled" : false,
+    "routeId" : 4,
+    "route" : [ {
+      "name" : "timer",
+      "nodeId" : "97c36000-c252-42f0-a1f8-6532f8486891",
+      "description" : "",
+      "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "daemon" : true,
+        "delay" : "1000",
+        "fixedRate" : false,
+        "name" : "timer",
+        "period" : "60000",
+        "repeatCount" : "0",
+        "setScheduleTime" : false,
+        "time" : "2021-12-31 00:00:00",
+        "timerName" : "timer",
+        "url" : ""
+      },
+      "_type" : "timer",
+      "kameletPropertiesUrl" : "?daemon=true&delay=1000&fixedRate=false&period=60000&repeatCount=0&setScheduleTime=false&time=2021-12-31 00:00:00&timerName=timer"
+    }, {
+      "name" : "log",
+      "nodeId" : "43474e07-e0aa-4edc-a8b4-c591f236443c",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "flow.log.1",
+        "message" : "Getting token",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=flow.log.1&message=Getting token&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "99f13a6c-7591-4e36-9327-ff44632a70b0",
+      "description" : "",
+      "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "{\"recipients\":[{\"number\":\"+14432501272\"}],\"message\":\"Hello\",\"direction\":\"inbound\"}",
+        "language" : "Constant",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?addNamespaces=false&expression={\"recipients\":[{\"number\":\"+14432501272\"}],\"message\":\"Hello\",\"direction\":\"inbound\"}&language=Constant&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "9763d14e-4926-4ac9-b05c-36c3a040be3b",
+      "description" : "",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\")"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "d06690ce-973f-4d4c-880f-2833c0a239d4",
+      "description" : "Set HTTP Request",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "Authorization",
+          "headerValue" : "Bearer ${bean:tokenGetters?method=getToken({{convey.auth0.yakApiAudience}})}",
+          "language" : "Simple",
+          "uuid" : "73d969ff-84b5-4f37-9e15-c37aa3f33da3"
+        }, {
+          "headerName" : "x-agency-id",
+          "headerValue" : "07f7f361-6cdc-4366-b5e1-ae0f453a979e",
+          "language" : "Constant",
+          "uuid" : "01adfe90-048b-4493-8b86-7d9fbb7cfbb1"
+        }, {
+          "headerName" : "Content-Type",
+          "headerValue" : "application/json",
+          "language" : "Constant",
+          "uuid" : "9be3e301-a287-4823-a7ae-980926a280e7"
+        }, {
+          "headerName" : "CamelHttpPath",
+          "headerValue" : "/api/v1/conversations",
+          "language" : "Constant",
+          "uuid" : "15dfbe6a-f7e8-4def-8f55-da906fdba1cf"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "143a1df5-e7b5-4aaf-b144-c709f875df8c",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "flow.log.2",
+        "message" : "POST ${header.CamelHttpPath} ${body} \\n${headers}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=flow.log.2&message=POST ${header.CamelHttpPath} ${body} \\n${headers}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "http",
+      "nodeId" : "cd6972e7-526b-4ce1-bf02-17be631dba80",
+      "description" : "",
+      "properties" : {
+        "_type" : "http",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "bridgeEndpoint" : false,
+        "camelGroup" : "component",
+        "connectTimeout" : "20000",
+        "connectionRequestTimeout" : "20000",
+        "disableStreamCache" : true,
+        "httpMethod" : "POST",
+        "httpUri" : "{{convey.api.host}}",
+        "name" : "http",
+        "scheme" : "https",
+        "socketTimeout" : "20000",
+        "throwExceptionOnFailure" : true,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "http",
+      "kameletPropertiesUrl" : "?bridgeEndpoint=false&connectTimeout=20000&connectionRequestTimeout=20000&disableStreamCache=true&httpMethod=POST&httpUri={{convey.api.host}}&socketTimeout=20000&throwExceptionOnFailure=true"
+    }, {
+      "name" : "log",
+      "nodeId" : "8f5f009e-17c6-42c9-b147-ad34b7970c40",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-6",
+    "enabled" : false,
+    "routeId" : 5,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "de08e299-4e6a-46f0-8604-b3137052ead4",
+      "description" : "get-auth0-token",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "get-auth0-token",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=get-auth0-token"
+    }, {
+      "name" : "exchangePattern",
+      "nodeId" : "0a359b10-9f65-48fc-9ab2-1871c5d79fdd",
+      "description" : "",
+      "properties" : {
+        "_type" : "exchangePattern",
+        "active" : true,
+        "camelGroup" : "core",
+        "exchangePattern" : "InOut",
+        "name" : "exchangePattern",
+        "url" : ""
+      },
+      "_type" : "exchangePattern",
+      "kameletPropertiesUrl" : "?exchangePattern=InOut"
+    }, {
+      "name" : "jms",
+      "nodeId" : "a20bc45c-9546-4936-b2fa-2ffd745c6d48",
+      "description" : "",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "auth0.manager.tokens",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=auth0.manager.tokens&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "a19b5b75-ef6e-4eda-94d3-e5041786458a",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "From Auth0 ${header.x-access-token}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=From Auth0 ${header.x-access-token}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-6-3f0e0833",
+    "enabled" : false,
+    "routeId" : 6,
+    "route" : [ {
+      "name" : "timer",
+      "nodeId" : "b8fcecf2-f229-4a88-a724-bd5bfea0bd88",
+      "description" : "",
+      "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "daemon" : true,
+        "delay" : "1000",
+        "fixedRate" : false,
+        "name" : "timer",
+        "period" : "30000",
+        "repeatCount" : "0",
+        "setScheduleTime" : false,
+        "time" : "2021-12-31 00:00:00",
+        "timerName" : "timer",
+        "url" : ""
+      },
+      "_type" : "timer",
+      "kameletPropertiesUrl" : "?daemon=true&delay=1000&fixedRate=false&period=30000&repeatCount=0&setScheduleTime=false&time=2021-12-31 00:00:00&timerName=timer"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "0d6f95c5-349e-4145-8248-9f3fc5571904",
+      "description" : "",
+      "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "{\"requestId\":\"293EF4041F0383F-00000000000043F6\",\"apiOperation\":\"createConversation\",\"objectType\":\"Conversation\",\"data\":{\"note\":null,\"unread\":1,\"number_id\":\"4a193ebb-e5c7-4e6d-87b8-48bbd328c683\",\"operator_id\":null,\"total_rows\":1,\"channel\":\"sms\",\"created_at\":1673291623339,\"source\":\"(443) 339-8987\",\"artifact_id\":null,\"artifact_uri\":null,\"recent_message\":\"This is the Austin Police Department and we received your text/911 call for service. Please state the nature of your emergency.\",\"number\":\"+14433398987\",\"updated_at\":1673291624586,\"conversation_id\":\"cd2d8f12-01c3-4b87-af5f-c4898b61940a\",\"direction\":null,\"closed_at\":null,\"artifact_hash\":null,\"agency_id\":\"2798b8c8-40f6-4846-b6e9-f30e16859a7c\",\"label\":\"First conversation\",\"message_count\":1,\"primary_recipient\":\"+14432501272\",\"recipients\":[{\"number\":\"+14432501272\",\"recipient_id\":\"72ae2cca-7966-40f3-83fc-e212f67dc0d3\",\"label\":\"Jeff\",\"language\":\"es\"}],\"resource_id\":null,\"last_message_at\":1673291624586,\"status\":\"active\"}}",
+        "language" : "Simple",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?addNamespaces=false&expression={\"requestId\":\"293EF4041F0383F-00000000000043F6\",\"apiOperation\":\"createConversation\",\"objectType\":\"Conversation\",\"data\":{\"note\":null,\"unread\":1,\"number_id\":\"4a193ebb-e5c7-4e6d-87b8-48bbd328c683\",\"operator_id\":null,\"total_rows\":1,\"channel\":\"sms\",\"created_at\":1673291623339,\"source\":\"(443) 339-8987\",\"artifact_id\":null,\"artifact_uri\":null,\"recent_message\":\"This is the Austin Police Department and we received your text/911 call for service. Please state the nature of your emergency.\",\"number\":\"+14433398987\",\"updated_at\":1673291624586,\"conversation_id\":\"cd2d8f12-01c3-4b87-af5f-c4898b61940a\",\"direction\":null,\"closed_at\":null,\"artifact_hash\":null,\"agency_id\":\"2798b8c8-40f6-4846-b6e9-f30e16859a7c\",\"label\":\"First conversation\",\"message_count\":1,\"primary_recipient\":\"+14432501272\",\"recipients\":[{\"number\":\"+14432501272\",\"recipient_id\":\"72ae2cca-7966-40f3-83fc-e212f67dc0d3\",\"label\":\"Jeff\",\"language\":\"es\"}],\"resource_id\":null,\"last_message_at\":1673291624586,\"status\":\"active\"}}&language=Simple&suppressExceptions=false"
+    }, {
+      "name" : "loop",
+      "nodeId" : "c1da717e-e36b-443d-9969-07ac45997496",
+      "description" : "",
+      "properties" : {
+        "_type" : "loop",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "orchestration",
+        "copy" : false,
+        "doWhile" : false,
+        "expression" : "${body}",
+        "language" : "Simple",
+        "loopSize" : "Value",
+        "name" : "loop",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : "",
+        "value" : "10"
+      },
+      "_type" : "loop",
+      "branches" : [ {
+        "type" : "loop",
+        "label" : "loop",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "a851a3e3-1e8e-45a6-8a68-afc7933b4a20",
+          "description" : "",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "INFO",
+            "logType" : "EIP",
+            "loggerName" : "log",
+            "message" : "headers: ${headers}; body: ${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=headers: ${headers}; body: ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "jms",
+          "nodeId" : "07f3b24d-e2bd-4ac4-aae7-8ddcc4094c34",
+          "description" : "",
+          "properties" : {
+            "_type" : "jms",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "asyncConsumer" : false,
+            "camelGroup" : "component",
+            "concurrentConsumers" : "1",
+            "connectionFactory" : "#pooledConnectionFactory",
+            "destinationName" : "io.events",
+            "destinationType" : "queue",
+            "exchangePattern" : "InOnly",
+            "name" : "jms",
+            "setConnectionFactory" : true,
+            "toDynamicEndpoint" : false,
+            "transacted" : false,
+            "url" : ""
+          },
+          "_type" : "jms",
+          "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=io.events&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : "?addNamespaces=false&copy=false&doWhile=false&expression=${body}&language=Simple&loopSize=Value&suppressExceptions=false&value=10"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-7",
+    "enabled" : false,
+    "routeId" : 7,
+    "route" : [ {
+      "name" : "timer",
+      "nodeId" : "cd5520cd-9e6b-483d-8dda-b48650e3f6ec",
+      "description" : "",
+      "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "daemon" : true,
+        "delay" : "1000",
+        "fixedRate" : false,
+        "name" : "timer",
+        "period" : "10000",
+        "repeatCount" : "0",
+        "setScheduleTime" : false,
+        "time" : "2021-12-31 00:00:00",
+        "timerName" : "timer",
+        "url" : ""
+      },
+      "_type" : "timer",
+      "kameletPropertiesUrl" : "?daemon=true&delay=1000&fixedRate=false&period=10000&repeatCount=0&setScheduleTime=false&time=2021-12-31 00:00:00&timerName=timer"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "3e6b9ef5-dd2d-4db7-aaa7-6e72ebaca646",
+      "description" : "",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "CamelHttpUri",
+          "headerValue" : "https://s3.us-east-2.amazonaws.com/cdn.convey911.com/pidf-lo.xml",
+          "language" : "Constant",
+          "uuid" : "4737ab7f-fe97-46fd-a644-4d4e975d6796"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "http",
+      "nodeId" : "f142c28e-6d4d-47b3-a9f8-fc79dd46588e",
+      "description" : "",
+      "properties" : {
+        "_type" : "http",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "bridgeEndpoint" : false,
+        "camelGroup" : "component",
+        "connectTimeout" : "20000",
+        "connectionRequestTimeout" : "20000",
+        "disableStreamCache" : true,
+        "httpMethod" : "GET",
+        "httpUri" : "api.datagrate.co",
+        "name" : "http",
+        "scheme" : "https",
+        "socketTimeout" : "20000",
+        "throwExceptionOnFailure" : true,
+        "toDynamicEndpoint" : true,
+        "url" : ""
+      },
+      "_type" : "http",
+      "kameletPropertiesUrl" : "?bridgeEndpoint=false&connectTimeout=20000&connectionRequestTimeout=20000&disableStreamCache=true&httpMethod=GET&httpUri=api.datagrate.co&socketTimeout=20000&throwExceptionOnFailure=true"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "f635107d-10ac-4f3a-8c66-6907e808d6e9",
+      "description" : "",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "log",
+      "nodeId" : "0820df98-ac46-4ab1-a9f2-b378b8f51ff3",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "e5257230-2c41-49bd-b5b2-c08cf7c4a755",
+      "description" : "",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "XPath",
+          "propertyName" : "position",
+          "propertyValue" : "/Circle[1]/gml.pos",
+          "uuid" : "016e03f5-0312-465a-b1ba-2b32fd9c10ad"
+        }, {
+          "language" : "XPath",
+          "propertyName" : "radius",
+          "propertyValue" : "//Circle[1]/radius",
+          "uuid" : "4c7e0ce8-66b8-45b1-ace7-a8ab61f8d941"
+        }, {
+          "language" : "XPath",
+          "propertyName" : "circle",
+          "propertyValue" : "//Circle[1]",
+          "uuid" : "f6bcd1de-7741-4bb4-8da5-59c0a97f420c"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?position=/Circle[1]/gml.pos&radius=//Circle[1]/radius&circle=//Circle[1]&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "3d393aa0-44ac-45d4-ae23-13c8dbf6f535",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "Circle: ${exchangeProperty.circle} Pos: ${exchangeProperty.position} Radius: ${exchangeProperty.radius}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=Circle: ${exchangeProperty.circle} Pos: ${exchangeProperty.position} Radius: ${exchangeProperty.radius}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-8",
+    "enabled" : false,
+    "routeId" : 8,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "7afd30f4-4d51-4b51-8750-a3d7c02e397b",
+      "description" : "addRecipientGeolocation",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "addRecipientGeolocation",
+        "destinationType" : "topic",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=addRecipientGeolocation&destinationType=topic&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "ff9cd987-15bb-4f10-b25a-3b46bcd74c2c",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-9",
+    "enabled" : true,
+    "routeId" : 9,
+    "route" : [ {
+      "name" : "timer",
+      "nodeId" : "6d7ec89c-69b8-4dc2-9702-1d099f8a892f",
+      "description" : "",
+      "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "daemon" : true,
+        "delay" : "1000",
+        "fixedRate" : false,
+        "name" : "timer",
+        "period" : "10000",
+        "repeatCount" : "0",
+        "setScheduleTime" : false,
+        "time" : "2021-12-31 00:00:00",
+        "timerName" : "timer",
+        "url" : ""
+      },
+      "_type" : "timer",
+      "kameletPropertiesUrl" : "?daemon=true&delay=1000&fixedRate=false&period=10000&repeatCount=0&setScheduleTime=false&time=2021-12-31 00:00:00&timerName=timer"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "13d097f6-f858-4959-b576-d3fa1ba49edd",
+      "description" : "",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "CamelHttpPath",
+          "headerValue" : "/cdn.convey911.com/pidf-lo.xml",
+          "language" : "Constant",
+          "uuid" : "84256d6c-5d3f-4f0c-afce-8fcc77ff4048"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "http",
+      "nodeId" : "f6c8cc98-8012-41f3-8f7c-5894e3a33039",
+      "description" : "",
+      "properties" : {
+        "_type" : "http",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "bridgeEndpoint" : true,
+        "camelGroup" : "component",
+        "connectTimeout" : "20000",
+        "connectionRequestTimeout" : "20000",
+        "disableStreamCache" : true,
+        "httpMethod" : "GET",
+        "httpUri" : "s3.us-east-2.amazonaws.com",
+        "name" : "http",
+        "scheme" : "https",
+        "socketTimeout" : "20000",
+        "throwExceptionOnFailure" : true,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "http",
+      "kameletPropertiesUrl" : "?bridgeEndpoint=true&connectTimeout=20000&connectionRequestTimeout=20000&disableStreamCache=true&httpMethod=GET&httpUri=s3.us-east-2.amazonaws.com&socketTimeout=20000&throwExceptionOnFailure=true"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "e086092e-16ff-4c0b-a341-2c5c62e63e79",
+      "description" : "",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "XPath",
+          "propertyName" : "pos",
+          "propertyValue" : "/*[local-name()='presence']/*[local-name()='tuple']/*[local-name()='status']/*[local-name()='geopriv']/*[local-name()='location-info']/*[local-name()='Circle']/*[local-name()='pos']/text()",
+          "uuid" : "be502450-3c03-41fe-b0cd-3d464821e4df"
+        }, {
+          "language" : "XPath",
+          "propertyName" : "radius",
+          "propertyValue" : "/*[local-name()='presence']/*[local-name()='tuple']/*[local-name()='status']/*[local-name()='geopriv']/*[local-name()='location-info']/*[local-name()='Circle']/*[local-name()='radius']/text()",
+          "uuid" : "75f4406f-97f0-4310-96f9-56f7811cab0c"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "pidFloPos",
+          "propertyValue" : "${exchangeProperty.pos}",
+          "uuid" : "b1f0d6c6-8628-42bd-9295-ffd9525661b7"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "pidFloRadius",
+          "propertyValue" : "${exchangeProperty.radius}",
+          "uuid" : "fc8811ef-bfb5-4003-b15b-abb20bdf71c5"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?pos=/*[local-name()='presence']/*[local-name()='tuple']/*[local-name()='status']/*[local-name()='geopriv']/*[local-name()='location-info']/*[local-name()='Circle']/*[local-name()='pos']/text()&radius=/*[local-name()='presence']/*[local-name()='tuple']/*[local-name()='status']/*[local-name()='geopriv']/*[local-name()='location-info']/*[local-name()='Circle']/*[local-name()='radius']/text()&pidFloPos=${exchangeProperty.pos}&pidFloRadius=${exchangeProperty.radius}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "19c03911-2b5b-43b9-9715-dcbd75491b25",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "${exchangeProperty.pidFloPos} ${exchangeProperty.pidFloRadius}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=${exchangeProperty.pidFloPos} ${exchangeProperty.pidFloRadius}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "9f357358-3140-4367-b1bd-03c4453dd2ec",
+      "description" : "",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "ObjectMapper mapper = new ObjectMapper();\nString pidFloPos = (String)exchange.getProperty(\"pidFloPos\");\nString pidFloRadius = (String)exchange.getProperty(\"pidFloRadius\");\nSystem.out.println(\"pidFloPos: \" + pidFloPos);\nSystem.out.println(\"pidFloRadius: \" + pidFloRadius);\ntry {\n\tString position = (String)exchange.getProperty(\"pos\").item(0).getTextContent();\n\tString radius = (String)exchange.getProperty(\"radius\").item(0).getTextContent().trim();\n\n\tString pattern = \"([0-9\\\\-\\\\.]*)\\s(0-9\\\\-\\\\.)*\\s?(0-9\\\\-\\\\.)?\";\n\tPattern r = Pattern.compile(pattern);\t\n\tMatcher m = r.matcher(position);\n\tif (m.find( )) {\n\t\tdouble lat = Double.parseDouble(m.group(0));\n\t\tdouble lng = Double.parseDouble(m.group(1));\n\t\tdouble alt;\n\t\t\n\t\ttry {\n\t\t\tif (m.group(2) != null) \n\t\t\t\talt = Double.parseDouble(m.group(2));\n\n\t\t} catch (groovy.lang.MissingMethodException e) {}\n\t\t\n\t\tHashMap<String, Object> geoRequest = new HashMap<String, Object>() {{\n\t\t\tput(\"lat\", lat);\n\t\t\tput(\"lng\", lng);\n\t\t\tput(\"latlng_accuracy\", radius);\n\t\t}};\n\t\t\n\t\tif (alt != null)\n\t\t\tgeoRequest.put(\"altitude\", alt);\n\t\t\n\t\texchange.getIn().setBody(mapper.writeValueAsString(geoRequest));\n\t\texchange.setProperty(\"hasLocation\", true);\n\t} \n} catch (Exception e) {\n\tSystem.out.println(e.getMessage());\n}",
+        "import" : "import java.util.regex.Matcher;\nimport java.util.regex.Pattern;\nimport com.fasterxml.jackson.databind.ObjectMapper;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=ObjectMapper mapper = new ObjectMapper();\nString pidFloPos = (String)exchange.getProperty(\"pidFloPos\");\nString pidFloRadius = (String)exchange.getProperty(\"pidFloRadius\");\nSystem.out.println(\"pidFloPos: \" + pidFloPos);\nSystem.out.println(\"pidFloRadius: \" + pidFloRadius);\ntry {\n\tString position = (String)exchange.getProperty(\"pos\").item(0).getTextContent();\n\tString radius = (String)exchange.getProperty(\"radius\").item(0).getTextContent().trim();\n\n\tString pattern = \"([0-9\\\\-\\\\.]*)\\s(0-9\\\\-\\\\.)*\\s?(0-9\\\\-\\\\.)?\";\n\tPattern r = Pattern.compile(pattern);\t\n\tMatcher m = r.matcher(position);\n\tif (m.find( )) {\n\t\tdouble lat = Double.parseDouble(m.group(0));\n\t\tdouble lng = Double.parseDouble(m.group(1));\n\t\tdouble alt;\n\t\t\n\t\ttry {\n\t\t\tif (m.group(2) != null) \n\t\t\t\talt = Double.parseDouble(m.group(2));\n\n\t\t} catch (groovy.lang.MissingMethodException e) {}\n\t\t\n\t\tHashMap<String, Object> geoRequest = new HashMap<String, Object>() {{\n\t\t\tput(\"lat\", lat);\n\t\t\tput(\"lng\", lng);\n\t\t\tput(\"latlng_accuracy\", radius);\n\t\t}};\n\t\t\n\t\tif (alt != null)\n\t\t\tgeoRequest.put(\"altitude\", alt);\n\t\t\n\t\texchange.getIn().setBody(mapper.writeValueAsString(geoRequest));\n\t\texchange.setProperty(\"hasLocation\", true);\n\t} \n} catch (Exception e) {\n\tSystem.out.println(e.getMessage());\n}&import=import java.util.regex.Matcher;\nimport java.util.regex.Pattern;\nimport com.fasterxml.jackson.databind.ObjectMapper;"
+    }, {
+      "name" : "log",
+      "nodeId" : "41285e85-cb16-4a5b-bb2c-062923b471a2",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "af0bc1c8-b7f4-4e53-87c3-44e191e0ae09",
+  "name" : "simple-integration",
+  "description" : "Simple integration with the timer-body-log example",
+  "createdAt" : "2023-10-04T18:05:06.305293367",
+  "updatedAt" : "2023-10-04T18:05:06.305294111",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

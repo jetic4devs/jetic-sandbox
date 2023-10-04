@@ -1,0 +1,56 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "7f241362-3b91-47e2-9e92-04cdd38a2422",
+  "name" : "token-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:14.025825172",
+  "updatedAt" : "2023-10-04T18:05:14.025826041",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "8a108bdc-56c2-4dc8-9f6d-e156eff323b2",
+    "name" : "Api",
+    "path" : "/api/v1/tokens",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "7383a069-2645-41a3-a68c-392112c75e86",
+      "operationId" : "createMagicToken",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "4aab166d-34e6-495a-855e-ae5d5cf0e8ac",
+    "name" : "Api",
+    "path" : "/api/v1/tokens/{token}",
+    "pathVariables" : [ "token" ],
+    "operations" : [ {
+      "uuid" : "8ed90b1f-6fb6-4862-8243-e0474419ee3c",
+      "operationId" : "getMagicToken",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "8969fe36-b9a1-46f4-a2c3-a1f0595a0c59",
+      "operationId" : "fulfillMagicToken",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "70f7a24b-5e02-4a40-bede-e1a4a6c7a526",
+    "name" : "Api",
+    "path" : "/api/v1/tokens/{token}/qrcode",
+    "pathVariables" : [ "token" ],
+    "operations" : [ {
+      "uuid" : "9a121ac2-0323-49d5-b116-27fdf1f9ea37",
+      "operationId" : "getMagicTokenQrCode",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"token-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/tokens\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createMagicToken\"}},\"/api/v1/tokens/{token}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getMagicToken\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"fulfillMagicToken\"},\"parameters\":[{\"name\":\"token\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/tokens/{token}/qrcode\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getMagicTokenQrCode\"},\"parameters\":[{\"name\":\"token\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

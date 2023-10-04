@@ -1,0 +1,47 @@
+{
+  "revision" : 6,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "93f8e8ee-0458-4a42-8ef3-5ffd82200bc7",
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ "05649865-0c5a-4bfd-bddb-046f69383940", "fedc2ba8-c348-4a92-a89c-844badda8f1f" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "196f7a3f-594d-45e1-9702-29e72c9d86bc",
+      "description" : "event.conversation.close",
+      "properties" : {
+        "_type" : "jms",
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#yakrclMqConnection",
+        "destinationName" : "event.conversation.close",
+        "destinationType" : "topic",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#yakrclMqConnection&destinationName=event.conversation.close&destinationType=topic&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "ee680b84-8759-42b0-ba1a-5a42d564fee8",
+  "name" : "r570-aws-cloud-prvd",
+  "description" : "AWS Integration",
+  "createdAt" : "2023-10-04T18:05:09.049985938",
+  "updatedAt" : "2023-10-04T18:05:09.04998665",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

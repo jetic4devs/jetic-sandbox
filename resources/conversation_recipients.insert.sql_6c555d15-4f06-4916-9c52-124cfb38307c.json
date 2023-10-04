@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gY29udmVyc2F0aW9uX3JlY2lwaWVudHMKICAgIChjb252ZXJzYXRpb25faWQsIHJlY2lwaWVudF9pZCwgY3JlYXRlZF9hdCwgdXBkYXRlZF9hdCkKVkFMVUVTICgKICAgIENBU1QoOiMke2V4Y2hhbmdlUHJvcGVydHkuY29udmVyc2F0aW9uSWR9IEFTIHV1aWQpLAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5yZWNpcGllbnRJZH0gQVMgdXVpZCksCiAgICBOT1coKSwKICAgIE5PVygpCikKT04gQ09ORkxJQ1QgKGNvbnZlcnNhdGlvbl9pZCwgcmVjaXBpZW50X2lkKSBETyBVUERBVEUgU0VUCiAgICB1cGRhdGVkX2F0ID0gTk9XKCkKUkVUVVJOSU5HCiAgICBjb252ZXJzYXRpb25faWQsCiAgICByZWNpcGllbnRfaWQsCiAgICBUT19DSEFSKGNyZWF0ZWRfYXQsICdZWVlZLU1NLUREIEhIMjQ6TUk6U1MnKSBBUyBjcmVhdGVkX2F0LAogICAgVE9fQ0hBUih1cGRhdGVkX2F0LCAnWVlZWS1NTS1ERCBISDI0Ok1JOlNTJykgQVMgdXBkYXRlZF9hdA==",
+    "filename" : "conversation_recipients.insert.sql",
+    "type" : "File"
+  },
+  "id" : "6c555d15-4f06-4916-9c52-124cfb38307c",
+  "name" : "conversation_recipients.insert.sql",
+  "description" : "SQL template for creating conversation recipients",
+  "createdAt" : "2023-10-04T18:05:18.587705934",
+  "updatedAt" : "2023-10-04T18:05:18.587707844",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

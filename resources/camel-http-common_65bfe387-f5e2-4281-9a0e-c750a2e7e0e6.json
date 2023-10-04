@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.camel:camel-http-common:3.16.0"
+  },
+  "id" : "65bfe387-f5e2-4281-9a0e-c750a2e7e0e6",
+  "name" : "camel-http-common",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.399267948",
+  "updatedAt" : "2023-10-04T18:05:20.399283546",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.google.cloud:google-cloud-translate:2.1.9"
+  },
+  "id" : "c7e8dd94-912b-43d7-8c8a-668c0abff9d5",
+  "name" : "google-cloud-translate",
+  "description" : "com.google.cloud:google-cloud-translate:2.1.9",
+  "createdAt" : "2023-10-04T18:05:18.958897983",
+  "updatedAt" : "2023-10-04T18:05:18.958898962",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

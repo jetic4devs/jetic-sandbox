@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,I3NldCAoJGQgPSAnJCcpCiNzZXQgKCRoID0gJyMnKQoKI3NldCggJHF1ZXJ5V2hpdGVsaXN0ID0gWyJsaW1pdCIsICJvZmZzZXQiLCAib3JkZXJCeSIsICJvcmRlckRpciJdICkKI3NldCggJHF1ZXJ5UGFyYW1zID0gJGV4Y2hhbmdlLnByb3BlcnRpZXMuQ2FtZWxIdHRwUXVlcnkgKQoKI2ZvcmVhY2ggKCRwYXJhbSBpbiAkcXVlcnlQYXJhbXMuc3BsaXQoIiYiKSkKICAgICNzZXQgKCRwYXJhbV9rdiA9ICRwYXJhbS5zcGxpdCgiPSIpKQogICAgI2lmICgkcXVlcnlXaGl0ZWxpc3QuY29udGFpbnMoJHBhcmFtX2t2WzBdKSkKICAgICAgICAjc2V0ICgkZXhwciA9ICIke2h9c2V0ICgke2R9JHtwYXJhbV9rdlswXX0gPSAnJHtwYXJhbV9rdlsxXX0nKSIpCiAgICAgICAgI2V2YWx1YXRlKCRleHByKQogICAgI2VuZAojZW5kCgojc2V0KCAkdXNlcklkID0gJCFleGNoYW5nZS5wcm9wZXJ0aWVzLnVzZXJVdWlkICkKI2lmICggISQhdXNlcklkICkKICAgICNzZXQgKCAkdXNlcklkID0gJCFleGNoYW5nZS5wcm9wZXJ0aWVzLnVzZXJJZCApCiNlbmQKI3NldCAoJGFnZW5jeUlkID0gJCFleGNoYW5nZS5wcm9wZXJ0aWVzLmFnZW5jeUlkKQoKU0VMRUNUCiAgICByLnJvbGVfaWQsCiAgICByLnJvbGUsCiAgICByLnBlcm1pc3Npb25zLAogICAgci5jcmVhdGVkX2F0LAogICAgci51cGRhdGVkX2F0CkZST00gdXNlcl9yb2xlcyB1cgpMRUZUIEpPSU4gcm9sZXMgciBPTiB1ci5yb2xlX2lkID0gci5pZApXSEVSRSB1ci51c2VyX2lkID0gQ0FTVCgnJCF1c2VySWQnIEFTIHV1aWQpIEFORCAjaWYoJCFhZ2VuY3lJZCAmJiAkIWFnZW5jeUlkICE9ICcnKXVyLmFnZW5jeV9pZCA9IENBU1QoJyQhYWdlbmN5SWQnIEFTIHV1aWQpICNlbHNlIFRSVUU9RkFMU0UgI2VuZA==",
+    "filename" : "user_roles.select.sql.vm",
+    "type" : "File"
+  },
+  "id" : "4da10b43-9e5d-4345-861c-96d4138ca9d5",
+  "name" : "user_roles.select.sql.vm",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.024305475",
+  "updatedAt" : "2023-10-04T18:05:21.02430725",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

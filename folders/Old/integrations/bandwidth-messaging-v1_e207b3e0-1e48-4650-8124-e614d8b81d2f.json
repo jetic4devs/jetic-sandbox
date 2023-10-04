@@ -1,0 +1,19 @@
+{
+  "revision" : 4,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "a34999d4-756f-4a4b-9cfb-bde2ce00289a",
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ ],
+  "traits" : [ ],
+  "id" : "e207b3e0-1e48-4650-8124-e614d8b81d2f",
+  "name" : "bandwidth-messaging-v1",
+  "description" : "Badwidth CPaaS Integration ",
+  "createdAt" : "2023-10-04T18:05:09.533713629",
+  "updatedAt" : "2023-10-04T18:05:09.533714224",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.opentelecoms.sip:sip-api-1.2:1.2"
+  },
+  "id" : "160906da-63e9-46f6-aaaf-c3e6910ad209",
+  "name" : "org.opentelecoms.sip_sip-api-1.2_1.2",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.012112369",
+  "updatedAt" : "2023-10-04T18:05:23.012113069",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

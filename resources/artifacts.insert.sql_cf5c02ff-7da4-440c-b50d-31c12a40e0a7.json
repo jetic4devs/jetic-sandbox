@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gYXJ0aWZhY3RzIChvYmplY3RfaWQsIG9iamVjdF90eXBlLCBhZ2VuY3lfaWQsIHVyaSwgY29udGVudF90eXBlLCBzaXplLCBjaGVja3N1bSwgY3JlYXRlZF9hdCwgdXBkYXRlZF9hdCkKVkFMVUVTICgKICAgIENBU1QoOiMke2V4Y2hhbmdlUHJvcGVydHkub2JqZWN0SWR9IEFTIHV1aWQpLAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkub2JqZWN0VHlwZX0sCiAgICBDQVNUKDojJHtleGNoYW5nZVByb3BlcnR5LmFnZW5jeUlkfSBBUyB1dWlkKSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LmFydGlmYWN0VXJpfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LmNvbnRlbnRUeXBlfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LmFydGlmYWN0U2l6ZX0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5jaGVja3N1bX0sIAogICAgTk9XKCksIAogICAgTk9XKCkKKQpSRVRVUk5JTkcKICAgIGlkIEFTIGFydGlmYWN0X2lk",
+    "filename" : "artifacts.insert.sql",
+    "type" : "File"
+  },
+  "id" : "cf5c02ff-7da4-440c-b50d-31c12a40e0a7",
+  "name" : "artifacts.insert.sql",
+  "description" : "Artifact Create SQL Template",
+  "createdAt" : "2023-10-04T18:05:19.770092901",
+  "updatedAt" : "2023-10-04T18:05:19.770093971",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

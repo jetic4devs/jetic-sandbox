@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.twilio.sdk:twilio:8.25.1"
+  },
+  "id" : "d12e99df-d8d6-4ce1-b254-4d67310ab26c",
+  "name" : "com.twilio.sdk_twilio",
+  "description" : "com.twilio.sdk",
+  "createdAt" : "2023-10-04T18:05:18.847849611",
+  "updatedAt" : "2023-10-04T18:05:18.847850572",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,739 @@
+{
+  "revision" : 207,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "ae5301ac-5200-4b54-876c-b514515feb02",
+  "parameterGroupUuids" : [ "e1d81a6a-655e-42ff-8288-6b0891abe7b0", "83d26985-9100-4993-8115-ced44d1fe3fd", "ca06b01a-b205-4b2b-9e9d-9f49614e7e94", "351ac858-4e6b-4902-9090-0be62c4dc9e0", "c08652a3-d6b0-49e8-8f94-a7b6845afe60", "ac92dc04-f6e4-43f5-a29a-449d8280d07d" ],
+  "repoResourceUuids" : [ "a1057428-1531-40a8-a129-ed27382e947f", "3b5aa833-0eaa-4cb9-8ce8-ca97eac74110", "17e7ca54-4247-4e9c-ba30-d078e3ac407a", "05649865-0c5a-4bfd-bddb-046f69383940", "72dd19b1-0674-45f7-a92b-f9aaefc39ceb", "55b7f5ed-302d-4d1e-b6df-e6369707fa37" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "608d8520-98d5-4225-9f72-0396a1f47e59",
+      "description" : "providers.aws.translate",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "5",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "providers.aws.translate",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOut",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=5&connectionFactory=#pooledConnectionFactory&destinationName=providers.aws.translate&destinationType=queue&exchangePattern=InOut&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "05941247-ad06-4563-8e40-b965b27a23e3",
+      "description" : "532.jms.trans.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "532.jms.trans.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=532.jms.trans.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "dbd00688-431e-4acb-a521-cba7a0129991",
+      "description" : "Get Input Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "inputText",
+          "propertyValue" : "$.input_text",
+          "uuid" : "547f8d0b-0b5b-4fdc-9e1c-e7aa3e2c8416"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "outputLang",
+          "propertyValue" : "$.output_dialect",
+          "uuid" : "6041880b-96cf-4457-9eb3-de344acaac96"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "inputLang",
+          "propertyValue" : "$.input_dialect",
+          "uuid" : "bb261f3d-27ff-4f3b-aebd-f036b9618408"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "awsRegion",
+          "propertyValue" : "{{aws.translate.region}}",
+          "uuid" : "deec0261-139a-4608-857a-b99ac4ead708"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "requestId",
+          "propertyValue" : "${exchangeId}",
+          "uuid" : "ae9f9c9d-bff0-47e5-8c1b-4866b5253bdf"
+        } ],
+        "suppressExceptions" : true,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?inputText=$.input_text&outputLang=$.output_dialect&inputLang=$.input_dialect&awsRegion={{aws.translate.region}}&requestId=${exchangeId}&addNamespaces=false&suppressExceptions=true"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "4b6bf802-22ca-4eed-91c6-724754706fad",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\", \"x-*\", \"CamelJms*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"x-*\", \"CamelJms*\")"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "d76b8963-009c-425f-a868-55c6fe58e09d",
+      "description" : "400?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "process",
+          "nodeId" : "daa9dab0-d67e-4093-b795-0d9e2309fd3e",
+          "description" : "SDK Translate",
+          "properties" : {
+            "_type" : "process",
+            "active" : true,
+            "camelGroup" : "transform",
+            "code" : "String region = (String)exchange.getProperty(\"awsRegion\");\nString inputLang = (String)exchange.getProperty(\"inputLang\");\nString outputLang = (String)exchange.getProperty(\"outputLang\");\nString inputText = (String)exchange.getProperty(\"inputText\");\n\nString awsKey = (String)context.getPropertiesComponent().resolveProperty(\"aws.translate.apiKey\").get();\nString awsSecret = (String)context.getPropertiesComponent().resolveProperty(\"aws.translate.apiSecret\").get();\nBasicAWSCredentials awsCredentials = new BasicAWSCredentials(awsKey, awsSecret);\n\nObjectMapper mapper = new ObjectMapper();\n\nAmazonTranslate translate = AmazonTranslateClient.builder()\n\t//.withCredentials(new InstanceProfileCredentialsProvider(false))\n\t.withCredentials(new AWSStaticCredentialsProvider(awsCredentials))\n\t.withRegion(region)\n\t.build();\n\nif (inputLang == null)\n\tinputLang = \"auto\";\n\nTranslateTextRequest request = new TranslateTextRequest()\n\t.withText(inputText)\n\t.withSourceLanguageCode(inputLang)\n\t.withTargetLanguageCode(outputLang);\n\ntry {\n\tTranslateTextResult result  = translate.translateText(request);\n\t\n\tHashMap<String, Object> response = new HashMap<String, Object>() {{\n\t\tput(\"provider\", \"aws\");\n\t\tput(\"input_text\", inputText);\n\t\tput(\"output_text\", result.getTranslatedText());\n\t\tput(\"input_dialect\", inputLang);\n\t\tput(\"output_dialect\", result.getTargetLanguageCode());\n\t}};\n\t\n\tif (inputLang == \"auto\"){\n\t\tresponse.put(\"input_dialect\", null);\n\t\tresponse.put(\"detected_dialect\", result.getSourceLanguageCode());\n\t}\n\t\n\tif (result.getTranslatedText() == inputText || result.getTranslatedText() == \"\"){\n\t\tresponse.put(\"output_text\", null);\n\t}\n\telse {\n\t\tfinal String isConfidenceEnabled = (String)exchange.getIn().getHeader(\"X-Enable-Confidence\");\n\t\tif(\"true\".equals(isConfidenceEnabled)){\n\t\t\trequest = new TranslateTextRequest().withText(result.getTranslatedText()).withSourceLanguageCode(result.getTargetLanguageCode()).withTargetLanguageCode(result.getSourceLanguageCode());\n\t\t\tresult  = translate.translateText(request);\n\t\t\texchange.setProperty(\"reverseInputText\", result.getTranslatedText());\t\n\t\t}\n\t}\n\t\t\n\texchange.getIn().setBody(response);\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 200);\n} catch (Exception e) {\n\tHashMap response = new HashMap<String, String>() {{\n\t\tput(\"error\", e.getMessage());\n\t}}\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 400);\n\texchange.getIn().setBody(mapper.writeValueAsString(response));\n}",
+            "import" : "import com.amazonaws.auth.AWSCredentialsProviderChain;\nimport com.amazonaws.auth.DefaultAWSCredentialsProviderChain;\nimport com.amazonaws.auth.InstanceProfileCredentialsProvider;\nimport com.amazonaws.client.builder.AwsClientBuilder;\nimport com.amazonaws.services.translate.AmazonTranslate;\nimport com.amazonaws.services.translate.AmazonTranslateClient;\nimport com.amazonaws.services.translate.model.TranslateTextRequest;\nimport com.amazonaws.services.translate.model.TranslateTextResult;\nimport com.amazonaws.regions.Regions;\nimport com.fasterxml.jackson.databind.ObjectMapper;",
+            "name" : "process",
+            "url" : ""
+          },
+          "_type" : "process",
+          "kameletPropertiesUrl" : "?code=String region = (String)exchange.getProperty(\"awsRegion\");\nString inputLang = (String)exchange.getProperty(\"inputLang\");\nString outputLang = (String)exchange.getProperty(\"outputLang\");\nString inputText = (String)exchange.getProperty(\"inputText\");\n\nString awsKey = (String)context.getPropertiesComponent().resolveProperty(\"aws.translate.apiKey\").get();\nString awsSecret = (String)context.getPropertiesComponent().resolveProperty(\"aws.translate.apiSecret\").get();\nBasicAWSCredentials awsCredentials = new BasicAWSCredentials(awsKey, awsSecret);\n\nObjectMapper mapper = new ObjectMapper();\n\nAmazonTranslate translate = AmazonTranslateClient.builder()\n\t//.withCredentials(new InstanceProfileCredentialsProvider(false))\n\t.withCredentials(new AWSStaticCredentialsProvider(awsCredentials))\n\t.withRegion(region)\n\t.build();\n\nif (inputLang == null)\n\tinputLang = \"auto\";\n\nTranslateTextRequest request = new TranslateTextRequest()\n\t.withText(inputText)\n\t.withSourceLanguageCode(inputLang)\n\t.withTargetLanguageCode(outputLang);\n\ntry {\n\tTranslateTextResult result  = translate.translateText(request);\n\t\n\tHashMap<String, Object> response = new HashMap<String, Object>() {{\n\t\tput(\"provider\", \"aws\");\n\t\tput(\"input_text\", inputText);\n\t\tput(\"output_text\", result.getTranslatedText());\n\t\tput(\"input_dialect\", inputLang);\n\t\tput(\"output_dialect\", result.getTargetLanguageCode());\n\t}};\n\t\n\tif (inputLang == \"auto\"){\n\t\tresponse.put(\"input_dialect\", null);\n\t\tresponse.put(\"detected_dialect\", result.getSourceLanguageCode());\n\t}\n\t\n\tif (result.getTranslatedText() == inputText || result.getTranslatedText() == \"\"){\n\t\tresponse.put(\"output_text\", null);\n\t}\n\telse {\n\t\tfinal String isConfidenceEnabled = (String)exchange.getIn().getHeader(\"X-Enable-Confidence\");\n\t\tif(\"true\".equals(isConfidenceEnabled)){\n\t\t\trequest = new TranslateTextRequest().withText(result.getTranslatedText()).withSourceLanguageCode(result.getTargetLanguageCode()).withTargetLanguageCode(result.getSourceLanguageCode());\n\t\t\tresult  = translate.translateText(request);\n\t\t\texchange.setProperty(\"reverseInputText\", result.getTranslatedText());\t\n\t\t}\n\t}\n\t\t\n\texchange.getIn().setBody(response);\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 200);\n} catch (Exception e) {\n\tHashMap response = new HashMap<String, String>() {{\n\t\tput(\"error\", e.getMessage());\n\t}}\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 400);\n\texchange.getIn().setBody(mapper.writeValueAsString(response));\n}&import=import com.amazonaws.auth.AWSCredentialsProviderChain;\nimport com.amazonaws.auth.DefaultAWSCredentialsProviderChain;\nimport com.amazonaws.auth.InstanceProfileCredentialsProvider;\nimport com.amazonaws.client.builder.AwsClientBuilder;\nimport com.amazonaws.services.translate.AmazonTranslate;\nimport com.amazonaws.services.translate.AmazonTranslateClient;\nimport com.amazonaws.services.translate.model.TranslateTextRequest;\nimport com.amazonaws.services.translate.model.TranslateTextResult;\nimport com.amazonaws.regions.Regions;\nimport com.fasterxml.jackson.databind.ObjectMapper;"
+        }, {
+          "name" : "messageFilter",
+          "nodeId" : "29bcb7ae-3bea-48dd-9d54-119f100e238c",
+          "description" : "Valid Translate?",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "route",
+            "label" : "error ",
+            "route" : [ {
+              "name" : "log",
+              "nodeId" : "e4380cc8-c28d-48fc-bce4-aaf5eea101be",
+              "description" : "532.jms.trans.out",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "532.jms.trans.out",
+                "message" : "(${header.CamelHttpResponseCode}) ${body}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=532.jms.trans.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            } ],
+            "properties" : { }
+          }, {
+            "type" : "filter",
+            "label" : "status = 200",
+            "route" : [ {
+              "name" : "setProperties",
+              "nodeId" : "e97b927d-fa85-4e58-bed0-ddc274ae5c5f",
+              "description" : "setConfidence",
+              "properties" : {
+                "_type" : "setProperties",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "name" : "setProperties",
+                "namespaces" : [ ],
+                "propertyList" : [ {
+                  "language" : "Simple",
+                  "propertyName" : "confidence",
+                  "propertyValue" : "${bean:WordSimilarity?method=score(${exchangeProperty.inputText}, ${exchangeProperty.reverseInputText})}",
+                  "uuid" : "c8954414-85ff-4a6e-936f-3b6e3905507d"
+                } ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setProperties",
+              "kameletPropertiesUrl" : "?confidence=${bean:WordSimilarity?method=score(${exchangeProperty.inputText}, ${exchangeProperty.reverseInputText})}&addNamespaces=false&suppressExceptions=false"
+            }, {
+              "name" : "process",
+              "nodeId" : "44cc8726-b1b9-49ee-a8b0-885cc574381f",
+              "description" : "Format Response",
+              "properties" : {
+                "_type" : "process",
+                "active" : true,
+                "camelGroup" : "transform",
+                "code" : "Map<String, Object> translation = exchange.getIn().getBody(Map.class);\ntranslation.put(\"score\", (Double)exchange.getProperty(\"confidence\"));\nexchange.getIn().setBody(translation);",
+                "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+                "name" : "process",
+                "url" : ""
+              },
+              "_type" : "process",
+              "kameletPropertiesUrl" : "?code=Map<String, Object> translation = exchange.getIn().getBody(Map.class);\ntranslation.put(\"score\", (Double)exchange.getProperty(\"confidence\"));\nexchange.getIn().setBody(translation);&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${header.CamelHttpResponseCode} == 200",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      }, {
+        "type" : "filter",
+        "label" : "400",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "64428cb4-a581-4e52-8e36-85e96d65d774",
+          "description" : "532.jms.trans.400",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "WARN",
+            "logType" : "EIP",
+            "loggerName" : "log",
+            "message" : "(400) Invalid Request",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=log&message=(400) Invalid Request&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setBody",
+          "nodeId" : "124924bb-9813-4af3-857d-cc6c3f185b18",
+          "description" : "Set Error",
+          "properties" : {
+            "_type" : "setBody",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "expression" : "{\"error\": \"Invalid request. Required parameters missing\"}",
+            "language" : "Simple",
+            "name" : "setBody",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setBody",
+          "kameletPropertiesUrl" : "?addNamespaces=false&expression={\"error\": \"Invalid request. Required parameters missing\"}&language=Simple&suppressExceptions=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "7a2471c2-3096-42c4-98c2-0cb49bd4ecd2",
+          "description" : "HTTP400",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "400",
+              "language" : "Constant",
+              "uuid" : "1423e157-53aa-48ea-bd75-b0f240182a64"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "stop",
+          "nodeId" : "f79d6396-6e92-431f-be4d-ace33298d9f3",
+          "description" : "",
+          "properties" : {
+            "_type" : "stop",
+            "camelGroup" : "misc",
+            "name" : "stop",
+            "url" : ""
+          },
+          "_type" : "stop",
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.inputText} == null || ${exchangeProperty.outputLang} == null",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-3",
+    "enabled" : true,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "80824269-d764-4d3e-b8ef-8ae8b4d6f3be",
+      "description" : "providers.aws.detect",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "10",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "providers.aws.detect",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOut",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=10&connectionFactory=#pooledConnectionFactory&destinationName=providers.aws.detect&destinationType=queue&exchangePattern=InOut&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "51651c2e-9927-4b9f-84ff-200bcdbe4f0a",
+      "description" : "532.jms.detect.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "532.jms.detect.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=532.jms.detect.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "249df511-eb99-4c24-9605-57dd78ed403b",
+      "description" : "Get Input Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "inputText",
+          "propertyValue" : "$.input_text",
+          "uuid" : "042371bf-6f24-4d83-a01c-6fabc5a57a76"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "awsRegion",
+          "propertyValue" : "{{aws.translate.region}}",
+          "uuid" : "b1d69cb9-5ae8-40fe-8ffa-41d15d4d1b7f"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?inputText=$.input_text&awsRegion={{aws.translate.region}}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "f13d6e81-871a-4aad-9429-3a2c94221425",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\", \"x-*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"x-*\")"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "fad91a69-eed4-480e-872b-c75413bff91c",
+      "description" : "",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "filter",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "ad688c26-db20-449d-9b11-09785701e3e2",
+          "description" : "532.jms.detect.400",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "WARN",
+            "logType" : "EIP",
+            "loggerName" : "532.jms.detect.400",
+            "message" : "Input text not specified",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=532.jms.detect.400&message=Input text not specified&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setBody",
+          "nodeId" : "6fee406c-509e-458b-b4f4-85b51fa391ef",
+          "description" : "Set Error",
+          "properties" : {
+            "_type" : "setBody",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "expression" : "{\"error\": \"Invalid request. Input text not provided\"}",
+            "language" : "Simple",
+            "name" : "setBody",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setBody",
+          "kameletPropertiesUrl" : "?addNamespaces=false&expression={\"error\": \"Invalid request. Input text not provided\"}&language=Simple&suppressExceptions=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "be2812c9-1962-4a35-99c2-e94b814d3299",
+          "description" : "HTTP400",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "400",
+              "language" : "Constant",
+              "uuid" : "2d2784d5-a45d-4012-b65f-83182283cb1e"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "stop",
+          "nodeId" : "491b3be9-fdb6-459b-b7c8-ddedf031a818",
+          "description" : "",
+          "properties" : {
+            "_type" : "stop",
+            "camelGroup" : "misc",
+            "name" : "stop",
+            "url" : ""
+          },
+          "_type" : "stop",
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.inputText} == null",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "process",
+          "nodeId" : "be30375c-0e80-4a54-a772-80e0780c1e41",
+          "description" : "SDK Detect",
+          "properties" : {
+            "_type" : "process",
+            "active" : true,
+            "camelGroup" : "transform",
+            "code" : "String region = (String)exchange.getProperty(\"awsRegion\");\nString inputText = (String)exchange.getProperty(\"inputText\");\nString awsKey = (String)context.getPropertiesComponent().resolveProperty(\"aws.translate.apiKey\").get();\nString awsSecret = (String)context.getPropertiesComponent().resolveProperty(\"aws.translate.apiSecret\").get();\nBasicAWSCredentials awsCredentials = new BasicAWSCredentials(awsKey, awsSecret);\n\t\nAmazonComprehendClient comprehendClient = AmazonComprehendClient.builder()\n\t//.withCredentials(new InstanceProfileCredentialsProvider(false))\n\t.withCredentials(new AWSStaticCredentialsProvider(awsCredentials))\n\t.withRegion(region)\n\t.build();\n\nObjectMapper mapper = new ObjectMapper();\nDetectDominantLanguageRequest detectDominantLanguageRequest = new DetectDominantLanguageRequest().withText(inputText);\n\nArrayList<HashMap<String, Object>> detectResponse = new ArrayList<HashMap<String, Object>>();\n\ntry {\n\tDetectDominantLanguageResult detectDominantLanguageResult = comprehendClient.detectDominantLanguage(detectDominantLanguageRequest);\n\tList<DominantLanguage> detectedLanguages = detectDominantLanguageResult.getLanguages();\n\t\n\tif (detectedLanguages != null && detectedLanguages.size() > 0) {\n\t\tfor (int i = 0; i < detectedLanguages.size(); i++) {\n\t\t\tDominantLanguage result = detectedLanguages.get(i);\n\t\t  HashMap<String, Object> unitResponse = new HashMap();\n\t\t\tunitResponse.put(\"provider\", \"aws\");\n\t\t\tunitResponse.put(\"detected_dialect\", result.getLanguageCode().toLowerCase());\n\t\t\tunitResponse.put(\"detected_confidence\", result.getScore());\n\t\t\tdetectResponse.add(unitResponse);\n\t\t}\n\t}\n\t\n\texchange.getIn().setBody(mapper.writeValueAsString(detectResponse));\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 200);\n} catch (Exception e) {\n\tHashMap response = new HashMap<String, String>() {{\n\t\tput(\"error\", e.getMessage());\n\t}}\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 400);\n\texchange.getIn().setBody(response);\n}\n\nif (exchange.getIn().getHeader(\"CamelHttpResponseCode\") == null)\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 500);\n",
+            "import" : "import com.amazonaws.auth.AWSCredentialsProviderChain;\nimport com.amazonaws.auth.DefaultAWSCredentialsProviderChain;\nimport com.amazonaws.auth.InstanceProfileCredentialsProvider;\nimport com.amazonaws.auth.BasicAWSCredentials;\nimport com.amazonaws.auth.AWSStaticCredentialsProvider;\nimport com.amazonaws.client.builder.AwsClientBuilder;\nimport com.amazonaws.services.comprehend.AmazonComprehendClient;\nimport com.amazonaws.services.comprehend.model.DetectDominantLanguageRequest;\nimport com.amazonaws.services.comprehend.model.DetectDominantLanguageResult;\n//import com.amazonaws.services.comprehend.model.ComprehendResponse;\nimport com.amazonaws.services.comprehend.model.DominantLanguage;\n//import software.amazon.awssdk.services.comprehend.ComprehendClient;\n//import software.amazon.awssdk.services.comprehend.model.ComprehendException;\n//import software.amazon.awssdk.services.comprehend.model.DetectDominantLanguageRequest;\n//import software.amazon.awssdk.services.comprehend.model.DetectDominantLanguageResponse;\n//import software.amazon.awssdk.services.comprehend.model.DominantLanguage;\n//import com.amazonaws.services.comprehend.DetectDominantLanguageResponse;\n//import com.amazonaws.services.comprehend.DetectDominantLanguageRequest;\nimport com.amazonaws.regions.Regions;\nimport com.fasterxml.jackson.databind.ObjectMapper;",
+            "name" : "process",
+            "url" : ""
+          },
+          "_type" : "process",
+          "kameletPropertiesUrl" : "?code=String region = (String)exchange.getProperty(\"awsRegion\");\nString inputText = (String)exchange.getProperty(\"inputText\");\nString awsKey = (String)context.getPropertiesComponent().resolveProperty(\"aws.translate.apiKey\").get();\nString awsSecret = (String)context.getPropertiesComponent().resolveProperty(\"aws.translate.apiSecret\").get();\nBasicAWSCredentials awsCredentials = new BasicAWSCredentials(awsKey, awsSecret);\n\t\nAmazonComprehendClient comprehendClient = AmazonComprehendClient.builder()\n\t//.withCredentials(new InstanceProfileCredentialsProvider(false))\n\t.withCredentials(new AWSStaticCredentialsProvider(awsCredentials))\n\t.withRegion(region)\n\t.build();\n\nObjectMapper mapper = new ObjectMapper();\nDetectDominantLanguageRequest detectDominantLanguageRequest = new DetectDominantLanguageRequest().withText(inputText);\n\nArrayList<HashMap<String, Object>> detectResponse = new ArrayList<HashMap<String, Object>>();\n\ntry {\n\tDetectDominantLanguageResult detectDominantLanguageResult = comprehendClient.detectDominantLanguage(detectDominantLanguageRequest);\n\tList<DominantLanguage> detectedLanguages = detectDominantLanguageResult.getLanguages();\n\t\n\tif (detectedLanguages != null && detectedLanguages.size() > 0) {\n\t\tfor (int i = 0; i < detectedLanguages.size(); i++) {\n\t\t\tDominantLanguage result = detectedLanguages.get(i);\n\t\t  HashMap<String, Object> unitResponse = new HashMap();\n\t\t\tunitResponse.put(\"provider\", \"aws\");\n\t\t\tunitResponse.put(\"detected_dialect\", result.getLanguageCode().toLowerCase());\n\t\t\tunitResponse.put(\"detected_confidence\", result.getScore());\n\t\t\tdetectResponse.add(unitResponse);\n\t\t}\n\t}\n\t\n\texchange.getIn().setBody(mapper.writeValueAsString(detectResponse));\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 200);\n} catch (Exception e) {\n\tHashMap response = new HashMap<String, String>() {{\n\t\tput(\"error\", e.getMessage());\n\t}}\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 400);\n\texchange.getIn().setBody(response);\n}\n\nif (exchange.getIn().getHeader(\"CamelHttpResponseCode\") == null)\n\texchange.getIn().setHeader(\"CamelHttpResponseCode\", 500);\n&import=import com.amazonaws.auth.AWSCredentialsProviderChain;\nimport com.amazonaws.auth.DefaultAWSCredentialsProviderChain;\nimport com.amazonaws.auth.InstanceProfileCredentialsProvider;\nimport com.amazonaws.auth.BasicAWSCredentials;\nimport com.amazonaws.auth.AWSStaticCredentialsProvider;\nimport com.amazonaws.client.builder.AwsClientBuilder;\nimport com.amazonaws.services.comprehend.AmazonComprehendClient;\nimport com.amazonaws.services.comprehend.model.DetectDominantLanguageRequest;\nimport com.amazonaws.services.comprehend.model.DetectDominantLanguageResult;\n//import com.amazonaws.services.comprehend.model.ComprehendResponse;\nimport com.amazonaws.services.comprehend.model.DominantLanguage;\n//import software.amazon.awssdk.services.comprehend.ComprehendClient;\n//import software.amazon.awssdk.services.comprehend.model.ComprehendException;\n//import software.amazon.awssdk.services.comprehend.model.DetectDominantLanguageRequest;\n//import software.amazon.awssdk.services.comprehend.model.DetectDominantLanguageResponse;\n//import software.amazon.awssdk.services.comprehend.model.DominantLanguage;\n//import com.amazonaws.services.comprehend.DetectDominantLanguageResponse;\n//import com.amazonaws.services.comprehend.DetectDominantLanguageRequest;\nimport com.amazonaws.regions.Regions;\nimport com.fasterxml.jackson.databind.ObjectMapper;"
+        }, {
+          "name" : "log",
+          "nodeId" : "e6f0c5fb-af47-441f-945a-51cde6f5b5ef",
+          "description" : "532.jms.detect.out",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "INFO",
+            "logType" : "EIP",
+            "loggerName" : "532.jms.detect.out",
+            "message" : "(${header.CamelHttpResponseCode}) ${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=532.jms.detect.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-3-a4bd3453",
+    "enabled" : true,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "errorHandler",
+      "nodeId" : "ac01d68f-e143-486d-afe2-6a7250c4d24a",
+      "description" : "Retry Handler",
+      "properties" : {
+        "_type" : "errorHandler",
+        "active" : true,
+        "asyncDelayedRedelivery" : false,
+        "camelGroup" : "exception",
+        "deadLetterUri" : "log://dead",
+        "level" : "WARN",
+        "loggerLevel" : "INFO",
+        "loggerName" : "error",
+        "maximumRedeliveries" : "2",
+        "name" : "errorHandler",
+        "redeliveryDelay" : "250",
+        "setLoggerLevel" : false,
+        "setLoggerName" : false,
+        "setMaximumRedeliveries" : true,
+        "setRedeliveryDelay" : true,
+        "setRetryAttemptedLogLevel" : true,
+        "type" : "Default Handler",
+        "url" : "",
+        "useOriginalMessage" : false
+      },
+      "_type" : "errorHandler",
+      "kameletPropertiesUrl" : "?asyncDelayedRedelivery=false&deadLetterUri=log://dead&level=WARN&loggerLevel=INFO&loggerName=error&maximumRedeliveries=2&redeliveryDelay=250&setLoggerLevel=false&setLoggerName=false&setMaximumRedeliveries=true&setRedeliveryDelay=true&setRetryAttemptedLogLevel=true&type=Default Handler&useOriginalMessage=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-4",
+    "enabled" : true,
+    "routeId" : 4,
+    "route" : [ {
+      "name" : "onException",
+      "nodeId" : "803877af-727a-476e-9bc4-1b9a64572ebf",
+      "description" : "Exceptions",
+      "properties" : {
+        "_type" : "onException",
+        "active" : true,
+        "asyncDelayedRedelivery" : false,
+        "camelGroup" : "exception",
+        "exceptionBehavior" : "Handle the exceptions",
+        "exceptionList" : [ {
+          "exception" : "Exception"
+        } ],
+        "maximumRedeliveries" : "2",
+        "name" : "onException",
+        "redeliveryDelay" : "1000",
+        "setRedeliveryDelay" : false,
+        "setRedeliveryTriesCount" : false,
+        "url" : "",
+        "useOriginalMessage" : false
+      },
+      "_type" : "onException",
+      "branches" : [ {
+        "type" : "onException",
+        "label" : "onException",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "2362c9c7-a213-44dd-b773-a822eaffe310",
+          "description" : "532.err",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "ERROR",
+            "logType" : "EIP",
+            "loggerName" : "532.err",
+            "message" : "${exception.stacktrace}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=ERROR&logType=EIP&loggerName=532.err&message=${exception.stacktrace}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setBody",
+          "nodeId" : "655349c8-9f10-4993-86a8-37f803545227",
+          "description" : "Set Error",
+          "properties" : {
+            "_type" : "setBody",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "expression" : "{\"error\": \"${exception.getMessage()}\"}",
+            "language" : "Simple",
+            "name" : "setBody",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setBody",
+          "kameletPropertiesUrl" : "?addNamespaces=false&expression={\"error\": \"${exception.getMessage()}\"}&language=Simple&suppressExceptions=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "5a4490c3-6b8c-453a-b780-4daafa752661",
+          "description" : "HTTP500",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "500",
+              "language" : "Header",
+              "uuid" : "56978d19-00be-493b-98ca-cbb335829aac"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : "?asyncDelayedRedelivery=false&exceptionBehavior=Handle the exceptions&maximumRedeliveries=2&redeliveryDelay=1000&setRedeliveryDelay=false&setRedeliveryTriesCount=false&useOriginalMessage=false"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "fd2627ea-6239-4a96-9532-7c6ccd82655f",
+  "name" : "r532-aws-translate",
+  "description" : "AWS Translate Service",
+  "createdAt" : "2023-10-04T18:05:10.879801649",
+  "updatedAt" : "2023-10-04T18:05:10.879802446",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

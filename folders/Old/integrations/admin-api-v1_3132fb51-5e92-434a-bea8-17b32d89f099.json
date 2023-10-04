@@ -1,0 +1,19 @@
+{
+  "revision" : 4,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "ae5301ac-5200-4b54-876c-b514515feb02",
+  "parameterGroupUuids" : [ "c9a8ecf3-391c-4a06-bdc0-68a1a504fdd9" ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ ],
+  "traits" : [ ],
+  "id" : "3132fb51-5e92-434a-bea8-17b32d89f099",
+  "name" : "admin-api-v1",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:09.221756348",
+  "updatedAt" : "2023-10-04T18:05:09.221757131",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

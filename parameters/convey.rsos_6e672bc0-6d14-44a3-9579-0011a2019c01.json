@@ -1,0 +1,25 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "apiHost",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  }, {
+    "parameterName" : "deeplinkUrl",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "6e672bc0-6d14-44a3-9579-0011a2019c01",
+  "name" : "convey.rsos",
+  "description" : "RapidSOS configuration",
+  "createdAt" : "2023-10-04T18:05:15.244501364",
+  "updatedAt" : "2023-10-04T18:05:15.244515354",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "io.socket:engine.io-client:2.0.0"
+  },
+  "id" : "eae6a47f-3dcb-47f1-b914-00b7203825a1",
+  "name" : "engine.io-client",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:19.402917302",
+  "updatedAt" : "2023-10-04T18:05:19.402918573",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

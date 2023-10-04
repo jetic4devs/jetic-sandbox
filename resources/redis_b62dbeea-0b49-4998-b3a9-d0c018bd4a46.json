@@ -1,0 +1,11 @@
+{
+  "type" : "MQ_BROKER_CONNECTION",
+  "properties" : { },
+  "id" : "b62dbeea-0b49-4998-b3a9-d0c018bd4a46",
+  "name" : "redis",
+  "description" : "Redis MQ Broker",
+  "createdAt" : "2023-10-04T18:05:19.257892568",
+  "updatedAt" : "2023-10-04T18:05:19.257893837",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

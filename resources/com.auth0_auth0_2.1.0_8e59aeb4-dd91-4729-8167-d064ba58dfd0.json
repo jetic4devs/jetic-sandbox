@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.auth0:auth0:2.1.0"
+  },
+  "id" : "8e59aeb4-dd91-4729-8167-d064ba58dfd0",
+  "name" : "com.auth0_auth0_2.1.0",
+  "description" : "Auth0 Management API SDK",
+  "createdAt" : "2023-10-04T18:05:19.14452956",
+  "updatedAt" : "2023-10-04T18:05:19.144530487",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

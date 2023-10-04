@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "@BindToRegistry\npublic BasicDataSource dsPostgres() {\n    CamelContext context = getContext();\n    String url = (String)context.getPropertiesComponent().resolveProperty(\"convey.postgres.uri\").get();\n    String username = (String)context.getPropertiesComponent().resolveProperty(\"convey.postgres.user\").get();\n    String password = (String)context.getPropertiesComponent().resolveProperty(\"convey.postgres.pass\").get();\n\n    final BasicDataSource basicDataSource = new BasicDataSource();\n    basicDataSource.setDriverClassName(\"org.postgresql.Driver\");\n        basicDataSource.setUrl(url);\n    basicDataSource.setUsername(username);\n    basicDataSource.setPassword(password);\n    basicDataSource.setValidationQuery(\"SELECT 1\");\n    basicDataSource.addConnectionProperty(\"zeroDateTimeBehavior\", \"CONVERT_TO_NULL\");\n    return basicDataSource;\n}\n",
+    "importsJava" : "//import org.apache.camel.Exchange;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.CamelContext;\nimport javax.sql.DataSource;\nimport org.apache.commons.dbcp2.BasicDataSource;",
+    "type" : "Java"
+  },
+  "id" : "0d41f9ca-58b0-434f-a68e-5855e59f3249",
+  "name" : "dsPostgres",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.547262432",
+  "updatedAt" : "2023-10-04T18:05:20.547263856",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

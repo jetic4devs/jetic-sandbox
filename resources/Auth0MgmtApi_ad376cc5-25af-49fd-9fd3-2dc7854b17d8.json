@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "@BindToRegistry\npublic Processor getAuth0Token() {\n    return exchange -> {\t\n\t\tCamelContext context = exchange.getContext();\n        String clientId = (String)context.getPropertiesComponent().resolveProperty(\"convey.auth0.clientId\").get();\n        String clientSecret = (String)context.getPropertiesComponent().resolveProperty(\"convey.auth0.clientSecret\").get();\n        String requestedScopes = (String)exchange.getProperty(\"authScope\");\n        String auth0Domain = (String)context.getPropertiesComponent().resolveProperty(\"convey.auth0.apiHost\").get();\t\t\t\n\t\t// if (exchange.getProperty(\"authDomain\") != null)\n\t\t\t// auth0Domain = (String)exchange.getProperty(\"authDomain\");\n\t\t\t\n        String auth0Audience = (String)context.getPropertiesComponent().resolveProperty(\"convey.auth0.manageApiAudience\").get();\n        if (exchange.getProperty(\"authAudience\") != null)\n            auth0Audience = (String)exchange.getProperty(\"authAudience\");\t\t\t\n\n\t\t\t\tSystem.out.println(\"Invoking Auth0 SDK - New Token Request for aud \" + auth0Audience);\n        AuthAPI authAPI = new AuthAPI(auth0Domain, clientId, clientSecret);\n\t\t\t\n\t\t\t\tAuthRequest authRequest = authAPI.requestToken(auth0Audience);\n        if (requestedScopes != null)\n            authRequest.setScope(requestedScopes);\n\n        TokenHolder holder = authRequest.execute();\n        String token = holder.getAccessToken();\n        Date ttl = holder.getExpiresAt();\n\t\t\t\tString scope = holder.getScope();\n\n\t\t\t\tSystem.out.println(\"SDK: Token Generated\");\n        exchange.setProperty(\"token\", token);\n        exchange.setProperty(\"tokenExpiresAt\", ttl);\n\t\t\t\texchange.setProperty(\"tokenScope\", scope);\n\t\t\t\texchange.setProperty(\"tokenAudience\", auth0Audience);\n    };\n}",
+    "importsJava" : "import org.apache.camel.CamelContext;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\nimport org.apache.camel.builder.RouteBuilder;\nimport org.apache.commons.codec.binary.Base64;\n\nimport com.auth0.client.mgmt.ManagementAPI;\nimport com.auth0.client.auth.AuthAPI;\nimport com.auth0.json.auth.TokenHolder;\nimport com.auth0.net.AuthRequest;\nimport com.auth0.exception.Auth0Exception;\n\nimport java.util.List;\nimport java.util.Map;\nimport java.net.URI;\nimport java.util.Date;",
+    "type" : "Java"
+  },
+  "id" : "ad376cc5-25af-49fd-9fd3-2dc7854b17d8",
+  "name" : "Auth0MgmtApi",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.469048733",
+  "updatedAt" : "2023-10-04T18:05:21.469050714",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

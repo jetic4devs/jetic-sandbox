@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.camel:camel-csv:3.18.0"
+  },
+  "id" : "0dcf1c0f-752c-4eee-825a-c4a9593a46c8",
+  "name" : "camel-csv",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.06166842",
+  "updatedAt" : "2023-10-04T18:05:21.061669404",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

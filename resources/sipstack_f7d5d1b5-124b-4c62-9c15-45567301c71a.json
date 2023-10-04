@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "io.sipstack:sipstack-netty-codec-sip:0.1.1"
+  },
+  "id" : "f7d5d1b5-124b-4c62-9c15-45567301c71a",
+  "name" : "sipstack",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.122009183",
+  "updatedAt" : "2023-10-04T18:05:23.122010056",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

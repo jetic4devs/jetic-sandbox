@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "@BindToRegistry\npublic String myString() {\n    return \"Hello World\";\n}\n\n@BindToRegistry\npublic Processor myProcessor() {\n    return e -> e.getMessage().setBody(\"Hello from Java\");\n}",
+    "importsJava" : "import org.apache.camel.CamelContext;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\nimport org.apache.camel.Exchange;\nimport org.apache.camel.CamelContext;\n\n//import org.apache.camel.component.sip;\nimport java.util.Collections;\nimport java.util.HashMap;\nimport java.util.HashSet;\nimport java.util.Map;\nimport java.util.Set;\nimport javax.sip.ClientTransaction;\nimport javax.sip.Dialog;\nimport javax.sip.DialogTerminatedEvent;\nimport javax.sip.IOExceptionEvent;\nimport javax.sip.RequestEvent;\nimport javax.sip.ResponseEvent;\nimport javax.sip.ServerTransaction;\nimport javax.sip.SipListener;\nimport javax.sip.SipProvider;\nimport javax.sip.TimeoutEvent;\nimport javax.sip.TransactionAlreadyExistsException;\nimport javax.sip.TransactionTerminatedEvent;\nimport javax.sip.TransactionUnavailableException;\nimport javax.sip.message.Request;\nimport javax.sip.message.Response;\n",
+    "type" : "Java"
+  },
+  "id" : "59ca67ab-e761-4789-bff3-04eeaab14ce3",
+  "name" : "SipService",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:22.737506383",
+  "updatedAt" : "2023-10-04T18:05:22.737507453",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,74 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "524a9b01-b449-4db8-afd6-1c20415465ed",
+  "name" : "numbers-api-v1",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.642336473",
+  "updatedAt" : "2023-10-04T18:05:13.642337574",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "99d7ea44-fc72-41ee-891d-328de272fbae",
+    "name" : "Api",
+    "path" : "/api/v1/numbers",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "f7092f0b-0654-40df-a717-96c479c914b3",
+      "operationId" : "getProviderNumbers",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "820bc0f8-eb1d-42fb-ab8e-92a976d04be7",
+      "operationId" : "createProviderNumber",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "83535176-04a4-4416-ab2b-6e9d811deefd",
+    "name" : "Api",
+    "path" : "/api/v1/numbers/{id}",
+    "pathVariables" : [ "id" ],
+    "operations" : [ {
+      "uuid" : "dc65cca8-7a1f-4a13-bef7-7db713ba6e4c",
+      "operationId" : "getProviderNumberById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "8abc8812-77c1-419a-a4e5-d5fb2b1d3c0e",
+      "operationId" : "updateProviderNumber",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "83600e8e-d460-48cf-9178-4940772f1e4c",
+      "operationId" : "releaseProviderNumber",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "99b2cfb3-af9d-4e86-b703-9d9b5dd8d288",
+    "name" : "Api",
+    "path" : "/api/v1/numbers/{number}/messages",
+    "pathVariables" : [ "number" ],
+    "operations" : [ {
+      "uuid" : "8224cd79-afbe-43e9-98f8-7c64453f6415",
+      "operationId" : "getMessagesForNumber",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "57defd84-8f49-4a7a-9642-0bf9a295b009",
+      "operationId" : "createMessageForNumber",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"numbers-api-v1\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/numbers\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getProviderNumbers\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createProviderNumber\"}},\"/api/v1/numbers/{id}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getProviderNumberById\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateProviderNumber\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"releaseProviderNumber\"},\"parameters\":[{\"name\":\"id\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/numbers/{number}/messages\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getMessagesForNumber\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createMessageForNumber\"},\"parameters\":[{\"name\":\"number\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

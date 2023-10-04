@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SGVsbG8jaWYoJCFleGNoYW5nZS5wcm9wZXJ0aWVzLnJlY2lwaWVudE5hbWUpICQhZXhjaGFuZ2UucHJvcGVydGllcy5yZWNpcGllbnROYW1lI2Vsc2UgJGV4Y2hhbmdlLnByb3BlcnRpZXMuZW1haWxSZWNpcGllbnQjZW5kLgoKQW4gYWRtaW5pc3RyYXRvciBmb3IgJGV4Y2hhbmdlLnByb3BlcnRpZXMuYWdlbmN5TmFtZSBoYXMgc2hhcmVkIGFuIGFydGlmYWN0IHdpdGggeW91LiAgCgpZb3UgY2FuIGFjY2VzcyBhbmQgZG93bmxvYWQgdGhlIGRpZ2l0YWwgZGF0YSB1c2luZyB0aGUgc2VjdXJlIGxpbmsgYmVsb3cuIAoKWyRleGNoYW5nZS5wcm9wZXJ0aWVzLnRva2VuVXJsXQoKI2lmKCAkIWV4Y2hhbmdlLnByb3BlcnRpZXMuZXhwaXJlc0F0ICkKVGhpcyBsaW5rIGlzIGFjdGl2ZSB1bnRpbCAkIWV4Y2hhbmdlLnByb3BlcnRpZXMuZXhwaXJlc0F0LgojZW5kCgpUaGFuayB5b3UsCgpDb252ZXk5MTEgQ3VzdG9tZXIgU2VydmljZQ==",
+    "filename" : "artifact.email.txt.vm",
+    "type" : "File"
+  },
+  "id" : "55b5988b-49b9-459b-9f88-6315be48f64a",
+  "name" : "artifact.email.txt.vm",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.171291714",
+  "updatedAt" : "2023-10-04T18:05:21.171292717",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

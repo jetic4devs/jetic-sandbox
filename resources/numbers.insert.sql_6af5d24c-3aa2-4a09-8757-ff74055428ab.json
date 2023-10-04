@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gbnVtYmVycwogICAgKGFnZW5jeV9pZCwgcmVzb3VyY2VfaWQsIG51bWJlciwgZnJpZW5kbHlfbmFtZSwgY291bnRyeV9jb2RlLCBjYXBhYmlsaXRpZXMsIHByb3ZpZGVyX2lkLCBzdGF0dXMsIGNyZWF0ZWRfYXQsIHVwZGF0ZWRfYXQpClZBTFVFUyAoCiAgICBDQVNUKDojJHtleGNoYW5nZVByb3BlcnR5LmFnZW5jeUlkfSBBUyB1dWlkKSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LnJlc291cmNlX2lkfSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5Lm51bWJlcn0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5sYWJlbH0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5jb3VudHJ5Q29kZX0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5jYXBhYmlsaXRpZXN9LAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5wcm92aWRlcklkfSBBUyB1dWlkKSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5LnN0YXR1c30sCiAgICBOT1coKSwKICAgIE5PVygpCikKUkVUVVJOSU5HCiAgICBpZCBBUyBudW1iZXJfaWQ=",
+    "filename" : "numbers.insert.sql",
+    "type" : "File"
+  },
+  "id" : "6af5d24c-3aa2-4a09-8757-ff74055428ab",
+  "name" : "numbers.insert.sql",
+  "description" : "SQL template for creating numbers",
+  "createdAt" : "2023-10-04T18:05:18.700063814",
+  "updatedAt" : "2023-10-04T18:05:18.700065257",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

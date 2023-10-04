@@ -1,0 +1,3755 @@
+{
+  "revision" : 1509,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : "e81dd799-64d1-47ff-9e88-2abf8c12559b",
+  "currentProfileUuid" : "e606328a-fa16-4385-b81f-46a859bf7811",
+  "parameterGroupUuids" : [ "e1d81a6a-655e-42ff-8288-6b0891abe7b0", "ca06b01a-b205-4b2b-9e9d-9f49614e7e94", "c9a8ecf3-391c-4a06-bdc0-68a1a504fdd9", "35de592c-5726-4090-8296-557d9a5ad827", "351ac858-4e6b-4902-9090-0be62c4dc9e0", "3dacce84-b8c8-4759-8bfa-355c8cf6acd6" ],
+  "repoResourceUuids" : [ "05649865-0c5a-4bfd-bddb-046f69383940", "e3bbf349-2e9e-4129-80fc-57526cb30151", "fedc2ba8-c348-4a92-a89c-844badda8f1f", "d12e99df-d8d6-4ce1-b254-4d67310ab26c", "613ead71-6810-4200-95cc-aa040f647b41", "2d21c0b9-a829-4420-84e6-67d34aaf6026", "e859d27c-054e-489d-96ef-1338b179fde7", "eddb9cf2-828c-4bf6-a038-93128340a0c2", "38657aaf-c7a4-4a04-9321-bb750c2e67b5", "55882383-5e69-44b0-a3ac-12785e306303", "9fb5f9ac-54fb-4ea4-b9d6-a3f95d92021b", "a1057428-1531-40a8-a129-ed27382e947f", "3b5aa833-0eaa-4cb9-8ce8-ca97eac74110", "0d41f9ca-58b0-434f-a68e-5855e59f3249", "5a8616e2-545a-4fb4-92a0-308feae7fc27", "17e7ca54-4247-4e9c-ba30-d078e3ac407a", "ab21c0c4-f1e7-4903-ae37-0edcd17df0a7", "1872a943-2a9b-4513-8739-06e95090b977", "71e48dda-80e9-4034-af48-cf39a9a10938" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "45b98d0c-3495-4457-a999-0b9a93d7a0c1",
+      "description" : "provider.twilio",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "providers.sms.twilio",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=providers.sms.twilio&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "46fe47cf-28b6-44cf-9417-0507cef50b58",
+      "description" : "To String",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "log",
+      "nodeId" : "debc9b7f-83f1-47b0-ad00-3fa9d69a667b",
+      "description" : "510.jms.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.jms.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.jms.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "8eaa0a20-3a40-436f-b3bd-918012865d3d",
+      "description" : "Get Message Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "messageId",
+          "propertyValue" : "$.message_id",
+          "uuid" : "eda87b0d-8c9c-4c8d-bb3e-0e3713592942"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "agencyId",
+          "propertyValue" : "$.agency_id",
+          "uuid" : "18f2ad0f-6f03-4368-9d6a-d588727e74c1"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "recipientNumber",
+          "propertyValue" : "$.recipient_number",
+          "uuid" : "40eaf89f-c649-46bb-9cae-255694a57d41"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "providerNumber",
+          "propertyValue" : "$.provider_number",
+          "uuid" : "bc7bd5c4-8b6b-422b-913d-dadd5a85dd24"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "conversationId",
+          "propertyValue" : "$.conversation_id",
+          "uuid" : "6154f0c2-cb00-45da-b575-b257a6a3953b"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "messageBody",
+          "propertyValue" : "$.message_body",
+          "uuid" : "13e03ec4-eb84-463c-8e62-05004ec78cc6"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "provider",
+          "propertyValue" : "twilio",
+          "uuid" : "cb6efdae-a622-4633-b296-164d0e55d9c6"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "body",
+          "propertyValue" : "$.body",
+          "uuid" : "bfad2cce-bbef-45dc-bdc4-4a7d5c1d0922"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "bodyTrans",
+          "propertyValue" : "$.body_transl",
+          "uuid" : "8534285f-0de2-4205-ac7e-bb6d8ee76b65"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?messageId=$.message_id&agencyId=$.agency_id&recipientNumber=$.recipient_number&providerNumber=$.provider_number&conversationId=$.conversation_id&messageBody=$.message_body&provider=twilio&body=$.body&bodyTrans=$.body_transl&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "direct",
+      "nodeId" : "8025ceb6-5a9b-4b65-8441-5e8bae695cab",
+      "description" : "Send SMS",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "send-sms",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=send-sms"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-2",
+    "enabled" : true,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "3fd1166a-6b97-46e6-acc3-72d5c8e7595a",
+      "description" : "send-sms",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "send-sms",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=send-sms"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "42c0db25-92e6-4432-9b43-8f31ae19b294",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\")"
+    }, {
+      "name" : "direct",
+      "nodeId" : "78528972-8d47-4b14-b1c9-f3335c70ef48",
+      "description" : "Get Provider Account",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "get-provider-account",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=get-provider-account"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "f0929008-9579-417d-81b8-d96654ce1620",
+      "description" : "Set Request Headers",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "Content-Type",
+          "headerValue" : "application/x-www-form-urlencoded",
+          "language" : "Constant",
+          "uuid" : "3bd69246-5e2f-4da8-b569-9a43361215fb"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "41d5b44f-801e-459e-9264-8fbe253e4b2c",
+      "description" : "Set Twilio Request",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "ObjectMapper mapper = new ObjectMapper();\n\nString conversationId = (String)exchange.getProperty(\"conversationId\");\nString messageId = (String)exchange.getProperty(\"messageId\");\nString providerResourceId = (String)exchange.getProperty(\"providerResourceId\");\nString bodyOrig = (String)exchange.getProperty(\"body\");\nString bodyTrans = (String)exchange.getProperty(\"bodyTrans\");\n\nString messageBody = URLEncoder.encode(bodyOrig);\nif (bodyTrans != null)\n\tmessageBody += \"\\n\\n\" + URLEncoder.encode(bodyTrans);\n\nString authKey = (String)exchange.getProperty(\"providerAuthKey\");\nString authToken = (String)exchange.getProperty(\"providerAuthToken\");\n\nCamelContext context = exchange.getContext();\nString apiHost = (String)context.getPropertiesComponent().resolveProperty(\"convey.api.host\").get();\n\nString basicAuth = Base64.getEncoder().encodeToString((authKey + \":\" + authToken).getBytes());\nString callbackUrl = \"https://\" + apiHost + \"/api/v1/twilio/sms/status/\" + conversationId + \"/\" + messageId;\n//String callbackUrl = \"https://hookb.in/Z20b0RGpkxCK6bmm6EOk\";\n\nString recipientNumber = (String)exchange.getProperty(\"recipientNumber\");\nString providerNumber = (String)exchange.getProperty(\"providerNumber\");\n//String recipientPrefix = \"+1\";\n//String providerPrefix = \"+1\";\n\nHashMap<String, String> smsRequest = new HashMap<String, String>() {{\n\tput(\"Body\", messageBody);\n\tput(\"From\", providerNumber);\n\tput(\"To\", recipientNumber);\n\tput(\"StatusCallback\", callbackUrl);\n}};\n\nexchange.getIn().setHeader(\"Authorization\", \"Basic \" + basicAuth);\nexchange.getIn().setHeader(\"CamelHttpPath\", \"/2010-04-01/Accounts/\" + providerResourceId + \"/Messages.json\");\nexchange.getIn().setBody(\"Body=\" + messageBody + \"&From=\" + URLEncoder.encode(providerNumber) + \"&To=\" + URLEncoder.encode(recipientNumber) + \"&StatusCallback=\" + URLEncoder.encode(callbackUrl));",
+        "import" : "import org.apache.camel.CamelContext;\nimport java.util.Base64;\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport java.net.URLEncoder;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=ObjectMapper mapper = new ObjectMapper();\n\nString conversationId = (String)exchange.getProperty(\"conversationId\");\nString messageId = (String)exchange.getProperty(\"messageId\");\nString providerResourceId = (String)exchange.getProperty(\"providerResourceId\");\nString bodyOrig = (String)exchange.getProperty(\"body\");\nString bodyTrans = (String)exchange.getProperty(\"bodyTrans\");\n\nString messageBody = URLEncoder.encode(bodyOrig);\nif (bodyTrans != null)\n\tmessageBody += \"\\n\\n\" + URLEncoder.encode(bodyTrans);\n\nString authKey = (String)exchange.getProperty(\"providerAuthKey\");\nString authToken = (String)exchange.getProperty(\"providerAuthToken\");\n\nCamelContext context = exchange.getContext();\nString apiHost = (String)context.getPropertiesComponent().resolveProperty(\"convey.api.host\").get();\n\nString basicAuth = Base64.getEncoder().encodeToString((authKey + \":\" + authToken).getBytes());\nString callbackUrl = \"https://\" + apiHost + \"/api/v1/twilio/sms/status/\" + conversationId + \"/\" + messageId;\n//String callbackUrl = \"https://hookb.in/Z20b0RGpkxCK6bmm6EOk\";\n\nString recipientNumber = (String)exchange.getProperty(\"recipientNumber\");\nString providerNumber = (String)exchange.getProperty(\"providerNumber\");\n//String recipientPrefix = \"+1\";\n//String providerPrefix = \"+1\";\n\nHashMap<String, String> smsRequest = new HashMap<String, String>() {{\n\tput(\"Body\", messageBody);\n\tput(\"From\", providerNumber);\n\tput(\"To\", recipientNumber);\n\tput(\"StatusCallback\", callbackUrl);\n}};\n\nexchange.getIn().setHeader(\"Authorization\", \"Basic \" + basicAuth);\nexchange.getIn().setHeader(\"CamelHttpPath\", \"/2010-04-01/Accounts/\" + providerResourceId + \"/Messages.json\");\nexchange.getIn().setBody(\"Body=\" + messageBody + \"&From=\" + URLEncoder.encode(providerNumber) + \"&To=\" + URLEncoder.encode(recipientNumber) + \"&StatusCallback=\" + URLEncoder.encode(callbackUrl));&import=import org.apache.camel.CamelContext;\nimport java.util.Base64;\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport java.net.URLEncoder;"
+    }, {
+      "name" : "http",
+      "nodeId" : "19d3d433-1d06-40b8-aa72-aafe5d6684ba",
+      "description" : "POST Twilio SMS",
+      "properties" : {
+        "_type" : "http",
+        "active" : true,
+        "advancedParameters" : [ {
+          "name" : "",
+          "uuid" : "4d6c2a5d-d0d1-41a7-ad04-12f51dbd78bf",
+          "value" : ""
+        } ],
+        "bridgeEndpoint" : true,
+        "camelGroup" : "component",
+        "connectTimeout" : "-1",
+        "connectionRequestTimeout" : "-1",
+        "disableStreamCache" : true,
+        "httpMethod" : "POST",
+        "httpUri" : "api.twilio.com",
+        "name" : "http",
+        "scheme" : "https",
+        "socketTimeout" : "-1",
+        "throwExceptionOnFailure" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "http",
+      "kameletPropertiesUrl" : "?bridgeEndpoint=true&connectTimeout=-1&connectionRequestTimeout=-1&disableStreamCache=true&httpMethod=POST&httpUri=api.twilio.com&socketTimeout=-1&throwExceptionOnFailure=false"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "a929c2c0-55ed-4ef8-ad0a-a81a5aee86dc",
+      "description" : "To String",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "log",
+      "nodeId" : "3c1d8dd6-8115-41c8-92ba-ed72fc620f85",
+      "description" : "510.direct.sms.out",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.direct.sms.out",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.direct.sms.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "74269b0e-c07f-42bb-925e-087c9f51dd80",
+      "description" : "Get Response",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "numSegments",
+          "propertyValue" : "$.num_segments",
+          "uuid" : "dfdb9773-0b9e-4e5a-8e96-af89cac48003"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "smsStatus",
+          "propertyValue" : "$.status",
+          "uuid" : "07d07cb1-bd5f-494a-9bfc-223266b7e27f"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "errorCode",
+          "propertyValue" : "$.error_code",
+          "uuid" : "60a02a1f-b499-41f4-b1dc-95b4b3bb5904"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "errorMessage",
+          "propertyValue" : "$.error_message",
+          "uuid" : "11f855ce-adab-45cd-8e3b-de8529c2e234"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "recipientNumber",
+          "propertyValue" : "$.to",
+          "uuid" : "f34fb12e-9427-42d7-b39f-6ac8f5bcab19"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "resourceId",
+          "propertyValue" : "$.sid",
+          "uuid" : "1845c441-f34e-43e2-92f6-56629d35f0e4"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "numMedia",
+          "propertyValue" : "$.num_media",
+          "uuid" : "6b9bc156-bd8f-4ab0-9ea9-00c5a18cebd4"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "code",
+          "propertyValue" : "$.code",
+          "uuid" : "5f136589-492c-4a23-b23d-077450301de6"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "message",
+          "propertyValue" : "$.message",
+          "uuid" : "59641b5e-ac53-4e59-a6cc-6003de267d8c"
+        } ],
+        "suppressExceptions" : true,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?numSegments=$.num_segments&smsStatus=$.status&errorCode=$.error_code&errorMessage=$.error_message&recipientNumber=$.to&resourceId=$.sid&numMedia=$.num_media&code=$.code&message=$.message&addNamespaces=false&suppressExceptions=true"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "addd7365-dd4d-460d-bf86-d55d7ec4de93",
+      "description" : "400?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "direct",
+          "nodeId" : "8891ccc9-3810-4736-971a-912d6f1a70ad",
+          "description" : "updateMessageStatus",
+          "properties" : {
+            "_type" : "direct",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "core",
+            "endpointName" : "updateMessageStatus",
+            "name" : "direct",
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "direct",
+          "kameletPropertiesUrl" : "?endpointName=updateMessageStatus"
+        }, {
+          "name" : "messagingEndpoint",
+          "nodeId" : "fecef615-2454-43a0-933a-36ecd6946d68",
+          "description" : "SQL Set Resource ID",
+          "properties" : {
+            "_type" : "messagingEndpoint",
+            "active" : false,
+            "camelGroup" : "core",
+            "name" : "messagingEndpoint",
+            "toDynamicEndpoint" : false,
+            "uri" : "sql:UPDATE messages SET resource_id = :#${exchangeProperty.resourceId}, updated_at = NOW() WHERE id = CAST(:#${exchangeProperty.messageId} AS uuid)?dataSource=#dsPostgres",
+            "url" : ""
+          },
+          "_type" : "messagingEndpoint",
+          "kameletPropertiesUrl" : "?uri=sql:UPDATE messages SET resource_id = :#${exchangeProperty.resourceId}, updated_at = NOW() WHERE id = CAST(:#${exchangeProperty.messageId} AS uuid)?dataSource=#dsPostgres"
+        } ],
+        "properties" : { }
+      }, {
+        "type" : "filter",
+        "label" : "ResponseCode==400",
+        "route" : [ {
+          "name" : "setProperties",
+          "nodeId" : "e2086031-14ce-4ebb-82ae-29aa6671ab54",
+          "description" : "Set Error Message",
+          "properties" : {
+            "_type" : "setProperties",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "name" : "setProperties",
+            "namespaces" : [ ],
+            "propertyList" : [ {
+              "language" : "Simple",
+              "propertyName" : "errorCode",
+              "propertyValue" : "${exchangeProperty.code}",
+              "uuid" : "649648ac-cf94-4bfc-b39e-bc9c8d77423f"
+            }, {
+              "language" : "Simple",
+              "propertyName" : "errorMessage",
+              "propertyValue" : "${exchangeProperty.message}",
+              "uuid" : "a0ea1bc5-f25d-4637-8287-921af45de728"
+            } ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setProperties",
+          "kameletPropertiesUrl" : "?errorCode=${exchangeProperty.code}&errorMessage=${exchangeProperty.message}&addNamespaces=false&suppressExceptions=false"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${header.CamelHttpResponseCode} == 400",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-3",
+    "enabled" : true,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "postRequest",
+      "nodeId" : "6acd25ce-2528-4890-9069-8e3523e7224f",
+      "description" : "twilioStatusCallback",
+      "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/twilio/sms/status/{messageId}",
+        "method" : "post",
+        "name" : "postRequest",
+        "operationName" : "twilioStatusCallback",
+        "produces" : "application/json",
+        "requestmethod" : "POST",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/twilio/sms/status/{messageId}&method=post&operationName=twilioStatusCallback&produces=application/json&requestmethod=POST"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "ee83154d-e9f4-4aef-82d1-13d3616e9b71",
+      "description" : "Get Request Props",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Header",
+          "propertyName" : "messageStatus",
+          "propertyValue" : "MessageStatus",
+          "uuid" : "ecd1e6db-0f48-49a8-b1f7-b8869ce5d7a9"
+        }, {
+          "language" : "Header",
+          "propertyName" : "recipientNumber",
+          "propertyValue" : "To",
+          "uuid" : "22dd1497-9a56-4374-8f4a-8f2c36eaf7c4"
+        }, {
+          "language" : "Header",
+          "propertyName" : "providerNumber",
+          "propertyValue" : "From",
+          "uuid" : "87232c71-c558-42b6-bc22-056735e2997b"
+        }, {
+          "language" : "Header",
+          "propertyName" : "smsStatus",
+          "propertyValue" : "SmsStatus",
+          "uuid" : "2b755a76-538f-4412-b877-f5a0925935b5"
+        }, {
+          "language" : "Header",
+          "propertyName" : "resourceId",
+          "propertyValue" : "SmsSid",
+          "uuid" : "fa516219-1a08-46c5-b34d-e4536d766168"
+        }, {
+          "language" : "Header",
+          "propertyName" : "conversationId",
+          "propertyValue" : "conversationId",
+          "uuid" : "addf78d4-88ee-4e7b-b84b-37f6f0f30f63"
+        }, {
+          "language" : "Header",
+          "propertyName" : "messageId",
+          "propertyValue" : "messageId",
+          "uuid" : "1df743c4-f8bf-447c-8c8c-6c8521732ad7"
+        }, {
+          "language" : "Header",
+          "propertyName" : "twilioSignature",
+          "propertyValue" : "X-Twilio-Signature",
+          "uuid" : "04283030-a672-43c3-906e-eea9e14cb78c"
+        }, {
+          "language" : "Header",
+          "propertyName" : "twilioRequestUrl",
+          "propertyValue" : "CamelHttpUrl",
+          "uuid" : "6d11608c-6e4b-473f-8d6c-1c80392c6998"
+        }, {
+          "language" : "Header",
+          "propertyName" : "twilioQueryParams",
+          "propertyValue" : "CamelHttpQuery",
+          "uuid" : "e9b38dac-a8c9-4ee6-899e-586883066014"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "requestBody",
+          "propertyValue" : "${body}",
+          "uuid" : "d2e8af47-d172-4f6a-9c14-2a229b4f5ada"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?messageStatus=MessageStatus&recipientNumber=To&providerNumber=From&smsStatus=SmsStatus&resourceId=SmsSid&conversationId=conversationId&messageId=messageId&twilioSignature=X-Twilio-Signature&twilioRequestUrl=CamelHttpUrl&twilioQueryParams=CamelHttpQuery&requestBody=${body}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "be7bbfbb-41db-498f-a918-e348a8ec9bb8",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\")"
+    }, {
+      "name" : "direct",
+      "nodeId" : "a1bdb3c8-712d-47dc-92a1-e004ea3f4691",
+      "description" : "Get Provider Account",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "get-provider-account",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=get-provider-account"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "ea3f7a40-58a7-405c-b793-531bbb797606",
+      "description" : "Validate Request",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".bean(\"validateTwilioCallback\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.bean(\"validateTwilioCallback\")"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "f9a02b98-a760-4a23-bfc7-70701d4430e0",
+      "description" : "Valid?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "de7bccf8-18ba-4a59-93ab-5fc85c8e35e2",
+          "description" : "510.api.webhook.in",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "INFO",
+            "logType" : "EIP",
+            "loggerName" : "510.api.webhook.in",
+            "message" : "${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.api.webhook.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "direct",
+          "nodeId" : "7000aeda-0d59-4b52-9ae1-db33936eec0d",
+          "description" : "updateMessageStatus",
+          "properties" : {
+            "_type" : "direct",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "core",
+            "endpointName" : "updateMessageStatus",
+            "name" : "direct",
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "direct",
+          "kameletPropertiesUrl" : "?endpointName=updateMessageStatus"
+        }, {
+          "name" : "messagingEndpoint",
+          "nodeId" : "cdfb68c3-b7e3-4cac-a114-586dfb1e8916",
+          "description" : "SQL Update Status",
+          "properties" : {
+            "_type" : "messagingEndpoint",
+            "active" : false,
+            "camelGroup" : "core",
+            "name" : "messagingEndpoint",
+            "toDynamicEndpoint" : false,
+            "uri" : "sql:UPDATE messages SET status = :#${exchangeProperty.smsStatus}, updated_at = NOW() WHERE resource_id = :#${exchangeProperty.resourceId}?dataSource=#dsPostgres",
+            "url" : ""
+          },
+          "_type" : "messagingEndpoint",
+          "kameletPropertiesUrl" : "?uri=sql:UPDATE messages SET status = :#${exchangeProperty.smsStatus}, updated_at = NOW() WHERE resource_id = :#${exchangeProperty.resourceId}?dataSource=#dsPostgres"
+        } ],
+        "properties" : { }
+      }, {
+        "type" : "filter",
+        "label" : "!true",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "9a396677-8566-4018-81f9-4e3d505aa431",
+          "description" : "510.hook.in.401",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "WARN",
+            "logType" : "EIP",
+            "loggerName" : "510.hook.in.401",
+            "message" : "Not authorized ${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=510.hook.in.401&message=Not authorized ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "97359b7d-22c8-4043-a5b9-d4d44dc53972",
+          "description" : "HTTP401",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "401",
+              "language" : "Constant",
+              "uuid" : "acc915da-c546-4af0-9c74-16abc4e5b111"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "clearBody",
+          "nodeId" : "a848d64f-a1d0-4251-a61b-7f2b92b30f1f",
+          "description" : "",
+          "properties" : {
+            "_type" : "clearBody",
+            "camelGroup" : "core",
+            "name" : "clearBody",
+            "url" : ""
+          },
+          "_type" : "clearBody",
+          "kameletPropertiesUrl" : ""
+        }, {
+          "name" : "stop",
+          "nodeId" : "fea60209-360a-46f6-bc6c-d42653daddc0",
+          "description" : "",
+          "properties" : {
+            "_type" : "stop",
+            "camelGroup" : "misc",
+            "name" : "stop",
+            "url" : ""
+          },
+          "_type" : "stop",
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.authorized} != true",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-4",
+    "enabled" : true,
+    "routeId" : 4,
+    "route" : [ {
+      "name" : "postRequest",
+      "nodeId" : "0b58aa77-f337-4a38-8afa-c297150e5210",
+      "description" : "twilioInboundSms",
+      "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/twilio/sms/reply/{numberId}",
+        "method" : "post",
+        "name" : "postRequest",
+        "operationName" : "twilioInboundSms",
+        "produces" : "application/json",
+        "requestmethod" : "POST",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/twilio/sms/reply/{numberId}&method=post&operationName=twilioInboundSms&produces=application/json&requestmethod=POST"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "027b9856-ebb2-4aac-b36d-f8eb28cfd5da",
+      "description" : "To String",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "490a3840-50a2-41f6-9183-d33574b22d36",
+      "description" : "Get Request Props",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Header",
+          "propertyName" : "authorization",
+          "propertyValue" : "Authorization",
+          "uuid" : "419fd751-7433-4f7b-bda6-46b9bb283504"
+        }, {
+          "language" : "Header",
+          "propertyName" : "providerResourceId",
+          "propertyValue" : "AccountSid",
+          "uuid" : "c06c68fe-babc-41b7-b597-263cbb951527"
+        }, {
+          "language" : "Header",
+          "propertyName" : "resourceId",
+          "propertyValue" : "MessageSid",
+          "uuid" : "f8bcbe76-0cd4-4b7f-b8b9-78ed135771f2"
+        }, {
+          "language" : "Header",
+          "propertyName" : "recipientNumber",
+          "propertyValue" : "From",
+          "uuid" : "34d5daf2-0fdb-42d5-ac48-768c2594db0d"
+        }, {
+          "language" : "Header",
+          "propertyName" : "providerNumber",
+          "propertyValue" : "To",
+          "uuid" : "c4c6174f-dd06-4d10-843e-26b7aa23f8e6"
+        }, {
+          "language" : "Header",
+          "propertyName" : "numMedia",
+          "propertyValue" : "NumMedia",
+          "uuid" : "f6400027-0a35-462d-a485-ff11c7fd97c6"
+        }, {
+          "language" : "Header",
+          "propertyName" : "messageBody",
+          "propertyValue" : "Body",
+          "uuid" : "94f3d1b2-924c-4fa5-82d0-836869bb7a68"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "provider",
+          "propertyValue" : "twilio",
+          "uuid" : "fb334765-22d9-4f85-b6da-53ab7cc8af33"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "requestBody",
+          "propertyValue" : "${body}",
+          "uuid" : "a5119bef-b3e6-4286-8874-18ea64a78058"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?authorization=Authorization&providerResourceId=AccountSid&resourceId=MessageSid&recipientNumber=From&providerNumber=To&numMedia=NumMedia&messageBody=Body&provider=twilio&requestBody=${body}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "eeccc3fb-7907-41bb-bb61-3bdedac247f8",
+      "description" : "510.api.sms.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.api.sms.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.api.sms.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "messagingEndpoint",
+      "nodeId" : "bab402c7-7e81-4200-8e7f-4fa34a9dc20c",
+      "description" : "Get AgencyID",
+      "properties" : {
+        "_type" : "messagingEndpoint",
+        "active" : true,
+        "camelGroup" : "core",
+        "name" : "messagingEndpoint",
+        "toDynamicEndpoint" : false,
+        "uri" : "sql:SELECT agency_id FROM numbers WHERE number = :#${exchangeProperty.providerNumber} AND status = \\'active\\'?dataSource=#dsPostgres&OutputType=SelectOne",
+        "url" : ""
+      },
+      "_type" : "messagingEndpoint",
+      "kameletPropertiesUrl" : "?uri=sql:SELECT agency_id FROM numbers WHERE number = :#${exchangeProperty.providerNumber} AND status = \\'active\\'?dataSource=#dsPostgres&OutputType=SelectOne"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "c3004843-4b7c-4689-8a24-b7a0fbfdb46d",
+      "description" : "No Results",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "setProperties",
+          "nodeId" : "f756f453-6aa3-4e1b-82fb-6dfc025ceacf",
+          "description" : "Set Agency",
+          "properties" : {
+            "_type" : "setProperties",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "name" : "setProperties",
+            "namespaces" : [ ],
+            "propertyList" : [ {
+              "language" : "Simple",
+              "propertyName" : "agencyId",
+              "propertyValue" : "${body}",
+              "uuid" : "c6830c84-2ed9-4de6-83b0-9ba0c036edfd"
+            } ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setProperties",
+          "kameletPropertiesUrl" : "?agencyId=${body}&addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "messageFilter",
+          "nodeId" : "9c14aced-6c7f-4c47-b8e6-546fab05c8fe",
+          "description" : "",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "route",
+            "label" : "route",
+            "route" : [ {
+              "name" : "direct",
+              "nodeId" : "2da85407-d156-46f8-8f3c-42058a34fa2f",
+              "description" : "get-conversation",
+              "properties" : {
+                "_type" : "direct",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "core",
+                "endpointName" : "get-conversation",
+                "name" : "direct",
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "direct",
+              "kameletPropertiesUrl" : "?endpointName=get-conversation"
+            }, {
+              "name" : "log",
+              "nodeId" : "a271e665-e903-4abd-a4ac-e56aed7ab8da",
+              "description" : "510.api.sms.conv",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "510.api.sms.conv",
+                "message" : "${body}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.api.sms.conv&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            }, {
+              "name" : "messageRouter",
+              "nodeId" : "087bbed1-6fdc-4fb9-91d9-cfbcb84aca28",
+              "description" : "active || new",
+              "properties" : {
+                "_type" : "messageRouter",
+                "active" : true,
+                "camelGroup" : "routing",
+                "name" : "messageRouter",
+                "url" : ""
+              },
+              "_type" : "messageRouter",
+              "branches" : [ {
+                "type" : "route",
+                "label" : "route",
+                "route" : [ {
+                  "name" : "dslProcessor",
+                  "nodeId" : "bbd09d4a-7ece-4b68-aac9-d7d89d17f0d2",
+                  "description" : "Remove Headers",
+                  "properties" : {
+                    "_type" : "dslProcessor",
+                    "active" : true,
+                    "camelGroup" : "core",
+                    "dsl" : ".removeHeaders(\"*\", \"CamelHttpResponseCode\")",
+                    "name" : "dslProcessor",
+                    "url" : ""
+                  },
+                  "_type" : "dslProcessor",
+                  "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"CamelHttpResponseCode\")"
+                }, {
+                  "name" : "setHeaders",
+                  "nodeId" : "651f131b-c728-4085-aa3e-49722fad1c09",
+                  "description" : "HTTP204",
+                  "properties" : {
+                    "_type" : "setHeaders",
+                    "active" : true,
+                    "addNamespaces" : false,
+                    "camelGroup" : "core",
+                    "headerList" : [ {
+                      "headerName" : "CamelHttpResponseCode",
+                      "headerValue" : "204",
+                      "language" : "Constant",
+                      "uuid" : "1b68449f-7c41-45cf-9936-68fe33bf90e8"
+                    } ],
+                    "name" : "setHeaders",
+                    "namespaces" : [ ],
+                    "suppressExceptions" : false,
+                    "url" : ""
+                  },
+                  "_type" : "setHeaders",
+                  "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+                }, {
+                  "name" : "setBody",
+                  "nodeId" : "e234eb94-dc22-4c8b-850b-07b6788b891b",
+                  "description" : "Clear Body",
+                  "properties" : {
+                    "_type" : "setBody",
+                    "active" : true,
+                    "addNamespaces" : false,
+                    "camelGroup" : "core",
+                    "expression" : "constant('')",
+                    "language" : "GroovyDsl",
+                    "name" : "setBody",
+                    "namespaces" : [ ],
+                    "suppressExceptions" : false,
+                    "url" : ""
+                  },
+                  "_type" : "setBody",
+                  "kameletPropertiesUrl" : "?addNamespaces=false&expression=constant('')&language=GroovyDsl&suppressExceptions=false"
+                } ],
+                "properties" : { }
+              }, {
+                "type" : "when",
+                "label" : "active convo",
+                "route" : [ {
+                  "name" : "setProperties",
+                  "nodeId" : "0447c6e9-6da3-43e2-8f74-1e09f635b771",
+                  "description" : "Get Conversation Params",
+                  "properties" : {
+                    "_type" : "setProperties",
+                    "active" : true,
+                    "addNamespaces" : false,
+                    "camelGroup" : "core",
+                    "name" : "setProperties",
+                    "namespaces" : [ ],
+                    "propertyList" : [ {
+                      "language" : "Simple",
+                      "propertyName" : "conversationId",
+                      "propertyValue" : "${exchangeProperty.activeConversation[conversation_id]}",
+                      "uuid" : "71f6f245-ed39-4bf7-91ee-030e22a57a16"
+                    }, {
+                      "language" : "Simple",
+                      "propertyName" : "providerNumberId",
+                      "propertyValue" : "${exchangeProperty.activeConversation[number_id]}",
+                      "uuid" : "186afaf5-6161-43a8-b0c0-0b9e233cdc18"
+                    }, {
+                      "language" : "Simple",
+                      "propertyName" : "recipientId",
+                      "propertyValue" : "${exchangeProperty.activeConversation[recipients][0][recipient_id]}",
+                      "uuid" : "90bd610e-d859-4ac4-80cd-8d15fc34decb"
+                    }, {
+                      "language" : "Simple",
+                      "propertyName" : "recipientLanguage",
+                      "propertyValue" : "${exchangeProperty.activeConversation[recipients][0][language]}",
+                      "uuid" : "c095e9b0-dde7-4fdb-9237-2ff975b3a6f3"
+                    } ],
+                    "suppressExceptions" : false,
+                    "url" : ""
+                  },
+                  "_type" : "setProperties",
+                  "kameletPropertiesUrl" : "?conversationId=${exchangeProperty.activeConversation[conversation_id]}&providerNumberId=${exchangeProperty.activeConversation[number_id]}&recipientId=${exchangeProperty.activeConversation[recipients][0][recipient_id]}&recipientLanguage=${exchangeProperty.activeConversation[recipients][0][language]}&addNamespaces=false&suppressExceptions=false"
+                }, {
+                  "name" : "setHeaders",
+                  "nodeId" : "a2da00ff-f412-4e1a-8165-df6d91ea69f8",
+                  "description" : "Set Agency ID",
+                  "properties" : {
+                    "_type" : "setHeaders",
+                    "active" : true,
+                    "addNamespaces" : false,
+                    "camelGroup" : "core",
+                    "headerList" : [ {
+                      "headerName" : "x-agency-id",
+                      "headerValue" : "${exchangeProperty.agencyId}",
+                      "language" : "Simple",
+                      "uuid" : "dafcfcca-9ffa-4a2a-8fb9-5827cde6a2a0"
+                    } ],
+                    "name" : "setHeaders",
+                    "namespaces" : [ ],
+                    "suppressExceptions" : false,
+                    "url" : ""
+                  },
+                  "_type" : "setHeaders",
+                  "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+                }, {
+                  "name" : "exchangePattern",
+                  "nodeId" : "6ca2245d-9186-4461-8e32-765b102d7bf1",
+                  "description" : "InOnly",
+                  "properties" : {
+                    "_type" : "exchangePattern",
+                    "active" : true,
+                    "camelGroup" : "core",
+                    "exchangePattern" : "InOnly",
+                    "name" : "exchangePattern",
+                    "url" : ""
+                  },
+                  "_type" : "exchangePattern",
+                  "kameletPropertiesUrl" : "?exchangePattern=InOnly"
+                }, {
+                  "name" : "direct",
+                  "nodeId" : "6f2e5991-ceda-4967-bde9-f13d35687e4c",
+                  "description" : "active-convo-handler",
+                  "properties" : {
+                    "_type" : "direct",
+                    "active" : true,
+                    "advancedParameters" : [ ],
+                    "camelGroup" : "core",
+                    "endpointName" : "active-convo-handler",
+                    "name" : "direct",
+                    "toDynamicEndpoint" : false,
+                    "url" : ""
+                  },
+                  "_type" : "direct",
+                  "kameletPropertiesUrl" : "?endpointName=active-convo-handler"
+                } ],
+                "properties" : {
+                  "addNamespaces" : "false",
+                  "condition" : "${header.CamelHttpResponseCode} == 200 && ${exchangeProperty.activeConversation} != null",
+                  "language" : "Simple",
+                  "namespaces" : [ ],
+                  "suppressExceptions" : "false"
+                }
+              }, {
+                "type" : "otherwise",
+                "label" : "new convo",
+                "route" : [ {
+                  "name" : "exchangePattern",
+                  "nodeId" : "a423a60b-10e2-4680-bf62-822011cce18d",
+                  "description" : "InOnly",
+                  "properties" : {
+                    "_type" : "exchangePattern",
+                    "active" : true,
+                    "camelGroup" : "core",
+                    "exchangePattern" : "InOnly",
+                    "name" : "exchangePattern",
+                    "url" : ""
+                  },
+                  "_type" : "exchangePattern",
+                  "kameletPropertiesUrl" : "?exchangePattern=InOnly"
+                }, {
+                  "name" : "direct",
+                  "nodeId" : "21d6f00d-5785-4c6e-aa0e-93184af1b180",
+                  "description" : "new-convo-handler",
+                  "properties" : {
+                    "_type" : "direct",
+                    "active" : true,
+                    "advancedParameters" : [ ],
+                    "camelGroup" : "core",
+                    "endpointName" : "new-convo-handler",
+                    "name" : "direct",
+                    "toDynamicEndpoint" : false,
+                    "url" : ""
+                  },
+                  "_type" : "direct",
+                  "kameletPropertiesUrl" : "?endpointName=new-convo-handler"
+                } ],
+                "properties" : { }
+              } ],
+              "kameletPropertiesUrl" : ""
+            } ],
+            "properties" : { }
+          }, {
+            "type" : "filter",
+            "label" : "numMedia > 0",
+            "route" : [ {
+              "name" : "log",
+              "nodeId" : "578eea87-db4a-4984-92d4-19d7ff54407e",
+              "description" : "510.api.sms.mms.in",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "510.api.sms.mms.in",
+                "message" : "Parsing URLs for ${exchangeProperty.numMedia} media attachments ",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.api.sms.mms.in&message=Parsing URLs for ${exchangeProperty.numMedia} media attachments &multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            }, {
+              "name" : "process",
+              "nodeId" : "b047e107-f9cc-4eb0-b14c-6067708e033a",
+              "description" : "Get Media",
+              "properties" : {
+                "_type" : "process",
+                "active" : true,
+                "camelGroup" : "transform",
+                "code" : "//Integer numMedia = (int)exchange.getProperty(\"numMedia\");\nArrayList<HashMap<String, String>> mediaUrls = new ArrayList<HashMap<String, String>>();\n\nfor (i = 0; i < 10; i++) {\n\tString mediaUrl = \"MediaUrl\" + String.valueOf(i);\n\tString mediaType = \"MediaContentType\" + String.valueOf(i);\n\t\n\tif (exchange.getIn().getHeader(mediaUrl) != null) {\n\t\t// System.out.println(\"Processing \" + mediaUrl + \" Type: \" + mediaType);\n\t\tHashMap<String, String> media = new HashMap<String, String>() {{\n\t\t\tput(\"url\", (String)exchange.getIn().getHeader(mediaUrl));\n\t\t\tput(\"contentType\", (String)exchange.getIn().getHeader(mediaType));\n\t\t}}\n\t\tmediaUrls.add(media);\n\t}\n}\n\n//System.out.println(mediaUrls);\nexchange.setProperty(\"numMedia\", mediaUrls.size());\nexchange.setProperty(\"mediaUrls\", mediaUrls);",
+                "import" : "// import org.apache.camel.Message",
+                "name" : "process",
+                "url" : ""
+              },
+              "_type" : "process",
+              "kameletPropertiesUrl" : "?code=//Integer numMedia = (int)exchange.getProperty(\"numMedia\");\nArrayList<HashMap<String, String>> mediaUrls = new ArrayList<HashMap<String, String>>();\n\nfor (i = 0; i < 10; i++) {\n\tString mediaUrl = \"MediaUrl\" + String.valueOf(i);\n\tString mediaType = \"MediaContentType\" + String.valueOf(i);\n\t\n\tif (exchange.getIn().getHeader(mediaUrl) != null) {\n\t\t// System.out.println(\"Processing \" + mediaUrl + \" Type: \" + mediaType);\n\t\tHashMap<String, String> media = new HashMap<String, String>() {{\n\t\t\tput(\"url\", (String)exchange.getIn().getHeader(mediaUrl));\n\t\t\tput(\"contentType\", (String)exchange.getIn().getHeader(mediaType));\n\t\t}}\n\t\tmediaUrls.add(media);\n\t}\n}\n\n//System.out.println(mediaUrls);\nexchange.setProperty(\"numMedia\", mediaUrls.size());\nexchange.setProperty(\"mediaUrls\", mediaUrls);&import=// import org.apache.camel.Message"
+            }, {
+              "name" : "log",
+              "nodeId" : "a366075f-8cc9-4b0a-a6bc-ed55c44ceadf",
+              "description" : "510.api.sms.mms.out",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "510.api.sms.mms.out",
+                "message" : "${exchangeProperty.mediaUrls}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.api.sms.mms.out&message=${exchangeProperty.mediaUrls}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${exchangeProperty.numMedia} != null && ${exchangeProperty.numMedia} != 0",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      }, {
+        "type" : "filter",
+        "label" : "rowCount==0",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "5fb59341-6a43-48ea-b930-f152b3e9dc09",
+          "description" : "510.api.sms.in.404",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "WARN",
+            "logType" : "EIP",
+            "loggerName" : "510.api.sms.in.404",
+            "message" : "Agency not found for provider resource ID: ${exchangeProperty.providerResourceId}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=510.api.sms.in.404&message=Agency not found for provider resource ID: ${exchangeProperty.providerResourceId}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "666fb3c1-7e0a-4e5b-88a1-7f9366735b9a",
+          "description" : "HTTP404",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "404",
+              "language" : "Constant",
+              "uuid" : "de771f9b-c321-4300-90b9-43eecf27bec6"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "dslProcessor",
+          "nodeId" : "ccbda867-a758-4104-931a-fbb082d325a0",
+          "description" : "Remove Headers",
+          "properties" : {
+            "_type" : "dslProcessor",
+            "active" : true,
+            "camelGroup" : "core",
+            "dsl" : ".removeHeaders(\"*\",\"x-*\")",
+            "name" : "dslProcessor",
+            "url" : ""
+          },
+          "_type" : "dslProcessor",
+          "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\",\"x-*\")"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${header.CamelSqlRowCount} == 0",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-6",
+    "enabled" : true,
+    "routeId" : 5,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "e3ede0ca-d759-48fd-bc2d-7d94f1e24556",
+      "description" : "new-convo-handler",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "new-convo-handler",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=new-convo-handler"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "c7ec79a7-384f-4d62-9f56-bc79891e11aa",
+      "description" : "SQL Get Settings",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to(\"velocity:settings.select.sql.vm?allowContextMapAll=true\")\n\t.to(\"sql:query?dataSource=#dsPostgres&OutputType=SelectList&useMessageBodyForSql=true\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to(\"velocity:settings.select.sql.vm?allowContextMapAll=true\")\n\t.to(\"sql:query?dataSource=#dsPostgres&OutputType=SelectList&useMessageBodyForSql=true\")"
+    }, {
+      "name" : "process",
+      "nodeId" : "376a3dc2-5d75-4b4d-a36e-eb93ee6eb928",
+      "description" : "Parse Settings",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "ArrayList<HashMap<String, Object>> settings = (ArrayList)exchange.getIn().getBody();\nfor (int i = 0; i < settings.size(); i++) {\n\tHashMap<String, Object> setting = (HashMap)settings.get(i);\n\tString settingName = setting.get(\"name\");\n\tObject settingValue = setting.get(\"value\");\n\tif (String.valueOf(settingValue).equals(\"true\"))\n\t\tsettingValue = true;\n\telse if (String.valueOf(settingValue).equals(\"false\"))\n\t\tsettingValue = false;\n\telse \n\t\tsettingValue = String.valueOf(settingValue);\n\t\t\n\texchange.setProperty(settingName, settingValue);\n}",
+        "import" : "import java.util.*;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=ArrayList<HashMap<String, Object>> settings = (ArrayList)exchange.getIn().getBody();\nfor (int i = 0; i < settings.size(); i++) {\n\tHashMap<String, Object> setting = (HashMap)settings.get(i);\n\tString settingName = setting.get(\"name\");\n\tObject settingValue = setting.get(\"value\");\n\tif (String.valueOf(settingValue).equals(\"true\"))\n\t\tsettingValue = true;\n\telse if (String.valueOf(settingValue).equals(\"false\"))\n\t\tsettingValue = false;\n\telse \n\t\tsettingValue = String.valueOf(settingValue);\n\t\t\n\texchange.setProperty(settingName, settingValue);\n}&import=import java.util.*;"
+    }, {
+      "name" : "log",
+      "nodeId" : "0fbd1935-800e-4aef-b5c9-bbc348670231",
+      "description" : "510.convo.new.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.convo.new.in",
+        "message" : "${exchangeProperty.messageBody} ",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.convo.new.in&message=${exchangeProperty.messageBody} &multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "messageRouter",
+      "nodeId" : "d271cb14-d069-4b54-bce5-f1197c461d89",
+      "description" : "",
+      "properties" : {
+        "_type" : "messageRouter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageRouter",
+        "url" : ""
+      },
+      "_type" : "messageRouter",
+      "branches" : [ {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "7bcc7504-a75d-4d03-8f0a-46179ebb19a3",
+          "description" : "",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "OFF",
+            "logType" : "EIP",
+            "loggerName" : "new-conversation-handler.out",
+            "message" : "headers: ${headers}; body: ${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=OFF&logType=EIP&loggerName=new-conversation-handler.out&message=headers: ${headers}; body: ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        } ],
+        "properties" : { }
+      }, {
+        "type" : "when",
+        "label" : "enableNewConvos==true",
+        "route" : [ {
+          "name" : "setHeaders",
+          "nodeId" : "1ba6c51c-b455-46b4-8941-4e2849127191",
+          "description" : "Set Conv Request",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpPath",
+              "headerValue" : "/api/v1/conversations",
+              "language" : "Constant",
+              "uuid" : "319fc688-fba3-421f-8de9-67d416025cc3"
+            }, {
+              "headerName" : "Content-Type",
+              "headerValue" : "application/json; charset=utf-8",
+              "language" : "Constant",
+              "uuid" : "d336b365-fcc5-49b7-8102-8b9cc2888476"
+            }, {
+              "headerName" : "x-agency-id",
+              "headerValue" : "${exchangeProperty.agencyId}",
+              "language" : "Simple",
+              "uuid" : "48f1d8df-24b8-433e-9b28-97d00b1b7421"
+            }, {
+              "headerName" : "Authorization",
+              "headerValue" : "Bearer ${bean:tokenGetters?method=getToken({{convey.auth0.yakApiAudience}})}",
+              "language" : "Simple",
+              "uuid" : "644b2568-54ff-47a6-9a93-cfb8c40f3a1e"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "process",
+          "nodeId" : "9503de65-c147-40eb-87b9-689117ee2121",
+          "description" : "Set Request JSON",
+          "properties" : {
+            "_type" : "process",
+            "active" : true,
+            "camelGroup" : "transform",
+            "code" : "ObjectMapper mapper = new ObjectMapper();\n\nHashMap<String, Object> requestJson = new HashMap<String, Object>() {{\n\tput(\"message\", (String)exchange.getProperty(\"messageBody\"));\n\tput(\"direction\", \"inbound\");\n\tput(\"number\", (String)exchange.getProperty(\"providerNumber\"));\n}};\n\n/*\ntry {\n\tif (exchange.getProperty(\"numMedia\") != null)\n\t\t\trequestJson.put(\"num_media\", Integer.valueOf((String)exchange.getProperty(\"numMedia\")));\n} catch (Exception e) {}\n\nif (exchange.getProperty(\"recipientLanguage\") != null) \n\trequestJson.put(\"language\", (String)exchange.getProperty(\"recipientLanguage\"));\n\nSystem.out.println(exchange.getProperty(\"recipientNumber\"));\n*/\n\nHashMap<String, String> recipient = new HashMap<String, String>() {{\n\tput(\"number\", (String)exchange.getProperty(\"recipientNumber\"));\n}};\n\nArrayList<HashMap<String, String>> recipientList = new ArrayList<HashMap<String, String>>() {{\n\tadd(recipient);\n}};\n\nrequestJson.put(\"recipients\", recipientList);\nexchange.getIn().setBody(mapper.writeValueAsString(requestJson));",
+            "import" : "import com.fasterxml.jackson.databind.ObjectMapper;\n",
+            "name" : "process",
+            "url" : ""
+          },
+          "_type" : "process",
+          "kameletPropertiesUrl" : "?code=ObjectMapper mapper = new ObjectMapper();\n\nHashMap<String, Object> requestJson = new HashMap<String, Object>() {{\n\tput(\"message\", (String)exchange.getProperty(\"messageBody\"));\n\tput(\"direction\", \"inbound\");\n\tput(\"number\", (String)exchange.getProperty(\"providerNumber\"));\n}};\n\n/*\ntry {\n\tif (exchange.getProperty(\"numMedia\") != null)\n\t\t\trequestJson.put(\"num_media\", Integer.valueOf((String)exchange.getProperty(\"numMedia\")));\n} catch (Exception e) {}\n\nif (exchange.getProperty(\"recipientLanguage\") != null) \n\trequestJson.put(\"language\", (String)exchange.getProperty(\"recipientLanguage\"));\n\nSystem.out.println(exchange.getProperty(\"recipientNumber\"));\n*/\n\nHashMap<String, String> recipient = new HashMap<String, String>() {{\n\tput(\"number\", (String)exchange.getProperty(\"recipientNumber\"));\n}};\n\nArrayList<HashMap<String, String>> recipientList = new ArrayList<HashMap<String, String>>() {{\n\tadd(recipient);\n}};\n\nrequestJson.put(\"recipients\", recipientList);\nexchange.getIn().setBody(mapper.writeValueAsString(requestJson));&import=import com.fasterxml.jackson.databind.ObjectMapper;\n"
+        }, {
+          "name" : "log",
+          "nodeId" : "73dc8dcb-8ac4-4124-82ac-2de5fc174d78",
+          "description" : "510.convo.new.api.in",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "INFO",
+            "logType" : "EIP",
+            "loggerName" : "510.convo.new.api.in",
+            "message" : "POST /conversations ${body} ${header.Authorization}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.convo.new.api.in&message=POST /conversations ${body} ${header.Authorization}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "http",
+          "nodeId" : "e7a9a622-93c3-4af0-a6de-0bcaa7e9b8e8",
+          "description" : "POST /conversations",
+          "properties" : {
+            "_type" : "http",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "bridgeEndpoint" : false,
+            "camelGroup" : "component",
+            "connectTimeout" : "-1",
+            "connectionRequestTimeout" : "-1",
+            "disableStreamCache" : true,
+            "httpMethod" : "POST",
+            "httpUri" : "{{convey.api.host}}",
+            "name" : "http",
+            "scheme" : "https",
+            "socketTimeout" : "-1",
+            "throwExceptionOnFailure" : true,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "http",
+          "kameletPropertiesUrl" : "?bridgeEndpoint=false&connectTimeout=-1&connectionRequestTimeout=-1&disableStreamCache=true&httpMethod=POST&httpUri={{convey.api.host}}&socketTimeout=-1&throwExceptionOnFailure=true"
+        }, {
+          "name" : "convertBodyTo",
+          "nodeId" : "546d057b-133b-4bdc-9b14-9384af9bf26e",
+          "description" : "To String",
+          "properties" : {
+            "_type" : "convertBodyTo",
+            "active" : true,
+            "camelGroup" : "transform",
+            "name" : "convertBodyTo",
+            "targetClass" : "String.class",
+            "url" : ""
+          },
+          "_type" : "convertBodyTo",
+          "kameletPropertiesUrl" : "?targetClass=String.class"
+        }, {
+          "name" : "log",
+          "nodeId" : "5bc5623a-07a4-494c-8306-064f0404f714",
+          "description" : "510.convo.new.api.out",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "INFO",
+            "logType" : "EIP",
+            "loggerName" : "510.convo.new.api.out",
+            "message" : "(${header.CamelHttpResponseCode}) ${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.convo.new.api.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.inboundConversationsEnabled}",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "otherwise",
+        "label" : "bounce back",
+        "route" : [ {
+          "name" : "setProperties",
+          "nodeId" : "0389abb5-a480-4d28-90c3-09d454b6448d",
+          "description" : "Set Bounce Message",
+          "properties" : {
+            "_type" : "setProperties",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "name" : "setProperties",
+            "namespaces" : [ ],
+            "propertyList" : [ {
+              "language" : "Constant",
+              "propertyName" : "body",
+              "propertyValue" : "This thread is not being monitored. If you have an emergency please call 911.",
+              "uuid" : "d30601cd-412f-449d-bc1e-e10329ffd1ba"
+            } ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setProperties",
+          "kameletPropertiesUrl" : "?body=This thread is not being monitored. If you have an emergency please call 911.&addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "direct",
+          "nodeId" : "f39491d4-3f48-4140-9751-d2cf466942e5",
+          "description" : "send-sms",
+          "properties" : {
+            "_type" : "direct",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "core",
+            "endpointName" : "send-sms",
+            "name" : "direct",
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "direct",
+          "kameletPropertiesUrl" : "?endpointName=send-sms"
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-11",
+    "enabled" : true,
+    "routeId" : 6,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "0d4d211f-07e1-45fb-877f-540921642cdd",
+      "description" : "active-convo-handler",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "active-convo-handler",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=active-convo-handler"
+    }, {
+      "name" : "log",
+      "nodeId" : "41dc12bf-aeec-4795-95e1-6aede7a79d29",
+      "description" : "510.convo.active.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.convo.active.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.convo.active.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "0ad395d4-c629-4f32-982f-7629c0e8c186",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\",\"x-*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\",\"x-*\")"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "b4870682-dba0-4167-8425-235579f68316",
+      "description" : "Set Message Request",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "CamelHttpPath",
+          "headerValue" : "/api/v1/messages",
+          "language" : "Constant",
+          "uuid" : "7429667e-5bc4-484f-b94e-18a9372e058c"
+        }, {
+          "headerName" : "Content-Type",
+          "headerValue" : "application/json; charset=utf-8",
+          "language" : "Constant",
+          "uuid" : "e3c29fbf-fcb0-49ca-a514-7caeecc84259"
+        }, {
+          "headerName" : "Authorization",
+          "headerValue" : "Bearer ${bean:tokenGetters?method=getToken({{convey.auth0.yakApiAudience}})}",
+          "language" : "Simple",
+          "uuid" : "113fc1f7-4bae-43d4-8e98-502ea7dc4836"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "276ba48a-b74a-48a9-9398-aa2af495d60c",
+      "description" : "Build JSON Request",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "ObjectMapper mapper = new ObjectMapper();\n\nSystem.out.println(\"Active\");\n\nHashMap<String, Object> requestJson = new HashMap<String, Object>() {{\n\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\t\n\tput(\"provider_number_id\", (String)exchange.getProperty(\"providerNumberId\"));\n\tput(\"provider_number\", (String)exchange.getProperty(\"providerNumber\"));\n\tput(\"recipient_number\", (String)exchange.getProperty(\"recipientNumber\"));\n\tput(\"resource_id\", (String)exchange.getProperty(\"resourceId\"));\t\n\tput(\"body\", (String)exchange.getProperty(\"messageBody\"));\n\tput(\"direction\", \"inbound\");\n\tput(\"status\", \"received\");\n}};\n\nif (exchange.getProperty(\"recipientId\") != null)\n\trequestJson.put(\"recipient_id\", (String)exchange.getProperty(\"recipientId\"));\n\nif (exchange.getProperty(\"recipientLanguage\") != null)\n\trequestJson.put(\"language\", (String)exchange.getProperty(\"recipientLanguage\"));\n\ntry {\n\tif (exchange.getProperty(\"numMedia\") != null)\n\t\t\trequestJson.put(\"num_media\", Integer.valueOf((String)exchange.getProperty(\"numMedia\")));\n} catch (Exception e) {\n\tSystem.err.println(\"Error parsing numMedia from request body\");\n}\n\n\nexchange.getIn().setBody(mapper.writeValueAsString(requestJson));",
+        "import" : "import com.fasterxml.jackson.databind.ObjectMapper;\n",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=ObjectMapper mapper = new ObjectMapper();\n\nSystem.out.println(\"Active\");\n\nHashMap<String, Object> requestJson = new HashMap<String, Object>() {{\n\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\t\n\tput(\"provider_number_id\", (String)exchange.getProperty(\"providerNumberId\"));\n\tput(\"provider_number\", (String)exchange.getProperty(\"providerNumber\"));\n\tput(\"recipient_number\", (String)exchange.getProperty(\"recipientNumber\"));\n\tput(\"resource_id\", (String)exchange.getProperty(\"resourceId\"));\t\n\tput(\"body\", (String)exchange.getProperty(\"messageBody\"));\n\tput(\"direction\", \"inbound\");\n\tput(\"status\", \"received\");\n}};\n\nif (exchange.getProperty(\"recipientId\") != null)\n\trequestJson.put(\"recipient_id\", (String)exchange.getProperty(\"recipientId\"));\n\nif (exchange.getProperty(\"recipientLanguage\") != null)\n\trequestJson.put(\"language\", (String)exchange.getProperty(\"recipientLanguage\"));\n\ntry {\n\tif (exchange.getProperty(\"numMedia\") != null)\n\t\t\trequestJson.put(\"num_media\", Integer.valueOf((String)exchange.getProperty(\"numMedia\")));\n} catch (Exception e) {\n\tSystem.err.println(\"Error parsing numMedia from request body\");\n}\n\n\nexchange.getIn().setBody(mapper.writeValueAsString(requestJson));&import=import com.fasterxml.jackson.databind.ObjectMapper;\n"
+    }, {
+      "name" : "log",
+      "nodeId" : "e92fc9ae-f767-4f5f-b765-89ff15705b05",
+      "description" : "active.msg.api.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.sms.active.msg.api.in",
+        "message" : "PUT /messages ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.sms.active.msg.api.in&message=PUT /messages ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "http",
+      "nodeId" : "e34f980a-9813-4c13-a61d-10801108cce9",
+      "description" : "POST /messages",
+      "properties" : {
+        "_type" : "http",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "bridgeEndpoint" : false,
+        "camelGroup" : "component",
+        "connectTimeout" : "-1",
+        "connectionRequestTimeout" : "-1",
+        "disableStreamCache" : true,
+        "httpMethod" : "POST",
+        "httpUri" : "{{convey.api.host}}",
+        "name" : "http",
+        "scheme" : "https",
+        "socketTimeout" : "-1",
+        "throwExceptionOnFailure" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "http",
+      "kameletPropertiesUrl" : "?bridgeEndpoint=false&connectTimeout=-1&connectionRequestTimeout=-1&disableStreamCache=true&httpMethod=POST&httpUri={{convey.api.host}}&socketTimeout=-1&throwExceptionOnFailure=false"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "ef9162f0-6b7f-417b-8007-f760e1b2a989",
+      "description" : "To String",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "log",
+      "nodeId" : "3a31c960-f4ec-4183-b8cd-7296351c3d5a",
+      "description" : "active.msg.api.out",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.sms.active.msg.api.out",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.sms.active.msg.api.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "messageRouter",
+      "nodeId" : "aa13d7e3-93b7-41cd-a2c0-22e99d8ffe1a",
+      "description" : "",
+      "properties" : {
+        "_type" : "messageRouter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageRouter",
+        "url" : ""
+      },
+      "_type" : "messageRouter",
+      "branches" : [ {
+        "type" : "when",
+        "label" : "!2XX",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "dfe0acb0-bc9f-44d7-97aa-77fa157b1e84",
+          "description" : "msg.api.err",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "ERROR",
+            "logType" : "EIP",
+            "loggerName" : "510.sms.active.msg.api.err",
+            "message" : "(${header.CamelHttpResponseCode}) ${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=ERROR&logType=EIP&loggerName=510.sms.active.msg.api.err&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${header.CamelHttpResponseCode} > 202",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "otherwise",
+        "label" : "otherwise",
+        "route" : [ {
+          "name" : "setProperties",
+          "nodeId" : "04cda5f8-650b-4a0a-bab9-29ae2e5e885a",
+          "description" : "Get Message Params",
+          "properties" : {
+            "_type" : "setProperties",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "name" : "setProperties",
+            "namespaces" : [ ],
+            "propertyList" : [ {
+              "language" : "JsonPath",
+              "propertyName" : "messageId",
+              "propertyValue" : "$.data.message_id",
+              "uuid" : "35d4a99b-87d2-49b5-95fd-e8970497f115"
+            }, {
+              "language" : "JsonPath",
+              "propertyName" : "conversationId",
+              "propertyValue" : "$.data.conversation_id",
+              "uuid" : "3cb4995e-3427-4b1a-ae1f-cf697d1a1853"
+            } ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setProperties",
+          "kameletPropertiesUrl" : "?messageId=$.data.message_id&conversationId=$.data.conversation_id&addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "messageFilter",
+          "nodeId" : "bb2e5ec0-be91-4f56-b208-d7c7461cdb40",
+          "description" : "NumMedia>0",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "filter",
+            "label" : "numMedia>0",
+            "route" : [ {
+              "name" : "log",
+              "nodeId" : "1f8f74fe-d3e0-46a8-a416-ba261247a0c3",
+              "description" : "active.mms.download",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "510.sms.active.mms.download",
+                "message" : "Processing ${exchangeProperty.numMedia} attachments",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.sms.active.mms.download&message=Processing ${exchangeProperty.numMedia} attachments&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            }, {
+              "name" : "process",
+              "nodeId" : "7cc940d0-ab3d-4129-a4cf-8f032e679c92",
+              "description" : "Download Media",
+              "properties" : {
+                "_type" : "process",
+                "active" : true,
+                "camelGroup" : "transform",
+                "code" : "CamelContext context = exchange.getContext();\nProducerTemplate t = context.createProducerTemplate();\n\nObjectMapper mapper = new ObjectMapper();\n\nint numMedia = (int)exchange.getProperty(\"numMedia\");\nArrayList<HashMap<String, String>> mediaUrls = (ArrayList)exchange.getProperty(\"mediaUrls\");\n\nSystem.out.println(numMedia);\nSystem.out.println(mediaUrls);\n\nfor (int i = 0; i < numMedia; i++) {\n\tHashMap<String, String> media = (HashMap)mediaUrls.get(i);\n\n\tHashMap<String, String> attachmentRequest = new HashMap<String, String>() {{\n\t\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n\t\tput(\"message_id\", (String)exchange.getProperty(\"messageId\"));\n\t\tput(\"recipient_id\", (String)exchange.getProperty(\"recipientId\"));\n\t\tput(\"content_type\", (String)media.get(\"contentType\"));\n\t\tput(\"uri\", (String)media.get(\"url\"))\n\t}};\n\t\n\tEndpoint endpoint = context.getEndpoint(\"seda:post-attachments\");\n\ttry {\n\t\tObject response = t.sendBody(endpoint, ExchangePattern.InOnly, mapper.writeValueAsString(attachmentRequest));\n\t} catch (Exception e) {\n\t\tSystem.out.println(\"Error posting attachment \" + e.getMessage());\n\t}\n}",
+                "import" : "import org.apache.camel.CamelContext;\nimport org.apache.camel.ProducerTemplate;\nimport org.apache.camel.Endpoint;\nimport org.apache.camel.ExchangePattern;\nimport com.fasterxml.jackson.databind.ObjectMapper;",
+                "name" : "process",
+                "url" : ""
+              },
+              "_type" : "process",
+              "kameletPropertiesUrl" : "?code=CamelContext context = exchange.getContext();\nProducerTemplate t = context.createProducerTemplate();\n\nObjectMapper mapper = new ObjectMapper();\n\nint numMedia = (int)exchange.getProperty(\"numMedia\");\nArrayList<HashMap<String, String>> mediaUrls = (ArrayList)exchange.getProperty(\"mediaUrls\");\n\nSystem.out.println(numMedia);\nSystem.out.println(mediaUrls);\n\nfor (int i = 0; i < numMedia; i++) {\n\tHashMap<String, String> media = (HashMap)mediaUrls.get(i);\n\n\tHashMap<String, String> attachmentRequest = new HashMap<String, String>() {{\n\t\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n\t\tput(\"message_id\", (String)exchange.getProperty(\"messageId\"));\n\t\tput(\"recipient_id\", (String)exchange.getProperty(\"recipientId\"));\n\t\tput(\"content_type\", (String)media.get(\"contentType\"));\n\t\tput(\"uri\", (String)media.get(\"url\"))\n\t}};\n\t\n\tEndpoint endpoint = context.getEndpoint(\"seda:post-attachments\");\n\ttry {\n\t\tObject response = t.sendBody(endpoint, ExchangePattern.InOnly, mapper.writeValueAsString(attachmentRequest));\n\t} catch (Exception e) {\n\t\tSystem.out.println(\"Error posting attachment \" + e.getMessage());\n\t}\n}&import=import org.apache.camel.CamelContext;\nimport org.apache.camel.ProducerTemplate;\nimport org.apache.camel.Endpoint;\nimport org.apache.camel.ExchangePattern;\nimport com.fasterxml.jackson.databind.ObjectMapper;"
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${exchangeProperty.numMedia} > 0",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-5",
+    "enabled" : true,
+    "routeId" : 7,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "3d6b2555-dcaf-4e17-8482-c78b54f69c20",
+      "description" : "publish-status",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "publish-status",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=publish-status"
+    }, {
+      "name" : "exchangePattern",
+      "nodeId" : "4e445945-ed51-48ee-ad7b-4c6ea68006f2",
+      "description" : "InOnly",
+      "properties" : {
+        "_type" : "exchangePattern",
+        "active" : true,
+        "camelGroup" : "core",
+        "exchangePattern" : "InOnly",
+        "name" : "exchangePattern",
+        "url" : ""
+      },
+      "_type" : "exchangePattern",
+      "kameletPropertiesUrl" : "?exchangePattern=InOnly"
+    }, {
+      "name" : "process",
+      "nodeId" : "df5bd5c0-589e-4825-8aad-6cedca801603",
+      "description" : "MessageStatus",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "ObjectMapper mapper = new ObjectMapper();\n\nHashMap<String, String> messageStatus = new HashMap<String, String>() {{\n\tput(\"resource_id\", (String)exchange.getProperty(\"resourceId\"));\t\n\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n\tput(\"message_id\", (String)exchange.getProperty(\"messageId\"));\t\n\tput(\"status\", (String)exchange.getProperty(\"smsStatus\"));\n}}\n\nif (exchange.getProperty(\"errorCode\") != null) \n\tmessageStatus.put(\"error_code\", String.valueOf(exchange.getProperty(\"errorCode\")));\n\nif (exchange.getProperty(\"errorMessage\") != null)\n\tmessageStatus.put(\"error_message\", String.valueOf(exchange.getProperty(\"errorMessage\")));\n\t\t\nif (exchange.getProperty(\"numSegments\") != null)\n\tmessageStatus.put(\"num_segments\", String.valueOf(exchange.getProperty(\"numSegments\")));\n\nif (exchange.getProperty(\"numMedia\") != null)\n\tmessageStatus.put(\"num_media\", String.valueOf(exchange.getProperty(\"numMedia\")));\n\nexchange.getIn().setBody(mapper.writeValueAsString(messageStatus));",
+        "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=ObjectMapper mapper = new ObjectMapper();\n\nHashMap<String, String> messageStatus = new HashMap<String, String>() {{\n\tput(\"resource_id\", (String)exchange.getProperty(\"resourceId\"));\t\n\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n\tput(\"message_id\", (String)exchange.getProperty(\"messageId\"));\t\n\tput(\"status\", (String)exchange.getProperty(\"smsStatus\"));\n}}\n\nif (exchange.getProperty(\"errorCode\") != null) \n\tmessageStatus.put(\"error_code\", String.valueOf(exchange.getProperty(\"errorCode\")));\n\nif (exchange.getProperty(\"errorMessage\") != null)\n\tmessageStatus.put(\"error_message\", String.valueOf(exchange.getProperty(\"errorMessage\")));\n\t\t\nif (exchange.getProperty(\"numSegments\") != null)\n\tmessageStatus.put(\"num_segments\", String.valueOf(exchange.getProperty(\"numSegments\")));\n\nif (exchange.getProperty(\"numMedia\") != null)\n\tmessageStatus.put(\"num_media\", String.valueOf(exchange.getProperty(\"numMedia\")));\n\nexchange.getIn().setBody(mapper.writeValueAsString(messageStatus));&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+    }, {
+      "name" : "log",
+      "nodeId" : "90e132ea-0e7e-4ce2-a983-30faeb4127ce",
+      "description" : "510.direct.jms.status",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.direct.jms.status",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.direct.jms.status&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "jms",
+      "nodeId" : "74946e5d-9402-42be-a614-35f3c8d5dd12",
+      "description" : "message.status",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "message.status",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=message.status&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-7",
+    "enabled" : true,
+    "routeId" : 8,
+    "route" : [ {
+      "name" : "onException",
+      "nodeId" : "28b1c705-240b-4738-ae69-c6890990a5e3",
+      "description" : "",
+      "properties" : {
+        "_type" : "onException",
+        "active" : true,
+        "asyncDelayedRedelivery" : false,
+        "camelGroup" : "exception",
+        "exceptionBehavior" : "Handle the exceptions",
+        "exceptionList" : [ {
+          "exception" : "Exception"
+        } ],
+        "maximumRedeliveries" : "2",
+        "name" : "onException",
+        "redeliveryDelay" : "1000",
+        "setRedeliveryDelay" : false,
+        "setRedeliveryTriesCount" : false,
+        "url" : "",
+        "useOriginalMessage" : false
+      },
+      "_type" : "onException",
+      "branches" : [ {
+        "type" : "onException",
+        "label" : "onException",
+        "route" : [ {
+          "name" : "messageFilter",
+          "nodeId" : "80babf15-8686-4f59-a6d7-c845847ba87c",
+          "description" : "",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "route",
+            "label" : "route",
+            "route" : [ {
+              "name" : "log",
+              "nodeId" : "ef5525cd-d744-4b9c-8f7a-d9c46fb1c98b",
+              "description" : "510.error",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "ERROR",
+                "logType" : "EIP",
+                "loggerName" : "510.error",
+                "message" : "${exception.message} ${exception.stacktrace}\\n${exchangeProperty.x-operation-id}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=ERROR&logType=EIP&loggerName=510.error&message=${exception.message} ${exception.stacktrace}\\n${exchangeProperty.x-operation-id}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            }, {
+              "name" : "stop",
+              "nodeId" : "3728e943-d14e-4229-b1fd-652f58cb8415",
+              "description" : "",
+              "properties" : {
+                "_type" : "stop",
+                "camelGroup" : "misc",
+                "name" : "stop",
+                "url" : ""
+              },
+              "_type" : "stop",
+              "kameletPropertiesUrl" : ""
+            } ],
+            "properties" : { }
+          }, {
+            "type" : "filter",
+            "label" : "filter",
+            "route" : [ {
+              "name" : "setBody",
+              "nodeId" : "c96fb509-1ed6-4fe5-8537-5755b1596667",
+              "description" : "Set Error Response",
+              "properties" : {
+                "_type" : "setBody",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "expression" : "${exception.getResponseBody()}",
+                "language" : "Simple",
+                "name" : "setBody",
+                "namespaces" : [ ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setBody",
+              "kameletPropertiesUrl" : "?addNamespaces=false&expression=${exception.getResponseBody()}&language=Simple&suppressExceptions=false"
+            }, {
+              "name" : "setProperties",
+              "nodeId" : "a6b5585b-51ae-45c9-8efb-a322d1d00a0a",
+              "description" : "Set Error",
+              "properties" : {
+                "_type" : "setProperties",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "name" : "setProperties",
+                "namespaces" : [ ],
+                "propertyList" : [ {
+                  "language" : "JsonPath",
+                  "propertyName" : "errorCode",
+                  "propertyValue" : "$.code",
+                  "uuid" : "04e2403e-8da5-4350-9051-71f1186704f7"
+                }, {
+                  "language" : "Simple",
+                  "propertyName" : "errorMessage",
+                  "propertyValue" : "${exception.getResponseBody()}",
+                  "uuid" : "3c7dfe8e-e610-48dc-9906-dbe44b68f613"
+                }, {
+                  "language" : "Simple",
+                  "propertyName" : "error",
+                  "propertyValue" : "${exchangeProperty.errorMessage}",
+                  "uuid" : "980f8b8c-f553-4af1-a3b7-ba92624083af"
+                } ],
+                "suppressExceptions" : true,
+                "url" : ""
+              },
+              "_type" : "setProperties",
+              "kameletPropertiesUrl" : "?errorCode=$.code&errorMessage=${exception.getResponseBody()}&error=${exchangeProperty.errorMessage}&addNamespaces=false&suppressExceptions=true"
+            }, {
+              "name" : "direct",
+              "nodeId" : "8285826c-7f8f-48b4-a735-f7ace2126bc9",
+              "description" : "updateMessageStatus",
+              "properties" : {
+                "_type" : "direct",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "core",
+                "endpointName" : "updateMessageStatus",
+                "name" : "direct",
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "direct",
+              "kameletPropertiesUrl" : "?endpointName=updateMessageStatus"
+            }, {
+              "name" : "setBody",
+              "nodeId" : "9b8f36c1-1266-4d09-97b4-aaa73c112d3d",
+              "description" : "Set Error Message",
+              "properties" : {
+                "_type" : "setBody",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "expression" : "{\"error\": \"(${header.CamelHttpResponseCode}) ${exception.getResponseBody()}\"}",
+                "language" : "Simple",
+                "name" : "setBody",
+                "namespaces" : [ ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setBody",
+              "kameletPropertiesUrl" : "?addNamespaces=false&expression={\"error\": \"(${header.CamelHttpResponseCode}) ${exception.getResponseBody()}\"}&language=Simple&suppressExceptions=false"
+            }, {
+              "name" : "log",
+              "nodeId" : "0e7b544a-78b9-4af5-a95e-a0a42f9b9703",
+              "description" : "510.error",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "ERROR",
+                "logType" : "EIP",
+                "loggerName" : "510.error",
+                "message" : "(${header.CamelHttpResponseCode}) ${body}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=ERROR&logType=EIP&loggerName=510.error&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            }, {
+              "name" : "stop",
+              "nodeId" : "e5baf612-16e7-42fd-b636-4323afd4010f",
+              "description" : "",
+              "properties" : {
+                "_type" : "stop",
+                "camelGroup" : "misc",
+                "name" : "stop",
+                "url" : ""
+              },
+              "_type" : "stop",
+              "kameletPropertiesUrl" : ""
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${exception.getClass().getName()} == 'org.apache.camel.http.base.HttpOperationFailedException'",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : "?asyncDelayedRedelivery=false&exceptionBehavior=Handle the exceptions&maximumRedeliveries=2&redeliveryDelay=1000&setRedeliveryDelay=false&setRedeliveryTriesCount=false&useOriginalMessage=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-8",
+    "enabled" : true,
+    "routeId" : 9,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "c64937d4-ed17-4ab0-b1e2-3f2a01ea01bf",
+      "description" : "get-provider-account",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "get-provider-account",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=get-provider-account"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "a43157d2-d2f2-484a-a911-51a1113067a7",
+      "description" : "Set Provider",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Constant",
+          "propertyName" : "provider",
+          "propertyValue" : "twilio",
+          "uuid" : "3f577e88-efd1-4a87-830c-5d862b7edfd2"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?provider=twilio&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "60e95565-afd9-4426-a8fb-43fa61a35bb6",
+      "description" : "SQL Get Provider Account",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to(\"velocity:provider_accounts.select.sql.vm?allowContextMapAll=true\")\n    \t.log(LoggingLevel.OFF, 'log', '${body}').id('log-getprovideraccounts-sql-1')\n    \t.to(\"sql:query?dataSource=#dsPostgres&OutputType=SelectOne&useMessageBodyForSql=true\").id('dslProcessor-1')",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to(\"velocity:provider_accounts.select.sql.vm?allowContextMapAll=true\")\n    \t.log(LoggingLevel.OFF, 'log', '${body}').id('log-getprovideraccounts-sql-1')\n    \t.to(\"sql:query?dataSource=#dsPostgres&OutputType=SelectOne&useMessageBodyForSql=true\").id('dslProcessor-1')"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "a363cd55-4731-4956-a126-9649fbe32ee0",
+      "description" : "Get Provider Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Simple",
+          "propertyName" : "providerResourceId",
+          "propertyValue" : "${body[resource_id]}",
+          "uuid" : "34e9d256-26fc-4a7b-9e38-95633bb6d960"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "providerAuthKey",
+          "propertyValue" : "${body[provider_key]}",
+          "uuid" : "69df783a-75e9-4a93-98f1-5728e9ef3a03"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "providerAuthToken",
+          "propertyValue" : "${body[provider_token]}",
+          "uuid" : "f228b822-0d3a-45c3-af86-51fe7f68dec6"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "providerStatus",
+          "propertyValue" : "${body[status]}",
+          "uuid" : "d380967a-60aa-4077-823a-fac3d56d5943"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "providerAccountMeta",
+          "propertyValue" : "${body[account_meta]}",
+          "uuid" : "b12b958a-a264-480a-81d7-b6a8d05717cd"
+        } ],
+        "suppressExceptions" : true,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?providerResourceId=${body[resource_id]}&providerAuthKey=${body[provider_key]}&providerAuthToken=${body[provider_token]}&providerStatus=${body[status]}&providerAccountMeta=${body[account_meta]}&addNamespaces=false&suppressExceptions=true"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "a91ff067-5b34-42d3-bb80-a8b1bd8d9f39",
+      "description" : "",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "not found",
+        "route" : [ {
+          "name" : "throwException",
+          "nodeId" : "e25445df-f0ed-4574-8132-de3e21619339",
+          "description" : "MissingResourceId",
+          "properties" : {
+            "_type" : "throwException",
+            "active" : true,
+            "camelGroup" : "exception",
+            "exception" : "new Exception(\"Provider account is not provisioned.\")",
+            "name" : "throwException",
+            "url" : ""
+          },
+          "_type" : "throwException",
+          "kameletPropertiesUrl" : "?exception=new Exception(\"Provider account is not provisioned.\")"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.providerResourceId} == null",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-9",
+    "enabled" : false,
+    "routeId" : 10,
+    "route" : [ {
+      "name" : "onException",
+      "nodeId" : "7e3a4df8-4663-401b-bde3-04d16a468b50",
+      "description" : "HTTP Failed Exception",
+      "properties" : {
+        "_type" : "onException",
+        "active" : true,
+        "asyncDelayedRedelivery" : false,
+        "camelGroup" : "exception",
+        "exceptionBehavior" : "None",
+        "exceptionList" : [ {
+          "exception" : "org.apache.camel.http.common.HttpOperationFailedException"
+        } ],
+        "maximumRedeliveries" : "2",
+        "name" : "onException",
+        "redeliveryDelay" : "1000",
+        "setRedeliveryDelay" : false,
+        "setRedeliveryTriesCount" : false,
+        "url" : "",
+        "useOriginalMessage" : false
+      },
+      "_type" : "onException",
+      "branches" : [ {
+        "type" : "onException",
+        "label" : "onException",
+        "route" : [ {
+          "name" : "messageFilter",
+          "nodeId" : "637bb971-20db-45bd-8af4-30b8caf0d219",
+          "description" : "",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "route",
+            "label" : "route",
+            "route" : [ {
+              "name" : "log",
+              "nodeId" : "eddd569b-6a44-4a17-a662-02c519a0d508",
+              "description" : "",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "log",
+                "message" : "${exchangeProperty.x-operation-id}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=${exchangeProperty.x-operation-id}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            }, {
+              "name" : "setProperties",
+              "nodeId" : "6f52d5f8-9be9-4083-878d-38df12579663",
+              "description" : "Set Error",
+              "properties" : {
+                "_type" : "setProperties",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "name" : "setProperties",
+                "namespaces" : [ ],
+                "propertyList" : [ {
+                  "language" : "Simple",
+                  "propertyName" : "errorCode",
+                  "propertyValue" : "${header.CamelHttpResponseCode}",
+                  "uuid" : "50e68dfc-96ce-4c26-8258-59e37253ab78"
+                }, {
+                  "language" : "Simple",
+                  "propertyName" : "errorMessage",
+                  "propertyValue" : "${exception.getResponseBody()}",
+                  "uuid" : "8df18423-5daa-436e-9844-34fbf03d99e1"
+                }, {
+                  "language" : "Simple",
+                  "propertyName" : "error",
+                  "propertyValue" : "(${header.CamelHttpResponseCode}) ${exception.getResponseBody()}",
+                  "uuid" : "5dc58bf7-ac46-4534-b0b6-bb5e8d9c815e"
+                } ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setProperties",
+              "kameletPropertiesUrl" : "?errorCode=${header.CamelHttpResponseCode}&errorMessage=${exception.getResponseBody()}&error=(${header.CamelHttpResponseCode}) ${exception.getResponseBody()}&addNamespaces=false&suppressExceptions=false"
+            }, {
+              "name" : "direct",
+              "nodeId" : "29c5787c-faf5-4dac-b804-83e5d487f1fb",
+              "description" : "updateMessageStatus",
+              "properties" : {
+                "_type" : "direct",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "core",
+                "endpointName" : "updateMessageStatus",
+                "name" : "direct",
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "direct",
+              "kameletPropertiesUrl" : "?endpointName=updateMessageStatus"
+            }, {
+              "name" : "setBody",
+              "nodeId" : "b2c5a341-655d-45c4-a6a1-fcc4938d5a0e",
+              "description" : "Set Error Message",
+              "properties" : {
+                "_type" : "setBody",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "expression" : "{\"error\": \"(${header.CamelHttpResponseCode}) ${exception.getResponseBody()}\"}",
+                "language" : "Simple",
+                "name" : "setBody",
+                "namespaces" : [ ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setBody",
+              "kameletPropertiesUrl" : "?addNamespaces=false&expression={\"error\": \"(${header.CamelHttpResponseCode}) ${exception.getResponseBody()}\"}&language=Simple&suppressExceptions=false"
+            }, {
+              "name" : "stop",
+              "nodeId" : "e94b08b1-8241-4cc5-b7a1-17e166ff6c07",
+              "description" : "",
+              "properties" : {
+                "_type" : "stop",
+                "camelGroup" : "misc",
+                "name" : "stop",
+                "url" : ""
+              },
+              "_type" : "stop",
+              "kameletPropertiesUrl" : ""
+            } ],
+            "properties" : { }
+          }, {
+            "type" : "filter",
+            "label" : "filter",
+            "route" : [ {
+              "name" : "log",
+              "nodeId" : "b58a1597-02b1-499d-924f-c522f3a60af8",
+              "description" : "510.error",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "510.error.400",
+                "message" : "${exception.getResponseBody()}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.error.400&message=${exception.getResponseBody()}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${exception.getClass()} == org.apache.camel.http.base.HttpOperationFailedException",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : "?asyncDelayedRedelivery=false&exceptionBehavior=None&maximumRedeliveries=2&redeliveryDelay=1000&setRedeliveryDelay=false&setRedeliveryTriesCount=false&useOriginalMessage=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-10",
+    "enabled" : true,
+    "routeId" : 11,
+    "route" : [ {
+      "name" : "postRequest",
+      "nodeId" : "6f814b9a-43d5-446e-80d7-446732f61acb",
+      "description" : "twilioInboundVoice",
+      "properties" : {
+        "_type" : "restApi",
+        "active" : true,
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/twilio/voice-911",
+        "method" : "post",
+        "name" : "postRequest",
+        "operationName" : "twilioInboundVoice",
+        "produces" : "application/json",
+        "requestmethod" : "POST",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/twilio/voice-911&method=post&operationName=twilioInboundVoice&produces=application/json&requestmethod=POST"
+    }, {
+      "name" : "log",
+      "nodeId" : "126a4f16-3729-44b5-b6ac-b235e99868bb",
+      "description" : "510.api.voice.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.api.voice.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.api.voice.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "76edafd1-8cab-4d0a-99d6-05041849fa5c",
+      "description" : "Set Auto Voice Reponse",
+      "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Say voice=\"woman\" language=\"en-US\">If this is an emergency, hang up and dial 9 1 1. This phone number does not respond to voice calls. If you are in a conversation with a police department via text, please just use texting. Thank you.</Say></Response>",
+        "language" : "Constant",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?addNamespaces=false&expression=<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Say voice=\"woman\" language=\"en-US\">If this is an emergency, hang up and dial 9 1 1. This phone number does not respond to voice calls. If you are in a conversation with a police department via text, please just use texting. Thank you.</Say></Response>&language=Constant&suppressExceptions=false"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "96082224-cc07-4b97-a51a-a23a0687b5fe",
+      "description" : "Set Response Headers",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "Content-Type",
+          "headerValue" : "text/xml",
+          "language" : "Constant",
+          "uuid" : "be4d1655-1819-47d2-a6b1-03c2f221e7cd"
+        }, {
+          "headerName" : "CamelHttpResponseCode",
+          "headerValue" : "200",
+          "language" : "Constant",
+          "uuid" : "66bcc896-67dd-43a9-b1b5-a1bb650f62b3"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "stop",
+      "nodeId" : "3632fe4d-c2b7-43f8-b736-d042fc56c864",
+      "description" : "",
+      "properties" : {
+        "_type" : "stop",
+        "camelGroup" : "misc",
+        "name" : "stop",
+        "url" : ""
+      },
+      "_type" : "stop",
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-12",
+    "enabled" : true,
+    "routeId" : 12,
+    "route" : [ {
+      "name" : "seda",
+      "nodeId" : "eda3a81b-64ac-418a-bc7f-397206663569",
+      "description" : "post-attachments",
+      "properties" : {
+        "_type" : "seda",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "blockWhenFull" : false,
+        "camelGroup" : "core",
+        "concurrentConsumers" : "10",
+        "endpointName" : "post-attachments",
+        "limitConcurrentConsumers" : false,
+        "multipleConsumers" : false,
+        "name" : "seda",
+        "pollTimeout" : "1000",
+        "size" : "1000",
+        "specifyMaximumCapacitySize" : false,
+        "timeout" : "30000",
+        "toDynamicEndpoint" : false,
+        "url" : "",
+        "waitForTaskToComplete" : "IfReplyExpected"
+      },
+      "_type" : "seda",
+      "kameletPropertiesUrl" : "?blockWhenFull=false&concurrentConsumers=10&endpointName=post-attachments&limitConcurrentConsumers=false&multipleConsumers=false&pollTimeout=1000&size=1000&specifyMaximumCapacitySize=false&timeout=30000&waitForTaskToComplete=IfReplyExpected"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "b6f20e75-42fe-4fc3-ad8b-71289e2ff989",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\", \"x-*\")",
+        "headerList" : [ {
+          "headerName" : "CamelHttpPath",
+          "headerValue" : "/api/v1/attachments",
+          "language" : "Constant",
+          "uuid" : "afb9e44f-0328-4742-8322-cff32af28bee"
+        }, {
+          "headerName" : "Authorization",
+          "headerValue" : "Bearer ${bean:tokenGetters?method=getToken({{convey.auth0.yakApiAudience}})}')",
+          "language" : "Simple",
+          "uuid" : "82d8cbb1-fdea-43cf-88ab-e9ad06b0436d"
+        } ],
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"x-*\")"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "b52537df-79df-4666-8ba6-89d66627e42c",
+      "description" : "Set Attachment Request",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "CamelHttpPath",
+          "headerValue" : "/api/v1/attachments",
+          "language" : "Constant",
+          "uuid" : "afb9e44f-0328-4742-8322-cff32af28bee"
+        }, {
+          "headerName" : "Authorization",
+          "headerValue" : "Bearer ${bean:tokenGetters?method=getToken({{convey.auth0.yakApiAudience}})}",
+          "language" : "Simple",
+          "uuid" : "82d8cbb1-fdea-43cf-88ab-e9ad06b0436d"
+        }, {
+          "headerName" : "Content-Type",
+          "headerValue" : "application/json",
+          "language" : "Constant",
+          "uuid" : "5d21f6b6-596d-46f4-a939-999415c47eea"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "bd2ee846-f01f-4510-bc7a-9af1420d16e1",
+      "description" : "510.seda.mms.attach.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.seda.mms.attach.in",
+        "message" : "POST /attachments ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.seda.mms.attach.in&message=POST /attachments ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "http",
+      "nodeId" : "d0ad65e2-58cb-4fd3-8da4-6086b87aefb1",
+      "description" : "POST /attachments",
+      "properties" : {
+        "_type" : "http",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "bridgeEndpoint" : false,
+        "camelGroup" : "component",
+        "connectTimeout" : "-1",
+        "connectionRequestTimeout" : "-1",
+        "disableStreamCache" : true,
+        "httpMethod" : "POST",
+        "httpUri" : "{{convey.api.host}}",
+        "name" : "http",
+        "scheme" : "https",
+        "socketTimeout" : "-1",
+        "throwExceptionOnFailure" : true,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "http",
+      "kameletPropertiesUrl" : "?bridgeEndpoint=false&connectTimeout=-1&connectionRequestTimeout=-1&disableStreamCache=true&httpMethod=POST&httpUri={{convey.api.host}}&socketTimeout=-1&throwExceptionOnFailure=true"
+    }, {
+      "name" : "log",
+      "nodeId" : "1cb76bc9-e430-485f-9758-1ce41bd858dd",
+      "description" : "510.seda.mms.attach.out",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.seda.mms.attach.out",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.seda.mms.attach.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-13",
+    "enabled" : true,
+    "routeId" : 13,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "2f3282d0-35f7-41a3-975d-a92118e01adf",
+      "description" : "get-conversation",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "get-conversation",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=get-conversation"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "8a597020-e908-4e9f-a8a4-0605c20bf188",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\")"
+    }, {
+      "name" : "messagingEndpoint",
+      "nodeId" : "f2564a61-acf2-42d0-92cc-0d2ea4344384",
+      "description" : "SQL Get Conversation",
+      "properties" : {
+        "_type" : "messagingEndpoint",
+        "active" : true,
+        "camelGroup" : "core",
+        "name" : "messagingEndpoint",
+        "toDynamicEndpoint" : false,
+        "uri" : "sql:SELECT conversation_id FROM conversation_recipients cr LEFT JOIN conversations c ON cr.conversation_id = c.id LEFT JOIN recipients r ON cr.recipient_id = r.id LEFT JOIN numbers n ON c.number_id = n.id WHERE c.agency_id = CAST(:#${exchangeProperty.agencyId} AS uuid) AND (r.recipient_number = :#${exchangeProperty.recipientNumber} OR r.ten_dlc = :#${exchangeProperty.recipientNumber}) AND c.status = \\'active\\' AND n.number = :#${exchangeProperty.providerNumber} LIMIT 1?dataSource=#dsPostgres&OutputType=SelectOne",
+        "url" : ""
+      },
+      "_type" : "messagingEndpoint",
+      "kameletPropertiesUrl" : "?uri=sql:SELECT conversation_id FROM conversation_recipients cr LEFT JOIN conversations c ON cr.conversation_id = c.id LEFT JOIN recipients r ON cr.recipient_id = r.id LEFT JOIN numbers n ON c.number_id = n.id WHERE c.agency_id = CAST(:#${exchangeProperty.agencyId} AS uuid) AND (r.recipient_number = :#${exchangeProperty.recipientNumber} OR r.ten_dlc = :#${exchangeProperty.recipientNumber}) AND c.status = \\'active\\' AND n.number = :#${exchangeProperty.providerNumber} LIMIT 1?dataSource=#dsPostgres&OutputType=SelectOne"
+    }, {
+      "name" : "log",
+      "nodeId" : "d7a85b30-d0c6-4aa8-87e4-30802f3e2f9b",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log123",
+        "message" : "** ${header.CamelSqlRowCount} ${body} **",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log123&message=** ${header.CamelSqlRowCount} ${body} **&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "c3d4f538-df99-49d8-994d-396a0c07ab81",
+      "description" : "",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "RowCount>0",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "5620eeff-968a-4fe4-84de-6f21691544cb",
+          "description" : "",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "INFO",
+            "logType" : "EIP",
+            "loggerName" : "log",
+            "message" : "***********",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=***********&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "6b9cebf6-7c83-4988-b1d2-3c8379c68b37",
+          "description" : "Set Conversation Request",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpPath",
+              "headerValue" : "/api/v1/conversations/${body}",
+              "language" : "Simple",
+              "uuid" : "e3339996-c0e2-40b9-8b36-d97aa816dd4d"
+            }, {
+              "headerName" : "x-agency-id",
+              "headerValue" : "${exchangeProperty.agencyId}",
+              "language" : "Simple",
+              "uuid" : "041f09ec-9bad-4eab-85b5-de79a56fe5db"
+            }, {
+              "headerName" : "Authorization",
+              "headerValue" : "Bearer ${bean:tokenGetters?method=getToken({{convey.auth0.yakApiAudience}})}",
+              "language" : "Simple",
+              "uuid" : "d6eecfeb-8b80-42e5-bc80-38246cb3398d"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "setBody",
+          "nodeId" : "68404464-0261-4f53-98c6-87d530c0ae8d",
+          "description" : "Clear Body",
+          "properties" : {
+            "_type" : "setBody",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "expression" : "constant('')",
+            "language" : "GroovyDsl",
+            "name" : "setBody",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setBody",
+          "kameletPropertiesUrl" : "?addNamespaces=false&expression=constant('')&language=GroovyDsl&suppressExceptions=false"
+        }, {
+          "name" : "log",
+          "nodeId" : "a2373e0e-8eb5-4f26-a248-297cd0b2ac06",
+          "description" : "510.direct.convo.get.in",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "INFO",
+            "logType" : "EIP",
+            "loggerName" : "log",
+            "message" : "GET ${header.CamelHttpPath}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=GET ${header.CamelHttpPath}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "http",
+          "nodeId" : "76e69434-95b4-4c52-bc41-c3864c46d9bc",
+          "description" : "GET /conversations",
+          "properties" : {
+            "_type" : "http",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "bridgeEndpoint" : false,
+            "camelGroup" : "component",
+            "connectTimeout" : "-1",
+            "connectionRequestTimeout" : "-1",
+            "disableStreamCache" : true,
+            "httpMethod" : "GET",
+            "httpUri" : "{{convey.api.host}}",
+            "name" : "http",
+            "scheme" : "https",
+            "socketTimeout" : "-1",
+            "throwExceptionOnFailure" : true,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "http",
+          "kameletPropertiesUrl" : "?bridgeEndpoint=false&connectTimeout=-1&connectionRequestTimeout=-1&disableStreamCache=true&httpMethod=GET&httpUri={{convey.api.host}}&socketTimeout=-1&throwExceptionOnFailure=true"
+        }, {
+          "name" : "log",
+          "nodeId" : "086079cf-c247-4652-b99c-3723258ba62f",
+          "description" : "510.direct.convo.get.out",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "INFO",
+            "logType" : "EIP",
+            "loggerName" : "510.direct.convo.get.out",
+            "message" : "(${header.CamelHttpResponseCode}) ${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.direct.convo.get.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setProperties",
+          "nodeId" : "1fd44108-5da8-455f-94eb-9beec42f1d6a",
+          "description" : "Set Conversation",
+          "properties" : {
+            "_type" : "setProperties",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "name" : "setProperties",
+            "namespaces" : [ ],
+            "propertyList" : [ {
+              "language" : "JsonPath",
+              "propertyName" : "activeConversation",
+              "propertyValue" : "$.data",
+              "uuid" : "ebbd8de0-7153-4b65-b1f0-bb60d283542c"
+            } ],
+            "suppressExceptions" : true,
+            "url" : ""
+          },
+          "_type" : "setProperties",
+          "kameletPropertiesUrl" : "?activeConversation=$.data&addNamespaces=false&suppressExceptions=true"
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${header.CamelSqlRowCount} != 0",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-14",
+    "enabled" : true,
+    "routeId" : 14,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "87e824de-45c6-48fb-a4ba-d245f54b2b1c",
+      "description" : "recording-complete",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "5",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "twilio.video.complete",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=5&connectionFactory=#pooledConnectionFactory&destinationName=twilio.video.complete&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "messagingEndpoint",
+      "nodeId" : "49fde36d-cfd2-42ab-86b7-a9fe308f84c9",
+      "description" : "SQL Get Video Room",
+      "properties" : {
+        "_type" : "messagingEndpoint",
+        "active" : true,
+        "camelGroup" : "core",
+        "name" : "messagingEndpoint",
+        "toDynamicEndpoint" : false,
+        "uri" : "sql:SELECT vr.agency_id, vr.conversation_id, cr.recipient_id FROM video_rooms vr inner join conversation_recipients cr on vr.conversation_id = cr.conversation_id WHERE vr.resource_id =  :#${header.RoomSid}?dataSource=#dsPostgres&OutputType=SelectOne",
+        "url" : ""
+      },
+      "_type" : "messagingEndpoint",
+      "kameletPropertiesUrl" : "?uri=sql:SELECT vr.agency_id, vr.conversation_id, cr.recipient_id FROM video_rooms vr inner join conversation_recipients cr on vr.conversation_id = cr.conversation_id WHERE vr.resource_id =  :#${header.RoomSid}?dataSource=#dsPostgres&OutputType=SelectOne"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "58aa6f6c-c554-4151-842e-67dc04132092",
+      "description" : "To HashMap",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "java.util.Map.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=java.util.Map.class"
+    }, {
+      "name" : "removeHeaders",
+      "nodeId" : "32d04787-8a72-4bd7-99e3-1a2a32c7f77b",
+      "description" : "",
+      "properties" : {
+        "_type" : "removeHeaders",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "excludePattern" : "RecordedVideoUri",
+        "name" : "removeHeaders",
+        "pattern" : "*",
+        "url" : ""
+      },
+      "_type" : "removeHeaders",
+      "kameletPropertiesUrl" : "?excludePattern=RecordedVideoUri&pattern=*"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "a23468f1-98b1-4249-b44f-6c336210c0f5",
+      "description" : "Set Conversation Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Simple",
+          "propertyName" : "conversationId",
+          "propertyValue" : "${body[conversation_id]}",
+          "uuid" : "54e508df-8dcf-4666-84ba-163b60f8064c"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "recipientId",
+          "propertyValue" : "${body[recipient_id]}",
+          "uuid" : "f6554df6-1f35-47c5-aabe-c1f8c1b0a0c2"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?conversationId=${body[conversation_id]}&recipientId=${body[recipient_id]}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "23296147-e327-4c72-9dba-1eb279107d75",
+      "description" : "510.jms.video.record",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.jms.video.record",
+        "message" : "${exchangeProperty.conversationId}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.jms.video.record&message=${exchangeProperty.conversationId}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "a5b38211-7288-4ac1-9dc3-af7ad5cdccc1",
+      "description" : "Set Agency ID",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "x-agency-id",
+          "headerValue" : "${body[agency_id]}",
+          "language" : "Simple",
+          "uuid" : "2d228865-a33e-4341-a61c-b1d73f1c60f2"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "7699b0bb-a92f-41a5-8220-b504c4d24a0a",
+      "description" : "Post Attachments",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "CamelContext context = exchange.getContext();\nProducerTemplate t = context.createProducerTemplate();\n    \nObjectMapper mapper = new ObjectMapper();\n\nHashMap<String, String> attachmentRequest = new HashMap<String, String>() {{\n                        \t\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n                        \t\tput(\"recipient_id\", (String)exchange.getProperty(\"recipientId\"));\n                        \t\tput(\"content_type\", \"video/mkv\");\n                        \t\tput(\"uri\", exchange.getIn().getHeader(\"RecordedVideoUri\"));\n                        \t}};\nEndpoint endpoint = context.getEndpoint(\"seda:post-attachments\");\ntry {\n\tObject response = t.sendBody(endpoint, ExchangePattern.InOnly, mapper.writeValueAsString(attachmentRequest));\n} catch (Exception e) {\n  System.out.println(\"Error posting attachment \" + e.getMessage());\n}",
+        "import" : "import com.fasterxml.jackson.databind.ObjectMapper;\nimport org.apache.camel.CamelContext;\nimport org.apache.camel.Endpoint;\nimport org.apache.camel.Exchange;\nimport org.apache.camel.ExchangePattern;\nimport org.apache.camel.LoggingLevel;\nimport org.apache.camel.Processor;\nimport org.apache.camel.ProducerTemplate;",
+        "name" : "process",
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "conversationId",
+          "propertyValue" : "$.conversation_id",
+          "uuid" : "54e508df-8dcf-4666-84ba-163b60f8064c"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "recipientId",
+          "propertyValue" : "$.recipient_id",
+          "uuid" : "f6554df6-1f35-47c5-aabe-c1f8c1b0a0c2"
+        } ],
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?conversationId=$.conversation_id&recipientId=$.recipient_id&code=CamelContext context = exchange.getContext();\nProducerTemplate t = context.createProducerTemplate();\n    \nObjectMapper mapper = new ObjectMapper();\n\nHashMap<String, String> attachmentRequest = new HashMap<String, String>() {{\n                        \t\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n                        \t\tput(\"recipient_id\", (String)exchange.getProperty(\"recipientId\"));\n                        \t\tput(\"content_type\", \"video/mkv\");\n                        \t\tput(\"uri\", exchange.getIn().getHeader(\"RecordedVideoUri\"));\n                        \t}};\nEndpoint endpoint = context.getEndpoint(\"seda:post-attachments\");\ntry {\n\tObject response = t.sendBody(endpoint, ExchangePattern.InOnly, mapper.writeValueAsString(attachmentRequest));\n} catch (Exception e) {\n  System.out.println(\"Error posting attachment \" + e.getMessage());\n}&import=import com.fasterxml.jackson.databind.ObjectMapper;\nimport org.apache.camel.CamelContext;\nimport org.apache.camel.Endpoint;\nimport org.apache.camel.Exchange;\nimport org.apache.camel.ExchangePattern;\nimport org.apache.camel.LoggingLevel;\nimport org.apache.camel.Processor;\nimport org.apache.camel.ProducerTemplate;"
+    }, {
+      "name" : "log",
+      "nodeId" : "50623a86-8813-4229-bcf3-e51051ec0f30",
+      "description" : "510.jms.video.record.out",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.jms.video.record.out",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.jms.video.record.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-15",
+    "enabled" : true,
+    "routeId" : 15,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "381efb03-74aa-4dc8-938f-7288452e1282",
+      "description" : "get-auth0-token",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "get-auth0-token",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=get-auth0-token"
+    }, {
+      "name" : "exchangePattern",
+      "nodeId" : "3f935d2d-2f7f-40d0-9247-060ffba0d7c7",
+      "description" : "InOut",
+      "properties" : {
+        "_type" : "exchangePattern",
+        "active" : true,
+        "camelGroup" : "core",
+        "exchangePattern" : "InOut",
+        "name" : "exchangePattern",
+        "url" : ""
+      },
+      "_type" : "exchangePattern",
+      "kameletPropertiesUrl" : "?exchangePattern=InOut"
+    }, {
+      "name" : "clearBody",
+      "nodeId" : "546c4870-2eeb-4719-919f-a9b883f012ac",
+      "description" : "",
+      "properties" : {
+        "_type" : "clearBody",
+        "camelGroup" : "core",
+        "name" : "clearBody",
+        "url" : ""
+      },
+      "_type" : "clearBody",
+      "kameletPropertiesUrl" : ""
+    }, {
+      "name" : "jms",
+      "nodeId" : "ca46d2f1-c7fe-4901-b03c-3f728ad69685",
+      "description" : "auth0.manager.tokens",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "auth0.manager.tokens",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=1&connectionFactory=#pooledConnectionFactory&destinationName=auth0.manager.tokens&destinationType=queue&exchangePattern=InOnly&setConnectionFactory=true&transacted=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-16",
+    "enabled" : true,
+    "routeId" : 16,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "fbb62ffe-34ef-4305-9313-9290eb19e8df",
+      "description" : "updateMessageStatus",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "updateMessageStatus",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=updateMessageStatus"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "8a7693c7-209a-4580-9ed1-cc4e5a3cac02",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\")"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "d2cc537d-ced7-4bc4-a19b-cf075a48d1c4",
+      "description" : "Set Request ",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "Authorization",
+          "headerValue" : "Bearer ${bean:tokenGetters?method=getToken({{convey.auth0.yakApiAudience}})}",
+          "language" : "Simple",
+          "uuid" : "271e7cff-5946-4433-bfb0-b730fb2d20b0"
+        }, {
+          "headerName" : "Content-Type",
+          "headerValue" : "application/json",
+          "language" : "Constant",
+          "uuid" : "be3a6e45-d38f-4caa-9941-d161b55245de"
+        }, {
+          "headerName" : "CamelHttpPath",
+          "headerValue" : "/api/v1/messages/${exchangeProperty.messageId}/status",
+          "language" : "Simple",
+          "uuid" : "38ba7867-1eb0-4390-9a4f-7ae1a170520b"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "process",
+      "nodeId" : "49221eda-a389-4550-b5aa-a3c2960b9f0a",
+      "description" : "Set JSON Request",
+      "properties" : {
+        "_type" : "process",
+        "active" : true,
+        "camelGroup" : "transform",
+        "code" : "ObjectMapper mapper = new ObjectMapper();\nString status = (String)exchange.getProperty(\"smsStatus\");\nif (exchange.getProperty(\"errorCode\") != null)\n\tstatus = \"failed\";\n\nHashMap<String, Object> messageStatus = new HashMap<String, Object>() {{\n\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n\tput(\"message_id\", (String)exchange.getProperty(\"messageId\"));\t\n\tput(\"status\", status);\n}}\n\nif (exchange.getProperty(\"resourceId\") != null) \n\tmessageStatus.put(\"resource_id\", (String)exchange.getProperty(\"resourceId\"));\t\n\nif (exchange.getProperty(\"errorCode\") != null) \n\tmessageStatus.put(\"error_code\", String.valueOf(exchange.getProperty(\"errorCode\")));\n\nif (exchange.getProperty(\"errorMessage\") != null)\n\tmessageStatus.put(\"error_message\", String.valueOf(exchange.getProperty(\"errorMessage\")));\n\t\t\ntry {\n\tif (exchange.getProperty(\"numSegments\") != null)\n\t\tmessageStatus.put(\"num_segments\", (int)exchange.getProperty(\"numSegments\"));\n\n\tif (exchange.getProperty(\"numMedia\") != null)\n\t\tmessageStatus.put(\"num_media\", (int)exchange.getProperty(\"numMedia\"));\n\t\n} catch (Exception e) {}\n\nexchange.getIn().setBody(mapper.writeValueAsString(messageStatus));",
+        "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+        "name" : "process",
+        "url" : ""
+      },
+      "_type" : "process",
+      "kameletPropertiesUrl" : "?code=ObjectMapper mapper = new ObjectMapper();\nString status = (String)exchange.getProperty(\"smsStatus\");\nif (exchange.getProperty(\"errorCode\") != null)\n\tstatus = \"failed\";\n\nHashMap<String, Object> messageStatus = new HashMap<String, Object>() {{\n\tput(\"conversation_id\", (String)exchange.getProperty(\"conversationId\"));\n\tput(\"message_id\", (String)exchange.getProperty(\"messageId\"));\t\n\tput(\"status\", status);\n}}\n\nif (exchange.getProperty(\"resourceId\") != null) \n\tmessageStatus.put(\"resource_id\", (String)exchange.getProperty(\"resourceId\"));\t\n\nif (exchange.getProperty(\"errorCode\") != null) \n\tmessageStatus.put(\"error_code\", String.valueOf(exchange.getProperty(\"errorCode\")));\n\nif (exchange.getProperty(\"errorMessage\") != null)\n\tmessageStatus.put(\"error_message\", String.valueOf(exchange.getProperty(\"errorMessage\")));\n\t\t\ntry {\n\tif (exchange.getProperty(\"numSegments\") != null)\n\t\tmessageStatus.put(\"num_segments\", (int)exchange.getProperty(\"numSegments\"));\n\n\tif (exchange.getProperty(\"numMedia\") != null)\n\t\tmessageStatus.put(\"num_media\", (int)exchange.getProperty(\"numMedia\"));\n\t\n} catch (Exception e) {}\n\nexchange.getIn().setBody(mapper.writeValueAsString(messageStatus));&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+    }, {
+      "name" : "log",
+      "nodeId" : "824a72b1-c8f9-4b41-9293-c895e963bb38",
+      "description" : "510.direct.status.api.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.direct.status.api.in",
+        "message" : "PUT ${header.CamelHttpPath} ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.direct.status.api.in&message=PUT ${header.CamelHttpPath} ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "http",
+      "nodeId" : "677afd72-4386-41c9-b53c-37b28f772f5a",
+      "description" : "PUT message/status",
+      "properties" : {
+        "_type" : "http",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "bridgeEndpoint" : true,
+        "camelGroup" : "component",
+        "connectTimeout" : "20000",
+        "connectionRequestTimeout" : "20000",
+        "disableStreamCache" : true,
+        "httpMethod" : "PUT",
+        "httpUri" : "{{convey.api.host}}",
+        "name" : "http",
+        "scheme" : "https",
+        "socketTimeout" : "20000",
+        "throwExceptionOnFailure" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "http",
+      "kameletPropertiesUrl" : "?bridgeEndpoint=true&connectTimeout=20000&connectionRequestTimeout=20000&disableStreamCache=true&httpMethod=PUT&httpUri={{convey.api.host}}&socketTimeout=20000&throwExceptionOnFailure=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "65cc78b0-f0fa-4c3c-a7c2-970d9382b1d8",
+      "description" : "510.direct.status.api.out",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "510.direct.status.api.out",
+        "message" : "(${header.CamelHttpResponseCode}) ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=510.direct.status.api.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    } ]
+  } ],
+  "traits" : [ {
+    "name" : "health",
+    "configuration" : {
+      "enabled" : true,
+      "livenessProbeEnabled" : true,
+      "readinessProbeEnabled" : true
+    }
+  } ],
+  "id" : "c37fc4d6-3390-42da-b70a-037fde3c67d8",
+  "name" : "r510-twilio-messaging",
+  "description" : "Twilio Provider Integration",
+  "createdAt" : "2023-10-04T18:05:08.447940676",
+  "updatedAt" : "2023-10-04T18:05:08.447941289",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

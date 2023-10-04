@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "",
+    "file" : "data:application/octet-stream;base64,I3NldCAoJHF1ZXJ5V2hpdGVsaXN0ID0gWyJsaW1pdCIsICJvZmZzZXQiLCAib3JkZXJCeSIsICJvcmRlckRpciJdKQojc2V0ICgkZCA9ICckJykKI3NldCAoJGggPSAnIycpCiNzZXQoJHF1ZXJ5UGFyYW1zID0gJGhlYWRlcnMuQ2FtZWxIdHRwUXVlcnkpCiNzZXQoJHJlc3BvbnNlQm9keSA9ICRib2R5KQoKI2ZvcmVhY2ggKCRwYXJhbSBpbiAkcXVlcnlQYXJhbXMuc3BsaXQoIiYiKSkKICAgICNzZXQgKCRwYXJhbV9rdiA9ICRwYXJhbS5zcGxpdCgiPSIpKQogICAgI2lmICgkcXVlcnlXaGl0ZWxpc3QuY29udGFpbnMoJHBhcmFtX2t2WzBdKSkKICAgICAgICAjc2V0ICgkZXhwciA9ICIke2h9c2V0ICgke2R9JHtwYXJhbV9rdlswXX0gPSAke2R9JHtwYXJhbV9rdlsxXX0pIikKICAgICAgICAjZXZhbHVhdGUoJGV4cHIpCiAgICAjZW5kCiNlbmQKCiNzZXQoICRqc29uRGF0YSA9ICcjc2V0KCAkanNvbkRhdGEgPSAnICsgJGJvZHkgKyAnICknICkKI2V2YWx1YXRlICgkanNvbkRhdGEpCiNpZiggJGpzb25EYXRhLmNsYXNzLm5hbWUgPT0gJ2phdmEudXRpbC5BcnJheUxpc3QnICkKICAgIEJvZHkgaXMgYW4gYXJyYXkgd2l0aCBzaXplICRqc29uRGF0YS5zaXplKCkKI2VuZAo=",
+    "filename" : "test.txt.vm",
+    "type" : "File"
+  },
+  "id" : "01ef5cfa-e969-4e51-bc92-ca8a5fb4eeed",
+  "name" : "test.txt.vm",
+  "description" : "test velocity script",
+  "createdAt" : "2023-10-04T18:05:16.991597364",
+  "updatedAt" : "2023-10-04T18:05:16.991598364",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

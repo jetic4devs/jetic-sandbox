@@ -1,0 +1,11 @@
+{
+  "type" : "BEANS",
+  "properties" : { },
+  "id" : "02fad084-1168-45c2-b3ed-6a97b36682c5",
+  "name" : "HttpGet",
+  "description" : "Calling http get without redirect",
+  "createdAt" : "2023-10-04T18:05:22.484756932",
+  "updatedAt" : "2023-10-04T18:05:22.48475824",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

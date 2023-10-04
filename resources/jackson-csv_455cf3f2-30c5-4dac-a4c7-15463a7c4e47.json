@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.7.0"
+  },
+  "id" : "455cf3f2-30c5-4dac-a4c7-15463a7c4e47",
+  "name" : "jackson-csv",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:19.697664456",
+  "updatedAt" : "2023-10-04T18:05:19.697665545",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,104 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.2",
+  "id" : "4495358f-e00f-4ff5-bfca-d39fdd4767bd",
+  "name" : "recipients-api-v1",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.677728515",
+  "updatedAt" : "2023-10-04T18:05:13.677729324",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "9394f21b-34e5-42a1-9b23-0e901ed8d0fd",
+    "name" : "Api",
+    "path" : "/api/v1/recipients",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "51c73ce1-163c-4a49-a362-4cc641daac30",
+      "operationId" : "getRecipients",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "0739e767-b43a-4ed4-a00c-f82d73942c49",
+      "operationId" : "createRecipient",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "05ec1f10-548d-465f-a3a2-6c8ec5b48663",
+    "name" : "Api",
+    "path" : "/api/v1/recipients/{numberOrId}",
+    "pathVariables" : [ "numberOrId" ],
+    "operations" : [ {
+      "uuid" : "d7cdf058-713b-4c50-82ba-8017c1edc75f",
+      "operationId" : "getRecipientByNumberOrId",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "0192abcc-f160-4ffe-8446-8653279532ee",
+      "operationId" : "updateRecipient",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "fa22ebd4-a78d-472b-b661-478d623e8160",
+    "name" : "Api",
+    "path" : "/api/v1/recipients/import",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "a9a8a226-cdd7-4d84-8410-462ff043949e",
+      "operationId" : "importRecipient",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "1ba70bf1-ee89-4a9e-a54f-3b3be5955bd3",
+    "name" : "Api",
+    "path" : "/api/v1/recipients/{numberOrId}/geolocations/{locationId}",
+    "pathVariables" : [ "numberOrId", "locationId" ],
+    "operations" : [ {
+      "uuid" : "57634a12-bd63-4366-89c9-ef71c086b381",
+      "operationId" : "getRecipientLocationById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "dda3000c-9dde-4f84-a2c4-484eb844f866",
+    "name" : "Api",
+    "path" : "/api/v1/recipients/{numberOrId}/geolocations",
+    "pathVariables" : [ "numberOrId" ],
+    "operations" : [ {
+      "uuid" : "4b956960-f022-44fc-b27a-94928d073293",
+      "operationId" : "getRecipientGeolocations",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "db02da6d-d394-4c52-bb65-c843e5539ed1",
+      "operationId" : "addRecipientGeolocation",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "73cd3d15-85ff-490d-bc38-86b93f884355",
+    "name" : "Api",
+    "path" : "/api/v1/recipients/{numberOrId}/dialect/{language}",
+    "pathVariables" : [ "numberOrId", "language" ],
+    "operations" : [ {
+      "uuid" : "4896b328-4889-4e67-bbec-f0133400c58b",
+      "operationId" : "updateRecipientLanguage",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"recipients-api-v1\",\"version\":\"0.0.2\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/recipients\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getRecipients\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createRecipient\"}},\"/api/v1/recipients/{numberOrId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getRecipientByNumberOrId\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateRecipient\"},\"parameters\":[{\"name\":\"numberOrId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/recipients/import\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"importRecipient\"}},\"/api/v1/recipients/{numberOrId}/geolocations/{locationId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getRecipientLocationById\"},\"parameters\":[{\"name\":\"numberOrId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"locationId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/recipients/{numberOrId}/geolocations\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getRecipientGeolocations\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"addRecipientGeolocation\"},\"parameters\":[{\"name\":\"numberOrId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/recipients/{numberOrId}/dialect/{language}\":{\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateRecipientLanguage\"},\"parameters\":[{\"name\":\"numberOrId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"language\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

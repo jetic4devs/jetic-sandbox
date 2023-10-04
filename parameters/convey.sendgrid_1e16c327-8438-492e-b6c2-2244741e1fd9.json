@@ -1,0 +1,18 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "apikey",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "1e16c327-8438-492e-b6c2-2244741e1fd9",
+  "name" : "convey.sendgrid",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:15.655128165",
+  "updatedAt" : "2023-10-04T18:05:15.655128919",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

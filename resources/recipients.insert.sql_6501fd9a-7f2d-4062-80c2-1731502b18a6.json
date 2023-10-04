@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gcmVjaXBpZW50cwogICAgKGFnZW5jeV9pZCwgcmVjaXBpZW50X251bWJlciwgZnJpZW5kbHlfbmFtZSwgbGFuZ3VhZ2UsIGZpbmdlcnByaW50LCBzb3VyY2UsIGNyZWF0ZWRfYXQsIHVwZGF0ZWRfYXQpClZBTFVFUyAoCiAgICBDQVNUKDojJHtleGNoYW5nZVByb3BlcnR5LmFnZW5jeUlkfSBBUyB1dWlkKSwKICAgIDojJHtleGNoYW5nZVByb3BlcnR5Lm51bWJlcn0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5sYWJlbH0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5sYW5ndWFnZX0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5maW5nZXJwcmludH0sCiAgICA6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5zb3VyY2V9LAogICAgTk9XKCksCiAgICBOT1coKQopClJFVFVSTklORwogICAgaWQgQVMgcmVjaXBpZW50X2lkLAogICAgYWdlbmN5X2lkLAogICAgcmVjaXBpZW50X251bWJlciwKICAgIGZyaWVuZGx5X25hbWUgQVMgbGFiZWwsCiAgICBzb3VyY2UsCiAgICBmaW5nZXJwcmludCwKICAgIGxhbmd1YWdlLAogICAgVE9fQ0hBUihjcmVhdGVkX2F0LCAnWVlZWS1NTS1ERCBISDI0Ok1JOlNTJykgQVMgY3JlYXRlZF9hdCwKICAgIFRPX0NIQVIodXBkYXRlZF9hdCwgJ1lZWVktTU0tREQgSEgyNDpNSTpTUycpIEFTIHVwZGF0ZWRfYXQ=",
+    "filename" : "recipients.insert.sql",
+    "type" : "File"
+  },
+  "id" : "6501fd9a-7f2d-4062-80c2-1731502b18a6",
+  "name" : "recipients.insert.sql",
+  "description" : "SQL template for creating new message recipients",
+  "createdAt" : "2023-10-04T18:05:18.55096258",
+  "updatedAt" : "2023-10-04T18:05:18.550963791",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

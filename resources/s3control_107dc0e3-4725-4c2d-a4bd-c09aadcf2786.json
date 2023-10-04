@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "software.amazon.awssdk:s3control"
+  },
+  "id" : "107dc0e3-4725-4c2d-a4bd-c09aadcf2786",
+  "name" : "s3control",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.252394851",
+  "updatedAt" : "2023-10-04T18:05:20.252396706",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,226 @@
+{
+  "revision" : 63,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : "20c1c3c5-61d6-4cf3-a208-bc257bfcb21d",
+  "currentProfileUuid" : "93f8e8ee-0458-4a42-8ef3-5ffd82200bc7",
+  "parameterGroupUuids" : [ "305c3b23-b3f1-4fe8-9e78-fbe805af155a" ],
+  "repoResourceUuids" : [ "ef4aff81-4b71-4efc-9e73-b38e2c43b18d", "376a92a8-1384-455d-8707-cbc3cd7b9d05", "04cc5ce3-e9bb-4b0b-a3d6-25d46d8c8370", "35be3cc8-9f89-4e99-a6a9-d6fad93d21bc" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "getRequest",
+      "nodeId" : "e8c4a0f1-23a7-4a84-ba28-c82caa0f6aa7",
+      "description" : "",
+      "properties" : {
+        "_type" : "restApi",
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/uplink",
+        "method" : "get",
+        "name" : "getRequest",
+        "operationName" : "openWebsocket",
+        "produces" : "application/json",
+        "requestmethod" : "GET",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/uplink&method=get&operationName=openWebsocket&produces=application/json&requestmethod=GET"
+    }, {
+      "name" : "log",
+      "nodeId" : "5736fd12-97ac-4420-85fe-9468ea69d05b",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=log&message=headers: ${headers}; body: ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "b0e19d6c-c77c-4c8d-99b4-7fac97934827",
+      "description" : "",
+      "properties" : {
+        "_type" : "setBody",
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "exchangeId: ${exchangeId}",
+        "language" : "Simple",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?addNamespaces=false&expression=exchangeId: ${exchangeId}&language=Simple&suppressExceptions=false"
+    }, {
+      "name" : "messagingEndpoint",
+      "nodeId" : "0b13a9ee-35d4-4b0a-9d95-e2ab176469ea",
+      "description" : "Upgrade Socket",
+      "properties" : {
+        "_type" : "messagingEndpoint",
+        "camelGroup" : "core",
+        "name" : "messagingEndpoint",
+        "toDynamicEndpoint" : false,
+        "uri" : "vertx-websocket:localhost:8080/echo",
+        "url" : ""
+      },
+      "_type" : "messagingEndpoint",
+      "kameletPropertiesUrl" : "?uri=vertx-websocket:localhost:8080/echo"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "a8daadb8-3860-427c-b8ef-efe47991e195",
+      "description" : "HTTP101",
+      "properties" : {
+        "_type" : "setHeaders",
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "CamelHttpResponseCode",
+          "headerValue" : "101",
+          "language" : "Constant",
+          "uuid" : "195c6386-f212-4011-ac53-365749d864a5"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-2",
+    "enabled" : true,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "messagingEndpoint",
+      "nodeId" : "9bb244c6-d578-43b1-add6-4fc58ea6fba2",
+      "description" : "vertx-websocket",
+      "properties" : {
+        "_type" : "messagingEndpoint",
+        "camelGroup" : "core",
+        "name" : "messagingEndpoint",
+        "toDynamicEndpoint" : false,
+        "uri" : "vertx-websocket:localhost:8080/echo",
+        "url" : ""
+      },
+      "_type" : "messagingEndpoint",
+      "kameletPropertiesUrl" : "?uri=vertx-websocket:localhost:8080/echo"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "670f0bf9-9bcc-4070-857b-ecbe2c50fd3d",
+      "description" : "",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders('*').transform().simple('Echo {$body}').log('${body}')",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders('*').transform().simple('Echo {$body}').log('${body}')"
+    } ]
+  }, {
+    "id" : null,
+    "camelRouteId" : "route-3",
+    "enabled" : true,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "postRequest",
+      "nodeId" : "0221be88-e835-42ae-a3eb-84cdbcd219fd",
+      "description" : "",
+      "properties" : {
+        "_type" : "restApi",
+        "camelGroup" : "rest",
+        "consumes" : "application/json",
+        "endpoint" : "/api/v1/uplink",
+        "method" : "post",
+        "name" : "postRequest",
+        "operationName" : "emit",
+        "produces" : "application/json",
+        "requestmethod" : "POST",
+        "url" : ""
+      },
+      "_type" : "restApi",
+      "kameletPropertiesUrl" : "?consumes=application/json&endpoint=/api/v1/uplink&method=post&operationName=emit&produces=application/json&requestmethod=POST"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "f74599b1-d4e5-4cb4-a933-2ea48f2fca24",
+      "description" : "",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "fee63d96-cefe-4ebb-a1a0-ef618f1ed8a8",
+      "description" : "Set Config Props",
+      "properties" : {
+        "_type" : "setProperties",
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Constant",
+          "propertyName" : "redisHost",
+          "propertyValue" : "yak-dev-001.oru1v5.0001.use2.cache.amazonaws.com",
+          "uuid" : "8fbc38c2-9e02-449c-98be-4c6542cde8d0"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?redisHost=yak-dev-001.oru1v5.0001.use2.cache.amazonaws.com&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "b461328d-525b-4e5c-9958-c43b2385d487",
+      "description" : "SocketIO Emitter",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "camelGroup" : "core",
+        "dsl" : ".bean(\"emitEvent\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.bean(\"emitEvent\")"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "5369d4c2-ebe6-4b95-8c8a-00a9afcf42d4",
+  "name" : "socket-uplink",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:09.18367904",
+  "updatedAt" : "2023-10-04T18:05:09.183679741",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

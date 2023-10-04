@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.commons:commons-dbcp2:2.9.0"
+  },
+  "id" : "e07ee775-654d-4d80-833f-3948c328330e",
+  "name" : "commons-dbcp2",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.510870501",
+  "updatedAt" : "2023-10-04T18:05:20.510871309",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

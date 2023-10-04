@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.bytedeco:javacv-platform:1.5.8"
+  },
+  "id" : "4ea55e39-1924-4b99-8efa-3d0fedabe4c3",
+  "name" : "ffmpeg",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:22.59399835",
+  "updatedAt" : "2023-10-04T18:05:22.593999241",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

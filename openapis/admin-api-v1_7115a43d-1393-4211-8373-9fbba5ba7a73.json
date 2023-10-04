@@ -1,0 +1,20 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "7115a43d-1393-4211-8373-9fbba5ba7a73",
+  "name" : "admin-api-v1",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.956306059",
+  "updatedAt" : "2023-10-04T18:05:13.956306942",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "04c2f7f1-9a2e-4e2d-abca-45a13b1e9c7d",
+    "name" : "Api",
+    "path" : "/api/v1/admin/",
+    "pathVariables" : [ ],
+    "operations" : [ ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"admin-api-v1\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/admin/\":{}},\"components\":{}}"
+}

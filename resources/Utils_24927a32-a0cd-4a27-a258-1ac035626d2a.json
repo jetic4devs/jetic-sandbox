@@ -1,0 +1,14 @@
+{
+  "type" : "SOURCE_DEFINITIONS",
+  "properties" : {
+    "content" : "import org.apache.camel.Processor;\nimport org.apache.camel.builder.RouteBuilder;\n\npublic class Utils extends RouteBuilder {\n\n  @Override\n  public void configure() {\n    getContext().getRegistry().bind(\"testUtils\", new TestUtils());\n  }\n\n  public class TestUtils {\n\n    public String myString(String msg) {\n      return \"Hello World - \" + msg;\n    }\n\n    public Processor myProcessor() {\n      return e -> e.getMessage().setBody(\"Hello from Java\");\n    }\n  }\n}\n",
+    "filename" : "Utils.java"
+  },
+  "id" : "24927a32-a0cd-4a27-a258-1ac035626d2a",
+  "name" : "Utils",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.614666843",
+  "updatedAt" : "2023-10-04T18:05:21.614667835",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

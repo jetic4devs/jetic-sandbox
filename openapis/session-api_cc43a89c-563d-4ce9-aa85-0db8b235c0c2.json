@@ -1,0 +1,56 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "cc43a89c-563d-4ce9-aa85-0db8b235c0c2",
+  "name" : "session-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.573069138",
+  "updatedAt" : "2023-10-04T18:05:13.573070075",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "fbaa9d5a-e358-472a-9e58-caa409a62e58",
+    "name" : "Api",
+    "path" : "/api/v1/sessions",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "d3772dfe-deed-4508-9b59-0285e7e053e1",
+      "operationId" : "createUserSession",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "5dce06b9-c21c-496f-9af4-db057031f172",
+      "operationId" : "getUserSessions",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "7edb4075-9c85-4f9d-b6c6-3ad008eac625",
+    "name" : "Api",
+    "path" : "/api/v1/sessions/{id}",
+    "pathVariables" : [ "id" ],
+    "operations" : [ {
+      "uuid" : "8e4d36e7-9aba-44ff-827a-4801858b29f2",
+      "operationId" : "getSessionById",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "d5e07007-679e-4977-91a6-00a872f52b95",
+      "operationId" : "deleteSession",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "e8c272f8-2b88-49b0-857d-eb9f89d54e59",
+      "operationId" : "bindSessionToAgency",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"session-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/sessions\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createUserSession\"},\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getUserSessions\"}},\"/api/v1/sessions/{id}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getSessionById\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"deleteSession\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"bindSessionToAgency\"},\"parameters\":[{\"name\":\"id\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

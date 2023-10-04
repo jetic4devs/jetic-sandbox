@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.azure:azure-ai-translation-text:1.0.0-beta.1"
+  },
+  "id" : "6599329c-a13a-4cc1-8d91-b19efce409ba",
+  "name" : "azure-text-translation",
+  "description" : "Azure Text translator",
+  "createdAt" : "2023-10-04T18:05:23.972838579",
+  "updatedAt" : "2023-10-04T18:05:23.972839637",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

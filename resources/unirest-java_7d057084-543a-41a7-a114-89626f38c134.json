@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.mashape.unirest:unirest-java:1.4.9"
+  },
+  "id" : "7d057084-543a-41a7-a114-89626f38c134",
+  "name" : "unirest-java",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:21.20785378",
+  "updatedAt" : "2023-10-04T18:05:21.207854848",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

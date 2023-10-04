@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "INSERT INTO tokens     (token, access_token, conversation_id, recipient_id, agency_id, service_type, token_data, expires_at, created_at, updated_at) VALUES (     :#${exchangeProperty.token},     :#${exchangeProperty.accessToken},     CAST(:#${exchangeProperty.conversationId} AS uuid),     CAST(:#${exchangeProperty.recipientId} AS uuid),     CAST(:#${exchangeProperty.agencyId} AS uuid),     :#${exchangeProperty.serviceType},     CAST(:#${exchangeProperty.tokenData} AS json),     CAST(:#${exchangeProperty.expiresAt} AS timestamp),     NOW(),     NOW() ) RETURNING     token",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gdG9rZW5zCiAgICAodG9rZW4sIGFjY2Vzc190b2tlbiwgY29udmVyc2F0aW9uX2lkLCByZWNpcGllbnRfaWQsIGFnZW5jeV9pZCwgc2VydmljZV90eXBlLCB0b2tlbl9kYXRhLCBleHBpcmVzX2F0LCBjcmVhdGVkX2F0LCB1cGRhdGVkX2F0KQpWQUxVRVMgKAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkudG9rZW59LAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuYWNjZXNzVG9rZW59LAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5jb252ZXJzYXRpb25JZH0gQVMgdXVpZCksCiAgICBDQVNUKDojJHtleGNoYW5nZVByb3BlcnR5LnJlY2lwaWVudElkfSBBUyB1dWlkKSwKICAgIENBU1QoOiMke2V4Y2hhbmdlUHJvcGVydHkuYWdlbmN5SWR9IEFTIHV1aWQpLAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkuc2VydmljZVR5cGV9LAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS50b2tlbkRhdGF9IEFTIGpzb24pLAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5leHBpcmVzQXR9IEFTIHRpbWVzdGFtcCksCiAgICBOT1coKSwKICAgIE5PVygpCikKClJFVFVSTklORwogICAgdG9rZW4=",
+    "filename" : "tokens.insert.sql",
+    "type" : "File"
+  },
+  "id" : "976eeaf6-cc63-4138-be57-f9cdaa24440c",
+  "name" : "tokens.insert.sql",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.031732333",
+  "updatedAt" : "2023-10-04T18:05:20.031733475",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

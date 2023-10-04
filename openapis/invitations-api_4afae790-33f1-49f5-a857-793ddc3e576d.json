@@ -1,0 +1,50 @@
+{
+  "version" : "api.convey911.com",
+  "host" : "0.0.1",
+  "id" : "4afae790-33f1-49f5-a857-793ddc3e576d",
+  "name" : "invitations-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:14.356964763",
+  "updatedAt" : "2023-10-04T18:05:14.35696609",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "10624acc-202d-4308-b3ba-da112892190f",
+    "name" : "Api",
+    "path" : "/api/v1/invitations",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "5344d76a-6986-4ccd-9181-e85ac0d2dbeb",
+      "operationId" : "getUserInvitations",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "199eebff-6b87-4e70-bfb6-f871282a5b12",
+      "operationId" : "inviteUser",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "9ff0bea4-9c5c-453b-afbd-c61cda5a867b",
+    "name" : "Api",
+    "path" : "/api/v1/invitations/{inviteId}",
+    "pathVariables" : [ "inviteId" ],
+    "operations" : [ {
+      "uuid" : "2d371a3e-c2d4-4274-afad-618b3efc9327",
+      "operationId" : "getUserInvitation",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "d0d64912-80b2-4c86-a4d0-eb42264080e8",
+      "operationId" : "fulfillUserInvitation",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"invitations-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/invitations\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getUserInvitations\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"inviteUser\"}},\"/api/v1/invitations/{inviteId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getUserInvitation\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"fulfillUserInvitation\"},\"parameters\":[{\"name\":\"inviteId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

@@ -1,0 +1,32 @@
+{
+  "version" : "api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "20c1c3c5-61d6-4cf3-a208-bc257bfcb21d",
+  "name" : "socket-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.921833454",
+  "updatedAt" : "2023-10-04T18:05:13.921834691",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "d1af3664-9970-4cb4-809d-875cdb919427",
+    "name" : "Api",
+    "path" : "/api/v1/uplink",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "8ae13b98-9578-43a2-a674-30305e6c1c91",
+      "operationId" : "openWebsocket",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "fc431b59-8150-4946-8400-ed08fe4fb38b",
+      "operationId" : "emit",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"socket-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/uplink\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"openWebsocket\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"emit\"}}},\"components\":{}}"
+}

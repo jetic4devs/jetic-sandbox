@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "io.socket:socket.io-client:2.1.0"
+  },
+  "id" : "c9f426d7-c22a-4862-b6df-02dc5eaa1fdd",
+  "name" : "socket.io-client",
+  "description" : "io.socket:socket.io-client:2.1.0",
+  "createdAt" : "2023-10-04T18:05:23.268647975",
+  "updatedAt" : "2023-10-04T18:05:23.268649212",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

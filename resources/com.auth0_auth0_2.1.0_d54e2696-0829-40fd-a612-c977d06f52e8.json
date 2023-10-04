@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.auth0:auth0:2.1.0"
+  },
+  "id" : "d54e2696-0829-40fd-a612-c977d06f52e8",
+  "name" : "com.auth0_auth0_2.1.0",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:23.494128771",
+  "updatedAt" : "2023-10-04T18:05:23.494129696",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

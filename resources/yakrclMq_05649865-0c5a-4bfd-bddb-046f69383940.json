@@ -1,0 +1,29 @@
+{
+  "type" : "MQ_BROKER_CONNECTION",
+  "properties" : {
+    "beanName" : "yakrclMqConnection",
+    "brokerUrl" : "{{convey.mq.url}}",
+    "code" : "public org.apache.activemq.jms.pool.PooledConnectionFactory pooledConnectionFactory() {\n    org.apache.activemq.ActiveMQConnectionFactory activeMQConnectionFactory =\n            new org.apache.activemq.ActiveMQConnectionFactory();\n\t\n\t\torg.apache.camel.CamelContext context = getContext();\n\t\tString mqUrl = (String)context.getPropertiesComponent().resolveProperty(\"convey.mq.url\").get();\n\t\tString mqUser = (String)context.getPropertiesComponent().resolveProperty(\"convey.mq.username\").get();\n\t\tString mqPass = (String)context.getPropertiesComponent().resolveProperty(\"convey.mq.password\").get();\n\t\n    activeMQConnectionFactory.setBrokerURL(mqUrl);\n    activeMQConnectionFactory.setUserName(mqUser);\n    activeMQConnectionFactory.setPassword(mqPass);\n    activeMQConnectionFactory.setUseRetroactiveConsumer(false);\n\t\tactiveMQConnectionFactory.setOptimizeAcknowledge(true);\n\t \n\t  org.apache.activemq.ActiveMQPrefetchPolicy prefetchPolicy = new org.apache.activemq.ActiveMQPrefetchPolicy();\n\t  prefetchPolicy.setQueuePrefetch(2000);\n\t  activeMQConnectionFactory.setPrefetchPolicy(prefetchPolicy);  \n\t\n    org.apache.activemq.jms.pool.PooledConnectionFactory pooledConnectionFactory =\n            new org.apache.activemq.jms.pool.PooledConnectionFactory();\n    pooledConnectionFactory.setConnectionFactory(activeMQConnectionFactory);\n    pooledConnectionFactory.setMaxConnections(1);\n    pooledConnectionFactory.setMaximumActiveSessionPerConnection(500);\n    pooledConnectionFactory.setConnectionTimeout(30000);\n    pooledConnectionFactory.setIdleTimeout(30000);\n    pooledConnectionFactory.setExpiryTimeout(60000L);\n\n    return pooledConnectionFactory;\n}",
+    "expiryTimeout" : "60000",
+    "idleTimeout" : "30000",
+    "maven" : "org.apache.activemq:activemq-camel:5.16.6",
+    "mavenActiveMQ" : "org.apache.activemq:activemq-camel:5.16.3",
+    "mavenCustom" : "org.apache.activemq:activemq-camel:5.16.5",
+    "maxActive" : "500",
+    "maxConnections" : "1",
+    "mqType" : "ActiveMQ",
+    "password" : "{{convey.mq.password}}",
+    "type" : "Custom",
+    "useAuthentication" : "true",
+    "usePooledConnectionFactory" : "false",
+    "useRetroactiveConsumer" : "true",
+    "username" : "{{convey.mq.username}}"
+  },
+  "id" : "05649865-0c5a-4bfd-bddb-046f69383940",
+  "name" : "yakrclMq",
+  "description" : "Active MQ Broker",
+  "createdAt" : "2023-10-04T18:05:18.625774103",
+  "updatedAt" : "2023-10-04T18:05:18.625775656",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

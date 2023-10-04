@@ -1,0 +1,352 @@
+{
+  "revision" : 94,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "ae5301ac-5200-4b54-876c-b514515feb02",
+  "parameterGroupUuids" : [ "3dacce84-b8c8-4759-8bfa-355c8cf6acd6", "e1d81a6a-655e-42ff-8288-6b0891abe7b0", "ca06b01a-b205-4b2b-9e9d-9f49614e7e94", "c08652a3-d6b0-49e8-8f94-a7b6845afe60", "351ac858-4e6b-4902-9090-0be62c4dc9e0", "92bbd1dd-b06e-43db-abf7-a6c045e38f24" ],
+  "repoResourceUuids" : [ "bcbd75c6-03b3-4d1d-955e-225f9e0cc306", "17e7ca54-4247-4e9c-ba30-d078e3ac407a", "a1057428-1531-40a8-a129-ed27382e947f", "3b5aa833-0eaa-4cb9-8ce8-ca97eac74110", "05649865-0c5a-4bfd-bddb-046f69383940", "55b7f5ed-302d-4d1e-b6df-e6369707fa37" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "e5941fe1-0b4b-49fc-95d1-15864734ad7c",
+      "description" : "providers.deepl.translate",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "5",
+        "connectionFactory" : "#pooledConnectionFactory",
+        "destinationName" : "providers.deepl.translate",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOut",
+        "name" : "jms",
+        "setConnectionFactory" : true,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?asyncConsumer=false&concurrentConsumers=5&connectionFactory=#pooledConnectionFactory&destinationName=providers.deepl.translate&destinationType=queue&exchangePattern=InOut&setConnectionFactory=true&transacted=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "ece88525-55a8-4db1-b829-1a8fd5234c4c",
+      "description" : "533.jms.trans.in",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "533.jms.trans.in",
+        "message" : "${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=533.jms.trans.in&message=${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "46e7dab2-d073-4d7d-9f08-cb7cf92b6004",
+      "description" : "Get Input Params",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "JsonPath",
+          "propertyName" : "inputText",
+          "propertyValue" : "$.input_text",
+          "uuid" : "cc7013de-d31c-4ac5-b46a-2ee3406411b4"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "inputLang",
+          "propertyValue" : "$.input_dialect",
+          "uuid" : "bb3c5a11-4dc1-49aa-9cbe-225be77630b0"
+        }, {
+          "language" : "JsonPath",
+          "propertyName" : "outputLang",
+          "propertyValue" : "$.output_dialect",
+          "uuid" : "18cc97b2-a064-4967-95c8-57db80a0f214"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "requestId",
+          "propertyValue" : "${exchangeId}",
+          "uuid" : "c23d9858-c1b7-4695-84c7-794e51655bef"
+        }, {
+          "language" : "Simple",
+          "propertyName" : "authKey",
+          "propertyValue" : "{{convey.deepl.authKey}}",
+          "uuid" : "671e92f2-5fa6-444d-b5df-c0f6b5e1b005"
+        } ],
+        "suppressExceptions" : true,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?inputText=$.input_text&inputLang=$.input_dialect&outputLang=$.output_dialect&requestId=${exchangeId}&authKey={{convey.deepl.authKey}}&addNamespaces=false&suppressExceptions=true"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "e3bd9cb0-43c5-417d-ba08-f79861b94757",
+      "description" : "Remove Headers",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeHeaders(\"*\", \"x-*\", \"CamelJms*\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeHeaders(\"*\", \"x-*\", \"CamelJms*\")"
+    }, {
+      "name" : "messageFilter",
+      "nodeId" : "6f009b71-1cad-4e75-8988-2e5405893fed",
+      "description" : "Valid?",
+      "properties" : {
+        "_type" : "messageFilter",
+        "active" : true,
+        "camelGroup" : "routing",
+        "name" : "messageFilter",
+        "url" : ""
+      },
+      "_type" : "messageFilter",
+      "branches" : [ {
+        "type" : "filter",
+        "label" : "!inputText || !outputLang",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "16acc200-91fd-4416-aaaa-f0ec561a7536",
+          "description" : "533.jms.trans.400",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "WARN",
+            "logType" : "EIP",
+            "loggerName" : "533.jms.trans.400",
+            "message" : "(400) Invalid Request",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?level=WARN&logType=EIP&loggerName=533.jms.trans.400&message=(400) Invalid Request&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+        }, {
+          "name" : "setBody",
+          "nodeId" : "506450f8-a25b-44f9-8791-63099ce87785",
+          "description" : "Set Error Message",
+          "properties" : {
+            "_type" : "setBody",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "expression" : "{\"error\": \"Invalid request. Required parameters missing\"}",
+            "language" : "Constant",
+            "name" : "setBody",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setBody",
+          "kameletPropertiesUrl" : "?addNamespaces=false&expression={\"error\": \"Invalid request. Required parameters missing\"}&language=Constant&suppressExceptions=false"
+        }, {
+          "name" : "setHeaders",
+          "nodeId" : "a1086528-ca17-42d2-a3a8-52806a6104fd",
+          "description" : "HTTP400",
+          "properties" : {
+            "_type" : "setHeaders",
+            "active" : true,
+            "addNamespaces" : false,
+            "camelGroup" : "core",
+            "headerList" : [ {
+              "headerName" : "CamelHttpResponseCode",
+              "headerValue" : "400",
+              "language" : "Constant",
+              "uuid" : "1e685038-0b3a-46b8-be6e-52fee3cd4ad6"
+            } ],
+            "name" : "setHeaders",
+            "namespaces" : [ ],
+            "suppressExceptions" : false,
+            "url" : ""
+          },
+          "_type" : "setHeaders",
+          "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+        }, {
+          "name" : "stop",
+          "nodeId" : "7c7f5b71-dbe6-499e-99b6-05781f880bc4",
+          "description" : "",
+          "properties" : {
+            "_type" : "stop",
+            "camelGroup" : "misc",
+            "name" : "stop",
+            "url" : ""
+          },
+          "_type" : "stop",
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : {
+          "addNamespaces" : "false",
+          "condition" : "${exchangeProperty.inputText} == null || ${exchangeProperty.outputLang} == null",
+          "language" : "Simple",
+          "namespaces" : [ ],
+          "suppressExceptions" : "false"
+        }
+      }, {
+        "type" : "route",
+        "label" : "route",
+        "route" : [ {
+          "name" : "process",
+          "nodeId" : "27aa4488-2cbb-4511-8974-378e495d260f",
+          "description" : "SDK Translate",
+          "properties" : {
+            "_type" : "process",
+            "active" : true,
+            "camelGroup" : "transform",
+            "code" : "String inputLang = (String)exchange.getProperty(\"inputLang\");\nString outputLang = (String)exchange.getProperty(\"outputLang\");\nString inputText = (String)exchange.getProperty(\"inputText\");\nString authKey = (String)exchange.getProperty(\"authKey\");\n\nTranslator translator = new Translator(authKey);\nObjectMapper mapper = new ObjectMapper();\ntry {\n    TextResult result = translator.translateText(inputText, inputLang, outputLang == \"en\"? \"en-US\": outputLang);\n\t  String responseText = result.getText();\n    HashMap<String, Object> response = new HashMap<String, Object>() {{\n        put(\"provider\", \"deepl\");\n        put(\"input_text\", inputText);\n        put(\"output_text\", responseText);\n        put(\"input_dialect\", inputLang);\n        put(\"output_dialect\", outputLang);\n    }};\n    \n\t  String detectedLang = result.getDetectedSourceLanguage().toLowerCase();\n    if (responseText == inputText || responseText == \"\"){\n\t\t\t\tresponse.put(\"output_text\", null);\n\t\t}\n\t  else{\n\t\t\t\tfinal String isConfidenceEnabled = (String)exchange.getIn().getHeader(\"X-Enable-Confidence\");\n\t\t\t  if(\"true\".equals(isConfidenceEnabled)){\n\t\t\t\t\tresult = translator.translateText(responseText, outputLang, detectedLang == \"en\"? \"en-US\": detectedLang);\n\t\t\t  \texchange.setProperty(\"reverseInputText\", result.getText());\n\t\t\t\t}\n\t\t}\n        \n    if (inputLang == null)\n        response.put(\"detected_dialect\", detectedLang);\n\n    exchange.getIn().setBody(response);\n    exchange.getIn().setHeader(\"CamelHttpResponseCode\", 200);\n} catch (Exception e) {\n    HashMap response = new HashMap<String, String>() {{\n        put(\"error\", e.getMessage());\n    }}\n    exchange.getIn().setHeader(\"CamelHttpResponseCode\", 400);\n    exchange.getIn().setBody(mapper.writeValueAsString(response));\n}",
+            "import" : "import com.deepl.api.*;\nimport com.fasterxml.jackson.databind.ObjectMapper;",
+            "name" : "process",
+            "url" : ""
+          },
+          "_type" : "process",
+          "kameletPropertiesUrl" : "?code=String inputLang = (String)exchange.getProperty(\"inputLang\");\nString outputLang = (String)exchange.getProperty(\"outputLang\");\nString inputText = (String)exchange.getProperty(\"inputText\");\nString authKey = (String)exchange.getProperty(\"authKey\");\n\nTranslator translator = new Translator(authKey);\nObjectMapper mapper = new ObjectMapper();\ntry {\n    TextResult result = translator.translateText(inputText, inputLang, outputLang == \"en\"? \"en-US\": outputLang);\n\t  String responseText = result.getText();\n    HashMap<String, Object> response = new HashMap<String, Object>() {{\n        put(\"provider\", \"deepl\");\n        put(\"input_text\", inputText);\n        put(\"output_text\", responseText);\n        put(\"input_dialect\", inputLang);\n        put(\"output_dialect\", outputLang);\n    }};\n    \n\t  String detectedLang = result.getDetectedSourceLanguage().toLowerCase();\n    if (responseText == inputText || responseText == \"\"){\n\t\t\t\tresponse.put(\"output_text\", null);\n\t\t}\n\t  else{\n\t\t\t\tfinal String isConfidenceEnabled = (String)exchange.getIn().getHeader(\"X-Enable-Confidence\");\n\t\t\t  if(\"true\".equals(isConfidenceEnabled)){\n\t\t\t\t\tresult = translator.translateText(responseText, outputLang, detectedLang == \"en\"? \"en-US\": detectedLang);\n\t\t\t  \texchange.setProperty(\"reverseInputText\", result.getText());\n\t\t\t\t}\n\t\t}\n        \n    if (inputLang == null)\n        response.put(\"detected_dialect\", detectedLang);\n\n    exchange.getIn().setBody(response);\n    exchange.getIn().setHeader(\"CamelHttpResponseCode\", 200);\n} catch (Exception e) {\n    HashMap response = new HashMap<String, String>() {{\n        put(\"error\", e.getMessage());\n    }}\n    exchange.getIn().setHeader(\"CamelHttpResponseCode\", 400);\n    exchange.getIn().setBody(mapper.writeValueAsString(response));\n}&import=import com.deepl.api.*;\nimport com.fasterxml.jackson.databind.ObjectMapper;"
+        }, {
+          "name" : "messageFilter",
+          "nodeId" : "61951a44-bf25-4754-bc23-c47ff45c9415",
+          "description" : "Valid Translate?",
+          "properties" : {
+            "_type" : "messageFilter",
+            "active" : true,
+            "camelGroup" : "routing",
+            "name" : "messageFilter",
+            "url" : ""
+          },
+          "_type" : "messageFilter",
+          "branches" : [ {
+            "type" : "route",
+            "label" : "error response",
+            "route" : [ {
+              "name" : "log",
+              "nodeId" : "b368a2ee-fc9e-4659-9886-52368db2fe25",
+              "description" : "533.jms.trans.out",
+              "properties" : {
+                "_type" : "log",
+                "active" : true,
+                "advancedParameters" : [ ],
+                "camelGroup" : "component",
+                "level" : "INFO",
+                "logType" : "EIP",
+                "loggerName" : "533.jms.trans.out",
+                "message" : "(${header.CamelHttpResponseCode}) ${body}",
+                "multiline" : false,
+                "name" : "log",
+                "showAll" : false,
+                "showBody" : true,
+                "showBodyType" : true,
+                "showCaughtException" : false,
+                "showExchangeId" : false,
+                "showHeaders" : false,
+                "showProperties" : false,
+                "showStackTrace" : false,
+                "toDynamicEndpoint" : false,
+                "url" : ""
+              },
+              "_type" : "log",
+              "kameletPropertiesUrl" : "?level=INFO&logType=EIP&loggerName=533.jms.trans.out&message=(${header.CamelHttpResponseCode}) ${body}&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false"
+            } ],
+            "properties" : { }
+          }, {
+            "type" : "filter",
+            "label" : "status = 200",
+            "route" : [ {
+              "name" : "setProperties",
+              "nodeId" : "1dc4306c-3abd-4d24-9e7a-8136e7f8b015",
+              "description" : "setConfidence",
+              "properties" : {
+                "_type" : "setProperties",
+                "active" : true,
+                "addNamespaces" : false,
+                "camelGroup" : "core",
+                "name" : "setProperties",
+                "namespaces" : [ ],
+                "propertyList" : [ {
+                  "language" : "Simple",
+                  "propertyName" : "confidence",
+                  "propertyValue" : "${bean:WordSimilarity?method=score(${exchangeProperty.inputText}, ${exchangeProperty.reverseInputText})}",
+                  "uuid" : "67744711-9028-4c15-9ee3-36f42249a3b8"
+                } ],
+                "suppressExceptions" : false,
+                "url" : ""
+              },
+              "_type" : "setProperties",
+              "kameletPropertiesUrl" : "?confidence=${bean:WordSimilarity?method=score(${exchangeProperty.inputText}, ${exchangeProperty.reverseInputText})}&addNamespaces=false&suppressExceptions=false"
+            }, {
+              "name" : "process",
+              "nodeId" : "71ffaee9-2144-47a1-9a80-d82117628c57",
+              "description" : "Format Response",
+              "properties" : {
+                "_type" : "process",
+                "active" : true,
+                "camelGroup" : "transform",
+                "code" : "Map<String, Object> translation = exchange.getIn().getBody(Map.class);\ntranslation.put(\"score\", (Double)exchange.getProperty(\"confidence\"));\nexchange.getIn().setBody(translation);",
+                "import" : "import com.fasterxml.jackson.databind.ObjectMapper;",
+                "name" : "process",
+                "url" : ""
+              },
+              "_type" : "process",
+              "kameletPropertiesUrl" : "?code=Map<String, Object> translation = exchange.getIn().getBody(Map.class);\ntranslation.put(\"score\", (Double)exchange.getProperty(\"confidence\"));\nexchange.getIn().setBody(translation);&import=import com.fasterxml.jackson.databind.ObjectMapper;"
+            } ],
+            "properties" : {
+              "addNamespaces" : "false",
+              "condition" : "${header.CamelHttpResponseCode} == 200",
+              "language" : "Simple",
+              "namespaces" : [ ],
+              "suppressExceptions" : "false"
+            }
+          } ],
+          "kameletPropertiesUrl" : ""
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : ""
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "d09f1e59-0a7d-49e0-9ff0-dc3eda3d7075",
+  "name" : "r533-deepl-translate",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:13.247365987",
+  "updatedAt" : "2023-10-04T18:05:13.247366769",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

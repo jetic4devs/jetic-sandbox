@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "commons-io:commons-io:2.4"
+  },
+  "id" : "29404f48-09d9-446b-8cca-b044b1c55dad",
+  "name" : "commons-io",
+  "description" : "commons-io:commons-io:2.4",
+  "createdAt" : "2023-10-04T18:05:20.657378551",
+  "updatedAt" : "2023-10-04T18:05:20.657379665",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

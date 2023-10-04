@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.activemq:activemq-jms-pool:5.17.1"
+  },
+  "id" : "3b5aa833-0eaa-4cb9-8ce8-ca97eac74110",
+  "name" : "activemq-jms-pool",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.327016756",
+  "updatedAt" : "2023-10-04T18:05:20.327018006",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

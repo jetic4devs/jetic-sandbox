@@ -1,0 +1,11 @@
+{
+  "type" : "Secret",
+  "parameters" : [ ],
+  "id" : "dfdba072-cdd6-49dc-8d36-2082049594e8",
+  "name" : "db",
+  "description" : "DB Params",
+  "createdAt" : "2023-10-04T18:05:14.598135839",
+  "updatedAt" : "2023-10-04T18:05:14.5981367",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,16 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
+    "codeJava" : "@BindToRegistry\npublic Processor redisRpush() {\n    return exchange -> {\n        String message = (String)exchange.getIn().getBody();\n\t\t\t\tString redisUri = (String)exchange.getProperty(\"redisUri\");\n\t\t\t\t//System.out.println(\"Emitting to Redis broker: \" + redisUri);\n\t\t\t\n        if (message != null) {\n            Vertx vertx = Vertx.vertx();\n\n            Redis.createClient(vertx, redisUri)\n\t\t\t\t\t\t\t.connect()\n              .onSuccess(conn -> {\n\t\t\t\t\t\t\t\tconn.send(Request.cmd(Command.RPUSH).arg(\"ioevents\").arg(message));\n\t\t\t\t\t\t\t\tconn.close();\n\t\t\t\t\t\t\t});\n        }\n    };\n}\n\n@BindToRegistry\npublic Processor redisPublish() {\n    return exchange -> {\n\t\t\t\tString redisUri = (String)exchange.getProperty(\"redisUri\");\n\t\t\t\tString channel = (String)exchange.getProperty(\"channel\");\t\t\t\n\t\t\t\tString message = (String)exchange.getIn().getBody();\n\t\t\t\n\t\t\t\tif (channel == null)\n\t\t\t\t\tchannel = \"ioevent\";\n\t\t\t\t//System.out.println(\"Emitting to Redis broker: \" + redisUri);\n\t\t\t\n        if (message != null) {\n            Vertx vertx = Vertx.vertx();\n\n            Redis.createClient(vertx, redisUri)\n                .send(Request.cmd(Command.PUBLISH).arg(channel).arg(message));\n        }\n    };\n}",
+    "importsJava" : "import org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\nimport io.vertx.redis.client.*;\nimport io.vertx.core.Vertx;\nimport java.util.*;",
+    "type" : "Java"
+  },
+  "id" : "95a31431-529a-48a1-a5a9-6be52b6235ad",
+  "name" : "RedisClient",
+  "description" : "Redis Client",
+  "createdAt" : "2023-10-04T18:05:19.330315354",
+  "updatedAt" : "2023-10-04T18:05:19.330316536",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

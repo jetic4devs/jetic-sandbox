@@ -1,0 +1,14 @@
+{
+  "version" : "twilio.api.dev.aws.yakrcl.io",
+  "host" : "0.0.1",
+  "id" : "f6de83cc-8636-4ceb-b7ee-57cf36d2f6aa",
+  "name" : "provider-api-twilio",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:13.713301137",
+  "updatedAt" : "2023-10-04T18:05:13.713302043",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ ],
+  "imported" : false,
+  "specification" : ""
+}

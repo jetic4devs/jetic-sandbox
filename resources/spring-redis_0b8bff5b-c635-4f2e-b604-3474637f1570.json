@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.camel:camel-spring-redis:3.14"
+  },
+  "id" : "0b8bff5b-c635-4f2e-b604-3474637f1570",
+  "name" : "spring-redis",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:19.366859995",
+  "updatedAt" : "2023-10-04T18:05:19.366861309",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

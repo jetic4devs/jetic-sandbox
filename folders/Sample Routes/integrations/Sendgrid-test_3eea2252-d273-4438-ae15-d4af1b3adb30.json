@@ -1,0 +1,195 @@
+{
+  "revision" : 39,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "62c1cde5-30f6-41d5-8c08-26ffb86e3053",
+  "parameterGroupUuids" : [ "1e16c327-8438-492e-b6c2-2244741e1fd9", "4306c543-b6c9-4935-a9d7-6faa80646dff" ],
+  "repoResourceUuids" : [ "46baf835-0c08-4aa0-93fe-1e13a7e9475d", "4e021d57-2b93-4eab-8ecd-1e4ea641a24b", "42d575b0-00cb-4a37-93ad-edde1b42a9ec", "dbcd60e7-2713-45ac-b440-49946137f161" ],
+  "routeDefinitions" : [ {
+    "id" : null,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "timer",
+      "nodeId" : "0094e90b-3a90-46d4-946c-a109a920191f",
+      "description" : "",
+      "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "daemon" : true,
+        "delay" : "5000",
+        "fixedRate" : false,
+        "name" : "timer",
+        "period" : "100000",
+        "repeatCount" : "0",
+        "setScheduleTime" : false,
+        "time" : "2021-12-31 00:00:00",
+        "timerName" : "timer",
+        "url" : ""
+      },
+      "_type" : "timer",
+      "kameletPropertiesUrl" : "?daemon=true&delay=5000&fixedRate=false&period=100000&repeatCount=0&setScheduleTime=false&time=2021-12-31 00:00:00&timerName=timer"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "556d8ae0-0449-4115-927b-b03c056090fa",
+      "description" : "",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Simple",
+          "propertyName" : "sendGridApiKey",
+          "propertyValue" : "{{convey.sendgrid.apikey}}",
+          "uuid" : "b0bebcc1-a412-447b-b1a5-407d3b227d6e"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "emailSubject",
+          "propertyValue" : "Email Subject",
+          "uuid" : "9ccac8b6-04f6-42e1-aa1c-6064aa14ebc0"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "emailRecipient",
+          "propertyValue" : "jeff.bruns@convey911.com",
+          "uuid" : "6ce7ac59-f0f6-47a5-9318-7ddbb110908a"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "fname",
+          "propertyValue" : "Jeff",
+          "uuid" : "8486ec01-8b28-44af-acf9-3f1b2fc695e0"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "lname",
+          "propertyValue" : "Bruns",
+          "uuid" : "0a669e1c-86f9-4e46-abd8-1cbec7826691"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "lastLogin",
+          "propertyValue" : "1",
+          "uuid" : "1430e427-baa3-43ac-a898-0fb1ad4248b8"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "agencyName",
+          "propertyValue" : "Test Agency",
+          "uuid" : "8c8b16f8-67fb-483e-a700-6cce2643d082"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "loginUrl",
+          "propertyValue" : "https://sandbox.convey911.com/t/123",
+          "uuid" : "161aff6d-80bb-446d-9193-3f22ba4bfd5e"
+        }, {
+          "language" : "Constant",
+          "propertyName" : "inviteEmailUrl",
+          "propertyValue" : "https://sandbox.convey911.com/t/456",
+          "uuid" : "ac63a921-2e24-4b33-a793-7f0c82e4359c"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?sendGridApiKey={{convey.sendgrid.apikey}}&emailSubject=Email Subject&emailRecipient=jeff.bruns@convey911.com&fname=Jeff&lname=Bruns&lastLogin=1&agencyName=Test Agency&loginUrl=https://sandbox.convey911.com/t/123&inviteEmailUrl=https://sandbox.convey911.com/t/456&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "5846c467-5c95-4e3a-b7b7-1f91984040d3",
+      "description" : "",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to(\"velocity:user.invite.html.vm?allowContextMapAll=true\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to(\"velocity:user.invite.html.vm?allowContextMapAll=true\")"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "b046fa30-43d0-4b02-b595-9810012939bb",
+      "description" : "",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Simple",
+          "propertyName" : "emailBodyHtml",
+          "propertyValue" : "${body}",
+          "uuid" : "dec1fedd-1640-4f8b-a6b0-1434738b9a7d"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?emailBodyHtml=${body}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "81d327af-649c-404c-83e4-c39d41a25aa1",
+      "description" : "",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".to(\"velocity:user.invite.txt.vm?allowContextMapAll=true\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.to(\"velocity:user.invite.txt.vm?allowContextMapAll=true\")"
+    }, {
+      "name" : "setProperties",
+      "nodeId" : "a611fdff-fac5-4a56-bf18-c5554767bb1a",
+      "description" : "",
+      "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
+        "propertyList" : [ {
+          "language" : "Simple",
+          "propertyName" : "emailBodyText",
+          "propertyValue" : "${body}",
+          "uuid" : "e1f29b76-dc08-41ed-ace9-84f77cf16266"
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setProperties",
+      "kameletPropertiesUrl" : "?emailBodyText=${body}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "86ade5e7-3720-4f08-8c10-7d24c910840a",
+      "description" : "",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".bean(\"sendEmail\")",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.bean(\"sendEmail\")"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "3eea2252-d273-4438-ae15-d4af1b3adb30",
+  "name" : "Sendgrid-test",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:10.477647057",
+  "updatedAt" : "2023-10-04T18:05:10.477647706",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

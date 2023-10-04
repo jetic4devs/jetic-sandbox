@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "socket.io:java-emitter:0.1"
+  },
+  "id" : "376a92a8-1384-455d-8707-cbc3cd7b9d05",
+  "name" : "socket.io_java-emitter_0.1",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:19.516667439",
+  "updatedAt" : "2023-10-04T18:05:19.516668373",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

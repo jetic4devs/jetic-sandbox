@@ -1,0 +1,18 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "host",
+    "profileValues" : [ {
+      "profileUuid" : "fc916318-c0c9-4fbe-9f97-aadb5204379b",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "4306c543-b6c9-4935-a9d7-6faa80646dff",
+  "name" : "msrp.api",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:16.029557555",
+  "updatedAt" : "2023-10-04T18:05:16.029558403",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

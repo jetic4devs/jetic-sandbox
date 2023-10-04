@@ -1,0 +1,28 @@
+{
+  "type" : "MQ_BROKER_CONNECTION",
+  "properties" : {
+    "beanName" : "activeMQConnectionFactory",
+    "brokerUrl" : "tcp://localhost:61616",
+    "code" : "public org.apache.activemq.jms.pool.PooledConnectionFactory pooledConnectionFactory() {\n    org.apache.activemq.ActiveMQConnectionFactory activeMQConnectionFactory =\n            new org.apache.activemq.ActiveMQConnectionFactory();\n    activeMQConnectionFactory.setBrokerURL(\"tcp://localhost:61616\");\n    activeMQConnectionFactory.setUserName(\"system\");\n    activeMQConnectionFactory.setPassword(\"manager\");\n    activeMQConnectionFactory.setUseRetroactiveConsumer(false);\n\n    org.apache.activemq.jms.pool.PooledConnectionFactory pooledConnectionFactory =\n            new org.apache.activemq.jms.pool.PooledConnectionFactory();\n    pooledConnectionFactory.setConnectionFactory(activeMQConnectionFactory);\n    pooledConnectionFactory.setMaxConnections(1);\n    pooledConnectionFactory.setMaximumActiveSessionPerConnection(500);\n    pooledConnectionFactory.setConnectionTimeout(30000)\n    pooledConnectionFactory.setIdleTimeout(30000);\n    pooledConnectionFactory.setExpiryTimeout(60000L);\n\n    return pooledConnectionFactory;\n}",
+    "expiryTimeout" : "60000",
+    "idleTimeout" : "30000",
+    "mavenActiveMQ" : "org.apache.activemq:activemq-camel:5.16.3",
+    "mavenCustom" : "org.apache.activemq:activemq-camel:5.16.3",
+    "maxActive" : "500",
+    "maxConnections" : "1",
+    "mqType" : "ActiveMQ",
+    "password" : "manager",
+    "type" : "Simple",
+    "useAuthentication" : "true",
+    "usePooledConnectionFactory" : "false",
+    "useRetroactiveConsumer" : "false",
+    "username" : "system"
+  },
+  "id" : "7d911f4c-1db1-4a00-a22c-4424ab86c031",
+  "name" : "mqConnection",
+  "description" : "Connection for mq",
+  "createdAt" : "2023-10-04T18:05:16.739725851",
+  "updatedAt" : "2023-10-04T18:05:16.73972668",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "io.vertx:vertx-redis-client:4.2.5"
+  },
+  "id" : "a1201a9d-569b-43a9-ad45-945750fa830b",
+  "name" : "vertx-redis",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:19.294000273",
+  "updatedAt" : "2023-10-04T18:05:19.294001555",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

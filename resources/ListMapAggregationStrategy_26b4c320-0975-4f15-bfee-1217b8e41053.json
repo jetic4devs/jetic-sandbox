@@ -1,0 +1,14 @@
+{
+  "type" : "SOURCE_DEFINITIONS",
+  "properties" : {
+    "content" : "import org.apache.camel.AggregationStrategy;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Exchange;\nimport org.apache.camel.builder.RouteBuilder;\n\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.HashMap;\nimport java.util.Map;\n\n\n// simply combines Exchange String body values using '; ' as a delimiter\npublic class ListMapAggregationStrategy extends RouteBuilder implements AggregationStrategy {\n\n\t\tObjectMapper jackson = new ObjectMapper();\n\t\n    @BindToRegistry(\"ListMapAggregationStrategy\")\n    public ListMapAggregationStrategy getListMapAggregationStrategy() {\n        return this;\n    }\n\n    @Override\n    public void configure() throws Exception {\n    }\n\n    @Override\n    public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {\n\t\t\ttry{\n\t\t\t\tif (oldExchange == null) {\n            return newExchange;\n        }\n\t\t\t\t\n\t\t\t\tArrayList<HashMap<String, Object>> newTranslation = jackson.readValue((String)newExchange.getIn().getBody(), ArrayList.class);\n\n\t\t\t\tArrayList<HashMap<String, Object>> translations = jackson.readValue((String)oldExchange.getIn().getBody(), ArrayList.class);\n\t\t\t\t\n        translations.addAll(newTranslation);\n        oldExchange.getIn().setBody(jackson.writeValueAsString(translations));\n\t\t\t  return oldExchange;\t\n\t\t\t}\n\t\t\tcatch(Exception ex){\n\t\t\t\tSystem.out.println(\"Error in aggregation \"+ex.getMessage());\n\t\t\t\treturn oldExchange;\n\t\t\t}\n    }\n}",
+    "filename" : "ListMapAggregationStrategy.java"
+  },
+  "id" : "26b4c320-0975-4f15-bfee-1217b8e41053",
+  "name" : "ListMapAggregationStrategy",
+  "description" : "List map aggregation strategy",
+  "createdAt" : "2023-10-04T18:05:24.145600583",
+  "updatedAt" : "2023-10-04T18:05:24.145601427",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

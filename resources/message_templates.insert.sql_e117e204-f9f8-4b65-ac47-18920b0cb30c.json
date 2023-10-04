@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,SU5TRVJUIElOVE8gbWVzc2FnZV90ZW1wbGF0ZXMgKGFnZW5jeV9pZCwgdXNlcl9pZCwgbmFtZSwgdGV4dCwgc3RhdHVzLCBjcmVhdGVkX2F0LCB1cGRhdGVkX2F0KQpWQUxVRVMgKAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS5hZ2VuY3lJZH0gQVMgdXVpZCksIAogICAgQ0FTVCg6IyR7ZXhjaGFuZ2VQcm9wZXJ0eS51c2VyVXVpZH0gQVMgdXVpZCksIAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkubmFtZX0sIAogICAgOiMke2V4Y2hhbmdlUHJvcGVydHkudGV4dH0sIAogICAgQ09BTEVTQ0UoOiMke2V4Y2hhbmdlUHJvcGVydHkuc3RhdHVzfSwgJ2FjdGl2ZScpLAogICAgTk9XKCksIAogICAgTk9XKCkKKQpSRVRVUk5JTkcgaWQgQVMgdGVtcGxhdGVfaWQ=",
+    "filename" : "message_templates.insert.sql",
+    "type" : "File"
+  },
+  "id" : "e117e204-f9f8-4b65-ac47-18920b0cb30c",
+  "name" : "message_templates.insert.sql",
+  "description" : "Message Template Insert SQL",
+  "createdAt" : "2023-10-04T18:05:17.359404763",
+  "updatedAt" : "2023-10-04T18:05:17.359405606",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

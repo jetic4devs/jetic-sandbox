@@ -1,0 +1,11 @@
+{
+  "type" : "DATABASE_RESOURCE",
+  "properties" : { },
+  "id" : "dbfb8f3c-d529-4d69-8a3b-10129a7346b7",
+  "name" : "cassandra",
+  "description" : "cassandra datasource",
+  "createdAt" : "2023-10-04T18:05:18.436709817",
+  "updatedAt" : "2023-10-04T18:05:18.436710683",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

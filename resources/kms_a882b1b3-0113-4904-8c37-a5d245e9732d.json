@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "software.amazon.awssdk:kms"
+  },
+  "id" : "a882b1b3-0113-4904-8c37-a5d245e9732d",
+  "name" : "kms",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:20.21520991",
+  "updatedAt" : "2023-10-04T18:05:20.215211109",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

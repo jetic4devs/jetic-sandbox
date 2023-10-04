@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "com.google.zxing:core:3.5.1"
+  },
+  "id" : "6ddf29dc-b8f6-4309-bd10-01241b42dc94",
+  "name" : "zxing-core",
+  "description" : "zxing core ",
+  "createdAt" : "2023-10-04T18:05:24.066254384",
+  "updatedAt" : "2023-10-04T18:05:24.066255745",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}

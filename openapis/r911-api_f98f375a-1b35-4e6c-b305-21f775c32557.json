@@ -1,0 +1,116 @@
+{
+  "version" : "api.convey911.com",
+  "host" : "0.0.1",
+  "id" : "f98f375a-1b35-4e6c-b305-21f775c32557",
+  "name" : "r911-api",
+  "description" : null,
+  "createdAt" : "2023-10-04T18:05:14.321240614",
+  "updatedAt" : "2023-10-04T18:05:14.32124168",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "endpoints" : [ {
+    "uuid" : "8c13054e-24a9-452a-a27b-45f2a43a1093",
+    "name" : "Api",
+    "path" : "/api/v1/tcc/sessions",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "2f40ed1c-cb07-4862-8e73-c57416e87de2",
+      "operationId" : "getTCCSessions",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "97b0e03e-113d-4df8-822d-82a945630299",
+      "operationId" : "createTCCSession",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "04626d68-b798-470b-984d-094b8382e2c1",
+    "name" : "Api",
+    "path" : "/api/v1/tcc/sessions/{sessionId}",
+    "pathVariables" : [ "sessionId" ],
+    "operations" : [ {
+      "uuid" : "3b94c277-1af0-48ec-b338-3b24d52f1181",
+      "operationId" : "getTCCSession",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "b68a712d-4987-41d2-8609-ea3fdddeb877",
+      "operationId" : "updateTCCSession",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    }, {
+      "uuid" : "e8e6d26e-a5b2-466c-9f45-5a50eb370a58",
+      "operationId" : "closeTCCSession",
+      "method" : "delete",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "8357833e-97c1-4c5f-bc92-69d6a5d3c289",
+    "name" : "Api",
+    "path" : "/api/v1/tcc/sessions/{sessionId}/rebid",
+    "pathVariables" : [ "sessionId" ],
+    "operations" : [ {
+      "uuid" : "85fa6b62-2163-4c07-a400-1d1b8dd4f496",
+      "operationId" : "rebidTCCSessionLocation",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "5c57e787-e85d-401e-86ab-b9877fb66bd4",
+    "name" : "Api",
+    "path" : "/api/v1/tcc/sessions/{sessionId}/transfer/{psapId}",
+    "pathVariables" : [ "sessionId", "psapId" ],
+    "operations" : [ {
+      "uuid" : "220a53de-fbac-4e5f-9dd3-cdd1d40dead3",
+      "operationId" : "transferTccSession",
+      "method" : "post",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "e68f98af-1716-4124-9e0d-4e92c9a1bcfc",
+    "name" : "Api",
+    "path" : "/api/v1/tcc/transfer_points",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "137504bf-48a4-472b-bbc9-45cb1e474ec3",
+      "operationId" : "getTCCTransferPoints",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "7d9a11ee-84e6-428c-a803-8e6c249478c8",
+    "name" : "Api",
+    "path" : "/api/v1/tcc/transfer_points/{psapId}",
+    "pathVariables" : [ "psapId" ],
+    "operations" : [ {
+      "uuid" : "0e294034-1638-4077-a585-b4d0f04f8f34",
+      "operationId" : "getTccTransferPoint",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  }, {
+    "uuid" : "27597263-ec9d-4698-bbe7-6f3151f62610",
+    "name" : "Api",
+    "path" : "/api/v1/tcc/sessions/{sessionId}/transfer",
+    "pathVariables" : [ "sessionId" ],
+    "operations" : [ {
+      "uuid" : "ee1afa24-49ae-434d-a1da-845b25219853",
+      "operationId" : "updateTccSessionTransfer",
+      "method" : "put",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"r911-api\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/tcc/sessions\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getTCCSessions\"},\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"createTCCSession\"}},\"/api/v1/tcc/sessions/{sessionId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getTCCSession\"},\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateTCCSession\"},\"delete\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"closeTCCSession\"},\"parameters\":[{\"name\":\"sessionId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/tcc/sessions/{sessionId}/rebid\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"rebidTCCSessionLocation\"},\"parameters\":[{\"name\":\"sessionId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/tcc/sessions/{sessionId}/transfer/{psapId}\":{\"post\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"transferTccSession\"},\"parameters\":[{\"name\":\"sessionId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true},{\"name\":\"psapId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/tcc/transfer_points\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getTCCTransferPoints\"}},\"/api/v1/tcc/transfer_points/{psapId}\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getTccTransferPoint\"},\"parameters\":[{\"name\":\"psapId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/api/v1/tcc/sessions/{sessionId}/transfer\":{\"put\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"updateTccSessionTransfer\"},\"parameters\":[{\"name\":\"sessionId\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+}

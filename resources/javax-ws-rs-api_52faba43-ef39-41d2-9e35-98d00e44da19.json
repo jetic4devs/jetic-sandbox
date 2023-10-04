@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "javax.ws.rs:javax.ws.rs-api:2.1.1"
+  },
+  "id" : "52faba43-ef39-41d2-9e35-98d00e44da19",
+  "name" : "javax-ws-rs-api",
+  "description" : "",
+  "createdAt" : "2023-10-04T18:05:22.192748719",
+  "updatedAt" : "2023-10-04T18:05:22.192749833",
+  "createdBy" : "612c1b37-217d-49f9-b344-54b8af760f6a",
+  "updatedBy" : "612c1b37-217d-49f9-b344-54b8af760f6a"
+}
