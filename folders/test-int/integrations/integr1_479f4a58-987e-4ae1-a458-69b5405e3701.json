@@ -1,5 +1,5 @@
 {
-  "revision" : 2,
+  "revision" : 3,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -14,7 +14,7 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
-      "nodeId" : "87540f31-e974-4926-a824-7558e9ecd3ed",
+      "nodeId" : "95dbb77b-7bd7-4115-bd0a-cd5b80585515",
       "description" : "",
       "properties" : {
         "_type" : "timer",
@@ -34,6 +34,34 @@
       },
       "_type" : "timer",
       "kameletPropertiesUrl" : "?timerName=timer&period=1000&repeatCount=0&delay=1000&fixedRate=false&daemon=true&setScheduleTime=false&time=2021-12-31 00:00:00"
+    }, {
+      "name" : "log",
+      "nodeId" : "0e647f4d-9960-42b1-80ae-4fe520a13e71",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
     } ]
   } ],
   "traits" : [ ],
@@ -41,7 +69,7 @@
   "name" : "integr1",
   "description" : "",
   "createdAt" : "2023-10-02T14:20:34.868408722",
-  "updatedAt" : "2023-10-02T14:20:48.758855784",
+  "updatedAt" : "2023-10-11T14:32:50.548472524",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440010"
 }
