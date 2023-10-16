@@ -1,0 +1,92 @@
+{
+  "revision" : 5,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "827bdf5a-a018-4e6b-b454-65b975d49930",
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ {
+    "id" : 1,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "ftp",
+      "nodeId" : "d073da2c-da2d-40bd-a65d-2ceda5ca0467",
+      "description" : "",
+      "properties" : {
+        "_type" : "ftp",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "directoryName" : "home/root",
+        "host" : "localhost",
+        "name" : "ftp",
+        "password" : "root",
+        "port" : "21",
+        "scheme" : "ftp",
+        "toDynamicEndpoint" : false,
+        "url" : "",
+        "username" : "root"
+      },
+      "_type" : "ftp",
+      "kameletPropertiesUrl" : "?host=localhost&port=21&directoryName=home/root&username=root&password=root"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "a59e2c98-1790-4e9f-9d73-9edd0d11443d",
+      "description" : "Changing body",
+      "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "THis is test",
+        "language" : "Simple",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?language=Simple&expression=THis is test&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "b4a442bf-9f49-4683-8c61-8b97f455582e",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "652482f7-9c16-4233-8e40-9d3d6de3df0d",
+  "name" : "fetchFilefromFTP",
+  "description" : "fetch files from ftp",
+  "createdAt" : "2023-10-16T18:06:15.242663613",
+  "updatedAt" : "2023-10-16T18:08:56.374866349",
+  "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
+  "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
+}
