@@ -1,0 +1,328 @@
+{
+  "revision" : 13,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "827bdf5a-a018-4e6b-b454-65b975d49930",
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ {
+    "id" : 1,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "file",
+      "nodeId" : "69241714-165d-4dcd-ad2b-5fb26e76a9cc",
+      "description" : "",
+      "properties" : {
+        "_type" : "file",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "autoCreate" : true,
+        "bufferSize" : "131072",
+        "camelGroup" : "component",
+        "charset" : "utf-8",
+        "delete" : false,
+        "directoryName" : "/tmp",
+        "fileName" : "temp.txt",
+        "name" : "file",
+        "noop" : false,
+        "recursive" : false,
+        "setCharset" : false,
+        "url" : ""
+      },
+      "_type" : "file",
+      "kameletPropertiesUrl" : "?directoryName=/tmp&autoCreate=true&bufferSize=131072&setCharset=false&charset=utf-8&delete=false&fileName=temp.txt&noop=false&recursive=false"
+    }, {
+      "name" : "exchangePattern",
+      "nodeId" : "028a8855-4947-400b-9f16-39946910aa56",
+      "description" : "",
+      "properties" : {
+        "_type" : "exchangePattern",
+        "active" : true,
+        "camelGroup" : "core",
+        "exchangePattern" : "InOnly",
+        "name" : "exchangePattern",
+        "url" : ""
+      },
+      "_type" : "exchangePattern",
+      "kameletPropertiesUrl" : "?exchangePattern=InOnly"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "a568a706-8a24-4cef-af09-a244c6e4090c",
+      "description" : "",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "97840480-435e-42a1-a2de-053d7e2d6f5f",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
+    }, {
+      "name" : "direct",
+      "nodeId" : "4ebee01d-385f-4809-8f8b-ce89fa64ae75",
+      "description" : "",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "direct",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=direct"
+    } ]
+  }, {
+    "id" : 2,
+    "camelRouteId" : "route-2",
+    "enabled" : true,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "2a0d5599-4cad-40a3-8c5d-a7c9e19dc1d6",
+      "description" : "",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "direct",
+        "name" : "direct",
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=direct"
+    }, {
+      "name" : "removeHeaders",
+      "nodeId" : "c7577346-824b-454d-9f18-51a366180d1c",
+      "description" : "",
+      "properties" : {
+        "_type" : "removeHeaders",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "excludePattern" : "Camel*",
+        "name" : "removeHeaders",
+        "pattern" : "*",
+        "url" : ""
+      },
+      "_type" : "removeHeaders",
+      "kameletPropertiesUrl" : "?pattern=*&excludePattern=Camel*"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "74c2ef2c-3321-4597-9587-e0b5b0169a99",
+      "description" : "",
+      "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "exchangeId: ${exchangeId}",
+        "language" : "Simple",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?language=Simple&expression=exchangeId: ${exchangeId}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "8dda3bd9-d096-4968-874c-619db6d35478",
+      "description" : "",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "bean-validator",
+      "nodeId" : "c57fefdc-673a-4d0b-bc34-5d5884b90c61",
+      "description" : "",
+      "properties" : {
+        "_type" : "bean-validator",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "group" : "jakarta.validation.groups.Default",
+        "ignoreXmlConfiguration" : false,
+        "label" : "",
+        "lazyStartProducer" : false,
+        "name" : "bean-validator",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "bean-validator",
+      "kameletPropertiesUrl" : "?group=jakarta.validation.groups.Default&ignoreXmlConfiguration=false&lazyStartProducer=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "9f203562-59fe-4b3b-98cf-71288f65809d",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
+    }, {
+      "name" : "direct",
+      "nodeId" : "dee095e3-57a9-4e3d-ac42-841750821f91",
+      "description" : "",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "direct",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=direct"
+    } ]
+  }, {
+    "id" : 3,
+    "camelRouteId" : "route-3",
+    "enabled" : true,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "22a4ebe7-9a9b-4095-9d2e-ec220b2cd658",
+      "description" : "",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "direct",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=direct"
+    }, {
+      "name" : "jms",
+      "nodeId" : "7a85639a-e451-406d-b549-1fd28ad66ca0",
+      "description" : "",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#connectionFactory",
+        "destinationName" : "queue.name",
+        "destinationType" : "topic",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : false,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?destinationType=topic&destinationName=queue.name&asyncConsumer=false&setConnectionFactory=false&connectionFactory=#connectionFactory&concurrentConsumers=1&exchangePattern=InOnly&transacted=false"
+    }, {
+      "name" : "log",
+      "nodeId" : "7607f76b-327e-4bdc-bd1e-ebcba31a2c8b",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "It is done",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=It is done"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "8718195e-4434-433b-b369-79be00673f6b",
+  "name" : "test4",
+  "description" : "Integration 4",
+  "createdAt" : "2023-10-16T14:53:32.435896408",
+  "updatedAt" : "2023-10-16T14:58:41.86364304",
+  "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
+  "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
+}
