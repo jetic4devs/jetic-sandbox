@@ -1,5 +1,5 @@
 {
-  "revision" : 9,
+  "revision" : 12,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -13,30 +13,8 @@
     "enabled" : true,
     "routeId" : 1,
     "route" : [ {
-      "name" : "timer",
-      "nodeId" : "e71edb14-4edb-4621-9483-879394c53074",
-      "description" : "",
-      "properties" : {
-        "_type" : "timer",
-        "active" : true,
-        "advancedParameters" : [ ],
-        "camelGroup" : "component",
-        "daemon" : true,
-        "delay" : "1000",
-        "fixedRate" : false,
-        "name" : "timer",
-        "period" : "1000",
-        "repeatCount" : "0",
-        "setScheduleTime" : false,
-        "time" : "2021-12-31 00:00:00",
-        "timerName" : "timer",
-        "url" : ""
-      },
-      "_type" : "timer",
-      "kameletPropertiesUrl" : "?timerName=timer&period=1000&repeatCount=0&delay=1000&fixedRate=false&daemon=true&setScheduleTime=false&time=2021-12-31 00:00:00"
-    }, {
       "name" : "debezium",
-      "nodeId" : "6bcf1210-0617-45d4-b185-aa122d812dd2",
+      "nodeId" : "6ffd9d0d-a70e-4eef-ae52-25c0f787394a",
       "description" : "",
       "properties" : {
         "_type" : "debezium",
@@ -44,12 +22,12 @@
         "advancedParameters" : [ ],
         "camelGroup" : "component",
         "componentName" : "name",
-        "databaseDbname" : "",
-        "databaseHostname" : "",
-        "databasePassword" : "",
+        "databaseDbname" : "test",
+        "databaseHostname" : "test",
+        "databasePassword" : "test",
         "databasePort" : "5432",
-        "databaseServerName" : "",
-        "databaseUser" : "",
+        "databaseServerName" : "test",
+        "databaseUser" : "test",
         "mongodbHosts" : "",
         "mongodbName" : "",
         "mongodbPassword" : "",
@@ -63,10 +41,10 @@
         "url" : ""
       },
       "_type" : "debezium",
-      "kameletPropertiesUrl" : "?componentName=name&databasePort=5432&schemaIncludeList=public"
+      "kameletPropertiesUrl" : "?componentName=name&databaseHostname=test&databasePort=5432&databaseServerName=test&databaseDbname=test&databaseUser=test&databasePassword=test&schemaIncludeList=public"
     }, {
       "name" : "log",
-      "nodeId" : "0e993a28-f395-450c-a585-e245c3cef8ea",
+      "nodeId" : "ab43933f-2436-4146-bc33-7ab06a62aec1",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -100,7 +78,7 @@
     "routeId" : 2,
     "route" : [ {
       "name" : "jms",
-      "nodeId" : "2dc8b9db-df0e-462c-b87d-57f10b017e5d",
+      "nodeId" : "5b9834af-b230-4a79-a9d0-231e517cb2cd",
       "description" : "",
       "properties" : {
         "_type" : "jms",
@@ -115,7 +93,6 @@
         "exchangePattern" : "InOnly",
         "name" : "jms",
         "setConnectionFactory" : false,
-        "toDynamicEndpoint" : false,
         "transacted" : false,
         "url" : ""
       },
@@ -123,7 +100,7 @@
       "kameletPropertiesUrl" : "?destinationType=queue&destinationName=queue.name&asyncConsumer=false&setConnectionFactory=false&connectionFactory=#connectionFactory&concurrentConsumers=1&exchangePattern=InOnly&transacted=false"
     }, {
       "name" : "splitter",
-      "nodeId" : "34ce72d7-99a4-4c10-81dc-ac45a1a3352b",
+      "nodeId" : "6a59ca74-d557-4977-8dc5-eb81b5f1ed06",
       "description" : "",
       "properties" : {
         "_type" : "splitter",
@@ -152,7 +129,7 @@
         "label" : "split",
         "route" : [ {
           "name" : "setBody",
-          "nodeId" : "3d3dc2b0-afa3-4a59-a1e6-df00121e4e5c",
+          "nodeId" : "ddff5dfc-f8f2-405c-8cab-2de198ab75b1",
           "description" : "",
           "properties" : {
             "_type" : "setBody",
@@ -170,7 +147,7 @@
           "kameletPropertiesUrl" : "?language=Simple&expression=exchangeId: ${exchangeId}&addNamespaces=false&suppressExceptions=false"
         }, {
           "name" : "log",
-          "nodeId" : "910ed17c-fe1f-4676-8a7d-cc39e4204b00",
+          "nodeId" : "0a616c2b-72d7-4ec7-955a-2bbfcf3e74df",
           "description" : "",
           "properties" : {
             "_type" : "log",
@@ -203,7 +180,7 @@
         "label" : "route",
         "route" : [ {
           "name" : "log",
-          "nodeId" : "f831594e-5fa6-491f-aedb-98acc9c10604",
+          "nodeId" : "8402e33b-f68f-4c6e-b70e-2918acc72828",
           "description" : "",
           "properties" : {
             "_type" : "log",
@@ -240,7 +217,7 @@
   "name" : "test3",
   "description" : "Route test3",
   "createdAt" : "2023-10-16T14:48:38.769061555",
-  "updatedAt" : "2023-10-16T14:51:58.611100208",
+  "updatedAt" : "2023-10-16T16:10:16.313950653",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
 }
