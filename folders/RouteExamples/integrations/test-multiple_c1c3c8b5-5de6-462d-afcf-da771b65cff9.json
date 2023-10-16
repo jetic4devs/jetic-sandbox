@@ -1,5 +1,5 @@
 {
-  "revision" : 11,
+  "revision" : 12,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -134,12 +134,17 @@
         "camelGroup" : "core",
         "name" : "setProperties",
         "namespaces" : [ ],
-        "propertyList" : [ ],
+        "propertyList" : [ {
+          "language" : "Constant",
+          "propertyName" : "test",
+          "propertyValue" : "test",
+          "uuid" : "20e086a0-0ec3-4302-8dcd-f40a8d4ae9ae"
+        } ],
         "suppressExceptions" : false,
         "url" : ""
       },
       "_type" : "setProperties",
-      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+      "kameletPropertiesUrl" : "?test=test&addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "log",
       "nodeId" : "e81f0695-f769-4565-871b-85b6a2560d61",
@@ -201,7 +206,7 @@
   "name" : "test-multiple",
   "description" : "test multiple routes",
   "createdAt" : "2023-10-16T14:32:02.429929568",
-  "updatedAt" : "2023-10-16T16:05:28.62504977",
+  "updatedAt" : "2023-10-16T16:07:01.174341625",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
 }
