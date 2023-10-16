@@ -1,0 +1,253 @@
+{
+  "revision" : 10,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "827bdf5a-a018-4e6b-b454-65b975d49930",
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ {
+    "id" : 1,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "cron",
+      "nodeId" : "80d0a4ac-734e-4dab-a04f-ccda42432c94",
+      "description" : "",
+      "properties" : {
+        "_type" : "cron",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "cronName" : "tab",
+        "name" : "cron",
+        "schedule" : "0/1+*+*+*+*+?",
+        "url" : ""
+      },
+      "_type" : "cron",
+      "kameletPropertiesUrl" : "?cronName=tab&schedule=0/1+*+*+*+*+?"
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "f8eeb2b1-7c50-4642-bd13-1077fda99efe",
+      "description" : "",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "test",
+          "headerValue" : "hello world",
+          "language" : "Constant",
+          "uuid" : "cf6be77b-e417-4928-b530-abd3157ba1df"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
+      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "delay",
+      "nodeId" : "24cf6353-f7b0-4e49-9109-65fe595a1309",
+      "description" : "",
+      "properties" : {
+        "_type" : "delay",
+        "active" : true,
+        "addNamespaces" : false,
+        "asyncDelayed" : false,
+        "camelGroup" : "misc",
+        "expression" : "${body}",
+        "language" : "Simple",
+        "name" : "delay",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "timeToWait" : "Value",
+        "url" : "",
+        "value" : "1000"
+      },
+      "_type" : "delay",
+      "kameletPropertiesUrl" : "?timeToWait=Value&value=1000&language=Simple&expression=${body}&addNamespaces=false&suppressExceptions=false&asyncDelayed=false"
+    }, {
+      "name" : "setBody",
+      "nodeId" : "2c77af0c-be98-493b-b6d0-c6a86f9e1c6e",
+      "description" : "",
+      "properties" : {
+        "_type" : "setBody",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "expression" : "exchangeId: ${exchangeId}",
+        "language" : "Simple",
+        "name" : "setBody",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setBody",
+      "kameletPropertiesUrl" : "?language=Simple&expression=exchangeId: ${exchangeId}&addNamespaces=false&suppressExceptions=false"
+    }, {
+      "name" : "direct",
+      "nodeId" : "47c0a23f-2926-4714-bd8a-ecd8330f7c22",
+      "description" : "",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "direct",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=direct"
+    } ]
+  }, {
+    "id" : 2,
+    "camelRouteId" : "route-2",
+    "enabled" : true,
+    "routeId" : 2,
+    "route" : [ {
+      "name" : "direct",
+      "nodeId" : "716c8f95-8eec-4643-9285-195d39e17941",
+      "description" : "",
+      "properties" : {
+        "_type" : "direct",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core",
+        "endpointName" : "direct",
+        "name" : "direct",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "direct",
+      "kameletPropertiesUrl" : "?endpointName=direct"
+    }, {
+      "name" : "atlasmap",
+      "nodeId" : "6fdbf2cc-eb9f-468f-85f2-81a576e29705",
+      "description" : "",
+      "properties" : {
+        "_type" : "atlasmap",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "allowContextMapAll" : false,
+        "camelGroup" : "component",
+        "contentCache" : false,
+        "lazyStartProducer" : false,
+        "name" : "atlasmap",
+        "resourceUri" : "atlasmap-mapping.adm",
+        "sourceMapName" : "",
+        "targetMapMode" : "MAP",
+        "targetMapName" : "",
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "atlasmap",
+      "kameletPropertiesUrl" : "?resourceUri=atlasmap-mapping.adm&allowContextMapAll=false&contentCache=false&lazyStartProducer=false&targetMapMode=MAP"
+    }, {
+      "name" : "log",
+      "nodeId" : "c1d0481f-adf3-459e-a710-59113f97bc6e",
+      "description" : "",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
+    } ]
+  }, {
+    "id" : 3,
+    "camelRouteId" : "route-3",
+    "enabled" : true,
+    "routeId" : 3,
+    "route" : [ {
+      "name" : "onException",
+      "nodeId" : "3f9c8daa-5abf-411b-9646-fb2cc8269d22",
+      "description" : "",
+      "properties" : {
+        "_type" : "onException",
+        "active" : true,
+        "asyncDelayedRedelivery" : false,
+        "camelGroup" : "exception",
+        "exceptionBehavior" : "Handle the exceptions",
+        "exceptionList" : [ {
+          "exception" : "Exception"
+        } ],
+        "maximumRedeliveries" : "2",
+        "name" : "onException",
+        "redeliveryDelay" : "1000",
+        "setRedeliveryDelay" : false,
+        "setRedeliveryTriesCount" : false,
+        "url" : "",
+        "useOriginalMessage" : false
+      },
+      "_type" : "onException",
+      "branches" : [ {
+        "type" : "onException",
+        "label" : "onException",
+        "route" : [ {
+          "name" : "log",
+          "nodeId" : "2582f0d7-081c-428b-87af-fbd565ece668",
+          "description" : "",
+          "properties" : {
+            "_type" : "log",
+            "active" : true,
+            "advancedParameters" : [ ],
+            "camelGroup" : "component",
+            "level" : "INFO",
+            "logType" : "EIP",
+            "loggerName" : "log",
+            "message" : "headers: ${headers}; body: ${body}",
+            "multiline" : false,
+            "name" : "log",
+            "showAll" : false,
+            "showBody" : true,
+            "showBodyType" : true,
+            "showCaughtException" : false,
+            "showExchangeId" : false,
+            "showHeaders" : false,
+            "showProperties" : false,
+            "showStackTrace" : false,
+            "toDynamicEndpoint" : false,
+            "url" : ""
+          },
+          "_type" : "log",
+          "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
+        } ],
+        "properties" : { }
+      } ],
+      "kameletPropertiesUrl" : "?useOriginalMessage=false&exceptionBehavior=Handle the exceptions&setRedeliveryTriesCount=false&maximumRedeliveries=2&setRedeliveryDelay=false&redeliveryDelay=1000&asyncDelayedRedelivery=false"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "1b6f747d-740b-467a-ac74-4f84b6ab4f18",
+  "name" : "test2",
+  "description" : "test2 route",
+  "createdAt" : "2023-10-16T14:34:55.266128156",
+  "updatedAt" : "2023-10-16T14:38:49.101646748",
+  "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
+  "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
+}
