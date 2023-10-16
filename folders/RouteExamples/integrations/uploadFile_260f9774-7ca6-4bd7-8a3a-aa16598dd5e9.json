@@ -1,0 +1,101 @@
+{
+  "revision" : 4,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "827bdf5a-a018-4e6b-b454-65b975d49930",
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ {
+    "id" : 1,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "jms",
+      "nodeId" : "e410a063-8f36-4799-97fe-216d0150e520",
+      "description" : "",
+      "properties" : {
+        "_type" : "jms",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "asyncConsumer" : false,
+        "camelGroup" : "component",
+        "concurrentConsumers" : "1",
+        "connectionFactory" : "#connectionFactory",
+        "destinationName" : "queue.name",
+        "destinationType" : "queue",
+        "exchangePattern" : "InOnly",
+        "name" : "jms",
+        "setConnectionFactory" : false,
+        "toDynamicEndpoint" : false,
+        "transacted" : false,
+        "url" : ""
+      },
+      "_type" : "jms",
+      "kameletPropertiesUrl" : "?destinationType=queue&destinationName=queue.name&asyncConsumer=false&setConnectionFactory=false&connectionFactory=#connectionFactory&concurrentConsumers=1&exchangePattern=InOnly&transacted=false"
+    }, {
+      "name" : "convertBodyTo",
+      "nodeId" : "0c0e4595-b847-49d1-9b9a-e50a595d3492",
+      "description" : "",
+      "properties" : {
+        "_type" : "convertBodyTo",
+        "active" : true,
+        "camelGroup" : "transform",
+        "name" : "convertBodyTo",
+        "targetClass" : "String.class",
+        "url" : ""
+      },
+      "_type" : "convertBodyTo",
+      "kameletPropertiesUrl" : "?targetClass=String.class"
+    }, {
+      "name" : "dslProcessor",
+      "nodeId" : "af627409-6819-40f2-96fc-b8e23b16e547",
+      "description" : "",
+      "properties" : {
+        "_type" : "dslProcessor",
+        "active" : true,
+        "camelGroup" : "core",
+        "dsl" : ".removeheaders(*)",
+        "name" : "dslProcessor",
+        "url" : ""
+      },
+      "_type" : "dslProcessor",
+      "kameletPropertiesUrl" : "?dsl=.removeheaders(*)"
+    }, {
+      "name" : "file",
+      "nodeId" : "23769574-f6c8-4f4f-a6ee-543bd0684367",
+      "description" : "",
+      "properties" : {
+        "_type" : "file",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "autoCreate" : true,
+        "bufferSize" : "131072",
+        "camelGroup" : "component",
+        "charset" : "utf-8",
+        "delete" : false,
+        "directoryName" : "/tmp",
+        "fileName" : "temp.txt",
+        "flatten" : false,
+        "name" : "file",
+        "noop" : false,
+        "recursive" : false,
+        "setCharset" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "file",
+      "kameletPropertiesUrl" : "?directoryName=/tmp&autoCreate=true&bufferSize=131072&setCharset=false&charset=utf-8&delete=false&fileName=temp.txt&flatten=false&noop=false&recursive=false"
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "260f9774-7ca6-4bd7-8a3a-aa16598dd5e9",
+  "name" : "uploadFile",
+  "description" : "",
+  "createdAt" : "2023-10-16T18:11:20.378662596",
+  "updatedAt" : "2023-10-16T18:13:43.521312895",
+  "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
+  "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
+}
