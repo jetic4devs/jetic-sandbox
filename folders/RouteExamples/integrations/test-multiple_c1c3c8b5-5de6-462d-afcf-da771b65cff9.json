@@ -1,5 +1,5 @@
 {
-  "revision" : 6,
+  "revision" : 11,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -14,7 +14,7 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
-      "nodeId" : "e030e15c-9ff1-480e-b8d2-77e65283ea39",
+      "nodeId" : "a610891d-c041-4250-a1f7-25edc6f13fa7",
       "description" : "",
       "properties" : {
         "_type" : "timer",
@@ -36,7 +36,7 @@
       "kameletPropertiesUrl" : "?timerName=timer&period=1000&repeatCount=0&delay=1000&fixedRate=false&daemon=true&setScheduleTime=false&time=2021-12-31 00:00:00"
     }, {
       "name" : "http",
-      "nodeId" : "c1aee6c6-d2f8-4667-b649-9093302e9487",
+      "nodeId" : "e959878d-b9d7-489f-9bc5-4f705cd488cd",
       "description" : "",
       "properties" : {
         "_type" : "http",
@@ -60,7 +60,7 @@
       "kameletPropertiesUrl" : "?httpMethod=GET&httpUri=api.datagrate.co&bridgeEndpoint=false&throwExceptionOnFailure=true&connectionRequestTimeout=20000&connectTimeout=20000&socketTimeout=20000&disableStreamCache=true"
     }, {
       "name" : "log",
-      "nodeId" : "dab30424-6732-40be-bd1d-772481fc006b",
+      "nodeId" : "722a35ce-f3d2-4d20-8a76-0febe3a303a5",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -88,7 +88,7 @@
       "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
     }, {
       "name" : "direct",
-      "nodeId" : "19f9df49-ae1f-40bd-b0fc-3d5836b6e48a",
+      "nodeId" : "604ed089-3585-4909-83c7-2c974d8c2704",
       "description" : "",
       "properties" : {
         "_type" : "direct",
@@ -110,7 +110,7 @@
     "routeId" : 2,
     "route" : [ {
       "name" : "direct",
-      "nodeId" : "739b5c3c-83a0-4d47-8c72-c9915c920932",
+      "nodeId" : "8771e57b-cee9-45c7-96bf-f4cfa15162f3",
       "description" : "",
       "properties" : {
         "_type" : "direct",
@@ -119,14 +119,13 @@
         "camelGroup" : "core",
         "endpointName" : "direct",
         "name" : "direct",
-        "toDynamicEndpoint" : false,
         "url" : ""
       },
       "_type" : "direct",
       "kameletPropertiesUrl" : "?endpointName=direct"
     }, {
       "name" : "setProperties",
-      "nodeId" : "7d2052a6-0167-45a6-b7be-3626ea534d53",
+      "nodeId" : "097e66c1-0bbb-43c2-8d94-45779c136e8a",
       "description" : "",
       "properties" : {
         "_type" : "setProperties",
@@ -143,7 +142,7 @@
       "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "log",
-      "nodeId" : "cfc46ca1-37ae-40c6-9314-e5b7a585a206",
+      "nodeId" : "e81f0695-f769-4565-871b-85b6a2560d61",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -171,12 +170,12 @@
       "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
     }, {
       "name" : "cxf",
-      "nodeId" : "d214647d-6510-4c48-ae58-63726e8648e7",
+      "nodeId" : "f89aaacb-ecc2-4367-85b3-adb7ee273db5",
       "description" : "",
       "properties" : {
         "_type" : "cxf",
         "active" : true,
-        "address" : "",
+        "address" : "test",
         "advancedParameters" : [ ],
         "allowStreaming" : false,
         "beanId" : "",
@@ -187,42 +186,14 @@
         "name" : "cxf",
         "password" : "",
         "portName" : "",
-        "serviceName" : "",
+        "serviceName" : "test",
         "toDynamicEndpoint" : false,
         "url" : "",
         "username" : "",
         "wsdlURL" : ""
       },
       "_type" : "cxf",
-      "kameletPropertiesUrl" : "?allowStreaming=false&dataFormat=RAW"
-    }, {
-      "name" : "log",
-      "nodeId" : "c3646594-185f-4841-90be-ce6df0161da3",
-      "description" : "",
-      "properties" : {
-        "_type" : "log",
-        "active" : true,
-        "advancedParameters" : [ ],
-        "camelGroup" : "component",
-        "level" : "INFO",
-        "logType" : "EIP",
-        "loggerName" : "log",
-        "message" : "headers: ${headers}; body: ${body}",
-        "multiline" : false,
-        "name" : "log",
-        "showAll" : false,
-        "showBody" : true,
-        "showBodyType" : true,
-        "showCaughtException" : false,
-        "showExchangeId" : false,
-        "showHeaders" : false,
-        "showProperties" : false,
-        "showStackTrace" : false,
-        "toDynamicEndpoint" : false,
-        "url" : ""
-      },
-      "_type" : "log",
-      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
+      "kameletPropertiesUrl" : "?address=test&allowStreaming=false&dataFormat=RAW&serviceName=test"
     } ]
   } ],
   "traits" : [ ],
@@ -230,7 +201,7 @@
   "name" : "test-multiple",
   "description" : "test multiple routes",
   "createdAt" : "2023-10-16T14:32:02.429929568",
-  "updatedAt" : "2023-10-16T14:33:48.6723779",
+  "updatedAt" : "2023-10-16T16:05:28.62504977",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
 }
