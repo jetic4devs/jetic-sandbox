@@ -1,5 +1,5 @@
 {
-  "revision" : 3,
+  "revision" : 4,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -14,7 +14,7 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
-      "nodeId" : "30b2ff03-1a7a-40b2-b89a-1f4dd781d2b0",
+      "nodeId" : "9b486f1e-4325-4ccc-8781-2583043ee047",
       "description" : "",
       "properties" : {
         "_type" : "timer",
@@ -36,14 +36,19 @@
       "kameletPropertiesUrl" : "?timerName=timer&period=1000&repeatCount=0&delay=1000&fixedRate=false&daemon=true&setScheduleTime=false&time=2021-12-31 00:00:00"
     }, {
       "name" : "setHeaders",
-      "nodeId" : "c842bebf-850e-45a1-b45d-7735d4ba0da9",
+      "nodeId" : "2013436f-5025-4535-9f69-ae72ae78f341",
       "description" : "",
       "properties" : {
         "_type" : "setHeaders",
         "active" : true,
         "addNamespaces" : false,
         "camelGroup" : "core",
-        "headerList" : [ ],
+        "headerList" : [ {
+          "headerName" : "test",
+          "headerValue" : "test",
+          "language" : "Constant",
+          "uuid" : "3c68d61b-0f9f-4caa-9e84-7bcab174dfae"
+        } ],
         "name" : "setHeaders",
         "namespaces" : [ ],
         "suppressExceptions" : false,
@@ -53,7 +58,7 @@
       "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "setBody",
-      "nodeId" : "55ae000c-bd93-4c5b-ad86-6fac78c636b4",
+      "nodeId" : "32525636-2adc-4f1b-b774-7bac909939a0",
       "description" : "",
       "properties" : {
         "_type" : "setBody",
@@ -71,7 +76,7 @@
       "kameletPropertiesUrl" : "?language=Simple&expression=exchangeId: ${exchangeId}&addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "log",
-      "nodeId" : "f60c1ba5-66c4-4056-a278-c26de01fa84e",
+      "nodeId" : "c08e5e03-af45-44f4-ae0a-0dacc99aa8ef",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -104,7 +109,7 @@
   "name" : "test",
   "description" : "Test setBody and setHeader",
   "createdAt" : "2023-10-16T14:30:45.664631401",
-  "updatedAt" : "2023-10-16T14:31:24.977639326",
+  "updatedAt" : "2023-10-16T16:22:50.822053879",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
 }
