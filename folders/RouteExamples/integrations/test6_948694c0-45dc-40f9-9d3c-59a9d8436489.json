@@ -1,5 +1,5 @@
 {
-  "revision" : 11,
+  "revision" : 18,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -14,33 +14,30 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "cxf",
-      "nodeId" : "f0c1a0f8-f1e5-4010-b360-e3ad9a261106",
+      "nodeId" : "e4483807-e407-475e-9c48-c8ad7481ee78",
       "description" : "",
       "properties" : {
         "_type" : "cxf",
         "active" : true,
-        "address" : "",
+        "address" : "test",
         "advancedParameters" : [ ],
         "allowStreaming" : false,
         "beanId" : "",
         "camelGroup" : "component",
         "dataFormat" : "RAW",
-        "defaultOperationName" : "",
-        "defaultOperationNamespace" : "",
         "name" : "cxf",
         "password" : "",
-        "portName" : "",
-        "serviceName" : "",
-        "toDynamicEndpoint" : false,
+        "portName" : "test",
+        "serviceName" : "test",
         "url" : "",
         "username" : "",
         "wsdlURL" : ""
       },
       "_type" : "cxf",
-      "kameletPropertiesUrl" : "?allowStreaming=false&dataFormat=RAW"
+      "kameletPropertiesUrl" : "?address=test&allowStreaming=false&dataFormat=RAW&portName=test&serviceName=test"
     }, {
       "name" : "convertBodyTo",
-      "nodeId" : "0e436f9c-0b34-4fd0-8f2e-1a8b03880971",
+      "nodeId" : "4678c267-2e92-4289-983a-ea21cab49fb0",
       "description" : "",
       "properties" : {
         "_type" : "convertBodyTo",
@@ -54,7 +51,7 @@
       "kameletPropertiesUrl" : "?targetClass=String.class"
     }, {
       "name" : "setProperties",
-      "nodeId" : "0b336507-ddad-41d8-a8c5-cc7f83bee8aa",
+      "nodeId" : "a07637f7-8d6b-4fc5-b3a7-f3437f285db7",
       "description" : "",
       "properties" : {
         "_type" : "setProperties",
@@ -63,22 +60,25 @@
         "camelGroup" : "core",
         "name" : "setProperties",
         "namespaces" : [ ],
-        "propertyList" : [ ],
+        "propertyList" : [ {
+          "language" : "Constant",
+          "propertyName" : "test",
+          "propertyValue" : "test",
+          "uuid" : "0661feb3-5e12-49d0-84c5-9bbcecd8262c"
+        } ],
         "suppressExceptions" : false,
         "url" : ""
       },
       "_type" : "setProperties",
-      "kameletPropertiesUrl" : "?addNamespaces=false&suppressExceptions=false"
+      "kameletPropertiesUrl" : "?test=test&addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "kafka",
-      "nodeId" : "fc1fc143-99b8-4e46-a8e0-40a892ddda39",
+      "nodeId" : "1145fa90-888e-4088-b37b-9a2b28600c6e",
       "description" : "",
       "properties" : {
         "_type" : "kafka",
         "active" : true,
         "advancedParameters" : [ ],
-        "autoCommitEnable" : true,
-        "autoCommitIntervalMs" : "5000",
         "autoOffsetReset" : "latest",
         "brokers" : "localhost:9092",
         "bufferMemorySize" : "33554432",
@@ -86,18 +86,12 @@
         "clientId" : "jetic.io",
         "compressionCodec" : "none",
         "connectionMaxIdleMs" : "540000",
-        "fetchMinBytes" : "1",
-        "fetchWaitMaxMs" : "500",
-        "groupId" : "A",
-        "heartbeatIntervalMs" : "3000",
         "lingerMs" : "0",
         "maxBlockMs" : "60000",
         "maxInFlightRequest" : "5",
-        "maxPartitionFetchBytes" : "1048576",
         "maxRequestSize" : "1048576",
         "metadataMaxAgeMs" : "300000",
         "name" : "kafka",
-        "partitionAssignor" : "org.apache.kafka.clients.consumer.RangeAssignor",
         "partitioner" : "org.apache.kafka.clients.producer.internals.DefaultPartitioner",
         "producerBatchSize" : "16384",
         "receiveBufferBytes" : "65536",
@@ -108,7 +102,6 @@
         "retryBackoffMs" : "100",
         "securityProtocol" : "PLAINTEXT",
         "sendBufferBytes" : "131072",
-        "sessionTimeoutMs" : "10000",
         "sslKeystoreLocation" : "",
         "sslTruststorePassword" : "",
         "toDynamicEndpoint" : false,
@@ -116,10 +109,10 @@
         "url" : ""
       },
       "_type" : "kafka",
-      "kameletPropertiesUrl" : "?topic=topic&brokers=localhost:9092&clientId=jetic.io&groupId=A&autoCommitEnable=true&autoCommitIntervalMs=5000&autoOffsetReset=latest&fetchWaitMaxMs=500&fetchMinBytes=1&heartbeatIntervalMs=3000&maxPartitionFetchBytes=1048576&partitionAssignor=org.apache.kafka.clients.consumer.RangeAssignor&sessionTimeoutMs=10000&bufferMemorySize=33554432&compressionCodec=none&connectionMaxIdleMs=540000&lingerMs=0&maxBlockMs=60000&maxInFlightRequest=5&maxRequestSize=1048576&metadataMaxAgeMs=300000&partitioner=org.apache.kafka.clients.producer.internals.DefaultPartitioner&producerBatchSize=16384&receiveBufferBytes=65536&reconnectBackoffMs=50&requestRequiredAcks=1&requestTimeoutMs=30000&retries=0&retryBackoffMs=100&sendBufferBytes=131072&securityProtocol=PLAINTEXT"
+      "kameletPropertiesUrl" : "?topic=topic&brokers=localhost:9092&clientId=jetic.io&autoOffsetReset=latest&bufferMemorySize=33554432&compressionCodec=none&connectionMaxIdleMs=540000&lingerMs=0&maxBlockMs=60000&maxInFlightRequest=5&maxRequestSize=1048576&metadataMaxAgeMs=300000&partitioner=org.apache.kafka.clients.producer.internals.DefaultPartitioner&producerBatchSize=16384&receiveBufferBytes=65536&reconnectBackoffMs=50&requestRequiredAcks=1&requestTimeoutMs=30000&retries=0&retryBackoffMs=100&sendBufferBytes=131072&securityProtocol=PLAINTEXT"
     }, {
       "name" : "log",
-      "nodeId" : "11ef487f-339b-48ff-b923-d49a8fd1fe06",
+      "nodeId" : "ee756fd8-0bbc-43c2-8d8d-e2ef0d97bbb3",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -153,7 +146,7 @@
     "routeId" : 2,
     "route" : [ {
       "name" : "rest",
-      "nodeId" : "befbc460-482c-42f6-8716-13870518f3ea",
+      "nodeId" : "9c798567-883c-4b2e-849c-bbae3355b6c2",
       "description" : "",
       "properties" : {
         "_type" : "rest",
@@ -168,41 +161,22 @@
         "host" : "",
         "inType" : "",
         "lazyStartProducer" : false,
-        "method" : "",
+        "method" : "Get",
         "name" : "rest",
         "outType" : "",
-        "path" : "",
+        "path" : "/test",
         "producerComponentName" : "",
         "produces" : "",
         "queryParameters" : "",
         "routeId" : "",
-        "toDynamicEndpoint" : false,
         "uriTemplate" : "",
         "url" : ""
       },
       "_type" : "rest",
-      "kameletPropertiesUrl" : "?bridgeErrorHandler=false&lazyStartProducer=false"
-    }, {
-      "name" : "kamelet-source",
-      "nodeId" : "d3eaa27a-b576-4ae4-85af-401aec519ad7",
-      "description" : "",
-      "properties" : {
-        "_type" : "kameletSource",
-        "active" : true,
-        "camelGroup" : "kamelet",
-        "name" : "telegram-source",
-        "propertyList" : [ {
-          "propertyName" : "test",
-          "propertyValue" : "hello world",
-          "uuid" : "e1ebd675-b44a-4f5d-8488-14cd084b78a2"
-        } ],
-        "url" : ""
-      },
-      "_type" : "kameletSource",
-      "kameletPropertiesUrl" : "?test=hello world"
+      "kameletPropertiesUrl" : "?method=Get&path=/test&bridgeErrorHandler=false&lazyStartProducer=false"
     }, {
       "name" : "log",
-      "nodeId" : "7920caa7-081d-4a23-b309-5fe6bc2a6940",
+      "nodeId" : "8f404293-14ca-43a8-b252-c53b3002780e",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -230,7 +204,7 @@
       "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers: ${headers}; body: ${body}"
     }, {
       "name" : "http",
-      "nodeId" : "55a70268-36fd-4a53-a6c5-c66560ce0ac5",
+      "nodeId" : "968acf1b-7de5-4f48-be5c-ddf23840da5a",
       "description" : "",
       "properties" : {
         "_type" : "http",
@@ -254,7 +228,7 @@
       "kameletPropertiesUrl" : "?httpMethod=GET&httpUri=api.datagrate.co&bridgeEndpoint=false&throwExceptionOnFailure=true&connectionRequestTimeout=20000&connectTimeout=20000&socketTimeout=20000&disableStreamCache=true"
     }, {
       "name" : "log",
-      "nodeId" : "07849c53-258a-434c-988b-74a77d30a2de",
+      "nodeId" : "88336454-e17f-4505-bd6f-86f3a2b6c714",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -287,7 +261,7 @@
   "name" : "test6",
   "description" : "Route test 6",
   "createdAt" : "2023-10-16T15:04:29.757356798",
-  "updatedAt" : "2023-10-16T15:07:36.642225868",
+  "updatedAt" : "2023-10-16T16:18:40.284232905",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
 }
