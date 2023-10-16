@@ -1,5 +1,5 @@
 {
-  "revision" : 8,
+  "revision" : 10,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -14,7 +14,7 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
-      "nodeId" : "297390e4-b1e2-4db8-b683-616c1704f6f1",
+      "nodeId" : "2fa62f24-5d71-4359-bfe5-d3736a9c0e31",
       "description" : "",
       "properties" : {
         "_type" : "timer",
@@ -36,7 +36,7 @@
       "kameletPropertiesUrl" : "?timerName=timer&period=1000&repeatCount=0&delay=1000&fixedRate=false&daemon=true&setScheduleTime=false&time=2021-12-31 00:00:00"
     }, {
       "name" : "setBody",
-      "nodeId" : "3795400a-5e9b-40df-9c2a-f4203f094348",
+      "nodeId" : "0ebe5a2e-b8df-4203-b531-7c7c9ed93370",
       "description" : "",
       "properties" : {
         "_type" : "setBody",
@@ -54,7 +54,7 @@
       "kameletPropertiesUrl" : "?language=Simple&expression=This is Test&addNamespaces=false&suppressExceptions=false"
     }, {
       "name" : "log",
-      "nodeId" : "c0ee5397-c570-41a3-9df1-8094089590a6",
+      "nodeId" : "9838031c-3888-4a7b-98df-99120443165f",
       "description" : "",
       "properties" : {
         "_type" : "log",
@@ -87,7 +87,7 @@
   "name" : "test1",
   "description" : "",
   "createdAt" : "2023-09-22T14:48:30.8969973",
-  "updatedAt" : "2023-09-28T20:40:40.773969766",
+  "updatedAt" : "2023-10-02T17:06:12.996910494",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440011",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440011"
 }
