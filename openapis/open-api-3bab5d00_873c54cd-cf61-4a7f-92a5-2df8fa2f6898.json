@@ -1,0 +1,26 @@
+{
+  "version" : "0.0.1",
+  "host" : "3bab5d00.dev.datagrate.co",
+  "id" : "873c54cd-cf61-4a7f-92a5-2df8fa2f6898",
+  "name" : "open-api-3bab5d00",
+  "description" : null,
+  "createdAt" : "2023-11-14T10:11:07.0542406",
+  "updatedAt" : "2023-11-14T10:11:07.0688008",
+  "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
+  "updatedBy" : "123e4567-e89b-12d3-a456-426655440010",
+  "endpoints" : [ {
+    "uuid" : "31a0788e-a819-4107-a946-8c6e6fad37d2",
+    "name" : "undefined",
+    "path" : "/api/v1/test",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "44449dbf-8406-4b89-bc46-3ba112d80c82",
+      "operationId" : "default",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"open-api-3bab5d00\",\"version\":\"0.0.1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/api/v1/test\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"default\"}}},\"components\":{}}"
+}
