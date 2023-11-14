@@ -1,0 +1,52 @@
+{
+  "revision" : 2,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : null,
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ {
+    "id" : 1,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "timer-body-choise-log-source",
+      "nodeId" : "kameletSource-00-id",
+      "description" : "",
+      "properties" : {
+        "_type" : "kameletSource",
+        "active" : true,
+        "body" : "test exchangeId: ${exchangeId}",
+        "camelGroup" : "andrei's jetlets",
+        "name" : "timer-body-choise-log-source",
+        "period" : "500",
+        "url" : ""
+      },
+      "_type" : "kameletSource",
+      "isNotActive" : false
+    }, {
+      "name" : "stop",
+      "nodeId" : "stop-00-id",
+      "description" : "",
+      "properties" : {
+        "_type" : "stop",
+        "camelGroup" : "misc",
+        "name" : "stop",
+        "url" : ""
+      },
+      "_type" : "stop",
+      "isNotActive" : false
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "7ca4f005-d093-41d5-bf6d-88ea1102a978",
+  "name" : "timer-body-choise-log",
+  "description" : "Timer -> Body -> (When -> Log) -> (Otherwise -> Log)",
+  "createdAt" : "2023-11-14T10:20:02.7525339",
+  "updatedAt" : "2023-11-14T11:05:29.0318815",
+  "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
+  "updatedBy" : "123e4567-e89b-12d3-a456-426655440010"
+}
