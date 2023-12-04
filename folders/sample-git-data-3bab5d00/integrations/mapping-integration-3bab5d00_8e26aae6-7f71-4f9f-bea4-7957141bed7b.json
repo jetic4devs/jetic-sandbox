@@ -1,14 +1,14 @@
 {
-  "revision" : 2,
+  "revision" : 3,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
   "openApiUuid" : null,
-  "currentProfileUuid" : null,
+  "currentProfileUuid" : "df421749-23be-4535-b894-3268c6db3717",
   "parameterGroupUuids" : [ ],
   "repoResourceUuids" : [ "a96695b2-73ad-45ed-851e-8b8495c00f5d" ],
   "routeDefinitions" : [ {
-    "id" : null,
+    "id" : 1,
     "camelRouteId" : "mapping-integration",
     "enabled" : true,
     "routeId" : 1,
@@ -17,14 +17,20 @@
       "nodeId" : "once per second-id",
       "description" : "once per second",
       "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
         "daemon" : true,
         "delay" : "1000",
         "fixedRate" : false,
+        "name" : "timer",
         "period" : "1000",
         "repeatCount" : "0",
         "setScheduleTime" : false,
         "time" : "2021-12-31 00:00:00",
-        "timerName" : "timer"
+        "timerName" : "timer",
+        "url" : ""
       },
       "_type" : "timer",
       "isNotActive" : false
@@ -33,6 +39,12 @@
       "nodeId" : "set 2 input json bodies-id",
       "description" : "set 2 input json bodies",
       "properties" : {
+        "_type" : "setProperties",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "name" : "setProperties",
+        "namespaces" : [ ],
         "propertyList" : [ {
           "language" : "Constant",
           "propertyName" : "in-157a8c87-6002-48a7-a20d-de95588e2bd9",
@@ -41,7 +53,9 @@
           "language" : "Constant",
           "propertyName" : "test-315aac82-fc63-441f-94e7-ae674d4fb382",
           "propertyValue" : "{\"test\":\"was successfully mapped!\"}"
-        } ]
+        } ],
+        "suppressExceptions" : false,
+        "url" : ""
       },
       "_type" : "setProperties",
       "isNotActive" : false
@@ -50,10 +64,26 @@
       "nodeId" : "log input jsons-id",
       "description" : "log input jsons",
       "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
         "level" : "INFO",
         "logType" : "EIP",
         "loggerName" : "log",
-        "message" : "input json 1: ${exchangeProperty.in-157a8c87-6002-48a7-a20d-de95588e2bd9}; input json 2: ${exchangeProperty.test-315aac82-fc63-441f-94e7-ae674d4fb382}"
+        "message" : "input json 1: ${exchangeProperty.in-157a8c87-6002-48a7-a20d-de95588e2bd9}; input json 2: ${exchangeProperty.test-315aac82-fc63-441f-94e7-ae674d4fb382}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
       },
       "_type" : "log",
       "isNotActive" : false
@@ -62,13 +92,20 @@
       "nodeId" : "map jsons to xml-id",
       "description" : "map jsons to xml",
       "properties" : {
+        "_type" : "atlasmap",
+        "active" : true,
+        "advancedParameters" : [ ],
         "allowContextMapAll" : false,
+        "camelGroup" : "component",
         "contentCache" : false,
         "lazyStartProducer" : false,
+        "name" : "atlasmap",
         "resourceUri" : "atlasmap-mapping.adm",
         "sourceMapName" : "",
         "targetMapMode" : "MAP",
-        "targetMapName" : ""
+        "targetMapName" : "",
+        "toDynamicEndpoint" : false,
+        "url" : ""
       },
       "_type" : "atlasmap",
       "isNotActive" : false
@@ -77,12 +114,50 @@
       "nodeId" : "log output xml-id",
       "description" : "log output xml",
       "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "component",
         "level" : "INFO",
         "logType" : "EIP",
         "loggerName" : "log",
-        "message" : "output xml: ${body}"
+        "message" : "output xml: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
       },
       "_type" : "log",
+      "isNotActive" : false
+    }, {
+      "name" : "setHeaders",
+      "nodeId" : "setHeaders-00-id",
+      "description" : "setHeaders-00-id",
+      "properties" : {
+        "_type" : "setHeaders",
+        "active" : true,
+        "addNamespaces" : false,
+        "camelGroup" : "core",
+        "headerList" : [ {
+          "headerName" : "",
+          "headerValue" : "",
+          "language" : "",
+          "uuid" : "88e3350e-256f-416a-b340-7edafd0b174d"
+        } ],
+        "name" : "setHeaders",
+        "namespaces" : [ ],
+        "suppressExceptions" : false,
+        "url" : ""
+      },
+      "_type" : "setHeaders",
       "isNotActive" : false
     } ]
   } ],
@@ -91,7 +166,7 @@
   "name" : "mapping-integration-3bab5d00",
   "description" : "Mapping integration from json to xml",
   "createdAt" : "2023-11-14T10:11:07.1088009",
-  "updatedAt" : "2023-11-14T10:11:07.2448206",
+  "updatedAt" : "2023-12-04T20:57:36.020979614",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440010"
 }
