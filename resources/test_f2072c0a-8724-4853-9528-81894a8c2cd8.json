@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgOCA5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBpZD0ieCI+CjxwYXRoIGlkPSJJY29uIiBkPSJNNS42NjYzNCAyLjU4MzI1TDIuMzMzMDEgNS45MTY1OU0yLjMzMzAxIDIuNTgzMjVMNS42NjYzNCA1LjkxNjU5IiBzdHJva2U9IndoaXRlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9nPgo8L3N2Zz4K",
+    "filename" : "text.txt",
+    "type" : "File"
+  },
+  "id" : "f2072c0a-8724-4853-9528-81894a8c2cd8",
+  "name" : "test",
+  "description" : "test file",
+  "createdAt" : "2024-01-26T14:48:00.45077357",
+  "updatedAt" : "2024-01-26T19:17:16.535006343",
+  "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
+  "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
+}

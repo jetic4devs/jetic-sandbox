@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : null,
+    "filename" : "text.txt",
+    "type" : "Content"
+  },
+  "id" : "ce42d8e9-e561-4f3e-a90b-bbc55396a23c",
+  "name" : "code resource",
+  "description" : "code resource",
+  "createdAt" : "2024-01-29T15:04:35.290188498",
+  "updatedAt" : "2024-01-29T15:04:53.271035822",
+  "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
+  "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
+}

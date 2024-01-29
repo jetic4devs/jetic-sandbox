@@ -1,12 +1,12 @@
 {
-  "revision" : 17,
+  "revision" : 20,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
   "openApiUuid" : null,
   "currentProfileUuid" : "4439e5db-2de0-4b36-9596-a4b01910204b",
   "parameterGroupUuids" : [ ],
-  "repoResourceUuids" : [ ],
+  "repoResourceUuids" : [ "ce42d8e9-e561-4f3e-a90b-bbc55396a23c", "f2072c0a-8724-4853-9528-81894a8c2cd8", "cf3b0526-7fd1-4ff4-a7a7-5a72497e9270" ],
   "routeDefinitions" : [ {
     "id" : 1,
     "camelRouteId" : "route-f9b4aec0",
@@ -14,8 +14,8 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
-      "nodeId" : "timer-00-id",
-      "description" : "timer-00-id",
+      "nodeId" : "timer: 00",
+      "description" : "timer: 00",
       "properties" : {
         "_type" : "timer",
         "active" : true,
@@ -36,8 +36,8 @@
       "isNotActive" : false
     }, {
       "name" : "log",
-      "nodeId" : "log-00-id",
-      "description" : "log-00-id",
+      "nodeId" : "log: 00",
+      "description" : "log: 00",
       "properties" : {
         "_type" : "log",
         "active" : true,
@@ -70,8 +70,8 @@
     "routeId" : 2,
     "route" : [ {
       "name" : "flink",
-      "nodeId" : "flink-00-id",
-      "description" : "flink-00-id",
+      "nodeId" : "flink: 00",
+      "description" : "flink: 00",
       "properties" : {
         "_type" : "flink",
         "active" : true,
@@ -86,8 +86,8 @@
       "isNotActive" : false
     }, {
       "name" : "test100-action",
-      "nodeId" : "kameletSink-00-id",
-      "description" : "kameletSink-00-id",
+      "nodeId" : "kameletSink: 00",
+      "description" : "kameletSink: 00",
       "properties" : {
         "_type" : "kameletSink",
         "active" : true,
@@ -104,7 +104,7 @@
   "name" : "integr1",
   "description" : "",
   "createdAt" : "2023-10-02T14:20:34.868408722",
-  "updatedAt" : "2024-01-16T16:54:28.940185994",
+  "updatedAt" : "2024-01-29T15:06:15.027256479",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
   "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
 }
