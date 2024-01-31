@@ -1,0 +1,17 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:application/octet-stream;base64,U0VMRUNUDQpGUk9NIG5vdygpOw==",
+    "filename" : "insert.sql",
+    "type" : "File"
+  },
+  "id" : "cad6d8b7-da75-4972-8c9d-c5328ec7b6bf",
+  "name" : "sql extension",
+  "description" : "sql file",
+  "createdAt" : "2024-01-31T15:47:34.456979286",
+  "updatedAt" : "2024-01-31T15:47:45.727200342",
+  "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
+  "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
+}
