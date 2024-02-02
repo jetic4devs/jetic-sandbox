@@ -3,6 +3,7 @@
   "properties" : {
     "codeGroovy" : "beans {\n    myString = 'Hello World!'\n\n    myProcessor = processor { \n        it.in.body = 'Hello from Groovy'\n    }\n\n    myPredicate = predicate {\n        it.in.body != null\n    }\n}",
     "codeJava" : "@BindToRegistry\npublic String myString() {\n    return \"Hello World\";\n}\n\n@BindToRegistry\npublic Processor myProcessor() {\n    return e -> e.getMessage().setBody(\"Hello from Java\");\n}",
+    "content" : "import org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;\n\n@BindToRegistry\npublic String myString() {\n    return \"Hello World\";\n}\n\n@BindToRegistry\npublic Processor myProcessor() {\n    return e -> e.getMessage().setBody(\"Hello from Java\");\n}\n\n// Updated beans",
     "importsGroovy" : null,
     "importsJava" : "import org.apache.camel.BindToRegistry;\nimport org.apache.camel.Processor;",
     "type" : "Java"
@@ -11,7 +12,7 @@
   "name" : "beans test",
   "description" : "beans",
   "createdAt" : "2024-01-29T15:06:14.376317715",
-  "updatedAt" : "2024-01-29T15:06:25.360702243",
+  "updatedAt" : "2024-02-02T14:53:32.654911419",
   "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
   "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
 }
