@@ -1,19 +1,19 @@
 {
-  "revision" : 1,
+  "revision" : 2,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
   "openApiUuid" : null,
   "currentProfileUuid" : null,
   "parameterGroupUuids" : [ ],
-  "repoResourceUuids" : [ ],
+  "repoResourceUuids" : [ "8dc9a0cd-e06c-4c43-97cb-db9d49a64e56" ],
   "routeDefinitions" : [ ],
   "traits" : [ ],
   "id" : "01a5fc49-50e0-419d-ba1d-dda1a1d01461",
   "name" : "test",
   "description" : "",
   "createdAt" : "2023-10-31T15:45:24.605529",
-  "updatedAt" : "2023-10-31T15:45:24.605532",
+  "updatedAt" : "2024-02-05T15:35:13.320317428",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
-  "updatedBy" : "123e4567-e89b-12d3-a456-426655440010"
+  "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
 }
