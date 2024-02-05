@@ -4,11 +4,11 @@
     "content" : "import org.apache.camel.AggregationStrategy;\nimport org.apache.camel.BindToRegistry;\nimport org.apache.camel.Exchange;\nimport org.apache.camel.builder.RouteBuilder;\n\n// simply combines Exchange String body values using '; ' as a delimiter\npublic class StringAggregationStrategy extends RouteBuilder implements AggregationStrategy {\n\n    @BindToRegistry(\"StringAggregationStrategy\")\n    public StringAggregationStrategy getStringAggregationStrategy() {\n        return this;\n    }\n\n    @Override\n    public void configure() throws Exception {\n    }\n\n    @Override\n    public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {\n        if (oldExchange == null) {\n            return newExchange;\n        }\n\n        String oldBody = oldExchange.getIn().getBody(String.class);\n        String newBody = newExchange.getIn().getBody(String.class);\n        oldExchange.getIn().setBody(oldBody + \"; \" + newBody);\n        return oldExchange;\n    }\n}",
     "filename" : "StringAggregationStrategy.java"
   },
-  "id" : "629a0a1b-e6fc-48c4-a634-1232aeedd135",
-  "name" : "source test",
+  "id" : "c6c589a6-4976-4a28-b1be-6ed9a0f23de5",
+  "name" : "New source def",
   "description" : "definition",
-  "createdAt" : "2024-02-02T18:21:24.40769498",
-  "updatedAt" : "2024-02-02T18:38:12.969955987",
+  "createdAt" : "2024-02-05T15:33:16.94034173",
+  "updatedAt" : "2024-02-05T15:33:23.131184639",
   "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
   "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
 }

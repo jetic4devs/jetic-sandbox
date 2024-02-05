@@ -1,0 +1,14 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "content" : "// Imports\r\nimport org.apache.camel.BindToRegistry;\r\nimport org.apache.camel.Processor;\r\n\r\n// New updated change",
+    "type" : "Java"
+  },
+  "id" : "d4554a70-bb7e-4a58-8aac-09603f40a591",
+  "name" : "Beans",
+  "description" : "test",
+  "createdAt" : "2024-02-05T15:02:18.444955332",
+  "updatedAt" : "2024-02-05T15:30:15.418939707",
+  "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
+  "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
+}
