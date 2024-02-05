@@ -1,0 +1,14 @@
+{
+  "type" : "BEANS",
+  "properties" : {
+    "content" : null,
+    "type" : "Java"
+  },
+  "id" : "4eb6a160-c66b-47bd-9fc9-87fa05a472c6",
+  "name" : "1",
+  "description" : "1",
+  "createdAt" : "2024-02-02T19:43:24.717430085",
+  "updatedAt" : "2024-02-02T19:43:26.902992108",
+  "createdBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a",
+  "updatedBy" : "dd06abe8-2cbf-4c25-8cb6-d438132c1e3a"
+}
