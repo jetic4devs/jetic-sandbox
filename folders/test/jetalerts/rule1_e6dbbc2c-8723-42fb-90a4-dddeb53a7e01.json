@@ -1,0 +1,12 @@
+{
+  "group" : "Jetic Platform",
+  "properties" : [ ],
+  "rule" : "apiVersion: io.jetic.jetalert/v1\nkind: JetAlertRule\nmetadata:\n  name: test-rule\nspec:\n  rule: |\n    type: frequency\n    name: test\n    index: jetic\n    num_events: 1\n    timeframe:\n      minutes: 60\n    filter:\n      - query:\n          query_string:\n            query: \"*\"\n    sort_by: \"timestamp\"\n    alert:\n      - \"slack\"\n    slack_webhook_url: \"URL\"",
+  "id" : "e6dbbc2c-8723-42fb-90a4-dddeb53a7e01",
+  "name" : "rule1",
+  "description" : "This is for Testing",
+  "createdAt" : "2024-02-06T12:44:50.851461",
+  "updatedAt" : "2024-02-06T12:44:50.851471",
+  "createdBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
+  "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
+}
