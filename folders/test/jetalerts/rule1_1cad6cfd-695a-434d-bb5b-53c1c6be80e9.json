@@ -1,0 +1,12 @@
+{
+  "group" : "Jetic Platform",
+  "properties" : [ ],
+  "routeDefinitions" : [ ],
+  "id" : "1cad6cfd-695a-434d-bb5b-53c1c6be80e9",
+  "name" : "rule1",
+  "description" : null,
+  "createdAt" : "2024-02-06T09:39:25.129481",
+  "updatedAt" : "2024-02-06T09:39:25.129486",
+  "createdBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
+  "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
+}
