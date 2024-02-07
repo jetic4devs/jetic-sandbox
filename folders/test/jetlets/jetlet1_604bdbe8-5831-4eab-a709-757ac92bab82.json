@@ -30,13 +30,41 @@
       },
       "_type" : "timer",
       "isNotActive" : false
+    }, {
+      "name" : "log",
+      "nodeId" : "log: 00",
+      "description" : "log: 00",
+      "properties" : {
+        "_type" : "log",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "core feature",
+        "level" : "INFO",
+        "logType" : "EIP",
+        "loggerName" : "log",
+        "message" : "headers: ${headers}; body: ${body}",
+        "multiline" : false,
+        "name" : "log",
+        "showAll" : false,
+        "showBody" : true,
+        "showBodyType" : true,
+        "showCaughtException" : false,
+        "showExchangeId" : false,
+        "showHeaders" : false,
+        "showProperties" : false,
+        "showStackTrace" : false,
+        "toDynamicEndpoint" : false,
+        "url" : ""
+      },
+      "_type" : "log",
+      "isNotActive" : false
     } ]
   } ],
   "id" : "604bdbe8-5831-4eab-a709-757ac92bab82",
   "name" : "jetlet1",
   "description" : "",
   "createdAt" : "2024-02-05T17:42:29.674005237",
-  "updatedAt" : "2024-02-06T17:19:43.911321405",
+  "updatedAt" : "2024-02-06T21:39:44.436776186",
   "createdBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
   "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
 }
