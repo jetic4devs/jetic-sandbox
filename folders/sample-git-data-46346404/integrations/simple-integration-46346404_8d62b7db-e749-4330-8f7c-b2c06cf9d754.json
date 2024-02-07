@@ -1,12 +1,12 @@
 {
-  "revision" : 26,
+  "revision" : 37,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
   "openApiUuid" : null,
-  "currentProfileUuid" : "827bdf5a-a018-4e6b-b454-65b975d49930",
+  "currentProfileUuid" : null,
   "parameterGroupUuids" : [ ],
-  "repoResourceUuids" : [ ],
+  "repoResourceUuids" : [ "2eb0b361-2fd9-4426-b812-ec963b782795" ],
   "routeDefinitions" : [ {
     "id" : 1,
     "camelRouteId" : "simple-integration",
@@ -14,7 +14,7 @@
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
-      "nodeId" : "once per second-id",
+      "nodeId" : "timer: once per second",
       "description" : "once per second",
       "properties" : {
         "_type" : "timer",
@@ -25,7 +25,7 @@
         "delay" : "1000",
         "fixedRate" : false,
         "name" : "timer",
-        "period" : "60000",
+        "period" : "1000",
         "repeatCount" : "0",
         "setScheduleTime" : false,
         "time" : "2021-12-31 00:00:00",
@@ -33,17 +33,17 @@
         "url" : ""
       },
       "_type" : "timer",
-      "kameletPropertiesUrl" : "?timerName=timer&period=60000&repeatCount=0&delay=1000&fixedRate=false&daemon=true&setScheduleTime=false&time=2021-12-31 00:00:00"
+      "isNotActive" : false
     }, {
       "name" : "setBody",
-      "nodeId" : "add exchangeId to body-id",
+      "nodeId" : "setBody: add exchangeId to body",
       "description" : "add exchangeId to body",
       "properties" : {
         "_type" : "setBody",
         "active" : true,
         "addNamespaces" : false,
         "camelGroup" : "core",
-        "expression" : "test body from simple: ${exchangeId}",
+        "expression" : "test body from simple1: ${exchangeId}",
         "language" : "Simple",
         "name" : "setBody",
         "namespaces" : [ ],
@@ -51,10 +51,10 @@
         "url" : ""
       },
       "_type" : "setBody",
-      "kameletPropertiesUrl" : "?language=Simple&expression=test body from simple: ${exchangeId}&addNamespaces=false&suppressExceptions=false"
+      "isNotActive" : false
     }, {
       "name" : "log",
-      "nodeId" : "EIP log-id",
+      "nodeId" : "log: EIP log",
       "description" : "EIP log",
       "properties" : {
         "_type" : "log",
@@ -79,7 +79,7 @@
         "url" : ""
       },
       "_type" : "log",
-      "kameletPropertiesUrl" : "?loggerName=log&level=INFO&logType=EIP&multiline=false&showAll=false&showBody=true&showBodyType=true&showCaughtException=false&showExchangeId=false&showHeaders=false&showProperties=false&showStackTrace=false&message=headers3: ${headers}; body1: ${body}"
+      "isNotActive" : false
     } ]
   } ],
   "traits" : [ ],
@@ -87,7 +87,7 @@
   "name" : "simple-integration-46346404",
   "description" : "Simple integration with the timer-body-log example",
   "createdAt" : "2023-09-08T12:41:49.668429375",
-  "updatedAt" : "2023-10-25T19:00:40.731343982",
+  "updatedAt" : "2024-02-06T12:35:52.3056659",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
   "updatedBy" : "123e4567-e89b-12d3-a456-426655440010"
 }

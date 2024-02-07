@@ -1,0 +1,11 @@
+{
+  "type" : "BEANS",
+  "properties" : { },
+  "id" : "2eb0b361-2fd9-4426-b812-ec963b782795",
+  "name" : "test",
+  "description" : "",
+  "createdAt" : "2024-02-06T12:35:52.1435737",
+  "updatedAt" : "2024-02-06T12:35:52.1435737",
+  "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
+  "updatedBy" : "123e4567-e89b-12d3-a456-426655440010"
+}
