@@ -9,7 +9,7 @@ metadata:
     camel.apache.org/integration: "test"
     jetic.io/deployment.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/integration.name: "test"
-    jetic.io/integration.revision: "4"
+    jetic.io/integration.revision: "10"
     jetic.io/integration.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
@@ -26,7 +26,7 @@ metadata:
     camel.apache.org/integration: "test"
     jetic.io/deployment.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/integration.name: "test"
-    jetic.io/integration.revision: "4"
+    jetic.io/integration.revision: "10"
     jetic.io/integration.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
@@ -41,7 +41,7 @@ metadata:
     camel.apache.org/integration: "test"
     jetic.io/deployment.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/integration.name: "test"
-    jetic.io/integration.revision: "4"
+    jetic.io/integration.revision: "10"
     jetic.io/integration.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
@@ -70,7 +70,7 @@ spec:
       // activate JETIC.IO Data Analyzer
       JeticAnalyzer.activate(getContext())
 
-      from('timer:timer?daemon=true&delay=1000&fixedRate=false&period=1000&repeatCount=0').routeId('route-1')
+      from('timer:timer?daemon=true&delay=1000&fixedRate=false&period=1000&repeatCount=1').routeId('route-1')
           .log(LoggingLevel.INFO, 'log', 'headers: ${headers}; body: ${body}').id('log: 00')
     name: "test.groovy"
   traits:

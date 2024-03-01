@@ -1,5 +1,5 @@
 {
-  "revision" : 4,
+  "revision" : 10,
   "compression" : false,
   "dataAnalyzer" : true,
   "replicas" : 1,
@@ -26,7 +26,7 @@
         "fixedRate" : false,
         "name" : "timer",
         "period" : "1000",
-        "repeatCount" : "0",
+        "repeatCount" : "1",
         "setScheduleTime" : false,
         "time" : "2021-12-31 00:00:00",
         "timerName" : "timer",
@@ -69,7 +69,7 @@
   "name" : "test",
   "description" : "",
   "createdAt" : "2023-10-31T15:45:24.605529",
-  "updatedAt" : "2024-03-01T10:21:27.851429",
+  "updatedAt" : "2024-03-01T10:49:39.67219",
   "createdBy" : "123e4567-e89b-12d3-a456-426655440010",
   "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
 }
