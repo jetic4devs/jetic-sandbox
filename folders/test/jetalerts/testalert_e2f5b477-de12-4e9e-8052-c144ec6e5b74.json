@@ -1,12 +1,12 @@
 {
   "group" : "Jetic Platform",
   "properties" : [ ],
-  "rule" : "---\napiVersion: \"io.jetic.jetalert/v1\"\nkind: \"JetAlertRule\"\nmetadata:\n  name: \"testalert111\"\n  labels:\n    jetic.io/jetalert.uuid: \"e2f5b477-de12-4e9e-8052-c144ec6e5b74\"\nspec:\n  rule: |-\n    # Example of JetAlert Rule\n    type: frequency\n    name: testalert11\n    index: jetic-messages\n    num_events: 1\n    timeframe:\n       minutes: 60\n    filter:\n     - query:\n         query_string:\n           query: \"*\"\n    sort_by: \"timestamp\"\n    alert:\n      - \"debug\"\n",
+  "rule" : "---\napiVersion: \"io.jetic.jetalert/v1\"\nkind: \"JetAlertRule\"\nmetadata:\n  name: \"testalert\"\n  labels:\n    jetic.io/jetalert.uuid: \"e2f5b477-de12-4e9e-8052-c144ec6e5b74\"\nspec:\n  rule: |-\n    # Example of JetAlert Rule\n    type: frequency\n    name: testalert11\n    index: jetic-messages\n    num_events: 1\n    timeframe:\n       minutes: 60\n    filter:\n     - query:\n         query_string:\n           query: \"*\"\n    sort_by: \"timestamp\"\n    alert:\n      - \"debug\"\n",
   "id" : "e2f5b477-de12-4e9e-8052-c144ec6e5b74",
   "name" : "testalert",
   "description" : "",
   "createdAt" : "2024-03-01T14:32:10.632769",
-  "updatedAt" : "2024-03-01T15:11:12.633613",
+  "updatedAt" : "2024-03-01T15:18:47.899413",
   "createdBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
   "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
 }
