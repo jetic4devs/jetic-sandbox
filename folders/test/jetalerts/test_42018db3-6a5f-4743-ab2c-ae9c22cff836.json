@@ -1,0 +1,12 @@
+{
+  "group" : "Jetic Platform",
+  "properties" : [ ],
+  "rule" : "---\napiVersion: \"io.jetic.jetalert/v1\"\nkind: \"JetAlertRule\"\nmetadata:\n    name: \"test\"\n    labels:\n        jetic.io/jetalert.uuid: \"42018db3-6a5f-4743-ab2c-ae9c22cff836\"\nspec:\n    rule: |-\n      # Example of JetAlert Rule\n      type: frequency\n      name: test\n      index: jetic-messages\n      num_events: 1\n      timeframe:\n         minutes: 60\n      filter:\n       - query:\n           query_string:\n             query: \"*\"\n      sort_by: \"timestamp\"\n      alert:\n        - \"debug\"",
+  "id" : "42018db3-6a5f-4743-ab2c-ae9c22cff836",
+  "name" : "test",
+  "description" : "",
+  "createdAt" : "2024-03-01T10:22:46.714757",
+  "updatedAt" : "2024-03-01T10:22:46.714758",
+  "createdBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
+  "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
+}

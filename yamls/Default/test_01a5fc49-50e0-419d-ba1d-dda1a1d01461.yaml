@@ -1,0 +1,106 @@
+---
+apiVersion: "v1"
+data:
+  application.properties: "quarkus.log.console.level=INFO"
+kind: "ConfigMap"
+metadata:
+  annotations: {}
+  labels:
+    camel.apache.org/integration: "test"
+    jetic.io/deployment.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
+    jetic.io/integration.name: "test"
+    jetic.io/integration.revision: "4"
+    jetic.io/integration.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "4439e5db-2de0-4b36-9596-a4b01910204b"
+  name: "test-properties"
+---
+apiVersion: "v1"
+data: {}
+kind: "ConfigMap"
+metadata:
+  annotations: {}
+  labels:
+    camel.apache.org/integration: "test"
+    jetic.io/deployment.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
+    jetic.io/integration.name: "test"
+    jetic.io/integration.revision: "4"
+    jetic.io/integration.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "4439e5db-2de0-4b36-9596-a4b01910204b"
+  name: "test-resources"
+---
+apiVersion: "camel.apache.org/v1"
+kind: "Integration"
+metadata:
+  labels:
+    camel.apache.org/integration: "test"
+    jetic.io/deployment.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
+    jetic.io/integration.name: "test"
+    jetic.io/integration.revision: "4"
+    jetic.io/integration.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "4439e5db-2de0-4b36-9596-a4b01910204b"
+  name: "test"
+spec:
+  dependencies:
+  - "mvn:io.jetic.analyzer:jetic-analyzer:3.1.1"
+  replicas: 1
+  sources:
+  - compression: false
+    content: |-
+      //
+      // To run this integration use:
+      //
+      // kamel run test.groovy
+      //
+
+      // camel-k: language=groovy
+      // camel-k: name=test
+
+      import io.jetic.analyzer.JeticAnalyzer
+      import org.apache.camel.LoggingLevel
+
+      // activate JETIC.IO Data Analyzer
+      JeticAnalyzer.activate(getContext())
+
+      from('timer:timer?daemon=true&delay=1000&fixedRate=false&period=1000&repeatCount=0').routeId('route-1')
+          .log(LoggingLevel.INFO, 'log', 'headers: ${headers}; body: ${body}').id('log: 00')
+    name: "test.groovy"
+  traits:
+    addons: {}
+    builder:
+      properties:
+      - "quarkus.application.name=test"
+      - "quarkus.profile=Default"
+    environment:
+      vars:
+      - "TESTRULE=2024-02-05T15:36:14.943275079"
+    jolokia:
+      enabled: true
+    logging:
+      color: true
+      level: "INFO"
+    mount:
+      configs:
+      - "configmap:test-properties"
+      resources:
+      - "configmap:test-resources"
+    owner:
+      enabled: true
+      targetLabels:
+      - "jetic.io/data.analyzer"
+      - "jetic.io/deployment.uuid"
+      - "jetic.io/integration.name"
+      - "jetic.io/integration.revision"
+      - "jetic.io/integration.uuid"
+      - "jetic.io/log.level"
+      - "jetic.io/open.api.host"
+      - "jetic.io/profile.name"
+      - "jetic.io/profile.uuid"
