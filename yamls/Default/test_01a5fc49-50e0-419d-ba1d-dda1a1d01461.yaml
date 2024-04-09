@@ -9,7 +9,7 @@ metadata:
     camel.apache.org/integration: "test"
     jetic.io/deployment.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/integration.name: "test"
-    jetic.io/integration.revision: "10"
+    jetic.io/integration.revision: "11"
     jetic.io/integration.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
@@ -26,7 +26,7 @@ metadata:
     camel.apache.org/integration: "test"
     jetic.io/deployment.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/integration.name: "test"
-    jetic.io/integration.revision: "10"
+    jetic.io/integration.revision: "11"
     jetic.io/integration.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
@@ -41,7 +41,7 @@ metadata:
     camel.apache.org/integration: "test"
     jetic.io/deployment.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/integration.name: "test"
-    jetic.io/integration.revision: "10"
+    jetic.io/integration.revision: "11"
     jetic.io/integration.uuid: "01a5fc49-50e0-419d-ba1d-dda1a1d01461"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
@@ -50,7 +50,7 @@ metadata:
   name: "test"
 spec:
   dependencies:
-  - "mvn:io.jetic.analyzer:jetic-analyzer:3.1.1"
+  - "mvn:io.jetic.analyzer:jetic-analyzer:3.1.2"
   replicas: 1
   sources:
   - compression: false
