@@ -1,0 +1,18 @@
+{
+  "type" : "RESOURCE_FILE",
+  "properties" : {
+    "compression" : "false",
+    "content" : "Hello from text.txt",
+    "file" : "data:text/plain;base64,VGhpcyBpcyBmb3IgdGVzdGluZy4=",
+    "fileType" : "text",
+    "filename" : "test.txt",
+    "type" : "File"
+  },
+  "id" : "3c048ff4-5da8-4c63-95d3-fc374c6eec23",
+  "name" : "ressourcefile",
+  "description" : "",
+  "createdAt" : "2024-04-18T13:53:32.176739855",
+  "updatedAt" : "2024-04-18T14:43:53.240639692",
+  "createdBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
+  "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
+}

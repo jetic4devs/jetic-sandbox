@@ -1,0 +1,26 @@
+{
+  "version" : "2",
+  "host" : "localhost",
+  "id" : "14894977-a08f-4fef-bd92-09043e456d39",
+  "name" : "cypressapi",
+  "description" : null,
+  "createdAt" : "2024-04-18T14:56:43.641213",
+  "updatedAt" : "2024-04-18T14:57:00.698402133",
+  "createdBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
+  "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
+  "endpoints" : [ {
+    "uuid" : "5af3dd94-2fd5-42bc-8079-39d0ee3757d8",
+    "name" : "Test",
+    "path" : "/test",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "34977b6d-4740-482d-9877-24cddee453f0",
+      "operationId" : "cypressapi",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"cypressapi\",\"version\":\"2\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/test\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"cypressapi\"}}},\"components\":{}}"
+}
