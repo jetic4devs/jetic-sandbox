@@ -1,0 +1,70 @@
+---
+apiVersion: "camel.apache.org/v1"
+kind: "Integration"
+metadata:
+  labels:
+    jetic.io/deployment.uuid: "2f9ffa69-0c3f-4fca-8ae6-0425402cf4a8"
+    jetic.io/integration.name: "test8"
+    jetic.io/integration.revision: "7"
+    jetic.io/integration.uuid: "0026d1d2-2ebd-41fd-b8a1-b41908828e32"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "false"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "4439e5db-2de0-4b36-9596-a4b01910204b"
+  name: "test8"
+spec:
+  configuration:
+  - type: "env"
+    value: "FILE=2024-04-19T21:11:09.674408440"
+  - type: "property"
+    value: "quarkus.log.console.color=true"
+  - type: "property"
+    value: "quarkus.log.console.level=INFO"
+  dependencies: []
+  replicas: 1
+  resources:
+  - compression: false
+    contentKey: "test.txt"
+    contentType: "text/plain; charset=utf-8"
+    name: "test.txt"
+    rawContent: "VGhpcyBpcyBmb3IgdGVzdGluZy4="
+    type: "data"
+  sources:
+  - compression: false
+    content: |-
+      //
+      // To run this integration use:
+      //
+      // kamel run test8.groovy
+      //
+
+      // camel-k: language=groovy
+      // camel-k: name=test8
+
+      import org.apache.camel.LoggingLevel
+
+      from('timer:timer?daemon=true&delay=1000&fixedRate=false&period=1000&repeatCount=0').routeId('route-1')
+          .setBody().simple('resource:file:/etc/camel/resources/test.txt').id('setBody: 00')
+          .log(LoggingLevel.INFO, 'log', 'headers: ${headers}; body: ${body}').id('log: 00')
+    name: "test8.groovy"
+  traits:
+    jolokia:
+      configuration:
+        enabled: true
+    logging:
+      configuration:
+        enabled: true
+        level: "DEBUG"
+    owner:
+      configuration:
+        enabled: true
+        targetLabels:
+        - "jetic.io/data.analyzer"
+        - "jetic.io/deployment.uuid"
+        - "jetic.io/integration.name"
+        - "jetic.io/integration.revision"
+        - "jetic.io/integration.uuid"
+        - "jetic.io/log.level"
+        - "jetic.io/open.api.host"
+        - "jetic.io/profile.name"
+        - "jetic.io/profile.uuid"
