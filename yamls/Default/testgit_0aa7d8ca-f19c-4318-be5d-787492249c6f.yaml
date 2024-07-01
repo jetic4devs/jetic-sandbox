@@ -1,0 +1,61 @@
+---
+apiVersion: "camel.apache.org/v1"
+kind: "Integration"
+metadata:
+  labels:
+    jetic.io/deployment.uuid: "4b239549-ee43-486d-adc5-0006f26b7b3f"
+    jetic.io/integration.name: "testgit"
+    jetic.io/integration.uuid: "0aa7d8ca-f19c-4318-be5d-787492249c6f"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "4439e5db-2de0-4b36-9596-a4b01910204b"
+  name: "testgit"
+spec:
+  configuration:
+  - type: "property"
+    value: "quarkus.log.console.color=true"
+  - type: "property"
+    value: "quarkus.log.console.level=INFO"
+  dependencies:
+  - "mvn:io.jetic.analyzer:jetic-analyzer:3.1.4"
+  replicas: 1
+  resources: []
+  sources:
+  - compression: false
+    content: |+
+      //
+      // To run this integration use:
+      //
+      // kamel run testgit.groovy
+      //
+
+      // camel-k: language=groovy
+      // camel-k: name=testgit
+
+      import io.jetic.analyzer.JeticAnalyzer
+
+      // activate JETIC.IO Data Analyzer
+      JeticAnalyzer.activate(getContext())
+
+    name: "testgit.groovy"
+  traits:
+    jolokia:
+      configuration:
+        enabled: true
+    logging:
+      configuration:
+        enabled: true
+        level: "DEBUG"
+    owner:
+      configuration:
+        enabled: true
+        targetLabels:
+        - "jetic.io/data.analyzer"
+        - "jetic.io/deployment.uuid"
+        - "jetic.io/integration.name"
+        - "jetic.io/integration.uuid"
+        - "jetic.io/log.level"
+        - "jetic.io/open.api.host"
+        - "jetic.io/profile.name"
+        - "jetic.io/profile.uuid"
