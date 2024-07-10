@@ -1,0 +1,51 @@
+{
+  "revision" : 1,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "4439e5db-2de0-4b36-9596-a4b01910204b",
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ {
+    "id" : 1,
+    "camelRouteId" : "route-1",
+    "enabled" : true,
+    "routeId" : 1,
+    "route" : [ {
+      "name" : "timer",
+      "nodeId" : "timer: 00",
+      "description" : "",
+      "properties" : {
+        "_type" : "timer",
+        "active" : true,
+        "advancedParameters" : [ ],
+        "camelGroup" : "scheduled trigger",
+        "daemon" : true,
+        "delay" : "1000",
+        "fixedRate" : false,
+        "name" : "timer",
+        "period" : "1000",
+        "repeatCount" : "0",
+        "setScheduleTime" : false,
+        "time" : "2021-12-31 00:00:00",
+        "timerName" : "timer",
+        "url" : ""
+      },
+      "_type" : "timer",
+      "isNotActive" : false
+    } ]
+  } ],
+  "traits" : [ ],
+  "id" : "38ad995f-57fc-458b-93d9-54eba5c7993a",
+  "name" : "testint",
+  "description" : "",
+  "absolutePath" : "/var/git-jetic/5b09ff8a-ad3a-4e4d-ab91-14b7be59def7/8356a46a-190e-4118-9912-eefae841769a/folders/test/integrations/testint_38ad995f-57fc-458b-93d9-54eba5c7993a.json",
+  "fileName" : "testint_38ad995f-57fc-458b-93d9-54eba5c7993a.json",
+  "folderName" : "test",
+  "repoUuid" : "8356a46a-190e-4118-9912-eefae841769a",
+  "createdAt" : "2024-07-10T15:36:17.474246714",
+  "updatedAt" : "2024-07-10T15:36:17.474246872",
+  "createdBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
+  "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
+}
