@@ -3,14 +3,14 @@ apiVersion: "camel.apache.org/v1"
 kind: "Integration"
 metadata:
   labels:
-    jetic.io/deployment.uuid: "d09fc7de-c2eb-403f-a70e-0345093bc4d6"
-    jetic.io/integration.name: "int3"
-    jetic.io/integration.uuid: "8f698bb4-2c3f-4798-9cd9-29a1884940ff"
+    jetic.io/deployment.uuid: "f0c12da3-76b9-43f0-9820-b4783cd6902e"
+    jetic.io/integration.name: "testgitFetching"
+    jetic.io/integration.uuid: "bfa40c45-cbb5-4311-9eff-6748428d6de1"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
     jetic.io/profile.name: "Default"
     jetic.io/profile.uuid: "4439e5db-2de0-4b36-9596-a4b01910204b"
-  name: "int3"
+  name: "testgitfetching"
 spec:
   configuration:
   - type: "property"
@@ -27,18 +27,18 @@ spec:
       //
       // To run this integration use:
       //
-      // kamel run int3.groovy
+      // kamel run testgitFetching.groovy
       //
 
       // camel-k: language=groovy
-      // camel-k: name=int3
+      // camel-k: name=testgitFetching
 
       import io.jetic.analyzer.JeticAnalyzer
 
       // activate JETIC.IO Data Analyzer
       JeticAnalyzer.activate(getContext())
 
-    name: "int3.groovy"
+    name: "testgitFetching.groovy"
   traits:
     jolokia:
       configuration:
