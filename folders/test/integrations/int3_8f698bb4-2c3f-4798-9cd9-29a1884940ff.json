@@ -1,0 +1,19 @@
+{
+  "revision" : 1,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : null,
+  "parameterGroupUuids" : [ ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ ],
+  "traits" : [ ],
+  "id" : "8f698bb4-2c3f-4798-9cd9-29a1884940ff",
+  "name" : "int3",
+  "description" : "",
+  "createdAt" : "2024-07-12T18:53:41.890615578",
+  "updatedAt" : "2024-07-12T18:53:41.890615841",
+  "createdBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7",
+  "updatedBy" : "5b09ff8a-ad3a-4e4d-ab91-14b7be59def7"
+}

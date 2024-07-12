@@ -3,14 +3,14 @@ apiVersion: "camel.apache.org/v1"
 kind: "Integration"
 metadata:
   labels:
-    jetic.io/deployment.uuid: "ad17763c-603e-4471-b991-c3df365441b7"
-    jetic.io/integration.name: "int1"
-    jetic.io/integration.uuid: "9176a9f9-fa46-4a78-b110-3e1cba25cc6c"
+    jetic.io/deployment.uuid: "d09fc7de-c2eb-403f-a70e-0345093bc4d6"
+    jetic.io/integration.name: "int3"
+    jetic.io/integration.uuid: "8f698bb4-2c3f-4798-9cd9-29a1884940ff"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
     jetic.io/profile.name: "Default"
     jetic.io/profile.uuid: "4439e5db-2de0-4b36-9596-a4b01910204b"
-  name: "int1"
+  name: "int3"
 spec:
   configuration:
   - type: "property"
@@ -27,18 +27,18 @@ spec:
       //
       // To run this integration use:
       //
-      // kamel run int1.groovy
+      // kamel run int3.groovy
       //
 
       // camel-k: language=groovy
-      // camel-k: name=int1
+      // camel-k: name=int3
 
       import io.jetic.analyzer.JeticAnalyzer
 
       // activate JETIC.IO Data Analyzer
       JeticAnalyzer.activate(getContext())
 
-    name: "int1.groovy"
+    name: "int3.groovy"
   traits:
     jolokia:
       configuration:
