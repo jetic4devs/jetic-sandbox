@@ -3,14 +3,14 @@ apiVersion: "camel.apache.org/v1"
 kind: "Integration"
 metadata:
   labels:
-    jetic.io/deployment.uuid: "f5da9f0f-6016-439c-9abb-73edbcaa907f"
-    jetic.io/integration.name: "test239"
-    jetic.io/integration.uuid: "10e124d4-a326-4f49-b8f2-b53bf887014f"
+    jetic.io/deployment.uuid: "82ab7cb2-205c-42e9-a59d-ee7a06b3e441"
+    jetic.io/integration.name: "testerror"
+    jetic.io/integration.uuid: "56ac671b-92c3-404a-8db6-1adefbbc153b"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
     jetic.io/profile.name: "Default"
     jetic.io/profile.uuid: "827bdf5a-a018-4e6b-b454-65b975d49930"
-  name: "test239"
+  name: "testerror"
 spec:
   configuration:
   - type: "property"
@@ -27,18 +27,18 @@ spec:
       //
       // To run this integration use:
       //
-      // kamel run test239.groovy
+      // kamel run testerror.groovy
       //
 
       // camel-k: language=groovy
-      // camel-k: name=test239
+      // camel-k: name=testerror
 
       import io.jetic.analyzer.JeticAnalyzer
 
       // activate JETIC.IO Data Analyzer
       JeticAnalyzer.activate(getContext())
 
-    name: "test239.groovy"
+    name: "testerror.groovy"
   traits:
     jolokia:
       configuration:

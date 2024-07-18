@@ -1,0 +1,13 @@
+{
+  "type" : "MAVEN_DEPENDENCY",
+  "properties" : {
+    "maven" : "org.apache.commons:commggons-dbfggcp2:2.10.0"
+  },
+  "id" : "2f486589-15c7-4be2-b5bb-fc344582dd1d",
+  "name" : "test",
+  "description" : "",
+  "createdAt" : "2024-07-18T13:47:49.184617385",
+  "updatedAt" : "2024-07-18T14:11:00.504270037",
+  "createdBy" : "46da2102-5e1d-42f0-a626-3c7b51b7f416",
+  "updatedBy" : "46da2102-5e1d-42f0-a626-3c7b51b7f416"
+}
