@@ -1,0 +1,23 @@
+{
+  "revision" : 1,
+  "compression" : false,
+  "dataAnalyzer" : true,
+  "replicas" : 1,
+  "openApiUuid" : null,
+  "currentProfileUuid" : "b4ea89fb-45af-4511-885c-d623c68992f5",
+  "parameterGroupUuids" : [ "7862abfd-1bd6-477f-be93-30358fd697bc" ],
+  "repoResourceUuids" : [ ],
+  "routeDefinitions" : [ ],
+  "traits" : [ ],
+  "id" : "5b4b3e25-0215-45d3-8ef2-a5889e01e7de",
+  "name" : "test",
+  "description" : "",
+  "absolutePath" : "/var/git-jetic/01b57345-5c31-4f5e-ab39-998b0f7ede5b/e6921bfe-bb22-41ff-8a35-62c6af6e5e96/folders/sample-git-data-2abdd584/integrations/test_5b4b3e25-0215-45d3-8ef2-a5889e01e7de.json",
+  "fileName" : "test_5b4b3e25-0215-45d3-8ef2-a5889e01e7de.json",
+  "folderName" : "sample-git-data-2abdd584",
+  "repoUuid" : "e6921bfe-bb22-41ff-8a35-62c6af6e5e96",
+  "createdAt" : "2024-08-24T20:28:35.482613253",
+  "updatedAt" : "2024-08-24T20:28:35.482613695",
+  "createdBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b",
+  "updatedBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b"
+}

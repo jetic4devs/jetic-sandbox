@@ -1,0 +1,22 @@
+{
+  "type" : "ParameterGroup",
+  "parameters" : [ {
+    "parameterName" : "test",
+    "profileValues" : [ {
+      "profileUuid" : "4303a068-e7ae-47ff-b8c0-18ccd067bc16",
+      "profileName" : "Default",
+      "parameterValue" : ""
+    }, {
+      "profileUuid" : "b4ea89fb-45af-4511-885c-d623c68992f5",
+      "profileName" : "test",
+      "parameterValue" : ""
+    } ]
+  } ],
+  "id" : "7862abfd-1bd6-477f-be93-30358fd697bc",
+  "name" : "test",
+  "description" : "",
+  "createdAt" : "2024-08-24T20:28:53.891768833",
+  "updatedAt" : "2024-08-24T20:34:46.493114217",
+  "createdBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b",
+  "updatedBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b"
+}

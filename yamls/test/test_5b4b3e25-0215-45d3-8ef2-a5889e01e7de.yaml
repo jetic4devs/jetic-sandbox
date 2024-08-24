@@ -1,0 +1,44 @@
+---
+apiVersion: "camel.apache.org/v1"
+kind: "Integration"
+metadata:
+  labels:
+    jetic.io/deployment.uuid: "046b1897-295c-448b-baae-40e88eacd5a7"
+    jetic.io/integration.name: "test"
+    jetic.io/integration.uuid: "5b4b3e25-0215-45d3-8ef2-a5889e01e7de"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "test"
+    jetic.io/profile.uuid: "b4ea89fb-45af-4511-885c-d623c68992f5"
+  name: "test"
+spec:
+  configuration:
+  - type: "property"
+    value: "quarkus.log.console.color=true"
+  - type: "property"
+    value: "quarkus.log.console.level=INFO"
+  - type: "property"
+    value: "test.test="
+  dependencies:
+  - "mvn:io.jetic.analyzer:jetic-analyzer:3.1.4"
+  replicas: 1
+  resources: []
+  sources:
+  - compression: false
+    content: |+
+      //
+      // To run this integration use:
+      //
+      // kamel run test.groovy
+      //
+
+      // camel-k: language=groovy
+      // camel-k: name=test
+
+      import io.jetic.analyzer.JeticAnalyzer
+
+      // activate JETIC.IO Data Analyzer
+      JeticAnalyzer.activate(getContext())
+
+    name: "test.groovy"
+  traits: {}
