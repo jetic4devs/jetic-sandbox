@@ -3,9 +3,9 @@ apiVersion: "camel.apache.org/v1"
 kind: "Integration"
 metadata:
   labels:
-    jetic.io/deployment.uuid: "a71c4b37-64cf-4c5f-b4f6-0afc9f2a1246"
+    jetic.io/deployment.uuid: "bc1a0305-9e0e-4132-ae74-3e51eab5dee4"
     jetic.io/integration.name: "test"
-    jetic.io/integration.uuid: "5b4b3e25-0215-45d3-8ef2-a5889e01e7de"
+    jetic.io/integration.uuid: "5a4c5b8b-111a-4b9a-903a-9306ebd51bae"
     jetic.io/log.level: "INFO"
     jetic.io/data.analyzer: "true"
     jetic.io/profile.name: "Default"
@@ -17,10 +17,8 @@ spec:
     value: "quarkus.log.console.color=true"
   - type: "property"
     value: "quarkus.log.console.level=INFO"
-  - type: "property"
-    value: "test.test="
   dependencies:
-  - "mvn:io.jetic.analyzer:jetic-analyzer:3.1.4"
+  - "mvn:io.jetic.analyzer:jetic-analyzer:2.2.4"
   replicas: 1
   resources: []
   sources:
@@ -41,4 +39,23 @@ spec:
       JeticAnalyzer.activate(getContext())
 
     name: "test.groovy"
-  traits: {}
+  traits:
+    jolokia:
+      configuration:
+        enabled: true
+    logging:
+      configuration:
+        enabled: true
+        level: "DEBUG"
+    owner:
+      configuration:
+        enabled: true
+        targetLabels:
+        - "jetic.io/data.analyzer"
+        - "jetic.io/deployment.uuid"
+        - "jetic.io/integration.name"
+        - "jetic.io/integration.uuid"
+        - "jetic.io/log.level"
+        - "jetic.io/open.api.host"
+        - "jetic.io/profile.name"
+        - "jetic.io/profile.uuid"
