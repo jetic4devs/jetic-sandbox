@@ -1,0 +1,26 @@
+{
+  "version" : "1",
+  "host" : "localhost",
+  "id" : "c706d163-cf5c-4cb3-93e0-2d02af2dc5fe",
+  "name" : "openAPITest",
+  "description" : null,
+  "createdAt" : "2024-11-08T14:23:53.241349514",
+  "updatedAt" : "2024-11-08T14:24:03.982443992",
+  "createdBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b",
+  "updatedBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b",
+  "endpoints" : [ {
+    "uuid" : "67ddc4a1-d897-4c29-bb3c-cf188fd2f9c9",
+    "name" : "Test",
+    "path" : "/test",
+    "pathVariables" : [ ],
+    "operations" : [ {
+      "uuid" : "1ddf247f-72b4-43e8-87d8-43da9aa63ba3",
+      "operationId" : "get",
+      "method" : "get",
+      "consumes" : "application/json",
+      "produces" : "application/json"
+    } ]
+  } ],
+  "imported" : false,
+  "specification" : "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"openAPITest\",\"version\":\"1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/test\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"get\"}}},\"components\":{}}"
+}
