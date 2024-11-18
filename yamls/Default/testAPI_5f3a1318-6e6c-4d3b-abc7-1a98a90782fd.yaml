@@ -1,0 +1,135 @@
+---
+apiVersion: "v1"
+data:
+  openAPITest.json: "{\"openapi\":\"3.0.2\",\"info\":{\"title\":\"openAPITest\",\"version\":\"1\"},\"servers\":[{\"url\":\"/\"}],\"paths\":{\"/test/{uuid}/\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getId\"},\"parameters\":[{\"name\":\"uuid\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]},\"/test/{uuid}/file\":{\"get\":{\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"type\":\"string\"}}},\"description\":\"default response description\"}},\"operationId\":\"getFile\"},\"parameters\":[{\"name\":\"uuid\",\"description\":\"default path variable description\",\"schema\":{\"type\":\"string\"},\"in\":\"path\",\"required\":true}]}},\"components\":{}}"
+kind: "ConfigMap"
+metadata:
+  labels:
+    camel.apache.org/integration: "testAPI"
+    jetic.io/deployment.uuid: "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd"
+    jetic.io/integration.name: "testAPI"
+    jetic.io/integration.uuid: "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "4303a068-e7ae-47ff-b8c0-18ccd067bc16"
+    jetic.io/open.api.host: "localhost"
+  name: "testapi-openapi"
+---
+apiVersion: "v1"
+data:
+  application.properties: "quarkus.log.console.level=INFO"
+kind: "ConfigMap"
+metadata:
+  labels:
+    camel.apache.org/integration: "testAPI"
+    jetic.io/deployment.uuid: "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd"
+    jetic.io/integration.name: "testAPI"
+    jetic.io/integration.uuid: "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "4303a068-e7ae-47ff-b8c0-18ccd067bc16"
+    jetic.io/open.api.host: "localhost"
+  name: "testapi-properties"
+---
+apiVersion: "v1"
+binaryData: {}
+data:
+  text.txt: "Hello from text.txt"
+kind: "ConfigMap"
+metadata:
+  labels:
+    camel.apache.org/integration: "testAPI"
+    jetic.io/deployment.uuid: "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd"
+    jetic.io/integration.name: "testAPI"
+    jetic.io/integration.uuid: "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "4303a068-e7ae-47ff-b8c0-18ccd067bc16"
+    jetic.io/open.api.host: "localhost"
+  name: "testapi-resources"
+---
+apiVersion: "camel.apache.org/v1"
+kind: "Integration"
+metadata:
+  labels:
+    camel.apache.org/integration: "testAPI"
+    jetic.io/deployment.uuid: "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd"
+    jetic.io/integration.name: "testAPI"
+    jetic.io/integration.uuid: "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "Default"
+    jetic.io/profile.uuid: "4303a068-e7ae-47ff-b8c0-18ccd067bc16"
+    jetic.io/open.api.host: "localhost"
+  name: "testapi"
+spec:
+  dependencies:
+  - "mvn:io.jetic.analyzer:jetic-analyzer:2.2.4"
+  replicas: 1
+  flows:
+  - rest:
+      openApi:
+        specification: "openAPITest.json"
+  sources:
+  - compression: false
+    content: |-
+      //
+      // To run this integration use:
+      //
+      // kamel run testAPI.groovy
+      //
+
+      // camel-k: language=groovy
+      // camel-k: name=testAPI
+
+      import io.jetic.analyzer.JeticAnalyzer
+      import org.apache.camel.LoggingLevel
+
+      // activate JETIC.IO Data Analyzer
+      JeticAnalyzer.activate(getContext())
+
+      // route route-1 is disabled
+
+      from('direct://getId').routeId('route-3')
+          .log(LoggingLevel.INFO, 'log', 'Just ID').id('log: 01')
+
+      from('direct://getFile').routeId('route-3-ed15f703')
+          .log(LoggingLevel.INFO, 'log', 'ID and FIle').id('log: 02')
+    name: "testAPI.groovy"
+  traits:
+    addons: {}
+    builder:
+      properties:
+      - "quarkus.application.name=testAPI"
+      - "quarkus.profile=Default"
+    environment:
+      vars:
+      - "OPENAPITEST.JSON=2024-11-13T09:59:26.921399"
+      - "TEST=2024-11-11T15:42:31.520341650"
+    jolokia:
+      enabled: true
+    logging:
+      color: true
+      level: "INFO"
+    mount:
+      configs:
+      - "configmap:testAPI-properties"
+      - "configmap:testAPI-openapi"
+      resources:
+      - "configmap:testAPI-resources"
+    owner:
+      enabled: true
+      targetLabels:
+      - "jetic.io/data.analyzer"
+      - "jetic.io/deployment.uuid"
+      - "jetic.io/integration.name"
+      - "jetic.io/integration.uuid"
+      - "jetic.io/log.level"
+      - "jetic.io/open.api.host"
+      - "jetic.io/profile.name"
+      - "jetic.io/profile.uuid"
+    service:
+      enabled: true

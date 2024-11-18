@@ -6,10 +6,10 @@
   "openApiUuid" : null,
   "currentProfileUuid" : "4303a068-e7ae-47ff-b8c0-18ccd067bc16",
   "parameterGroupUuids" : [ ],
-  "repoResourceUuids" : [ "9f750c55-523a-41a0-b74b-12455bd22b46" ],
+  "repoResourceUuids" : [ ],
   "routeDefinitions" : [ {
     "id" : 1,
-    "camelRouteId" : "route-1",
+    "camelRouteId" : "route-72911e27",
     "enabled" : true,
     "routeId" : 1,
     "route" : [ {
@@ -20,12 +20,12 @@
         "_type" : "timer",
         "active" : true,
         "advancedParameters" : [ ],
-        "camelGroup" : "scheduled trigger",
+        "camelGroup" : "temporal",
         "daemon" : true,
-        "delay" : "10000",
+        "delay" : "1000",
         "fixedRate" : false,
         "name" : "timer",
-        "period" : "10000",
+        "period" : "1000",
         "repeatCount" : "0",
         "setScheduleTime" : false,
         "time" : "2021-12-31 00:00:00",
@@ -99,60 +99,7 @@
         "level" : "INFO",
         "logType" : "EIP",
         "loggerName" : "log",
-        "message" : "Just ID",
-        "multiline" : false,
-        "name" : "log",
-        "showAll" : false,
-        "showBody" : true,
-        "showBodyType" : true,
-        "showCaughtException" : false,
-        "showExchangeId" : false,
-        "showHeaders" : false,
-        "showProperties" : false,
-        "showStackTrace" : false,
-        "toDynamicEndpoint" : false,
-        "url" : ""
-      },
-      "_type" : "log",
-      "isNotActive" : false
-    } ]
-  }, {
-    "id" : 3,
-    "camelRouteId" : "route-3-ed15f703",
-    "enabled" : false,
-    "routeId" : 3,
-    "route" : [ {
-      "name" : "getRequest",
-      "nodeId" : "restApi: 00",
-      "description" : "",
-      "properties" : {
-        "_type" : "restApi",
-        "active" : true,
-        "camelGroup" : "rest",
-        "consumes" : "application/json",
-        "endpoint" : "/test/{uuid}/file",
-        "method" : "get",
-        "name" : "getRequest",
-        "operationName" : "getFile",
-        "produces" : "application/json",
-        "requestmethod" : "GET",
-        "url" : ""
-      },
-      "_type" : "restApi",
-      "isNotActive" : false
-    }, {
-      "name" : "log",
-      "nodeId" : "log: 02",
-      "description" : "",
-      "properties" : {
-        "_type" : "log",
-        "active" : true,
-        "advancedParameters" : [ ],
-        "camelGroup" : "core feature",
-        "level" : "INFO",
-        "logType" : "EIP",
-        "loggerName" : "log",
-        "message" : "ID and FIle",
+        "message" : "Get ID",
         "multiline" : false,
         "name" : "log",
         "showAll" : false,
@@ -173,29 +120,18 @@
   "traits" : [ {
     "name" : "affinity",
     "configuration" : {
-      "podAffinity" : true
-    }
-  }, {
-    "name" : "camel",
-    "configuration" : {
-      "runtimeVersion" : false
-    }
-  }, {
-    "name" : "tracing",
-    "configuration" : {
-      "endpoint" : false,
-      "serviceName" : false
+      "pod-affinity" : true
     }
   } ],
-  "id" : "5a4c5b8b-111a-4b9a-903a-9306ebd51bae",
-  "name" : "test",
+  "id" : "85fb8536-237d-42f1-9de5-6b6670efaf13",
+  "name" : "new",
   "description" : "",
-  "absolutePath" : "/var/git-jetic/01b57345-5c31-4f5e-ab39-998b0f7ede5b/92a30109-c64e-4949-ae07-4c18197de8af/folders/sample-git-data-2abdd584/integrations/test_5a4c5b8b-111a-4b9a-903a-9306ebd51bae.json",
-  "fileName" : "test_5a4c5b8b-111a-4b9a-903a-9306ebd51bae.json",
+  "absolutePath" : "/var/git-jetic/01b57345-5c31-4f5e-ab39-998b0f7ede5b/92a30109-c64e-4949-ae07-4c18197de8af/folders/sample-git-data-2abdd584/integrations/new_85fb8536-237d-42f1-9de5-6b6670efaf13.json",
+  "fileName" : "new_85fb8536-237d-42f1-9de5-6b6670efaf13.json",
   "folderName" : "sample-git-data-2abdd584",
   "repoUuid" : "92a30109-c64e-4949-ae07-4c18197de8af",
-  "createdAt" : "2024-10-28T15:16:17.11844292",
-  "updatedAt" : "2024-10-28T15:16:17.11844334",
-  "createdBy" : "46da2102-5e1d-42f0-a626-3c7b51b7f416",
-  "updatedBy" : "46da2102-5e1d-42f0-a626-3c7b51b7f416"
+  "createdAt" : "2024-11-13T10:19:05.245838",
+  "updatedAt" : "2024-11-13T10:19:05.245844",
+  "createdBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b",
+  "updatedBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b"
 }

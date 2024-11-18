@@ -6,11 +6,11 @@
   "openApiUuid" : null,
   "currentProfileUuid" : "4303a068-e7ae-47ff-b8c0-18ccd067bc16",
   "parameterGroupUuids" : [ ],
-  "repoResourceUuids" : [ "9f750c55-523a-41a0-b74b-12455bd22b46" ],
+  "repoResourceUuids" : [ ],
   "routeDefinitions" : [ {
     "id" : 1,
     "camelRouteId" : "route-1",
-    "enabled" : true,
+    "enabled" : false,
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
@@ -66,7 +66,7 @@
   }, {
     "id" : 2,
     "camelRouteId" : "route-3",
-    "enabled" : false,
+    "enabled" : true,
     "routeId" : 2,
     "route" : [ {
       "name" : "getRequest",
@@ -119,7 +119,7 @@
   }, {
     "id" : 3,
     "camelRouteId" : "route-3-ed15f703",
-    "enabled" : false,
+    "enabled" : true,
     "routeId" : 3,
     "route" : [ {
       "name" : "getRequest",
@@ -175,27 +175,16 @@
     "configuration" : {
       "podAffinity" : true
     }
-  }, {
-    "name" : "camel",
-    "configuration" : {
-      "runtimeVersion" : false
-    }
-  }, {
-    "name" : "tracing",
-    "configuration" : {
-      "endpoint" : false,
-      "serviceName" : false
-    }
   } ],
-  "id" : "5a4c5b8b-111a-4b9a-903a-9306ebd51bae",
-  "name" : "test",
+  "id" : "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd",
+  "name" : "testAPI",
   "description" : "",
-  "absolutePath" : "/var/git-jetic/01b57345-5c31-4f5e-ab39-998b0f7ede5b/92a30109-c64e-4949-ae07-4c18197de8af/folders/sample-git-data-2abdd584/integrations/test_5a4c5b8b-111a-4b9a-903a-9306ebd51bae.json",
-  "fileName" : "test_5a4c5b8b-111a-4b9a-903a-9306ebd51bae.json",
+  "absolutePath" : "/var/git-jetic/01b57345-5c31-4f5e-ab39-998b0f7ede5b/92a30109-c64e-4949-ae07-4c18197de8af/folders/sample-git-data-2abdd584/integrations/testAPI_5f3a1318-6e6c-4d3b-abc7-1a98a90782fd.json",
+  "fileName" : "testAPI_5f3a1318-6e6c-4d3b-abc7-1a98a90782fd.json",
   "folderName" : "sample-git-data-2abdd584",
   "repoUuid" : "92a30109-c64e-4949-ae07-4c18197de8af",
-  "createdAt" : "2024-10-28T15:16:17.11844292",
-  "updatedAt" : "2024-10-28T15:16:17.11844334",
-  "createdBy" : "46da2102-5e1d-42f0-a626-3c7b51b7f416",
-  "updatedBy" : "46da2102-5e1d-42f0-a626-3c7b51b7f416"
+  "createdAt" : "2024-11-13T10:04:07.471041",
+  "updatedAt" : "2024-11-13T10:04:07.471058",
+  "createdBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b",
+  "updatedBy" : "01b57345-5c31-4f5e-ab39-998b0f7ede5b"
 }
