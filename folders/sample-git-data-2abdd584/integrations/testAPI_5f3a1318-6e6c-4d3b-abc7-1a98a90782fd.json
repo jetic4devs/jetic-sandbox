@@ -172,9 +172,7 @@
   } ],
   "traits" : [ {
     "name" : "affinity",
-    "configuration" : {
-      "podAffinity" : true
-    }
+    "configuration" : { }
   } ],
   "id" : "5f3a1318-6e6c-4d3b-abc7-1a98a90782fd",
   "name" : "testAPI",
