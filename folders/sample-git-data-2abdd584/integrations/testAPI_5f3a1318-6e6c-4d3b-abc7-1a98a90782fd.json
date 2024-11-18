@@ -10,7 +10,7 @@
   "routeDefinitions" : [ {
     "id" : 1,
     "camelRouteId" : "route-1",
-    "enabled" : false,
+    "enabled" : true,
     "routeId" : 1,
     "route" : [ {
       "name" : "timer",
@@ -66,7 +66,7 @@
   }, {
     "id" : 2,
     "camelRouteId" : "route-3",
-    "enabled" : true,
+    "enabled" : false,
     "routeId" : 2,
     "route" : [ {
       "name" : "getRequest",
@@ -119,7 +119,7 @@
   }, {
     "id" : 3,
     "camelRouteId" : "route-3-ed15f703",
-    "enabled" : true,
+    "enabled" : false,
     "routeId" : 3,
     "route" : [ {
       "name" : "getRequest",
