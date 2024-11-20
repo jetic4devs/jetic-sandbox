@@ -1,0 +1,77 @@
+---
+apiVersion: "v1"
+data:
+  application.properties: "quarkus.log.console.level=INFO"
+kind: "ConfigMap"
+metadata:
+  labels:
+    camel.apache.org/integration: "integration"
+    jetic.io/deployment.uuid: "6335ad30-a620-4eba-bedf-fd99296af752"
+    jetic.io/integration.name: "integration"
+    jetic.io/integration.uuid: "6335ad30-a620-4eba-bedf-fd99296af752"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "test"
+    jetic.io/profile.uuid: "b4ea89fb-45af-4511-885c-d623c68992f5"
+  name: "integration-properties"
+---
+apiVersion: "camel.apache.org/v1"
+kind: "Integration"
+metadata:
+  labels:
+    camel.apache.org/integration: "integration"
+    jetic.io/deployment.uuid: "6335ad30-a620-4eba-bedf-fd99296af752"
+    jetic.io/integration.name: "integration"
+    jetic.io/integration.uuid: "6335ad30-a620-4eba-bedf-fd99296af752"
+    jetic.io/log.level: "INFO"
+    jetic.io/data.analyzer: "true"
+    jetic.io/profile.name: "test"
+    jetic.io/profile.uuid: "b4ea89fb-45af-4511-885c-d623c68992f5"
+  name: "integration"
+spec:
+  dependencies:
+  - "mvn:io.jetic.analyzer:jetic-analyzer:2.2.4"
+  replicas: 1
+  sources:
+  - compression: false
+    content: |+
+      //
+      // To run this integration use:
+      //
+      // kamel run integration.groovy
+      //
+
+      // camel-k: language=groovy
+      // camel-k: name=integration
+
+      import io.jetic.analyzer.JeticAnalyzer
+
+      // activate JETIC.IO Data Analyzer
+      JeticAnalyzer.activate(getContext())
+
+    name: "integration.groovy"
+  traits:
+    addons: {}
+    builder:
+      properties:
+      - "quarkus.application.name=integration"
+      - "quarkus.profile=test"
+    jolokia:
+      enabled: true
+    logging:
+      color: true
+      level: "INFO"
+    mount:
+      configs:
+      - "configmap:integration-properties"
+    owner:
+      enabled: true
+      targetLabels:
+      - "jetic.io/data.analyzer"
+      - "jetic.io/deployment.uuid"
+      - "jetic.io/integration.name"
+      - "jetic.io/integration.uuid"
+      - "jetic.io/log.level"
+      - "jetic.io/open.api.host"
+      - "jetic.io/profile.name"
+      - "jetic.io/profile.uuid"

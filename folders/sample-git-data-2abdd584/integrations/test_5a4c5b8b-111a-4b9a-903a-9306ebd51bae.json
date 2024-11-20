@@ -6,7 +6,7 @@
   "openApiUuid" : null,
   "currentProfileUuid" : "4303a068-e7ae-47ff-b8c0-18ccd067bc16",
   "parameterGroupUuids" : [ ],
-  "repoResourceUuids" : [ "9f750c55-523a-41a0-b74b-12455bd22b46" ],
+  "repoResourceUuids" : [ ],
   "routeDefinitions" : [ {
     "id" : 1,
     "camelRouteId" : "route-1",
@@ -172,9 +172,7 @@
   } ],
   "traits" : [ {
     "name" : "affinity",
-    "configuration" : {
-      "podAffinity" : true
-    }
+    "configuration" : { }
   }, {
     "name" : "camel",
     "configuration" : {
